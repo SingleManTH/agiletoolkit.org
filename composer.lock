@@ -1,0 +1,40 @@
+{
+    "hash": "e6229b70d0e9fb5ad6c278590f92fb7b",
+    "packages": [
+        {
+            "name": "atk4/atk4",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:atk4/atk4.git",
+                "reference": "origin/master"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "http://agiletoolkit.org/distfiles/agiletoolkit-4.2.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "time": "2013-01-09 13:23:14",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "": "lib/"
+                },
+                "files": [
+                    "/lib/static.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "atk4/atk4": 20
+    }
+}
