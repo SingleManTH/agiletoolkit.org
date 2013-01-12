@@ -60,8 +60,7 @@ The Structure
       * Plugability: the Independence Principle
       * Extensibility: the Object Principle
 
-      
-
+    
       
   * /learn Learning Agile Toolkit
     * Differences from conventional frameworks
@@ -85,259 +84,314 @@ The Structure
     * Request Flow Chart
     * ATK4 Cheat Sheets
     * License
+      * Registrations
+      * Use in open-source 
+      * Use in private projects
+      * Use in school
+      * Internal use
+      * Single-site use
+      * Corporate use
 
     
   * /tutorial Tutorials  // Will be separate section
 
-  * Core Framework
+* Framework Documentation
+  * /core Core Structure
     * Directory structure
       * Default structure
       * PathFinder
       * Separating "web" folder
       * Add-on structure
       * Asset management
-    * Planning your Application
+    * Planning Application Structure
       * Structural choices
       * Development stages
       * Agile Development
       * Best practices
-    * The object structure
+    * The Object Structure
       * Object structure overview
       * AbstractObject
       * AbstractView
       * AbstractModel
       * AbstractController
-    * Application Apis
-      * Api overview
-      * ApiCLI
-      * ApiWeb
-      * ApiFrontend
-      * // ApiInstaller
-      * // Other APIs
-      * Running multiple Apis
-      * Extending Apis
-    * Configuration
-      * Working with Config Files
-      * Default settings
-      * Adding your own settings
-      * Locale settings
-      * Add-on configuration
-    * Routing
-      * Static pages
-      * Dynamic pages
-      * URL generation
-      * Customizing
-    * Class loading
-     * Core classes
-     * Addons classes
-     * Namespaces
-     * Advanced loading
-     * Integrating 3rd party PHP libraries
-    * Asset management
-      * CSS
-      * Javascript
-      * Images & media
-      * Advanced asset management
-      * Uploaded files // link to filestore
-      * Loading assets from other domain      
-    * Hooks
-      * How to use hooks
-      * Hook examples
-      * Hooks internal use
-      * Priorities
-      * Registering methods
-      * List of all hooks
-    * Authentication & Authorization
-      * Terminology
-      * The BasicAuth class
-      * OAuth open authentication
-
-      * Login form
-      * Permissions
-
-    * Error Handling
-      * Error handling overview
-
-       // underlying errors
-
-      * Framework errors
-
-      * Application errors
-      * 404 handling
-    * Unit Testing
-      * Built-in unit testing
-      * Using 3rd party tools
-      * Functional testing
-      * Selenium
-      * Behat
-
-    * Performance
-
-      * // performance concepts and strategy
-
       
-      * Designing for performance
-
-      * Profiling and Benchmarking
-
-      * Automated Speed tests
-
-      * Output caching
-
-      * Input caching
-      * Clutering
-
-      * Cloud services
-
-      * Amazon AWS
-      * // we don't endorse Stored procedures
-    * DSQL query builder
-      * Overview of DSQL
-
-        * Goals
-
-        * // when NOT TO USE
-
       
-        * Features
-      * Basic usage
-      * Fetching data
-      * Filtering data with conditions
+  * api/ Application Apis
+    * Api overview
+    * Best Practices
+      * Multiple Interfaces
+      * Security
+    * ApiCLI
+      * cron
+      * Command-Line use
+      * Queues
+    * ApiWeb
+      * 3rd Party Framework Integration
+    * ApiFrontend
+    * ApiInstaller
+      * Agile Toolkit Installer
+    * ApiJSON
+    * Other APIs
+    * Running multiple Apis
+    * Extending Apis
 
-      * Specifying fields
-      * Joining multiple tables
+  * config/ Configuration
+    * Working with Config Files
+    * Default settings
+    * Adding your own settings
+    * Locale settings
+    * Add-on configuration
 
-      * Expressions
-      * Sub-queries
-      * Extending DSQL
+  * routing/ Routing
+    * Static pages
+    * Dynamic pages
+    * URL generation
+    * Customizing
 
-      * // cross RDBMS compatibility
-    * Relational Models
-      * Overview of Relational
-      * Models Goals
+  * pathfinder/ Class loading
+   * PathFinder
+   * Addons classes
+   * Namespaces
+   * Advanced loading
+   * Integrating 3rd party PHP libraries
 
-      * // when not to use
-      
+  * ass/ ?? :D Assets (Images, CSS)
+    * CSS
+    * Javascript
+    * Images & media
+    * Advanced asset management
+    * Uploaded files // link to filestore
+    * Loading assets from other domain      
+
+  * hook/ Hooks
+    * How to use hooks
+    * Hook examples
+    * Hooks internal use
+    * Priorities
+    * Registering methods
+    * List of all hooks
+
+  * auth/ Authentication & Authorization
+    * Terminology
+    * The BasicAuth class
+    * OAuth open authentication
+    * Login form
+    * Permissions
+
+  * error/ Error Handling
+    * Error handling overview
+    * Framework errors
+    * Application errors
+    * 404 handling
+
+  * test/ Unit Testing
+    * Built-in unit testing
+    * Using 3rd party tools
+    * Functional testing
+    * Selenium
+    * Behat
+
+  * performance/ Performance and Scaling
+    * Concepts and Strategy
+    * Performance in Agile Development
+    * Profiling and Benchmarking
+    * Automated Speed tests
+    * Output caching
+    * Input caching
+    * Clustering
+    * Cloud services
+    * Amazon AWS
+
+
+  * dsql/ DSQL query builder
+    // TODO: see book.pdf for topics!
+    * Overview of DSQL
+      * Goals
+      * When to use
       * Features
+    * Direct Use
+      * DSQL Modes
+      * Properties of DSQL Object
+      * Cloning and Duplicating
+      * Overloaded Arguments
+      * Query Methods
+    * Defining Query
+      * Table
+      * Fields
+      * Conditions (where)
+      * Joining
+      * Grouping
+      * Ordering
+      * Options
+      * Set
+    * Subqueries
+    * Expressions
+    * Customizing
+      * setCustom
+      * call and fx
+    * Advanced
+      * Pre-exec
+      * Debugging
+      * RDBMS-specific methods
+    * Extending
+    * Practical Examples
+      * Book and Author
+      * User and Contact
 
-      * Defining Models
-      * Basic usage
-      * Interaction with the DSQL query builder
-       // reliance really.
-      * Conditions and Master Fields
-      * Defining expressions
-      * Relationships between Models
-      * Joins within Models
-      * Modifying default actions
-      * Model best practices
-      * Database migration
-
-      * // Extensions
-
-        * Database builders - Create schema from Model
-
-        * Model builders - create models from Schema
-
-        * Dynamic models - keep db in sync with model
-
-        * Visual migration tools
-
-        
-    * NoSQL Models
-      * Overview of NoSQL
-
-        * // Features
-
-        * // Goals
-
-      * // array
-      * // session
-      * // JSON API (curl)
+  * orm/ Relational Models
+    * Overview of Relational Models
+      * Design Goals
+      * Performance
+      * Comparison with other ORM
+      * Features
+    * Concepts
+      * The data-set
+      * Loaded record
+      * Field meta-information
+      * Validation
+      * Cache
+      * Hooks
+      * Actions
+      * Use with Views
+      * Actual Fields
+      * Aliases
+    * Defining Models
+      * Field 
+      * Expressions
+      * Relations
+      * Joins
+      * DSQL Access
+    * Conditions
+      * Basic Use
+      * Use with Expressions
+      * Use with Subselects
+      * Use with other Models
+    * Order
+    * Limit
+    * Direct use
+      * Loading and Saving
+      * Iterating
+      * Traversing
+    * Query Building
+      * Count and Sum
+      * Grouping
+      * Options
+    * Examples
+      * Timestamps
+      * Cached fields
+    * Object-Oriented Benefits
+      * Extending
+      * Overriding
+    * Best Practices
+      * Defining Methods
+      * Extending with Controllers
+      * Overriding default methods
+    * Behaviour Hooks
+      * Loading and Saving
+      * Query Building
+      * Validation
+    * Extensions
+      * Database builders - Create schema from Model
+      * Model builders - create models from Schema
+      * Dynamic models - keep db in sync with model
+      * Visual migration tools
+    * Database migration
+      
+  * nonsql/ NoSQL Models
+    * Overview of NoSQL
+      * Features
+      * Goals
+      * When not to use
+    * Defining
+    * Controllers
+      * Array
+      * Session
+      * JSON API (curl)
       * Models Memcache
       * MongoDB
       * Redis
-      * Creating your own NoSQL Model
+    * Creating your own NoSQL Model
 
-      * // Adding support for new database type 
-      * // multi-database traversing
-      
-    * Pages & Views
-      * Overview of Pages & Views
-
-        * Understanding Pages
-
-        * Understanding Views
-      * The SMLite template system
-
-      * Design principles
-      * Design workflow
-      * The shared template
-      * Creating templates
-      * Using templates
-    * The CSS framework
-      * Overview of the CSS framework
-
-      * Customizing the default skin
-
-      * Creating new View templates
-    * Pages
-      * Initializing pages
-      * Sub-pages
-
-    * Views
-      * Initializing views
-
-      * Binding data
-      * Updating views
-
-      * Developing new views
-    * Forms
-      * Creating forms
-      * Handling submissions
-
-      * Validating inputs
-
-      * Displaying error messages
-    * The JavaScript API
-      * Overview of JavaScript and AJAX
-
-      * Using the bundled widgets
-
-      * Creating your own widgets
-      * Using 3rd party plugins
-    * PHP->JavaScript chains 
-      * // Call them Event binding?
-      * JavaScript chains overview
-      * Binding chains
-      * Enclosing chains
-      * Using multiple chains
-      * Calling your own JavaScript
-      * Customising selectors and triggers
-  * Controllers
-
-    * // Move up, generalize, then break-down by topic
-    * Overview of Controllers
-    * Built-in Controllers
-    * Creating your own Controllers
-
-  * Official addons
+    * // Adding support for new database type 
+    * // multi-database traversing
     
-    * // add-ons would be separate, but we need add-on development guide
-    * Campaign Monitor CMS
-    * CRUD  // no longer add-on, move to view
-    * Documentation Engine // irrelevant
+  * Pages & Views
+    * Overview of Pages & Views
 
-    * Filestore
-    * Google Maps
-    * SQL Schema Generator  // explained elsewhere
-  * Cookbook  // shouldn't be section in DOC, whole new category on site!
-    * A useful cookbook entry
+      * Understanding Pages
 
-    * Another useful cookbook entry
+      * Understanding Views
+    * The SMLite template system
 
-    * A final useful cookbook entry
+    * Design principles
+    * Design workflow
+    * The shared template
+    * Creating templates
+    * Using templates
+  * The CSS framework
+    * Overview of the CSS framework
 
-    * See more Cookbook recipes ->
+    * Customizing the default skin
+
+    * Creating new View templates
+  * Pages
+    * Initializing pages
+    * Sub-pages
+
+  * Views
+    * Initializing views
+
+    * Binding data
+    * Updating views
+
+    * Developing new views
+  * Forms
+    * Creating forms
+    * Handling submissions
+
+    * Validating inputs
+
+    * Displaying error messages
+  * The JavaScript API
+    * Overview of JavaScript and AJAX
+
+    * Using the bundled widgets
+
+    * Creating your own widgets
+    * Using 3rd party plugins
+  * PHP->JavaScript chains 
+    * // Call them Event binding?
+    * JavaScript chains overview
+    * Binding chains
+    * Enclosing chains
+    * Using multiple chains
+    * Calling your own JavaScript
+    * Customising selectors and triggers
+* Controllers
+
+  * // Move up, generalize, then break-down by topic
+  * Overview of Controllers
+  * Built-in Controllers
+  * Creating your own Controllers
+
+* Official addons
+  
+  * // add-ons would be separate, but we need add-on development guide
+  * Campaign Monitor CMS
+  * CRUD  // no longer add-on, move to view
+  * Documentation Engine // irrelevant
+
+  * Filestore
+  * Google Maps
+  * SQL Schema Generator  // explained elsewhere
+* Cookbook  // shouldn't be section in DOC, whole new category on site!
+  * A useful cookbook entry
+
+  * Another useful cookbook entry
+
+  * A final useful cookbook entry
+
+  * See more Cookbook recipes ->
 
  * // Localization 
  * // Unit Testing
