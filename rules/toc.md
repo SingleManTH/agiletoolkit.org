@@ -15,52 +15,41 @@ Key Points
 The Structure
 ----
 
-* Installing ATK4  * /install - Installing ATK4    * Requirements    * lamp - Installing LAMP    * Getting the source code    * Configuring your webserver    * Securing your install
-        // advanced install + integration
+* Installing ATK4  * /install - Starting New Project    * Requirements    * Using Installer    * Setting up Admin UI    * Securing your install    * Upgrades
+  * /integrate - Integrating Existing Project
+    * Using Composer
+    * Manual Installation
+    * Integrating with CodeIgniter
+    * Integrating with Yii
+    * Integrating with Symfony
+    * Integrating with Joomla    * Integrating with Wordpress    * Advanced Configurations           * Troubleshooting* Introduction  * /intro Introduction to Agile Toolkit    * Purpose and Goals // explains why we need another framework
+    * Is Agile Toolkit for you?
+      * Knowledge
+      * Learning time
+      * Mindset
+      * Adoption
+      * Training
+      * License        * Key benefits of ATK4      * Web User Interface      * jQuery / AJAX Integration      * Clear Architecture for Reusability          * Elegant & powerful ORM      * Security by design      * Collaboration by design       * Testability by design      * Backward compatibility by design
+      * Commercial extensions
+    * Design principles      * Simplicity: the Pragmatic Principle      * Lean code: the 80/20 Principle      * Plugability: the Independence Principle      * Extensibility: the Object Principle
+      
+        * /learn Learning Agile Toolkit    * Differences from conventional frameworks
+      * PHP server-side frameworks
+      * JavaScript Toolkits
+      * Other Integrated Toolkits    * The object structure      * Application Class      * Adding objects      * Chaining commands      * Routing requests      * Assembling pages      * Managing views      * Handling data      * Using Controllers      * Adding services    * Coding Convention
+      * Keeping your code clean
+      * How to refactor
+      * Documenting your code    * Request Flow Chart    * ATK4 Cheat Sheets    * License
     
-    // Installing from zip, git, composer
-        * Troubleshooting  * Upgrading ATK4* Introduction/// Purpose of Agile Toolkit, target audience, applications      * Key benefits of ATK4    * Clear architecture        // built-in UI
-    // reusability
-    // 3rd party commercial extensions        * Simplified AJAX development     * Elegant & powerful ORM    * Reusability by design    * Security by design    * Collaboration by design     * Testability by design    * Backward compatibility by design  * Design principles    * Simplicity: the Pragmatic Principle
-    * Lean code: the 80/20 Principle
-    * Plugability: the Independence Principle
-    * Extensibility: the Object Principle  * Overview of ATK4
-    * Differences from conventional frameworks    * The object structure    * Creating applications    * Adding objects    * Chaining commands    * Routing requests    * Assembling pages    * Managing views    * Handling data    * Adding business logic    * Adding services  * How to learn ATK4    * What skills will you need?    * Getting the most from our learning resources    * Getting the most from our community Coding standards    * // Coding style      * Naming classes Naming properties Naming methods Code layout      * Class documentation Glossary    * Request Flow Chart
-    * ATK4 Cheat Sheets
-    * License
-  * Tutorials    * Hello World
-    * Blog (begier)
-    * // Address book    * Jobeet (intermediate)
-    * // Writing your tutorial
-    * More Tutorials  * Applications    * Directory structure
-      * atk4/      * atk-addons/ 
-      * doc/
-      * lib/
-      * page/
-      * templates/
-      * vendor/
-      * // PathFinder    * Developing an application
-      * Structural choices      * Development stages      * Best practices
-    * The object structure      * Object structure overview
-      * AbstractObject
-      * AbstractView
-      * AbstractModel
-      * AbstractController    * Application Apis      * Api overview      * ApiCLI      * ApiWeb      * ApiFrontend
+  * /tutorial Tutorials  // Will be separate section  * Core Framework    * Directory structure      * Default structure      * PathFinder      * Separating "web" folder      * Add-on structure      * Asset management    * Planning your Application      * Structural choices      * Development stages      * Agile Development      * Best practices    * The object structure      * Object structure overview      * AbstractObject      * AbstractView      * AbstractModel      * AbstractController    * Application Apis      * Api overview      * ApiCLI      * ApiWeb      * ApiFrontend
       * // ApiInstaller
-      * // Other APIs      * Running multiple Apis      * Extending Apis    * Configuration      * Setting configuration values      * Reading configuration values
-      // unify ^^ those
-            * Database connections      * System configuration options    * Routing      * Static pages      * Dynamic pages      * URL generation
-    * Class loading     * Core classes
-     * Addon classes
-     * Application classes
-     * Advanced loading    * Asset management
-      * CSS      * Javascript      * Images & media
-      // static pages
-            * Advanced asset management
-      // add-ons with assets
-          * Hooks      * How to use hooks      * Hook examples
-       // list of hooks rather
-    * Authentication & Authorisation      * Terminology      * The BasicAuth class      * OAuth open authentication
+      * // Other APIs      * Running multiple Apis      * Extending Apis    * Configuration      * Working with Config Files
+      * Default settings
+      * Adding your own settings      * Locale settings      * Add-on configuration    * Routing      * Static pages      * Dynamic pages      * URL generation
+      * Customizing    * Class loading     * Core classes     * Addons classes
+     * Namespaces     * Advanced loading     * Integrating 3rd party PHP libraries    * Asset management      * CSS      * Javascript      * Images & media      * Advanced asset management
+      * Uploaded files // link to filestore      * Loading assets from other domain          * Hooks      * How to use hooks      * Hook examples      * Hooks internal use      * Priorities      * Registering methods
+      * List of all hooks    * Authentication & Authorization      * Terminology      * The BasicAuth class      * OAuth open authentication
       * Login form      * Permissions
     * Error Handling      * Error handling overview
 
