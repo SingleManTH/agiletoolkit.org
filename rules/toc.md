@@ -297,7 +297,7 @@ The Structure
       * Visual migration tools
     * Database migration
       
-  * nonsql/ NoSQL Models
+  * nosql/ NoSQL Models
     * Overview of NoSQL
       * Features
       * Goals
@@ -311,21 +311,26 @@ The Structure
       * MongoDB
       * Redis
     * Creating your own NoSQL Model
+    * Using NoSQL Controller as cache
+    * Multiple Caches
+    * Adding support for new database type 
+    * Database-independent traversal
 
-    * // Adding support for new database type 
-    * // multi-database traversing
-    
-  * Pages & Views
-    * Overview of Pages & Views
-
-      * Understanding Pages
-
-      * Understanding Views
-    * The SMLite template system
-
+  * sqlite/ SQLite Template Engine 
+    * ee    
+        
+        
+  * page/ Pages
+    * Overview of Pages
+      * Features
+      * Goals
     * Design principles
     * Design workflow
-    * The shared template
+    * Sub-pages
+    * Custom page patterts
+
+
+  * somewhere else
     * Creating templates
     * Using templates
   * The CSS framework
@@ -366,7 +371,7 @@ The Structure
     * Enclosing chains
     * Using multiple chains
     * Calling your own JavaScript
-    * Customising selectors and triggers
+    * Customizing selectors and triggers
 * Controllers
 
   * // Move up, generalize, then break-down by topic
