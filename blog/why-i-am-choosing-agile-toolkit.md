@@ -76,7 +76,7 @@ So lets go through my wish-list again:
 
 *And finally, testability is great*, given that pretty much anything can be swapped out or reconfigured anywhere and at any stage, without the tedious admin involved with the more heavy-duty IoC containers.
 
-## So what are the drawbacks of Agile Toolkit?
+## But what are the drawbacks of Agile Toolkit?
 
 First, all this integration comes at a cost. Much of your code is going to be inextricably linked to the Agile Toolkit-ish way of doing things, and moving a large project to another framework would be a significant undertaking. So to enjoy the benefits you're taking a bet on the future of the Agile Toolkit community.
 
