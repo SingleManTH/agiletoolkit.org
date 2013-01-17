@@ -33,13 +33,18 @@ The TOC
 ----
 
 
-### Installing Agile Toolkit
+### Installing Agile Toolkit (install)
 
-[/install]
-+ Requirements								
-+ Installing With Composer 					
-+ Installing Manually 						
-+ Starting A New Project 					
+Keywords: install, download, installing, webserver, lamp, archive, pear
+
+
+    ((Romans: We must cover the basic installation first))
+
+
++ Requirements
++ Installing With Composer
++ Installing Manually
++ Starting A New Project
     - Using The Agile Toolkit Installer
     - Setting Up The Admin UI
 + Integrating With Existing Projects 				[/install/integration]
@@ -62,7 +67,7 @@ The TOC
     - Elegant & Powerful ORM
     - Reusability By Design
     - Security By Design
-    - Collaboration By Design 
+    - Collaboration By Design
     - Testability By Design
     - Backward Compatibility By Design
     - Free & Commercial Addons
@@ -78,7 +83,7 @@ The TOC
     - How Long Will It Take To Learn?
     - What Are The Other Issues With Adoption?
     - What Training is Available?
-    - Is The Licence Suitable?      
+    - Is The Licence Suitable?
 * Introduction To Agile Toolkit
 + Differences From Conventional Frameworks
     - Agile Toolkit vs PHP Server-Side Frameworks
@@ -99,7 +104,7 @@ The TOC
 + Agile Toolkit Cheat Sheet
 + License
     - Open Source Projects
-    - Use In Education 
+    - Use In Education
     - Closed Source Projects
         * Internal Use
         * Single-Site Use
@@ -164,7 +169,7 @@ The TOC
         * Use Cases
     - Extending API Classes
         * Overview
-        * Use Cases      
+        * Use Cases
 * Framework Services
 + Configuration
     - Working With Config Files
@@ -178,14 +183,14 @@ The TOC
     - Dynamic pages
     - URL Generation
     - Advanced Routing
-+ Class Loading								
-    - The PathFinder Class					
-    - Loading Addons					
-    - Using Namspaces			
++ Class Loading
+    - The PathFinder Class
+    - Loading Addons
+    - Using Namspaces
     - Using 3rd Party PHP Libraries
         * Manual Integration
         * Integration Using Composer
-    - Advanced Loading						
+    - Advanced Loading
 + Asset Management
     - CSS
     - Javascript
@@ -246,9 +251,9 @@ The TOC
         * Sets
     - Using Subqueries
     - Using Expressions
-    - Customizing Queries 
+    - Customizing Queries
         - setCustom
-        - all & fx 
+        - all & fx
     - Advanced Usage
         * Pre-exec
         * Debugging
@@ -262,7 +267,7 @@ The TOC
         * Design Goals
         * Comparison With Other ORMs
         * Features
-        * Performance     		
+        * Performance
     - Concepts
         * Data-set
         * Loaded Record
@@ -275,7 +280,7 @@ The TOC
     - Actual Fields
     - Aliases
     - Defining Models
-        * Fields 
+        * Fields
         * Expressions
         * Relations
         * Joins
@@ -311,11 +316,11 @@ The TOC
         * Validation
     - Extensions
         * Database Builder - Create Schema From Model
-        * Model Builder - Created Models From Schema     	
+        * Model Builder - Created Models From Schema
     - Database Migration
         * Keeping The DB In Sync With The Models
         * Visual Migration Tools
-    - Using With SQLite 
+    - Using With SQLite
 + NoSQL Models
     - Overview
         * Goals
@@ -331,9 +336,9 @@ The TOC
     - Creating A New NoSQL Controller
     - Using A NoSQL Controller As A Cache
         * Using A Single Cache
-        * Using Multiple Caches 
+        * Using Multiple Caches
     - Database-independent Result Set Traversal
-* Working With Pages & Views       
+* Working With Pages & Views
 + Pages
     - Overview
         * Goals
@@ -403,7 +408,7 @@ Issues For Discussion
   * Creating your own Controllers
 
 * Official addons
-  
+
   * ((add-ons would be separate, but we need add-on development guide))
 ((Why woudn't we document the official addons here?))
   * Campaign Monitor CMS
@@ -424,6 +429,6 @@ Issues For Discussion
 
  * ((Localization))
 
-((I would argue for an official addon ASAP. This is partly selfish, as I'd prefer to build our site using community supported code! If we can sort out the routing and asset loading issues, I could get a draft to you in a couple of days of work based on the stuff I did for Laravel. You guys could clean it up and turn it into decent code!)) 
+((I would argue for an official addon ASAP. This is partly selfish, as I'd prefer to build our site using community supported code! If we can sort out the routing and asset loading issues, I could get a draft to you in a couple of days of work based on the stuff I did for Laravel. You guys could clean it up and turn it into decent code!))
 
 ((PRIORITIES: we're going to have around 50 sections, some short, but some quite long and demanding. Quite a big project. What are our priorities? Do we just start at the beginning and work down?))
