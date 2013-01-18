@@ -33,88 +33,153 @@ The TOC
 ----
 
 
-### Installing Agile Toolkit (install)
+### Introduction (/intro)
 
-Keywords: install, download, installing, webserver, lamp, archive, pear
+Introduction would be probably the first thing you would read about Agile Toolkit. This page introduces you to goals of the toolkit, basic design principles, main design decisions and will help you understand if Agile Toolkit is suitable for you and your project.
 
+    ((Romans: Many links from outside world lead to agiletoolkit.org/intro))
+    TODO: Rearrange topics by importance
+     ! Code-style is many people fall in love with, so examples are essential
 
-    ((Romans: We must cover the basic installation first))
-
-
-* Requirements
-* Installing With Composer
-* Installing Manually
-* Starting A New Project
-    + Using The Agile Toolkit Installer
-    + Setting Up The Admin UI
-* Integrating With Existing Projects 				[/install/integration]
-    + Overview
-    + Integrating With CodeIgniter
-    + Integrating With Yii
-    + Integrating With Symfony
-    + Integrating With Joomla
-    + Integrating With Wordpress
-* Securing Your Installation 						[/install/security]
-* Upgrading Your Installation 						[/install/upgrade]
-* Advanced Configuration 							[/install/config]
-* Troubleshooting 									[/install/troubleshoot]
-* Why Use Agile Toolkit?								[/why-use]
-* Key Benefits										[/why-use/key-benefits]
-    + Goals Of The Framework
-    + Clear Architecture ((What I have in mind is different from reusablity - let's give it a try?))
-    + Web User Interface ((R - what are you thinking of here? Is this something new?))
-    + jQuery / AJAX Integration
-    + Elegant & Powerful ORM
+* Uses of Agile Toolkit
+    + Web User Interface
+    + jQuery & AJAX Integration 
+    + Backend & ORM
+* Code Style
+    + Hello World
+    + Example Gallery ->
+    + Open-Source Projects ->   
+* Design Principles
+    + Inspiration & Influence
+    + Built for Agile Developers
+    + Simplicity: The Pragmatic Principle
+    + Lean Code: The 80/20 Principle
+    + Plugability: The Independence Principle
+    + Extensibility: The Object Principle
     + Reusability By Design
     + Security By Design
     + Collaboration By Design
     + Testability By Design
     + Backward Compatibility By Design
     + Free & Commercial Addons
-* Design Principles									[/why-use/design]
-    + Simplicity: The Pragmatic Principle
-    + Lean Code: The 80/20 Principle
-    + Plugability: The Independence Principle
-    + Extensibility: The Object Principle
-* Is Agile Toolkit Right For You?					[/why-use/decision]
+* Differences From Conventional Frameworks
+    + Agile Toolkit vs PHP Server-Side Frameworks
+    + Agile Toolkit vs JavaScript Toolkits
+    + Agile Toolkit vs Other Integrated Toolkits    
+* Is Agile Toolkit Right For You?
     + What Type of Projects Will Benefit?
     + What Developer Skills Are Required?
     + What Developer Mindset Is Required?
     + How Long Will It Take To Learn?
     + What Are The Other Issues With Adoption?
     + What Training is Available?
-    + Is The Licence Suitable?
-* Introduction To Agile Toolkit
-* Differences From Conventional Frameworks
-    + Agile Toolkit vs PHP Server-Side Frameworks
-    + Agile Toolkit vs JavaScript Toolkits
-    + Agile Tookit vs Other Integrated Toolkits
-* A High-Level Overview
-    + The Object Structure
-    + The Application Class
+    + Is The License Suitable?
+        - Open Source Projects
+        - Education and Universities
+        - Internal Commercial Use
+        - Closed-source Web Apps
+        - Large Web Apps
+        - OEM Distribution
+    + Future of Agile Toolkit
+    
+    
+### Installing (install)
+
+Keywords: install, download, installing, webserver, lamp, archive, pear
+
+Learn how to install agile toolkit on your local computer or your server. Select how you would like to install, would you like to start a new project or add Agile Toolkit to existing project, troubleshooting and maintenance as well as licensing and performance considerations.
+
+    ((Romans: We must cover the basic installation first))
+
+
+* Requirements
+    + Local Development
+        - Windows
+        - Mac
+        - Linux Desktop
+    + Installing on Web Server
+* Easy Install
+    + Download ZIP
+    + Opening Installer
+    + Configuring Your Installation     
+    + Getting Add-ons
+        - The Creator
+        - Agile Toolkit Add-ons
+        - Other Add-ons
+    + Registering Your Copy
+    + Connecting with AgileToolkit.org
+* Starting A New Project
+    + Using The Agile Toolkit Installer
+    + Setting Up The Admin UI
+    + Using Development Toolbox
+* Integrating With Existing Projects 
+    + Advanced Install
+        - From Github
+        - Using Composer
+        - Using PHAR
+    + Integrating With CodeIgniter
+    + Integrating With Yii
+    + Integrating With Symfony
+    + Integrating With Joomla
+    + Integrating With Wordpress
+* License Model
+    + Open-Source License
+    + Commercial License
+    + Registration     
+* Troubleshooting
+    + Ubuntu / SUHOSIN
+    + Case-sensitive files
+* Maintenance
+    + Improving Security
+    + Upgrading
+    + Using VCS
+* Getting Help
+    + Community support ->
+    + Commercial support ->
+ 
+### Learning (/learn)
+
+Great, so you have installed Agile Toolkit already and now ready to start learning. Let's start by looking at folder structure and some of the most important classes in Agile Toolkit. Then you will be introduced to the main concepts of Agile Toolkit and we will finish with some useful references, diagrams, charts and tutorials (if you want to learn by example)
+
+Throughout this chapter, I would be giving 
+
+    ((Romans: again, many links lead to /learn, + good sep rating))
+
+* The Directory Structure
+    + Core Directories
+    + Addon Directories
+    + Application Directories
+* Main Concepts
     + Adding objects
-    + Chaining commands
-    + Routing requests
-    + Assembling pages
-    + Managing views
-    + Handling data
-    + Using Controllers
-    + Adding services
-* Request Flow Chart
+    + Render Tree
+* Routing Requests (MVP)
+    + Application -> api/
+    + Pages -> routing?
+    + Views -> view/
+    + Models -> model ?
+* Events & AJAX
+    + JavaScript Events -> chains?
+    + Dynamic Loading -> ajax
+    + Web 2.0 User Interface
+* ORM and Dynamic SQL
+    + Brief Intro into DSQL
+    + 
+
+* API Reference
 * Agile Toolkit Cheat Sheet
-* License
-    + Open Source Projects
-    + Use In Education
-    + Closed Source Projects
-        - Internal Use
-        - Single-Site Use
-        - Multi-Site Use
-        - How To Register
 * Tutorials
-* Hello World ->
-* Blog (Beginner) ->
-* Jobeet (Intermediate) -> ((Are we realistically going to finish all 18 steps of Jobeet. Or should we work on a shorter high-quality intermediate tutorial? It won't look good to have an unfinished Jobeet!))
-* See all tutorials ->
+    + Hello World ->
+    + DVD Rental (Beginner) ->
+    + School Enrollment App (Intermediate) 
+    + See More Tutorials ->
+    + How to Contribute Tutorials
+* Sample Code
+
+### Starting New Application (/new-app)
+
+Now that you understand Agile Toolkit principles, methodology and design goals, let's look at what it is YOU are trying to build. Let's analyze what kind of application it's going to be and talk about best practices to getting it started
+
+    
 * The Agile Toolkit Development Process
 * Structural Choices
 * Agile Development
@@ -133,16 +198,6 @@ Keywords: install, download, installing, webserver, lamp, archive, pear
 * Deployment
 ((Suggestions please!))
 * Framework Structure
-* The Directory Structure
-    + Core Directories
-    + Addon Directories
-    + Application Directories
-* The Object Structure
-    + Design Goals Of The Object Structure
-    + AbstractObject
-    + AbstractView
-    + AbstractModel
-    + AbstractController
 * Application APIs
     + API Overview
         - What Is An Agile Toolkit API?
