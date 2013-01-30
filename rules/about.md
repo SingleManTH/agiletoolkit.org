@@ -8,12 +8,13 @@ Presenting Agile Toolkit
 
 1-sentence intro
 -----
-..
+Agile Toolkit brings the ease of Desktop GUI development to the development of Rich Web Applications.
 
 
 1-paragraph intro
 ----
 
+Agile Toolkit is a radical PHP
 
 Non-technical intro
 ----
