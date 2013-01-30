@@ -95,24 +95,6 @@ The docs are structured in 4 levels:
 * 3nd level - Heads within the dedicated page (anchors)
 * 4th level - Subheads within the dedicated page.
 
-General Style Rules
-----
-
-This will evolve ad-hoc as use-cases come up.
-
-* Use US English
-* Use initial caps in headings: **This Is A Heading Example**
-* Indent code blocks 4 spaces
-
-* Use "Agile Toolkit" not "ATK4"
-* Use "&", not "and" in headings
-* Use "method" for a function within a class (See PHP docs).
-
-Annoyingly, Markdown has no syntax for comments that should be stripped out. We use markup that will make it easy to remove comments with a script:
-
-* General comments: ((My comment))
-* Documenting urls: [[/foo]].
-
 TOC Style Rules
 ----
 
