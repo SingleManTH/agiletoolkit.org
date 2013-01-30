@@ -20,7 +20,7 @@ Unlike most query builders DSQL allows you to add or remove any aspect of the qu
 
 This is important when you need to pass query information between Models or even allow a Controller or Addon to interact with a query. Queries can be cloned, and multiple queries can exist and can even be executed simultaneously without affecting each other.
 
-## Use A DSQL Object As A Sub-query Within Another DSQL Query
+### Use A DSQL Object As A Sub-query Within Another DSQL Query
 
 Another cool feature is the ability to use existing DSQL objects within a DSQL query while dynamically preserving the existing object's parametric variables. This is typically used for sub-queries.
 
