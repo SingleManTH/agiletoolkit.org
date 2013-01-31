@@ -1,22 +1,32 @@
 # DSQL > Overview
 
-## Features
+## What Is DSQL?
 
 DSQL ("Dynamic SQL") is a Query Builder for dynamic SQL. A DSQL object represents a single query and collects information about fields, conditions, expressions and joins for rendering into SQL. It then runs the query and enables you to iterate through any results.
 
 With DSQL your Models can build queries of open-ended complexity conveniently, flexibly and securely.
 
+## Why Use A Query Builder?
+
+If you are comfortable writing SQL, the syntax of an object oriented Query Builder may seem a little verbose. But in return you gain a number of advantages:
+
+* Your Models can easily alter queries at runtime
+* You can extend your Models and adapt their queries
+* You virtually eliminate the danger of SQL injection exploits.
+
+## Features
+
 ### Access The Full Power Of Your RDBMS
 
 There are times when you need to use lowest common denominator SQL for portability between databases. DSQL uses the PDO database abstraction library, so you have access to PDO's portability features. 
 
-But for projects where you need the full power of your chosen RDBMS you have access to all advanced data types, transactions, joins, sub-queries, aggregates, functions and other vendor-specific features. Currently DSQL can be used with MySQL, SQLite, PostgreSQL and Oracle. Queries are optimized to match the syntax of your database. If you need any vendor-specific feature that's not already available in the class, it's easy to [extend DSQL](/docs/relational/todo) to add it.
+But for projects where you need the full power of your chosen RDBMS you have access to all advanced data types, transactions, joins, sub-queries, aggregates, functions and other vendor-specific features. Currently DSQL can be used with MySQL, SQLite, PostgreSQL and Oracle. Queries are optimized to match the syntax of your database. If you need any vendor-specific feature that's not already available in the class, it's easy to [extend DSQL](/docs/relational/extending) to add it.
 
 DSQL does not attempt to completely overlap PDO, though it implements all the most useful features. But you can still [access the PDO object]() embedded in DSQL objects if you have advanced requirements.
 
 ### Modify Existing Queries At Any Time
 
-Unlike most query builders DSQL allows you to add or remove any aspect of the query at any time, including fields, joins, conditions and parametric variables. Even after you execute the query, you can still modify and re-use the object.
+Unlike most query builders DSQL allows you to add or remove any element of your query at any time, including fields, joins, conditions and parametric variables. Even after you execute the query, you can still reconfigure and reuse the object.
 
 This is important when you need to pass query information between Models or even allow a Controller or Addon to interact with a query. Queries can be cloned, and multiple queries can exist and can even be executed simultaneously without affecting each other.
 
@@ -26,7 +36,7 @@ Another cool feature is the ability to use existing DSQL objects within a DSQL q
 
 ### Avoid Any Danger Of SQL Injection
 
-While all modern ORMS and Query Builders offer safe parametric queries for untrusted variables they rarely enforce their use, and you may have to resort to raw SQL when you run up against feature limitations. So developer error can still leave you vulnerable to SQL injection exploits.
+While all modern ORMS and Query Builders offer safe parametric queries for untrusted variables they rarely enforce their use, and you may have to resort to raw SQL when you run up against feature limitations. So developer error can still leave you vulnerable to SQL injection.
 
 With DSQL there is never any need to write error-prone raw SQL. You call functions, passing in query variables as arguments which become parametric values inside DSQL. So it's virtually impossible to produce an unsafe query.
 
