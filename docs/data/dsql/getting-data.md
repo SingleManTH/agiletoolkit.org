@@ -31,15 +31,6 @@ The DSQL object implements the Iterator interface, which means you can use it in
   		$my_value = $row['my_fieldname'];
 	}
 
-## Using A Direct PDO Statement
-
-If you need to run a query directly you can also use a PDO statement. Refer to the [PDO documentation](http://php.net/manual/en/book.pdo.php).
-
-<!-- Please clarify example by walking through a query end to end -->
-
-$q->execute();    // Prepares and Executes statement
-$stmt = $q->stmt;
-
 ## Use With Lister, CompleteLister & Grid
 
 Starting from Agile Toolkit 4.2, the Lister class and all derived classes (CompleteLister, Grid) accept classes that implement the Iterator interface through their setSource() method:

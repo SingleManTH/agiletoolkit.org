@@ -22,8 +22,6 @@ There are times when you need to use lowest common denominator SQL for portabili
 
 But for projects where you need the full power of your chosen RDBMS you have access to all advanced data types, transactions, joins, sub-queries, aggregates, functions and other vendor-specific features. Currently DSQL can be used with MySQL, SQLite, PostgreSQL and Oracle. Queries are optimized to match the syntax of your database. If you need any vendor-specific feature that's not already available in the class, it's easy to [extend DSQL](/docs/relational/extending) to add it.
 
-DSQL does not attempt to completely overlap PDO, though it implements all the most useful features. But you can still [access the PDO object]() embedded in DSQL objects if you have advanced requirements.
-
 ### Modify Existing Queries At Any Time
 
 Unlike most query builders DSQL allows you to add or remove any element of your query at any time, including fields, joins, conditions and parametric variables. Even after you execute the query, you can still reconfigure and reuse the object.
@@ -54,7 +52,7 @@ Here's a simple example of DSQL in action:
   		->table('user')
   		->field('name')
   		->where('id',$_GET['id'])
-  		->do_getOne();
+  		->getOne();
 
 ## How It Works
 
@@ -66,11 +64,8 @@ This is how DSQL achieves it's flexibility.
 
 ## Uses
 
-In Agile Toolkit, almost all interaction with relational databases is managed through [Relational Models](/data/relational/overview).
+In Agile Toolkit, all interaction with relational databases is managed through [Relational Models](/data/relational/overview).
 
-So **DSQL should almost never be used on it's own**: it's designed for use within Models.
+So **DSQL should never be used on it's own**: it's designed for use within Models.
 
 Relational Models already offer a range of flexible built-in queries, so a typical Agile Toolkit developer will rarely need to use DSQL directly. But for expert developers and advanced requirements DSQL provides an awesome way to add power and flexibility to your Agile Toolkit Models.
-
-The one exception is the use of simple queries to bind data to lists and grids, as explained [here](/todo). 
-
