@@ -1,112 +1,57 @@
-# DSQL > Basic Usage
+# DSQL > Getting Query Data
 
-## Workflow
+## Getting Your Data With A Single Call
 
-Let's walk through a basic query before we get down to details. To use DSQL:
+These methods execute your query and return some or all of your data: 
 
-1. First, connect to the database
-1. Then create your DSQL object and configure your query
-1. Execute the query
-1. And if you run into problems, echo out the SQL for debugging.
+	$data = $q->getAll();     // Returns all data as array of hashes, or array() if the query produced no results.
+	$data = $q->get();        // Alias for getAll();
+	$data = $q->getRow();     // Returns only first row of data, or null if query produced no results.
+	$data = $q->getOne();     // Returns the first field specified of the first row of data, or null if query produced no results or result was null.
 
-## Connecting To The Database
+Calling getRow() multiple times will continue to give you first row of data.
 
-You can connect to your default database with the API helper function dbConnect(), which will automatically read the DB settings from your configuration file and initialize a connection. You will normally be doing this in the init() method of your application API:
+## Getting Your Data Sequentially
 
-	function init(){
-        parent::init();
-        $this->dbConnect();
+These methods execute the query once, then enable you to loop through the result set. They return null if no more results are returned from the database.
+
+## Using The fetch() method
+
+This enables you to loop through results fetching one row at a time: 
+
+	while($row = $q->fetch()){
+  		$my_value = $row['my_fieldname'];
 	}
 
-Once created, the connection object is accessible through the $api->db property.
+## Using The Query Object Iterator
 
-To add additional connections, set a PDO-style [Data Source Name (DSN)](http://php.net/manual/en/ref.pdo-mysql.connection.php) connection string as a custom value in your config file. Then you connect by using the DB object's connect() method: 
+The DSQL object implements the Iterator interface, which means you can use it inside a foreach() block. The results are identical to the fetch() method, but the syntax is nicer.
 
-	$config['my_dsn'] = "mysql://user:password@localhost/testdb";
-	$mydb=$this->add('DB')->connect('my_dsn');
+	foreach($query as $row){
+  		$my_value = $row['my_fieldname'];
+	}
 
-If you call connect() without an argument, it will look for a DSN string in $config['dsn'].
+## Using A Direct PDO Statement
 
-Database connections in Agile Toolkit are lazy — they will not be physically created unless you execute a query.
+If you need to run a query directly you can also use a PDO statement. Refer to the [PDO documentation](http://php.net/manual/en/book.pdo.php).
 
-## Creating The Query Object
+<!-- Please clarify example by walking through a query end to end -->
 
-DSQL objects are created by calling the dsql() function of the default DB object or any additional DB objects. This function returns an empty query object which you use to build your query.
+$q->execute();    // Prepares and Executes statement
+$stmt = $q->stmt;
 
-	// Use the default connection
-	$query = $this->api->db->dsql();
+## Use With Lister, CompleteLister & Grid
 
-	// Use additional connections
-	$query = $mydb->dsql();
+Starting from Agile Toolkit 4.2, the Lister class and all derived classes (CompleteLister, Grid) accept classes that implement the Iterator interface through their setSource() method:
 
-You may also call $model->dsql() which will return an initialized Query object with your existing Model settings, which can then be customized.
-
-When you create a DSQL object using an existing connection, it will optimise the SQL syntax for the database being used. If you create a DSQL query before connecting to the database it will generate generic SQL. So you will normally want to set up a connection before creating a query object.
-
-## Configuring A Query
-
-DSQL offers a range of methods for configuring your query. You can call those methods several times and in any order &ndash; you can even adapt and reuse a query after it has been executed. The methods can be chained:
-
-	$query = $this->api->db->dsql();
-	$query
-  		->table('user')
-  		->where('type','admin')
-  		->field('id');
-  
-	// Refine the configuration & execute the query
-	$data = $query
-  		->order('created_time')
-  		->field('name,surname')
-  		->getAll();
-
-	// Produces: 
-	//   $data=array(
-	//      array('id'=>1, 'name'=>'John', 'surname'=>'Smith'),
-	//      array('id'=>2, 'name'=>'Joe', 'surname'=>'Blogs')
-	//    ); 
-
-When you build the query by calling methods, your arguments could be:
-
-1. Field Names, such as \`id\`
-2. Unsafe variables, such as $_GET['id']
-3. Expressions such as "now()".
-
-	$q=$this->api->db->dsql()->table('user'); 
-	$q->where('id',$_GET['id']);
-	$q->where('expired','<',$q->expr('now()'));
-	$data = $q->field('count(*)')->getOne();
-
-The example above will produce the query:
-
-    select count(*) from `id`=123 and `expired`<now();
-
-We'll cover these methods later, though most of the names are self-explanatory.
-
-DSQL implements only some PDO fetching modes/features for simplicity, although you can access PDO object through $query->stmt.
-
-<!-- Example of using stmt please -->
-
-## Setting The Table
-
-Calling $query->table('my_table') is the only requirement before you execute your query. You may specify a second argument, table($table, $alias), which will set an alias for the table and all of its fields.
-
-## Executing The Query
-
-DSQL offers [a number of methods](/todo) for executing your query and filtering the result set. For example:
-
-	$data = $q->getAll(); 
-	$data = $q->getRow();
-
-## Debugging The Query
-
-DSQL has a method debug() which will echo your query as it's executed:
-
+	// Set up the query
 	$q=$this->api->db->dsql();
-	$q->table('user');
-	$q->debug();
-	$q->field('name');
-	$data = $q->get();    // Will output debugging information
+	$q->table('user')->field('name')->field('surname');
+	
+	// Set up the grid
+	$grid = $this->add('Grid');
+	$grid->addColumn('text','name');
+	$grid->addColumn('text','surname');
 
-To turn off debugging:
-
-	$q->debug() = false;
+	// Bind the data source to the grid
+	$grid->setSource($q);

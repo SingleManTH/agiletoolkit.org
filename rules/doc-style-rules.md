@@ -7,7 +7,7 @@ This doc will evolve ad-hoc as use-cases come up.
 
 * Use US English
 * Use informal English: "it's", not "it is" etc. But keep it professional - no slang.
-* Be upbeat about the advantages of ATK but not boastful or disrespectful
+* Be upbeat about the advantages of ATK but not boastful or disrespectful of other frameworks
 * Use the 80/20 rule - document the 20% of features that offer 80% of the functionality. Developers can find the rest of the functionality in the API docs.
 
 ### Headings
@@ -36,3 +36,7 @@ This doc will evolve ad-hoc as use-cases come up.
 ### Comments
 
 Annoyingly, Markdown has no syntax for comments that should be stripped out. We use markup that will make it easy to remove comments with a script. Add your initials to the comment: ((GC: My comment))
+
+### Misc
+
+* Booleans: null, true, false, not NULL, TRUE, FALSE
