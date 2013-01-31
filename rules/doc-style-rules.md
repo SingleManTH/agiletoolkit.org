@@ -35,8 +35,8 @@ This doc will evolve ad-hoc as use-cases come up.
 
 ### Comments
 
-Annoyingly, Markdown has no syntax for comments that should be stripped out. We use markup that will make it easy to remove comments with a script. Add your initials to the comment: ((GC: My comment))
+Use standard HTML comments: <!-- -->. We'll strip them out before publication. 
 
 ### Misc
 
-* Booleans: null, true, false, not NULL, TRUE, FALSE
+* Booleans in the run of text: 'null', 'true', 'false', not NULL, null

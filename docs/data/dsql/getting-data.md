@@ -6,8 +6,8 @@ These methods execute your query and return some or all of your data:
 
 	$data = $q->getAll();     // Returns all data as array of hashes, or array() if the query produced no results.
 	$data = $q->get();        // Alias for getAll();
-	$data = $q->getRow();     // Returns only first row of data, or null if query produced no results.
-	$data = $q->getOne();     // Returns the first field specified of the first row of data, or null if query produced no results or result was null.
+	$data = $q->getRow();     // Returns only first row of data, or 'null' if query produced no results.
+	$data = $q->getOne();     // Returns the first field specified of the first row of data, or 'null' if query produced no results or result was null.
 
 Calling getRow() multiple times will continue to give you first row of data.
 
