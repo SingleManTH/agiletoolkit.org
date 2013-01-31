@@ -64,8 +64,12 @@ This is how DSQL achieves it's flexibility.
 
 ## Uses
 
-In Agile Toolkit, all interaction with relational databases is managed through [Relational Models](/data/relational/overview).
+In Agile Toolkit, interaction with relational databases is generally managed through [Relational Models](/data/relational/overview).
 
-So **DSQL should never be used on it's own**: it's designed for use within Models.
+So DSQL is primarily designed for use within Models.
 
 Relational Models already offer a range of flexible built-in queries, so a typical Agile Toolkit developer will rarely need to use DSQL directly. But for expert developers and advanced requirements DSQL provides an awesome way to add power and flexibility to your Agile Toolkit Models.
+
+<!-- You give an example of this but is it a good idea? Wouldn't it be better practice to always bind widgets to a model? -->
+
+DSQL can also be used within Pages and Views for directly binding data to interface elements such as lists and grids.
