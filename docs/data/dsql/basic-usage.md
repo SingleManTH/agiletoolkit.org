@@ -74,15 +74,13 @@ When you build the query by calling methods, your arguments could be:
 	$q->where('expired','<',$q->expr('now()'));
 	$data = $q->field('count(*)')->getOne();
 
-The example above will produce the query:
+For MySQL the example above will produce the query:
 
     select count(*) from `id`=123 and `expired`<now();
 
-We'll cover these methods later, though most of the names are self-explanatory.
+We'll cover these methods [here](/docs/dsql/defining-queries), though most of the names are self-explanatory.
 
-## Setting The Main Table
-
-Calling $query->table('my_table') is the only requirement before you execute your query. You may specify a second argument, table($table, $alias), which will set an alias for the table &ndash; you can then use the alias in your 'WHERE' statement parameters.
+Calling $query->table('my_table') is the only requirement before you execute your query.
 
 ## Executing The Query
 
