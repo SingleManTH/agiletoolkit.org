@@ -18,7 +18,7 @@ When your run your query, DSQL parses your query parameters into the following t
 
 We'll cover each of these queries in turn.
 
-## The select() Method
+## Select
 
 ### Getting Your Data In A Single Call
 
@@ -54,17 +54,17 @@ The DSQL object implements the Iterator interface, which means you can use it in
   		$my_value = $row['my_fieldname'];
 	}
 
-## The insert() Method
+## Insert
 
-## The update() Method
+## Update
 
-## The replace() Method
+## Replace
 
-## The delete() Method
+## Delete
 
 	$this->dsql()->table('posts')->where('id <', 123)->delete();
 
-## The truncate() Method
+## Truncate
 
 Used to empty a table of data:
 

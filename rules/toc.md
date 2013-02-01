@@ -374,14 +374,13 @@ The TOC
       		* Options
       		* Setting Values
 		- Running Queries
+			* Overview
 			* Select
 			* Insert
 			* Update
 			* Replace
 			* Delete
 			* Truncate
-    	- Using Subqueries
-    	- Using Expressions
     	- Customizing Queries 
       		- setCustom
       		- all & fx 
