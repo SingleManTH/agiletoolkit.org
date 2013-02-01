@@ -351,23 +351,35 @@ The TOC
 
 	+ DSQL Query Builder
     	- Overview
-      		* Goals
-      		* When To Use
-      		* Features
+      		* What Is DSQL?
+			* Why Use A Query Builder?
+			* Features
+			* Code Example
+			* Uses
     	- The DSQL Object
       		* Modes
       		* Properties
       		* Cloning and Duplicating
       		* Overloading Arguments
     	- Defining Queries
-      		* Table
+			* Expressions & Subqueries
+      		* Tables
       		* Fields
-      		* Conditions (Where Clauses)
-      		* Joining
+      		* Conditions ('WHERE' Clauses)
+			* 'HAVING' Clauses
+      		* Joins
       		* Grouping
       		* Ordering
-      		* Options ((What goes here?))
-      		* Sets
+			* Limiting
+      		* Options
+      		* Setting Values
+		- Running Queries
+			* Select
+			* Insert
+			* Update
+			* Replace
+			* Delete
+			* Truncate
     	- Using Subqueries
     	- Using Expressions
     	- Customizing Queries 

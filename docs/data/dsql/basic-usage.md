@@ -11,7 +11,7 @@ Let's walk through a basic query before we get down to details. To use DSQL:
 
 ## Connecting To The Database
 
-You can connect to your default database with the API helper function dbConnect(), which will automatically read the DB settings from your configuration file and initialize a connection. You will normally be doing this in the init() method of your application API:
+You connect to your default database with the API helper function dbConnect(), which will automatically read the database settings from your configuration file and initialize a connection. You will normally be doing this in the init() method of your application API:
 
 	function init(){
         parent::init();
@@ -31,7 +31,7 @@ Database connections in Agile Toolkit are lazy — they will not be physically c
 
 ## Creating The Query Object
 
-DSQL objects are created by calling the dsql() function of the default DB object or any additional DB objects. This function returns an empty query object which you use to build your query.
+DSQL query objects are created by calling the dsql() function of the default DB object or any additional DB objects. This function returns an empty query object which you use to build your query.
 
 	// Use the default connection
 	$query = $this->api->db->dsql();
@@ -39,30 +39,28 @@ DSQL objects are created by calling the dsql() function of the default DB object
 	// Use additional connections
 	$query = $mydb->dsql();
 
-You may also call $model->dsql() which will return an initialized Query object with your existing Model settings, which can then be customized.
+You can also call $model->dsql() which will return a DSQL query object initialized with your existing Model settings, which can then be customized.
 
-When you create a DSQL object using an existing connection, it will optimise the SQL syntax for the database being used. If you create a DSQL query before connecting to the database it will generate generic SQL. So you will normally want to set up a connection before creating a query object.
+When you create a DSQL object using an existing connection it will optimise the SQL syntax for the database being used. If you create a DSQL object before connecting to the database it will generate generic SQL. So you will normally want to set up a connection before creating a query object.
 
 ## Configuring A Query
 
-DSQL offers a range of methods for configuring your query. You can call those methods several times and in any order &ndash; you can even adapt and reuse a query after it has been executed. The methods can be chained:
+DSQL offers a comprehensive range of methods for configuring your query. You can call those methods several times and in any order &ndash; you can even adapt and reuse a query after it has been executed. The methods can be chained:
 
 	$query = $this->api->db->dsql();
-	$query
-  		->table('user')
-  		->where('type','admin')
-  		->field('id');
+	$query->table('user')
+  			->where('type','admin')
+  			->field('id');
   
 	// Refine the configuration & execute the query
-	$data = $query
-  		->order('created_time')
-  		->field('name,surname')
-  		->getAll();
+	$data = $query->order('created_time')
+  			->field('name,surname')
+  			->getAll();
 
 	// Produces: 
 	//   $data=array(
 	//      array('id'=>1, 'name'=>'John', 'surname'=>'Smith'),
-	//      array('id'=>2, 'name'=>'Joe', 'surname'=>'Blogs')
+	//      array('id'=>2, 'name'=>'Joe', 'surname'=>'Bloggs')
 	//    ); 
 
 When you build the query by calling methods, your arguments could be:
@@ -82,13 +80,9 @@ The example above will produce the query:
 
 We'll cover these methods later, though most of the names are self-explanatory.
 
-DSQL implements only some PDO fetching modes/features for simplicity, although you can access PDO object through $query->stmt.
+## Setting The Main Table
 
-<!-- Example of using stmt please -->
-
-## Setting The Table
-
-Calling $query->table('my_table') is the only requirement before you execute your query. You may specify a second argument, table($table, $alias), which will set an alias for the table and all of its fields.
+Calling $query->table('my_table') is the only requirement before you execute your query. You may specify a second argument, table($table, $alias), which will set an alias for the table &ndash; you can then use the alias in your 'WHERE' statement parameters.
 
 ## Executing The Query
 
@@ -103,10 +97,6 @@ DSQL has a method debug() which will echo your query as it's executed:
 
 	$q=$this->api->db->dsql();
 	$q->table('user');
-	$q->debug();
 	$q->field('name');
-	$data = $q->get();    // Will output debugging information
-
-To turn off debugging:
-
-	$q->debug() = false;
+	$q->debug();
+	$data = $q->getAll();    // Will output debugging information
