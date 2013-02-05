@@ -289,3 +289,34 @@ Use the `set()` method to set values in INSERT and UPDATE queries:
 
 	// Setting multiple values
 	set(array('votes' => $q->expr('votes+1'), 'poll'=>$poll ));
+
+## Deleting Arguments
+
+The `del()` method will unset arguments from your DSQL query object:
+
+	$q->del('ﬁelds');
+
+The `reset()` method will delete all arguments
+
+A common use is to change ﬁelds on an arbitrary query:
+
+	$r=clone $q;
+	$count = $r->del('fields')->field('count(*)')->getOne();
+
+<!--
+
+TODO: what are these adding over expr()?
+
+## Calling Custom Methods & Stored Procedures
+
+Use the following pattern:
+
+	$q->call('myfunc', array($arg1, $arg2));
+
+To call standard functions you can use fx() method.
+	
+	$q=$this->api->db->dsql();
+	$q->call('myfunc', array($arg1, 
+ 	$q->dsql()->fx('if', array($x1,$x2,$x3))
+	));
+-->

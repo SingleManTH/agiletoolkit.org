@@ -4,6 +4,18 @@
 
 Let's walk through a basic query before we get down to details. To use DSQL:
 
+<<<<<<< HEAD
+1. First, connect to the database
+1. Then create new DSQL object
+1. Configure the query
+1. Execute the query
+
+If you are experiencing problems, you can use `debug()` mode.
+
+## Connecting To The Database
+
+Database connection is normally established when you execute `api->dbConnect()` inside `init()` method of your `Frontend` class. This method will  automatically read the database settings from your configuration file (`$config['dsn']`) and initialize a connection. Here is a sample `init` method for your application:
+=======
 1. Connect to the database
 1. Create your DSQL query object
 1. Configure the query
@@ -38,14 +50,30 @@ If your needs are more complex, you can use the PDO-style Data Source Name (DSN)
 ### Connecting to the default database
 
 You will normally connect to the database by calling `$api->dbConnect()` in the `init()` method of your `Frontend` class. `dbConnect()`  automatically reads the default database settings from your configuration file (`$config['dsn']`) and initializes a connection. 
+>>>>>>> Merging in Romans comments on DQSL, finishing running-queries
 
-	function init(){
+    function init(){
         parent::init();
         $this->dbConnect();
-	}
+    }
 
 Once created, the connection object is accessible through the $api->db property.
 
+<<<<<<< HEAD
+To add additional connections, you will need to manually create more instances of `DB` class:
+
+    $mydb = $this->add('DB')->connect('mysql://user:pass@localhost/testdb');
+
+It it usually not secure to store your configuration settings in your class files, therefore you might want to move it inside your configuration file:
+
+	$config['my_dsn'] = "mysql://user:password@localhost/testdb";
+
+And back in the source code:
+
+	$mydb = $this->add('DB')->connect('my_dsn');
+
+DB class of Agile Toolkit recognize either it's own DSN string as shown above, or it also supports [Data Source Name (DSN) for PDO](http://php.net/manual/en/ref.pdo-mysql.connection.php). 
+=======
 ### Connecting to additional databases
 
 To add additional connections, create more instances of the `DB` class:
@@ -61,12 +89,19 @@ Then in your application you call:
 	$mydb=$this->add('DB')->connect('my_dsn');
 
 If you call connect() without an argument it will look for a DSN string in $config['dsn'].
+>>>>>>> Merging in Romans comments on DQSL, finishing running-queries
 
 Database connections in Agile Toolkit are lazy — they will not be physically created until you execute a query.
 
+<<<<<<< HEAD
+## Creating The Dynamic SQL Object
+
+DSQL query objects are created by calling the dsql() method of the default DB object. This function always returns new query object. You can also call `dsql()` on existing `$dsql` object, then it will create new object from the same data source and using same database vendor settings as `$dsql`.
+=======
 ## Creating The DSQL Query Object
 
 DSQL query objects are created by calling the dsql() method of the default DB object or any additional DB objects. This function returns an empty query object which you use to build your query.
+>>>>>>> Merging in Romans comments on DQSL, finishing running-queries
 
 	// Use the default connection
 	$query = $this->api->db->dsql();
@@ -74,14 +109,31 @@ DSQL query objects are created by calling the dsql() method of the default DB ob
 	// Use additional connections
 	$query = $mydb->dsql();
 
+Finally, you can also clone $dsql object which will give you the exact copy. There are other ways to generate a new dsql object, for example calling $model->dsql() will return a DSQL query object initialized for your $model. This query would have "table", and "where" clauses set and might also use some joins.
+
+<<<<<<< HEAD
+When you are connected to MySQL database, calling db->dsql() will return instance of DB_dsql_mysql. This class extends DB_dsql to add few tweaks specific to MySQL flavor of SQL. That's why you should always set up a connection before creating a query object.
+=======
 You can also call $model->dsql() which will return a DSQL query object initialized with your existing Model settings, which can then be customized.
 
 And you can clone a `$dsql` query object, which will give you an exact copy.
+>>>>>>> Merging in Romans comments on DQSL, finishing running-queries
 
 When you create a DSQL object using an existing connection it may optimise the SQL syntax for the database being used, but if you create a DSQL object before connecting to the database it will generate generic SQL. So you will normally want to set up a connection before creating a query object.
 
 ## Configuring The Query
 
+<<<<<<< HEAD
+	$query = $this->api->db->dsql();
+	$query->table('user')
+  		->where('type','admin')
+  		->field('id');
+  
+	// Refine the configuration & execute the query
+	$data = $query->order('created_time')
+  		->field('name,surname')
+  		->getAll();
+=======
 DSQL offers a [comprehensive range of methods](/docs/data/dsql/defining-queries) for configuring your query. You can call these methods several times and in any order &ndash; you can even adapt and reuse a query after it has been executed. The methods can be chained:
 
 	// Set up a query object
@@ -96,6 +148,7 @@ DSQL offers a [comprehensive range of methods](/docs/data/dsql/defining-queries)
 	$data = $q->order('created_time')  	// Order the result set
   		->field('name, surname')  		// Return additional fields
   		->getAll(); 					// Run the query
+>>>>>>> Merging in Romans comments on DQSL, finishing running-queries
 
 	// Produces: 
 	//   $data=array(
@@ -105,6 +158,31 @@ DSQL offers a [comprehensive range of methods](/docs/data/dsql/defining-queries)
 
 When you build the query by calling methods, your arguments could be:
 
+<<<<<<< HEAD
+1. Identifiers, such as `id`
+2. Parameters, such as `$_GET['id']`
+3. Expressions, such as `now()`
+
+Each type is quoted inside a query differently, so you should not mix them up. DSQL methods will expect certain type of arguments, and you will need to remember this.
+
+	$q=$this->api->db->dsql()->table('user');   // expects identifier
+	$q->where('id',$_GET['id']);                // expects (identifier, parameter)
+	$q->where('expired','<',$q->expr('now()')); // expr expects expression
+	$data = $q->field('count(*)')->getOne();    // field will detect expression
+
+For MySQL the example above will produce the query:
+
+    select count(*) from `id`=:a and `expired`<now();    :a=123
+
+We'll cover these methods [here](/docs/dsql/defining-queries), though most of the names are self-explanatory. You must at least call $query->table('my_table') before you execute your query.
+
+## Executing The Query
+
+DSQL offers [a number of methods](/todo) for executing your query and fetching the result set. For example:
+
+	$data = $q->get(); 
+	$string = $q->getOne();
+=======
 1. Identifiers, such as `id`
 2. Parameters, such as `$_GET['id']`
 3. Expressions, such as `now()`
@@ -128,6 +206,7 @@ DSQL offers [a number of methods](/docs/data/dsql/running-queries) for executing
 
 	$data = $q->getAll(); 
 	$data = $q->getOne();
+>>>>>>> Merging in Romans comments on DQSL, finishing running-queries
 
 ## Debugging The Query
 
@@ -137,6 +216,12 @@ DSQL has a method debug() which will echo your query as it's being executed:
 	$q->table('user');
 	$q->field('name');
 	$q->debug();
+<<<<<<< HEAD
+	$data = $q->getAll();    // Will output debugging information
+	
+You can also call `getDebugQuery()` which will return HTML-highlighted query back to you.
+=======
 	$data = $q->getAll();    // Will output debugging information
 
 You can also call `getDebugQuery()` which return your query as nicely formatted HTML.
+>>>>>>> Merging in Romans comments on DQSL, finishing running-queries

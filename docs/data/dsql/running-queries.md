@@ -91,3 +91,20 @@ This is a template for the MySQL REPLACE INTO query:
 Used to empty a table of data:
 
 	$this->dsql()->table('user')->truncate();
+
+## Using preexec()
+ 
+Because DSQL is lazy, a query is not normally executed till you start iterating through the result set. If required, you can run the query earlier using the `preexec()` method.
+
+## Counting The Rows In The Result Set
+
+The most common use-case for `preexec()` is determining the number of rows in the result set before iterating though the results. 
+
+Method `foundRows()` executes a SELECT query and returns the number of rows in the result set. Method `calcFoundRows()` provides a hint to the RDBMS (where supported) to improve query performance.
+
+	// Execute a configured query and count the rows returned
+	$num_rows = $q->calcFoundRows()->preexec()->foundRows();
+
+	foreach($q as $data){
+ 		// ..
+	}
