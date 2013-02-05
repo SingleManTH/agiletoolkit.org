@@ -62,8 +62,8 @@ If you want to customise `DB_dsql` methods for a specific RDBMS, you can simply 
 
 ## Adding A sum() Function
 
-Whenever you need to calculate sum of a column, you must create expression. How about creating a function for doing this easier?
+As a final example, let's create a method for the `sum()` function:
 
-    function sum($expr,$alias){
-        return $this->field($this->expr('sum('.$expr.')'),$alias);
+    function sum($expr, $alias){
+        return $this->field($this->expr('sum('. $expr.')'),$alias);
     }
