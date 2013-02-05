@@ -303,20 +303,29 @@ A common use is to change ﬁelds on an arbitrary query:
 	$r=clone $q;
 	$count = $r->del('fields')->field('count(*)')->getOne();
 
-<!--
+## Calling Built-In Functions
 
-TODO: what are these adding over expr()?
+As an alternative to `expr()`, you can use the `fx()` method for calling your DB's built-in functions:
 
-## Calling Custom Methods & Stored Procedures
+	// Outputs 'call myfunc($arg1, if($x1, $x2, $x3))'
+	$q->dsql()->fx('if', array($x1, $x2, $x3))
 
-Use the following pattern:
+## Calling Custom Functions & Stored Procedures
+
+When you call your own user-defined functions in SQL, you typically use the syntax:
+
+	call myfunc(args)
+
+To replicate this in DSQL:
 
 	$q->call('myfunc', array($arg1, $arg2));
 
-To call standard functions you can use fx() method.
-	
-	$q=$this->api->db->dsql();
-	$q->call('myfunc', array($arg1, 
- 	$q->dsql()->fx('if', array($x1,$x2,$x3))
-	));
--->
+# Some Portable Methods
+ 
+As an alternative to `expr()`, Agile Toolkit currently offers the following cross-database methods:
+
+	concat(arg,arg,...) 	// string concatination
+	describe(table) 		// select table schema
+	random() 				// return random value 0..1
+	sum(ﬁeld) 				// returns result of expression sum(..)
+	count(ﬁeld) 			// returns result of expression for count(..). Argument is '*' if unspeciﬁed.
