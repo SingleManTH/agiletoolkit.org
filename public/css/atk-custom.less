@@ -1,0 +1,136 @@
+/* ==============================================
+	Import
+============================================== */
+@import 'atk-main.less';
+
+
+/* ==============================================
+	Settings
+    http://agiletoolkit.org/doc/css
+============================================== */
+@gridColumns:       12;			// Column count
+@gridColumnWidth:   40px;			// Column width
+@gridGutterWidth:   @lineHeight*2;		// Gutter width
+@margin:			@lineHeight;		// Global margin
+@padding:			@lineHeight;		// Global padding
+@label:				7em;		// Label width for form/dl
+@labelMargin:		2em;		// Label margin
+@footerSticky:		true;		// Footer sticked to the bottom of the page
+@footerHeight:		@lineHeight * 4;	// Footer height needs to be specific if sticky footer is applied
+@dialogMargin:		120px;		// Dialog top margin
+@link:				#0053b3;	// Link color
+@shadowColor:		#000;		// Global shadow color (used in dialogs, dropmenus, etc.)
+@thborder:			#002d5e;	// Table header border color
+@border:			#e5e5e5;	// Global border color (used in tables, hr, forms, etc.)
+@even:				#f0f5fa;	// Color for even row
+@inputBorder:		#ccc;		// Input Border
+@focused: 			#00aaff;	// Color on input focus
+@error:				#e51717;	// Error
+@white:				#fff;		// White color
+@black:				#000;		// Black color
+@lightGray:			lighten(@black,60%);							// Used for comments
+@fontFamily:		"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;		// Global font family
+@fontSize:			16px;											// Global font size
+@fontColor:			lighten(@black,20%);							// Global font color
+@lineHeight:		24px;										// Global line height
+
+
+/* ==============================================
+	Temp
+============================================== */
+body {background:#000;}
+
+.baseline {
+	width:100%;
+	height:100%;
+	.position(@t:0,@l:0);
+	pointer-events:none;
+	a {
+		background:#fff;
+		.border-radius(10px);
+		.box-shadow(0 1px 5px rgba(0,0,0,0.5));
+		font-size:12px;
+		font-weight:bold;
+		line-height:1;
+		text-align:center;
+		text-decoration:none;
+		padding:@padding/2;
+		width:80px;
+		pointer-events:auto;
+		.position(@p:fixed,@t:10px,@r:10px,@z:2);
+	}
+	&:after {
+		background:url(../images/baseline.png) top left;
+		width:100%;
+		height:100%;
+		.position(@t:-5px,@l:0);
+		content:'';
+		display:none;
+	}
+	&.show {
+		&:after {display:block;}
+	}
+	&.hide {
+		&:after {display:none;}
+	}
+}
+
+.bg-green {background:#e5ffd9;color:#7a996b}
+
+
+.global-header, .global-footer {background:#000;color:#fff;}
+.global-content {
+	background:#fff;
+	padding:@padding*2 0;
+}
+.global-header, .global-footer {padding:@padding 0;}
+
+
+/* ==============================================
+	Typography
+============================================== */
+.ubuntu {font-family: 'Ubuntu', sans-serif;font-weight:300;}
+
+h1, h2, h3, h4, h5, h6 {line-height:@lineHeight;margin:@lineHeight 0;position:relative;}
+
+h1 {
+	border-bottom:1px solid lighten(@black,90%);
+	.ubuntu;
+	color:#3e4b72;
+	font-size:42px;
+	line-height:@lineHeight*2;
+	padding-bottom:@lineHeight - 1px;
+}
+h2 {font-size:30px;line-height:@lineHeight*2;top:12px;}
+h3 {font-size:24px;top:8px;}
+h4 {font-size:18px;top:12px;}
+h5 {font-size:16px;margin:0;top:-2px;}
+h6 {font-size:12px;margin:0;}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {margin-top:0;}
+
+p, ul, blockquote {margin:@lineHeight 0;}
+ul, ol {
+	li {margin:0;}
+	ul, ol {margin:@lineHeight/2 0 @lineHeight/2 @lineHeight;}
+}
+blockquote {
+	border-left:5px solid #6f85ca;
+	color:#3e4a71;
+	padding-left:@padding;
+	p {font-size:90%;margin-bottom:0;}
+	cite {font-style:italic;font-size:80%;}
+}
+big, .big {font-size:1.2em;}
+
+
+/* ==============================================
+	Styling
+============================================== */
+.lead {color:#7a8299;.big;}
+
+
+/* ==============================================
+	Elements
+============================================== */
+.atk-box {margin:@margin 0;}

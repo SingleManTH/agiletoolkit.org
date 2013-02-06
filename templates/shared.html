@@ -1,49 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><?page_title?>Agile Toolkit - Website<?/?></title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+		<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
 		<link rel="shortcut icon" href="<?template?>images/favicon.ico<?/?>" type="image/x-icon" />
 		<link rel="stylesheet" type="text/css" href="<?template?>css/jquery-ui.css<?/?>" />
-		<link rel="stylesheet" type="text/css" href="<?template?>css/atk-main.css<?/?>" />
+        <link rel="stylesheet" href="<?css?>normalize.css<?/?>">
+        <link rel="stylesheet" href="<?css?>main.css<?/?>">
 		<link rel="stylesheet" type="text/css" href="<?css?>atk-custom.css<?/?>" />
 		<?$js_include?>
-		<!--[if IE 8]>
-			<link rel="stylesheet" type="text/css" href="<?template?>css/ie8.css<?/?>"/>
-			<script type="text/javascript" src="<?template?>css/ie8.js<?/?>"></script>
-		<![endif]-->
+        <script src="<?js?>modernizr-2.6.2.min.js<?/?>"></script>
+        <script src="<?js?>plugins.js<?/?>"></script>
+        <script src="<?js?>main.js<?/?>"></script>
 		<script type="text/javascript">
 			$(function(){
 				<?$document_ready?>
 			});
 		</script>
-	</head>
-	<body>
-		<div id="atk-layout" class="atk-wrapper">
-			<div id="header">
-				<?logo?><div id="atk-logo" class="ui-widget-header float-left"><a 
-                                    href="<?page?>index<?/?>"><img src="<?template?>images/logo.png<?/?>" /></a></div><?/logo?>
-				<div id="header-right">
-					<?Menu?>
-                            <div class="atk-menu atk-menu-horizontal ui-widget">
-                                <ul>
-								    <li class="ui-state-default"><a href="javascript:void(0)">Menu is not defined</a></li>
-                                </ul>
-							</div>
-					<?/?>
-					<div id="atk-version"><b><?name?>Agile Toolkit™<?/?></b><br/><i><?$version?></i></div>
-				</div>
-			</div>
-			<?$Content?>
-			<div id="atk-footer-guard"></div>
-		</div>
-		<?Footer?>
-		<div id="footer" class="atk-wrapper">
-			<?footer_text?>
-			This system is implemented using <a href="http://agiletoolkit.org/">Agile Toolkit</a>. &copy; 1999–2012. <a href="http://agiletoolkit.org/about/license">See License</a>
-			<?/?>
-		</div>
-		<?/?>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="baseline"><a href="#">Show Grid</a></div>
+        <header class="global-header">
+        	<div class="atk-wrapper">
+	        	<nav>
+	        		<ul>
+	        			<li><?logo?><div id="atk-logo" class="ui-widget-header float-left"><a href="<?page?>index<?/?>"><img src="<?template?>images/logo.png<?/?>" /></a></div><?/logo?></li>
+						<?Menu?>
+					    <li class="ui-state-default"><a href="javascript:void(0)">Menu is not defined</a></li>
+						<?/?>
+	        		</ul>
+	        	</nav>
+        	</div>
+        </header>
+        <div class="global-content">
+        	<div class="atk-wrapper">
+				<?$Content?>
+        	</div>
+        </div>
+        <?Footer?>
+        <footer class="global-footer">
+        	<div class="atk-wrapper">
+				<?footer_text?>
+				This system is implemented using <a href="http://agiletoolkit.org/">Agile Toolkit</a>. &copy; 1999–2012. <a href="http://agiletoolkit.org/about/license">See License</a>
+				<?/?>
+				<div id="atk-version"><b><?name?>Agile Toolkit™<?/?></b><br/><i><?$version?></i></div>
+        	</div>
+        </footer>
+        <?/?>
 		<div id="atk-growl-holder" class="atk-growl"></div>
 	</body>
 </html>
