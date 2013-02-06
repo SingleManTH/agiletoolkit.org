@@ -17,6 +17,7 @@ class Frontend extends ApiFrontend {
 
         $this->public_location = $this->pathfinder->addLocation('my-public',array(
             'js'=>'js',
+            'css'=>'css',
         ))->setBasePath($parent_directory.'/public')
         ;
 
