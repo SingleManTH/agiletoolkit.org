@@ -33,6 +33,8 @@ class Frontend extends ApiFrontend {
         $this->public_location->setBaseURL($this->pm->base_path);
         $this->public_atk4->setBaseURL($this->pm->base_path.'/atk4');
 
+        $this->add('jUI');
+
         $this->add('MainMenu',null,'Menu');
 
 
