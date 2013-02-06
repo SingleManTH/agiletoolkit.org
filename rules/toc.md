@@ -355,11 +355,7 @@ The TOC
       	- Defining Queries
 		- Running Queries
 		- Advanced Usage
-      		* Pre-exec
-      		* setCustom
-      		* all & fx 
-      		* RDBMS-specific Methods
-    	- Extending Queries
+      	- Extending Queries
 	+ Relational Models
   		- Overview
       		* Design Goals

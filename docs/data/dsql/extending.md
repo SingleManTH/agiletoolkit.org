@@ -4,6 +4,8 @@
 
 In this section you will learn how to extend DSQL with sytax for new commands and support for new databases.
 
+## TODO: need some explanation of the important properties
+
 ## The DSQL Class Structure
 
 To customise the SQL generated for each database, DSQL uses database-specific classes that extend the base class `DB_dsql`:
@@ -65,5 +67,5 @@ If you want to customise `DB_dsql` methods for a specific RDBMS, you can simply 
 As a final example, let's create a method for the `sum()` function:
 
     function sum($expr, $alias){
-        return $this->field($this->expr('sum('. $expr.')'),$alias);
+        return $this->field($this->expr('sum('. $expr.')'), $alias);
     }
