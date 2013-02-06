@@ -1,1 +1,1 @@
-../../../atk4/templates/shared/css/ie8.js
+../../../vendor/atk4/atk4/templates/shared/css/ie8.js
