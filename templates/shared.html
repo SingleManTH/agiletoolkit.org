@@ -32,15 +32,15 @@
         <![endif]-->
         <div class="baseline"><a href="#">Show Grid</a></div>
         <header class="global-header">
-        	<div class="atk-wrapper">
-	        	<nav>
-	        		<ul>
-	        			<li><?logo?><div id="atk-logo" class="ui-widget-header float-left"><a href="<?page?>index<?/?>"><img src="<?template?>images/logo.png<?/?>" /></a></div><?/logo?></li>
-						<?Menu?>
-					    <li class="ui-state-default"><a href="javascript:void(0)">Menu is not defined</a></li>
-						<?/?>
-	        		</ul>
-	        	</nav>
+        	<div class="atk-wrapper atk-row">
+        		<div class="span2">
+					<?logo?><a href="<?page?>index<?/?>" class="logo"><img src="/agiletoolkit.org/public/images/logo.png" /></a><?/logo?>
+        		</div>
+        		<nav class="span9 offset1">
+					<?Menu?>
+				    <li class="ui-state-default"><a href="javascript:void(0)">Menu is not defined</a></li>
+					<?/?>
+        		</nav>
         	</div>
         </header>
         <div class="global-content">

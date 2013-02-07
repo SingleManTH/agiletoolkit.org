@@ -8,9 +8,9 @@
 	Settings
     http://agiletoolkit.org/doc/css
 ============================================== */
-@gridColumns:       12;			// Column count
-@gridColumnWidth:   40px;			// Column width
-@gridGutterWidth:   @lineHeight*2;		// Gutter width
+@gridColumns:       12;					// Column count
+@gridColumnWidth:   3%;					// Column width
+@gridGutterWidth:   5.8%;				// Gutter width
 @margin:			@lineHeight;		// Global margin
 @padding:			@lineHeight;		// Global padding
 @label:				7em;		// Label width for form/dl
@@ -28,11 +28,11 @@
 @error:				#e51717;	// Error
 @white:				#fff;		// White color
 @black:				#000;		// Black color
-@lightGray:			lighten(@black,60%);							// Used for comments
+@lineHeight:		24px;						// Global line height
+@lightGray:			lighten(@black,60%);		// Used for comments
+@fontSize:			16px;						// Global font size
+@fontColor:			lighten(@black,20%);		// Global font color
 @fontFamily:		"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;		// Global font family
-@fontSize:			16px;											// Global font size
-@fontColor:			lighten(@black,20%);							// Global font color
-@lineHeight:		24px;										// Global line height
 
 
 /* ==============================================
@@ -121,16 +121,55 @@ blockquote {
 	p {font-size:90%;margin-bottom:0;}
 	cite {font-style:italic;font-size:80%;}
 }
+small, .small {font-size:0.9em;}
 big, .big {font-size:1.2em;}
 
 
 /* ==============================================
 	Styling
 ============================================== */
+a {text-decoration:none;}
 .lead {color:#7a8299;.big;}
+
+.bg-deepblue {background:#242833;}
 
 
 /* ==============================================
 	Elements
 ============================================== */
 .atk-box {margin:@margin 0;}
+
+
+/* ==============================================
+	Global
+============================================== */
+.global-header, .global-footer {.bg-deepblue;}
+.global-header {
+	.atk-wrapper {
+		padding-top:@padding;
+		padding-bottom:@padding;
+		position:relative;
+		a {.transition(.3s);}
+		.logo {
+			height:1px;
+			display:block;
+			.position(@p:relative,@t:-8px);
+			.opacity(90);
+			&:hover {.opacity(100);}
+		}
+		nav {
+			.ubuntu;.big;
+			ul, ul li {display:inline;}
+			ul {
+				li {
+					margin-left:@margin;
+					a {
+						color:fadeout(@white,50%);
+						&:hover {color:fadeout(@white,0%);}
+					}
+					&:first-child {margin-left:0;}
+				}
+			}
+		}
+	}
+}

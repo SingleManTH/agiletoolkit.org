@@ -289,9 +289,8 @@ table {border-collapse:collapse;border-spacing:0;}
 .layout() when(ispercentage(@gridColumnWidth)) {
 	.atk-wrapper {.box-sizing();min-width:@siteWidth;padding-left:@gridGutterWidth;padding-right:@gridGutterWidth;}
 }
-.layout() {
-	.layout();
-}
+.layout() {}
+.layout();
 
 .footerSticky() when (@footerSticky = true) {
 	html {height:100%;}

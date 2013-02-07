@@ -341,134 +341,143 @@ table {
 .atk-row > form > [class*="span"] > [class*="span"] {
   display: inline;
   float: left;
-  margin-left: 48px;
+  margin-left: 5.8%;
 }
 /* Default columns */
 .span1 {
-  width: 40px;
+  width: 3%;
 }
 .span2 {
-  width: 128px;
+  width: 11.8%;
 }
 .span3 {
-  width: 216px;
+  width: 20.6%;
 }
 .span4 {
-  width: 304px;
+  width: 29.4%;
 }
 .span5 {
-  width: 392px;
+  width: 38.2%;
 }
 .span6 {
-  width: 480px;
+  width: 47%;
 }
 .span7 {
-  width: 568px;
+  width: 55.8%;
 }
 .span8 {
-  width: 656px;
+  width: 64.6%;
 }
 .span9 {
-  width: 744px;
+  width: 73.4%;
 }
 .span10 {
-  width: 832px;
+  width: 82.19999999999999%;
 }
 .span11 {
-  width: 920px;
+  width: 91%;
 }
 .span12 {
-  width: 1008px;
+  width: 99.8%;
 }
 .span13 {
-  width: 1096px;
+  width: 108.6%;
 }
 .span14 {
-  width: 1184px;
+  width: 117.39999999999999%;
 }
 .span15 {
-  width: 1272px;
+  width: 126.2%;
 }
 .span16 {
-  width: 1360px;
+  width: 135%;
 }
 /* For optional 24-column grid */
 .span17 {
-  width: 1448px;
+  width: 143.8%;
 }
 .span18 {
-  width: 1536px;
+  width: 152.6%;
 }
 .span19 {
-  width: 1624px;
+  width: 161.39999999999998%;
 }
 .span20 {
-  width: 1712px;
+  width: 170.2%;
 }
 .span21 {
-  width: 1800px;
+  width: 179%;
 }
 .span22 {
-  width: 1888px;
+  width: 187.8%;
 }
 .span23 {
-  width: 1976px;
+  width: 196.6%;
 }
 .span24 {
-  width: 2064px;
+  width: 205.4%;
 }
 /* Offset column options */
 .row > .offset1,
 .atk-row > .offset1 {
-  margin-left: 136px;
+  margin-left: 14.6%;
 }
 .row > .offset2,
 .atk-row > .offset2 {
-  margin-left: 224px;
+  margin-left: 23.4%;
 }
 .row > .offset3,
 .atk-row > .offset3 {
-  margin-left: 312px;
+  margin-left: 32.2%;
 }
 .row > .offset4,
 .atk-row > .offset4 {
-  margin-left: 400px;
+  margin-left: 41%;
 }
 .row > .offset5,
 .atk-row > .offset5 {
-  margin-left: 488px;
+  margin-left: 49.800000000000004%;
 }
 .row > .offset6,
 .atk-row > .offset6 {
-  margin-left: 576px;
+  margin-left: 58.6%;
 }
 .row > .offset7,
 .atk-row > .offset7 {
-  margin-left: 664px;
+  margin-left: 67.39999999999999%;
 }
 .row > .offset8,
 .atk-row > .offset8 {
-  margin-left: 752px;
+  margin-left: 76.19999999999999%;
 }
 .row > .offset9,
 .atk-row > .offset9 {
-  margin-left: 840px;
+  margin-left: 85%;
 }
 .row > .offset10,
 .atk-row > .offset10 {
-  margin-left: 928px;
+  margin-left: 93.79999999999998%;
 }
 .row > .offset11,
 .atk-row > .offset11 {
-  margin-left: 1016px;
+  margin-left: 102.6%;
 }
 .row > .offset12,
 .atk-row > .offset12 {
-  margin-left: 1104px;
+  margin-left: 111.39999999999999%;
 }
 /* ==============================================
 	Features
 ============================================== */
+.atk-wrapper {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  min-width: 99.8%;
+  padding-left: 5.8%;
+  padding-right: 5.8%;
+}
 html {
   height: 100%;
 }
@@ -1008,7 +1017,7 @@ textarea:focus {
 	Various ATK Objects
 ============================================== */
 .atk-wrapper {
-  width: 1008px;
+  width: 99.8%;
   margin-left: auto;
   margin-right: auto;
   zoom: 1;
@@ -1566,6 +1575,10 @@ blockquote cite {
   font-style: italic;
   font-size: 80%;
 }
+small,
+.small {
+  font-size: 0.9em;
+}
 big,
 .big {
   font-size: 1.2em;
@@ -1573,14 +1586,81 @@ big,
 /* ==============================================
 	Styling
 ============================================== */
+a {
+  text-decoration: none;
+}
 .lead {
   color: #7a8299;
   font-size: 1.25em;
   font-size: 1.2em;
+}
+.bg-deepblue {
+  background: #242833;
 }
 /* ==============================================
 	Elements
 ============================================== */
 .atk-box {
   margin: 24px 0;
+}
+/* ==============================================
+	Global
+============================================== */
+.global-header,
+.global-footer {
+  background: #242833;
+}
+.global-header .atk-wrapper {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  position: relative;
+}
+.global-header .atk-wrapper a {
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.global-header .atk-wrapper .logo {
+  height: 1px;
+  display: block;
+  position: relative;
+  top: -8px;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  z-index: auto;
+  filter: alpha(opacity=90);
+  -khtml-opacity: 0.9;
+  -moz-opacity: 0.9;
+  opacity: 0.9;
+}
+.global-header .atk-wrapper .logo:hover {
+  filter: alpha(opacity=100);
+  -khtml-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+}
+.global-header .atk-wrapper nav {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 300;
+  font-size: 1.25em;
+  font-size: 1.2em;
+}
+.global-header .atk-wrapper nav ul,
+.global-header .atk-wrapper nav ul li {
+  display: inline;
+}
+.global-header .atk-wrapper nav ul li {
+  margin-left: 24px;
+}
+.global-header .atk-wrapper nav ul li a {
+  color: rgba(255, 255, 255, 0.5);
+}
+.global-header .atk-wrapper nav ul li a:hover {
+  color: #ffffff;
+}
+.global-header .atk-wrapper nav ul li:first-child {
+  margin-left: 0;
 }
