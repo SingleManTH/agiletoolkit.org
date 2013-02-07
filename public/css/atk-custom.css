@@ -1475,19 +1475,6 @@ input.ui-button,
   background: #e5ffd9;
   color: #7a996b;
 }
-.global-header,
-.global-footer {
-  background: #000;
-  color: #fff;
-}
-.global-content {
-  background: #fff;
-  padding: 48px 0;
-}
-.global-header,
-.global-footer {
-  padding: 24px 0;
-}
 /* ==============================================
 	Typography
 ============================================== */
@@ -1609,8 +1596,8 @@ body,
   background: #242833;
 }
 .global-header .atk-wrapper {
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 48px;
+  padding-bottom: 48px;
   position: relative;
 }
 .global-header .atk-wrapper a {
@@ -1665,4 +1652,12 @@ body,
 .global-header .atk-wrapper nav ul li.current a {
   color: #ffffff;
   cursor: default;
+}
+.global-content {
+  background: #fff;
+  padding: 48px 0;
+}
+.global-footer {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 24px 0;
 }
