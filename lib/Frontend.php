@@ -8,6 +8,7 @@ class Frontend extends ApiFrontend {
     function addSharedLocations(){
         $parent_directory=dirname(dirname(@$_SERVER['SCRIPT_FILENAME']));
         $this->private_location = $this->pathfinder->addLocation('my-private',array(
+            'docs'=>'docs',
             'php'=>'lib',
             'page'=>'page',
             'addons'=>'atk4-addons',

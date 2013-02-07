@@ -1,5 +1,6 @@
 {
     "require": {
-        "atk4/atk4": "dev-master"
+        "atk4/atk4": "dev-master",
+        "dflydev/markdown": "dev-master"
     }
 }
