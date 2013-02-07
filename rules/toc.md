@@ -245,11 +245,20 @@ The TOC
       	- Addon Directories
       	- Application Directories
     + The Object Structure
-      ((This is where we go into detail about features))
-      - AbstractObject
-      - AbstractView
-      - AbstractModel
-      - AbstractController
+        - Overview
+        - AbstractObject
+        - AbstractView
+        - AbstractModel
+        - AbstractController
+    + Working With Framework Objects
+        - Adding
+        - Cloning
+        - Initializing
+        - Naming
+        - Addons & Namespaces
+    + Application Structure
+        - APIs
+        - Object Tree
 	+ Application APIs
     	- API Overview
 			* What Is An Agile Toolkit API?
