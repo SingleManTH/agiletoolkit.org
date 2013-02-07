@@ -2,4 +2,4 @@
 
 ## Image test
 
-![Testing](dia-abstract-object.php)
+![Testing](dia-abstract-object.png)
