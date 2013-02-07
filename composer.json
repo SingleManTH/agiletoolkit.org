@@ -1,6 +1,7 @@
 {
     "require": {
         "atk4/atk4": "dev-master",
+        "romaninsh/documenting": "dev-master",
         "dflydev/markdown": "dev-master"
     }
 }

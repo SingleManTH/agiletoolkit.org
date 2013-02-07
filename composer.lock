@@ -1,5 +1,5 @@
 {
-    "hash": "eda83f44fa4f058fefa4a4344abbd8d1",
+    "hash": "ac63241a28c4bb5b61393a971fd9abcc",
     "packages": [
         {
             "name": "atk4/atk4",
@@ -90,6 +90,47 @@
             "keywords": [
                 "markdown"
             ]
+        },
+        {
+            "name": "romaninsh/documenting",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/romaninsh/documenting",
+                "reference": "9dd6967b984c7f28ba30c5d798890f692fecddf8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/romaninsh/documenting/zipball/9dd6967b984c7f28ba30c5d798890f692fecddf8",
+                "reference": "9dd6967b984c7f28ba30c5d798890f692fecddf8",
+                "shasum": ""
+            },
+            "require": {
+                "atk4/atk4": ">=4.2",
+                "php": ">=5.3"
+            },
+            "time": "2013-02-07 00:52:02",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "romaninsh\\documenting": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Romans Malinovskis",
+                    "email": "romans@agiletoolkit.org"
+                }
+            ],
+            "description": "Documenting tools for Agile Toolkit",
+            "homepage": "http://github.com/romaninsh/documenting",
+            "keywords": [
+                "atk4"
+            ]
         }
     ],
     "packages-dev": null,
@@ -99,6 +140,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "atk4/atk4": 20,
+        "romaninsh/documenting": 20,
         "dflydev/markdown": 20
     }
 }

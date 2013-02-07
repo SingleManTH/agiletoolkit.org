@@ -44,3 +44,25 @@ I like the following things:
 1. List
 1. Also
 1. Works
+
+
+Quotes
+----
+
+I said, what is this?
+> the man replied, this is the Matrix
+> why don't you plug-in
+> > No thanks, I told him
+> > No thanks, I told him
+> > No thanks, I told him
+
+Code Samples:
+----
+This is a paragraph introducing code blocks:
+
+<?Example?>
+$hello = $page->add('HelloWorld');
+$hello = $page->add('HelloWorld');
+$hello = $page->add('HelloWorld');
+<?/?>
+

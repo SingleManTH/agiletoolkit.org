@@ -11,7 +11,7 @@ class Frontend extends ApiFrontend {
             'docs'=>'docs',
             'php'=>'lib',
             'page'=>'page',
-            'addons'=>'atk4-addons',
+            'addons'=>array('atk4-addons','vendor'),
             'template'=>'templates',
         ))->setBasePath($parent_directory)
         ;
