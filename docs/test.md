@@ -2,7 +2,7 @@ Welcome to Markdown test
 ====
 This page is designed to test the capabilities of markdown parser.
 
-Introduciton {#intro}
+Introduction {#intro}
 ----
 This is a sample section, however it should be using anchor `intro`
 
@@ -13,6 +13,20 @@ This is *true* markdown text.
 Code Highlighting {#code}
 ----
 Inline code highlighting: `$this->add('AgileToolkit');`
+
+Code highlighting by indent:
+
+    function foo(){
+        do_something();
+    }
+
+Code highlighting by github ticks:
+
+```
+function bar(){
+    do_something_else();
+}
+```
 
 Some text might be *italic* or **bold**
 
@@ -38,7 +52,7 @@ I like the following things:
 - money
   - dollars
   - euros  
-  - sterrling
+  - sterling
 
 1. Numbered
 1. List
