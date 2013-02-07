@@ -1418,9 +1418,6 @@ input.ui-button,
 /* ==============================================
 	Temp
 ============================================== */
-body {
-  background: #000;
-}
 .baseline {
   width: 100%;
   height: 100%;
@@ -1606,6 +1603,7 @@ a {
 /* ==============================================
 	Global
 ============================================== */
+body,
 .global-header,
 .global-footer {
   background: #242833;
@@ -1663,4 +1661,8 @@ a {
 }
 .global-header .atk-wrapper nav ul li:first-child {
   margin-left: 0;
+}
+.global-header .atk-wrapper nav ul li.current a {
+  color: #ffffff;
+  cursor: default;
 }
