@@ -13,7 +13,7 @@ Agile Toolkit executes all of its queries through DSQL. To SQL veterans this may
 * Query-related information can be passed between objects
 * DSQL query objects can be modified much more easily and safely than SQL strings
 * DSQL can optimise the SQL generated for each supported RDBMS
-* You virtually eliminate the danger of SQL injection exploits.
+* You greatly reduce the danger of SQL injection exploits.
 
 ## Features
 
@@ -31,17 +31,15 @@ Or if you prefer, DSQL will also give you access to most of the vendor-specific 
 
 Unlike most query builders DSQL allows you to add or remove any element of your query at any time, including fields, joins, conditions and parametric variables. You can even change the query type &ndash; from SELECT to DELETE for example. After you execute the query you can still reconfigure and reuse the object.
 
-This is important when you need to pass query information between Models or even allow a Controller or Addon to interact with a query. Queries can be copied, adapted and extended. And multiple queries can exist and execute without affecting each other.
+This is important when you need to pass query information between Models or even allow a Controller or Addon to interact with a query. Queries can be copied, adapted and extended. And multiple queries can coexist and execute without affecting each other.
 
 ### Use a DSQL object as a subquery
 
 Another cool feature is the ability to use existing query objects within a DSQL query while dynamically preserving the existing object's parametric variables. This is typically used for subqueries.
 
-With ability to recursively merge parametric variables without your assistance allows you to never again worry about re-using same sub-query several times and running a risk of encountering conflicts between parameters.
+### Greatly reduce the danger of SQL injection
 
-### Virtually eliminate the danger of SQL injection
-
-While all modern ORMS and Query Builders offer a mechanism for safely quoting untrusted input it's often rather tedious to use.
+While all modern ORMS and Query Builders offer a mechanism for parametizing untrusted input it's often rather tedious to use.
 
 PDO Example:
 	
@@ -55,13 +53,13 @@ DSQL Example:
 
 	$name = $dsql->table('user')->field('name')->where('id', $id)->getOne();
 
-Though it's important to remember that you may still be vulnerable to vendor-specific buffer overflow and stored procedure exploits. So it's always prudent to validate untrusted data, and you should cast arguments to the correct type:
+Though it's important to remember that you may still be vulnerable to vendor-specific buffer overflow and stored procedure exploits. So it's always prudent to validate untrusted data, and to cast your arguments to the correct type:
 
 	$name = $dsql->table('user')->field('name')->where('id', (int)$_GET['id'])->getOne();
 
 ### Enjoy the benefits without performance issues
 
-DSQL is lean and fast. It adds a minor overhead when building the query, but it creates no overheads when executing the query and fetching data. You will rarely, if ever, encounter a use-case where you need to use raw SQL for performance reasons.
+DSQL is lean and fast. It adds a minor overhead when building the query, but creates no overheads when executing the query and fetching data. You will rarely, if ever, encounter a use-case where you need to use raw SQL for performance reasons.
 
 ## Code Example
 
@@ -81,21 +79,11 @@ Unlike most Query Builders, the DSQL object stores your query properties and onl
 
   'select'=>"select [options] [field] [from] [table] [join] [where] [group] [having] [order] [limit]"
 
-There are several pre-defined templates and you can always add your own. This is how DSQL achieves its flexibility.
+There are several pre-defined templates and you can easily add your own. This is how DSQL achieves its flexibility.
 
 ## Uses
 
-Regardless of how tempting DSQL is, as a developer you should not use it for queries. This is low-level layer used by [relational models](/data/relational/overview) and you should use them instead if possible. Here is example of BAD code:
-
-    $name = $dsql->table('user')->field('name')->where('id',(int)$_GET['id'])->getOne();
-
-GOOD Code:
-
-    $name = $this->add('Model_User')->loadBy((int)$_GET['id'])->get('name');
-
-In both cases, the result is one query, so as far as performance is concerned, there are almost no benefit in using DSQL where you can use Model.
-
-In Agile Toolkit, interaction with relational databases is managed through [Relational Models](/data/relational/overview). DSQL is primarily a low-level layer used by the Model class to generate queries using its own convenient and object-oriented query syntax. Models will cover most of your query needs, and whenever possible you should use this Model syntax rather than accessing DSQL directly. 
+In Agile Toolkit, you build your relational Models with the [Agile ORM](/docs/data/agile-orm/overview). DSQL is primarily a low-level layer used by the ORM to generate SQL using its own convenient and object-oriented query syntax. Agile Models will cover most of your query needs, and whenever possible you should use this Model syntax rather than accessing DSQL directly. 
 
 	// BAD code:
 
@@ -107,7 +95,7 @@ In Agile Toolkit, interaction with relational databases is managed through [Rela
 
 In both cases the result is one query, so there is almost no performance benefit to using DSQL.
 
-You would only use DSQL directly when:
+You only use DSQL directly for all or part of a query when:
 
-* You require SQL features that can't be accessed through the Model query syntax
-* You are extending the Model class to add new features.
+* You require SQL features that can't be accessed through the Model query syntax, such as expressions
+* You are extending the ORM Model classes to add new features.
