@@ -75,9 +75,10 @@ Code Samples:
 This is a paragraph introducing code blocks:
 
 <?Example?>
-$hello = $page->add('HelloWorld');
-$hello = $page->add('HelloWorld');
-$hello = $page->add('HelloWorld');
+$form=$page->add('Form');
+$form->addField('line','name');
+$form->addField('line','surname');
+$form->addSubmit();
 <?/?>
 
 Table test
