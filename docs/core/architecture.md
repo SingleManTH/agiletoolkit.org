@@ -35,11 +35,13 @@ As the name implies, Agile Toolkit was developed as a working tool, not as an ex
 * Configuration files are plain old PHP hashes, so if you want complex conditional configurations just pop in some code.
 * Namespacing isn't used within the core code. It's never caused any practical problems and we avoid tedium like this:
 
+```
     namespace Acme\TaskBundle\Controller;
 
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
     use Acme\TaskBundle\Entity\Task;
     use Symfony\Component\HttpFoundation\Request;
+```
 
 * We use good old $\_GET and $\_POST rather than some kind of complex request object
 
