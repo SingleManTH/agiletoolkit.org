@@ -102,32 +102,11 @@ Agile Toolkit Documentation: Table of Contents
     + Agile Toolkit Cheat Sheet
     + Coding Standards
 
+
 * Working With The Core
 
-    + Overview
+    + Understanding the Architecture
 
-	+ Design Principles
-		- Lessons From Desktop GUI Frameworks
-    	- Simplicity: The Pragmatic Principle
-		- Clarity: The Opinionated Structure Principle
-      	- Lean Code: The 80/20 Principle
-			* Tight Core
-			* Rich Ecosystem
-      	- Plugability: The Independence Principle
-      	- Extensibility: The Object Principle
-	
-	+ Architecture
-		- The Object Tree
-			* Goals
-			* Implementation
-		- The Application Object
-		- The Page Object
-		- The View Object
-		- The Model Object
-		- The Controller Object
-		- How The Objects Collaborate
-		- Walking Through An HTTP Request
-		
     + Working With Framework Objects
         - The Class Hierarchy
         - Application Structure
@@ -358,7 +337,7 @@ Agile Toolkit Documentation: Table of Contents
     	- Validating Inputs
 		- Displaying Error Messages
 
-* Working With Javascript
+* Working With jQuery
 
 	+ The JavaScript API
     	- Overview of JavaScript and AJAX
