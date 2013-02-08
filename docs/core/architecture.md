@@ -35,13 +35,16 @@ As the name implies, Agile Toolkit was developed as a working tool, not as an ex
 * Configuration files are plain old PHP hashes, so if you want complex conditional configurations just pop in some code.
 * Namespacing isn't used within the core code. It's never caused any practical problems and we avoid tedium like this:
 
+```
     namespace Acme\TaskBundle\Controller;
 
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
     use Acme\TaskBundle\Entity\Task;
     use Symfony\Component\HttpFoundation\Request;
 
-* We use good old $\_GET and $\_POST rather than some kind of complex request object
+```
+
+* We use good old $\_GET and $\_POST rather than some kind of complex request object.
 
 You'll find this kind of pragmatic thinking throughout the code base. It helps to keep the code tight and the learning curve low.
 
@@ -60,7 +63,7 @@ We've used innovative techniques to ensure that your Model and View objects can 
 
 ## The Agile Toolkit Approach To MVC
 
-Agile Toolkit takes a highly opinionated approach to MVC, building it into the object structure of the framework. Every line of code you write (excluding Exceptions) is descended from an `AbstractModel` class, an `AbstractView class`, or an `AbstractController` class. So everything in your application is either a Model, a View or a Controller. 
+Agile Toolkit takes a highly opinionated approach to MVC, building it into the object structure of the framework. Every line of code you write (excluding Exceptions) is descended from an `AbstractModel` class, an `AbstractView` class, or an `AbstractController` class. So everything in your application is either a Model, a View or a Controller. 
 
 Each of these components has a well-defined role, so in Agile Toolkit it's normally clear what should go where. This helps when working with teams or sharing code with the community.
 
@@ -116,3 +119,11 @@ Controller can be thought of as similar to the Traits feature introduced in PHP 
 ### Do you find yourself sceptical of this approach?
 
 MVC is a loosely defined pattern, and many developers have become comfortable with their own interpretation. Sometimes newcomers to the Toolkit get stuck trying to square this approach with their own theoretical views on MVC. We urge you not to overthink the issue till you've had some hands-on experience of the practical advantages when working with complex interfaces. The approach evolved over a decade of corporate consulting and has proved effective for both the development and the maintenance of challenging Agile projects. 
+
+## How The MVC Components Collaborate
+
+### The application object
+
+### The runtime object tree
+
+## HTTP Request Walkthough
