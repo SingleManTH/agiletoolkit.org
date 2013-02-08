@@ -43,8 +43,6 @@ As the name implies, Agile Toolkit was developed as a working tool, not as an ex
     use Symfony\Component\HttpFoundation\Request;
 ```
 
-```
-
 * We use good old $\_GET and $\_POST rather than some kind of complex request object.
 
 You'll find this kind of pragmatic thinking throughout the code base. It helps to keep the code tight and the learning curve low.
