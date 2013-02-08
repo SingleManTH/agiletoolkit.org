@@ -58,3 +58,11 @@ I like the following things:
 1. List
 1. Also
 1. Works
+
+Table test
+----
+
+| Function name | Description                    |
+| ------------- | ------------------------------ |
+| `help()`      | Things aren't going so well    |
+| `destroy()`   | **Destroy your computer!**     |
