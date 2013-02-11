@@ -8,11 +8,15 @@ In this article we explain the high-level design priorities and concepts as a fo
 
 ## What Problem Is Agile Toolkit Designed To Solve?
 
-Agile Toolkit was developed in response to the increasingly complexity of web interfaces, particularly with data-intensive web applications. These days developers can find themselves juggling with HTML5, CSS3, jQuery, jQuery UI, AJAX, PHP, SQL and all the interactions between them. It's tough to write agile and testable applications. 
+Agile Toolkit was developed in response to the increasingly complexity of web interfaces, particularly with data-intensive web applications. These days developers can find themselves juggling with HTML5, CSS3, jQuery and jQuery UI on the client side, PHP and SQL on the server side, and all the AJAX interactions that tie them together. It's tough to write agile and testable applications. 
 
-The aim of Agile Toolkit is to greatly reduce this complexity by wrapping SQL, AJAX, jQuery, jQuery UI, CSS3 and HTML5 behind a clean, object-oriented PHP API. Inspired by Object Oriented GUI Frameworks such as NeXTSTEP and Cocoa, the Toolkit enables you to craft reliable, flexible, reusable data and GUI components quickly and easily in PHP, snapping them together to create powerful custom applications.
+The aim of Agile Toolkit is to greatly reduce this complexity by wrapping SQL, AJAX, jQuery, jQuery UI, CSS3 and HTML5 behind a clean, object-oriented PHP API. 
 
-To give you a taste of the benefits of this approach, here is a complete [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) system for managing a user table. If offers: an attractive, themable gui; a search feature; column sorting; paging; validated entry forms; user error messages; [XSS](http://en.wikipedia.org/wiki/Cross_site_scripting) protection; SQL injection protection; error logging and more:
+TODO: diagram
+
+Inspired by Object Oriented GUI Frameworks such as NeXTSTEP and Cocoa, the Toolkit enables you to craft reliable, flexible data and GUI components quickly and easily in PHP, snapping them together to create powerful custom applications.
+
+To give you a taste of the benefits of this approach, here is a complete [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) system for managing a user table. If offers: an attractive, themeable gui; a search feature; column sorting; paging; validated entry forms; user error messages; [XSS](http://en.wikipedia.org/wiki/Cross_site_scripting) protection; SQL injection protection; error logging and more:
 
     TODO
 
@@ -26,11 +30,11 @@ if($crud->grid)
 
 ## Design Principles
 
-Before we discuss the specific architecture, here are some important princples you'll see applied throught the framework.
+Before we discuss the specific architecture, here are some important princples you'll see applied throughout the framework.
 
 ### The Simplicity Principle
 
-As the name implies, Agile Toolkit was developed as a working tool, not as an exercise in academic purity. We always try to use the simplest possible approach &ndash; for example:
+As the name implies, Agile Toolkit was developed as a working tool, not as an exercise in academic purity, and we always try to use the simplest possible approach. For example:
 
 * Configuration files are plain old PHP hashes, so if you want complex conditional configurations just pop in some code.
 * Namespacing isn't used within the core code. It's never caused any practical problems and we avoid tedium like this:
@@ -53,7 +57,11 @@ We've been careful not to bloat the core with functionality that's rarely useful
 
 ### The Composability Principle
 
-As you'll see, we've gone to great lengths to ensure that data components and UI components can snap together without problems with name-clashes or data corruption. This makes it easy to compose complex components out of simple and reliable building-blocks.
+In Agile Toolkit you can build complex Views from smaller View components, complex Models from smaller Model components, and even enhance your SQL queries with smaller 
+
+As you'll see, we've gone to great lengths to ensure that data components and UI components can snap together without problems with name-clashes or data corruption. Objects
+
+This makes it easy to compose complex components out of simple and reliable building-blocks.
 
 ### The Extensibility Principle
 
@@ -70,13 +78,13 @@ But it's important to note that the division of labor between these components i
 
 ### What is a Model in Agile Toolkit?
 
-In Agile Toolkit, a Model encapsulates the data associated with an Entity and the business logic that is specific to that entity. 
+In Agile Toolkit, a Model encapsulates the data associated with an Entity and the business logic that is specific to that entity. Models also handle data persistence.
 
-Models can be composed from other Models. For example, you can create a Model for an entity such as `price` or `date` and reuse it in other Models.
+Models can be composed from other Models. For example, you can create a Model for a type of `price` or `date` and reuse it in other Models.
 
-If you're using an RDBMS, you can build your Models with [Agile ORM](/TODO), an [Object-Relational Mapper](http://en.wikipedia.org/wiki/Object-relational_mapping) offering and innovative blend of simplicity, flexibilty and performance. And [support for NoSQL](/TODO) is available too.
+If you're using a relational database, you can build your Models with [Agile ORM](/TODO), an [Object-Relational Mapper](http://en.wikipedia.org/wiki/Object-relational_mapping) offering and innovative blend of simplicity, flexibilty and performance. And [support for NoSQL](/TODO) is available too.
 
-Agile ORM Models can be easily extended to deal with a range of use-cases without breaking or cluttering your existing code. For example a `user` Model could be extended into an `active_user` Model and a `superuser` model, each performing different actions on a different set of fields. 
+Agile ORM Models can be easily extended to deal with a range of use-cases without breaking or cluttering your existing code. For example a `user` Model could be extended into an `active_user` Model and a `superuser` Model, each performing different actions on a different set of fields. 
 
 The combination of Model composition, Model extension, and the ability to embed reusable business logic into Models (as explained below) helps ensure that your Models will remain lean, agile and reliable.
 
@@ -92,9 +100,9 @@ By contrast, in Agile Toolkit a View is any component that generates output in H
 
 Agile Toolkit Views offer some pretty neat features to make this process as simple, fast and reliable as possible:
 
-* Views are independent of each other and can be plugged together without any problems with name clashes or data corruption
+* Views are independent of each other and can be plugged together freely
 * Complex trees of Views are rendered automatically
-* View components are easy to extend and customise
+* View components are easy to extend and customize
 * Views can manipulate jQuery and jQuery UI programically through PHP
 * The built-in View components automate issues such as AJAX event handling, XSS avoidance and user error messages
 * Views are styled with a Bootstrap-like CSS framework that's easy to skin or adapt.
@@ -105,9 +113,9 @@ The Toolkit ships with a powerful collection of customizable View components, an
 
 ### What is a Controller in Agile Toolkit?
 
-In Agile Toolkit, **Controllers do not coordinate the response to HTTP requests** &ndash; this would normally be handled by Pages. Instead, Controllers encapsulate reusable services or business logic that can be embedded into multiple Models or Views. These can be:
+In Agile Toolkit **Controllers do not coordinate the response to HTTP requests** &ndash; this would normally be handled by Pages. Instead, Controllers encapsulate reusable services or business logic that can be embedded into multiple Models or Views. These can be:
 
-* **Business logic**, such as shipping calculators or discount calculators
+* **Business logic**, such as shipping calculators or staff-bonus calculators
 * **Wrappers** for external APIs such as email broadcasting, social networks or payment gateways
 * **Service Classes** for coordinating complex activities between multiple Models
 * **Utility Classes**, such as loggers or libraries for string, date and array manipulation.

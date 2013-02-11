@@ -102,10 +102,14 @@ Agile Toolkit Documentation: Table of Contents
     + Agile Toolkit Cheat Sheet
     + Coding Standards
 
+* Architecture & Design
+
+    + Distinctive Design Goals
+    + A New Approach To MVC
+    + The Runtime Object Tree
+    + Anatomy Of A Request
 
 * Working With The Core
-
-    + Understanding the Architecture
 
     + Working With Framework Objects
         - The Class Hierarchy

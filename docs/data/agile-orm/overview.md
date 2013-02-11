@@ -10,7 +10,7 @@ Agile ORM is an [Object-Relational Mapper](http://en.wikipedia.org/wiki/Object-r
 
 ### The full expressiveness of SQL
 
-Based on [DSQL](/docs/data/dsql/overview), Agile ORM models offer an object oriented alternative to SQL that enables you to access the full power of your RDBMS.
+Based on [DSQL](/docs/data/dsql/overview), Agile ORM models offer an object-oriented alternative to SQL that enables you to access the full power of your RDBMS.
 
 ### Abstraction from the data structure
 

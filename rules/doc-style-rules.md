@@ -24,6 +24,7 @@ This doc will evolve ad-hoc as use-cases come up.
 * Use 'method' for a function within a class (See PHP docs).
 * Use 'property' for a class-scope variable
 * Use 'variable' for a method-scope variable
+* Use 'object-oriented', not 'Object-Oriented' or 'object oriented'
 
 ### Links
 
