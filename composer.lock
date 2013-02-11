@@ -1,5 +1,5 @@
 {
-    "hash": "ac63241a28c4bb5b61393a971fd9abcc",
+    "hash": "df5a19a972c7558d52dd263e6abf1088",
     "packages": [
         {
             "name": "atk4/atk4",
@@ -11,11 +11,11 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "http://agiletoolkit.org/distfiles/agiletoolkit-4.2.3.zip",
+                "url": "http://agiletoolkit.org/distfiles/agiletoolkit-4.2.4.zip",
                 "reference": null,
                 "shasum": null
             },
-            "time": "2013-02-06 19:47:47",
+            "time": "2013-02-11 03:16:38",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -92,24 +92,253 @@
             ]
         },
         {
+            "name": "opauth/facebook",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/uzyn/opauth-facebook.git",
+                "reference": "0.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/uzyn/opauth-facebook/zipball/0.2.1",
+                "reference": "0.2.1",
+                "shasum": ""
+            },
+            "require": {
+                "opauth/opauth": ">=0.2.0",
+                "php": ">=5.2.0"
+            },
+            "time": "2012-09-20 21:47:35",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "U-Zyn Chua",
+                    "email": "chua@uzyn.com",
+                    "homepage": "http://uzyn.com"
+                }
+            ],
+            "description": "Facebook strategy for Opauth",
+            "homepage": "http://opauth.org",
+            "keywords": [
+                "Authentication",
+                "auth",
+                "facebook"
+            ]
+        },
+        {
+            "name": "opauth/github",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/uzyn/opauth-github",
+                "reference": "0.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/uzyn/opauth-github/zipball/0.1.0",
+                "reference": "0.1.0",
+                "shasum": ""
+            },
+            "require": {
+                "opauth/opauth": ">=0.4.0",
+                "php": ">=5.2.0"
+            },
+            "time": "2012-07-22 23:13:59",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "U-Zyn Chua",
+                    "email": "chua@uzyn.com",
+                    "homepage": "http://uzyn.com"
+                }
+            ],
+            "description": "GitHub authentication strategy for Opauth",
+            "homepage": "http://opauth.org",
+            "keywords": [
+                "Authentication",
+                "auth",
+                "github"
+            ]
+        },
+        {
+            "name": "opauth/google",
+            "version": "0.2.2",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/uzyn/opauth-google.git",
+                "reference": "0.2.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/uzyn/opauth-google/zipball/0.2.2",
+                "reference": "0.2.2",
+                "shasum": ""
+            },
+            "require": {
+                "opauth/opauth": ">=0.2.0",
+                "php": ">=5.2.0"
+            },
+            "time": "2012-10-18 07:39:52",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "U-Zyn Chua",
+                    "email": "chua@uzyn.com",
+                    "homepage": "http://uzyn.com"
+                }
+            ],
+            "description": "Google strategy for Opauth",
+            "homepage": "http://opauth.org",
+            "keywords": [
+                "Authentication",
+                "auth",
+                "google"
+            ]
+        },
+        {
+            "name": "opauth/opauth",
+            "version": "0.4.3",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/uzyn/opauth.git",
+                "reference": "0.4.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/uzyn/opauth/archive/0.4.3.zip",
+                "reference": "0.4.3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "suggest": {
+                "opauth/facebook": "Allows Facebook authentication",
+                "opauth/google": "Allows Google authentication",
+                "opauth/twitter": "Allows Twitter authentication"
+            },
+            "time": "2013-01-10 07:10:44",
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/Opauth/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "U-Zyn Chua",
+                    "email": "chua@uzyn.com",
+                    "homepage": "http://uzyn.com"
+                }
+            ],
+            "description": "Multi-provider authentication framework for PHP",
+            "homepage": "http://opauth.org",
+            "keywords": [
+                "Authentication",
+                "OpenId",
+                "auth",
+                "facebook",
+                "google",
+                "oauth",
+                "omniauth",
+                "twitter"
+            ]
+        },
+        {
+            "name": "opauth/twitter",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/uzyn/opauth-twitter.git",
+                "reference": "0.3.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/uzyn/opauth-twitter/zipball/0.3.0",
+                "reference": "0.3.0",
+                "shasum": ""
+            },
+            "require": {
+                "opauth/opauth": ">=0.2.0",
+                "php": ">=5.2.0"
+            },
+            "time": "2012-10-27 21:47:51",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "U-Zyn Chua",
+                    "email": "chua@uzyn.com",
+                    "homepage": "http://uzyn.com"
+                }
+            ],
+            "description": "Twitter strategy for Opauth",
+            "homepage": "http://opauth.org",
+            "keywords": [
+                "Authentication",
+                "auth",
+                "twitter"
+            ]
+        },
+        {
             "name": "romaninsh/documenting",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/romaninsh/documenting",
-                "reference": "9dd6967b984c7f28ba30c5d798890f692fecddf8"
+                "reference": "7fa17f84f5544eb199177d9f8013a2ef7d023fdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/romaninsh/documenting/zipball/9dd6967b984c7f28ba30c5d798890f692fecddf8",
-                "reference": "9dd6967b984c7f28ba30c5d798890f692fecddf8",
+                "url": "https://api.github.com/repos/romaninsh/documenting/zipball/7fa17f84f5544eb199177d9f8013a2ef7d023fdf",
+                "reference": "7fa17f84f5544eb199177d9f8013a2ef7d023fdf",
                 "shasum": ""
             },
             "require": {
                 "atk4/atk4": ">=4.2",
                 "php": ">=5.3"
             },
-            "time": "2013-02-07 00:52:02",
+            "time": "2013-02-07 00:58:12",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -131,6 +360,48 @@
             "keywords": [
                 "atk4"
             ]
+        },
+        {
+            "name": "romaninsh/opauth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/romaninsh/opauth",
+                "reference": "864fbd0d478e383a8d605a541eb2119b2d523936"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/romaninsh/opauth/zipball/864fbd0d478e383a8d605a541eb2119b2d523936",
+                "reference": "864fbd0d478e383a8d605a541eb2119b2d523936",
+                "shasum": ""
+            },
+            "require": {
+                "atk4/atk4": ">=4.2.5",
+                "opauth/opauth": ">=0.4.3",
+                "php": ">=5.3"
+            },
+            "time": "2013-02-11 03:33:51",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "romaninsh\\opauth": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Romans Malinovskis",
+                    "email": "romans@agiletoolkit.org"
+                }
+            ],
+            "description": "Opauth.org integration in Agile Toolkit",
+            "homepage": "http://github.com/romaninsh/opauth",
+            "keywords": [
+                "atk4"
+            ]
         }
     ],
     "packages-dev": null,
@@ -141,6 +412,7 @@
     "stability-flags": {
         "atk4/atk4": 20,
         "romaninsh/documenting": 20,
+        "romaninsh/opauth": 20,
         "dflydev/markdown": 20
     }
 }
