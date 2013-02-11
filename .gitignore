@@ -1,3 +1,4 @@
+doc/dbupdates/*.ok
 .htaccess
 vendor
 config.php

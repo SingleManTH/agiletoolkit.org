@@ -59,6 +59,28 @@ I like the following things:
 1. Also
 1. Works
 
+
+Quotes
+----
+
+I said, what is this?
+> the man replied, this is the Matrix
+> why don't you plug-in
+> > No thanks, I told him
+> > No thanks, I told him
+> > No thanks, I told him
+
+Code Samples:
+----
+This is a paragraph introducing code blocks:
+
+<?Example?>
+$form=$page->add('Form');
+$form->addField('line','name');
+$form->addField('line','surname');
+$form->addSubmit();
+<?/?>
+
 Table test
 ----
 
