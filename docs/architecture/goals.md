@@ -67,7 +67,8 @@ We developed Agile Toolkit to abstract all these technologies into one integrate
 
 * Managing the server-side with MVC rethought for the demands of Agile, component-driven development
 * Generating your JQuery and JQuery UI code and handling client-side events using PHP on the server-side
-* Styling your components with a fully-integrated, skinnable CSS3 framework with the power of Bootstrap.
+* Styling your components with a fully-integrated, skinnable CSS3 framework with the power of Bootstrap
+* And handling all the AJAX complexity required to plumb the client into the server.
 
 Years of experience with demanding Agile projects has proven that this radical level of abstraction simplifies development and eases testing.
 
@@ -79,7 +80,7 @@ On the desktop you build complex GUI components from simple, tested subcomponent
 
 Achieving this required a radical design. In Agile Toolkit, you don't create objects with the PHP `new` statement. All objects are embedded into a parent object using an `add()` method, so the whole application is a single object tree. And objects are initialized using an `init()` method rather than the PHP `__construct()` method so we can give each component a unique id within the system before we set it up. 
 
-This means that parents know how to render their children and access them dynamically with JQuery. For example you can create a form, plug in layers of interactive, event-aware sub-components, and the whole thing will render and run with no additional developer effort other than straightforward, desktop-like event handling. 
+This means that interface objects know how to render their children and access them dynamically with JQuery. For example you can create a form, plug in layers of interactive, event-aware sub-components, and the whole thing will render and run with no additional developer effort other than straightforward, desktop-like event handling. 
 
 From there it's a short step to realizing that SQL queries can also be rendered from nested templates, so we built Agile ORM, an object-relational mapper that allows you to compose queries from smaller query components.
 
