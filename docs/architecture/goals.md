@@ -57,7 +57,7 @@ Compared to a typical PHP MVC framework, the design of Agile Toolkit is quite ra
 Typically developers will use: 
 
 * A PHP MVC framework to help abstract away HTTP, REST, HTML5, SQL and server-side AJAX
-* A JavaScript toolkit such as [JQuery](http://jquery.com/) to help abstract away JavaScript and client-side AJAX
+* A JavaScript toolkit such as [JQuery](http://jquery.com/) to help abstract away JavaScript, the DOM and client-side AJAX
 * And a front-end framework such as [Bootstrap](http://twitter.github.com/bootstrap/) to help abstract away CSS3.
 
 This helps bring the technology smörgåsbord under control, but working with three complex frameworks in three different languages is still a pretty major headache.
@@ -89,7 +89,7 @@ It's a new world for PHP and you're going to love it! To give you a taste of the
 
 ### The power of Extensibility
 
-But Composability is only the first step to a truly Agile web framework. In many ways the toughest challenging is adding new functionality to your components as your application evolves.
+But Composability is only the first step to a truly Agile web framework. In many ways the toughest challenge is adding new functionality to your components as your application evolves.
 
 This is where you need Extensibility - the ability to add new functionality without breaking existing tested code.
 
@@ -101,7 +101,7 @@ Say, for example, you have a `user` Model handling your business rules and actio
 
     TODO: example
 
-Any code using the parent `user` Model will continue to work, because nothing has changed. And there's no danger that new code using the the `superuser` Model will inadvertantly treat the `superuser` as a `user`: there's a clean separation of concerns. Your old `user` tests continue to run, and you add specific tests for the new `superuser` functionality. So changing your code is easy, robust and safe. This is the power of Extensibility.
+Any code using the parent `user` Model will continue to work, because nothing has changed. And there's no danger that new code using the the `superuser` Model will inadvertantly apply `superuser` operations to a `user` because you changed the query conditions to select only `superusers`: there's a clean separation of concerns. Your old `user` tests continue to run, and you add specific tests for the new `superuser` functionality. So changing your code is easy, robust and safe. This is the power of Extensibility.
 
 As an important side effect, this means that Agile Toolkit is radically injectable: any object can be swapped out or reconfigured at any stage with no need for any special planning or configuration. So it's a software tester's dream!
 

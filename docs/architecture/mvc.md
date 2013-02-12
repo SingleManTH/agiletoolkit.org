@@ -16,7 +16,7 @@ Models can be composed from other Models. For example, you can create a Model fo
 
 If you're using a relational database, you can build your Models with [Agile ORM](/TODO), an [object-relational mapper](http://en.wikipedia.org/wiki/Object-relational_mapping) offering an innovative blend of simplicity, flexibilty and performance. And [support for NoSQL](/TODO) is available too.
 
-Agile ORM Models can be easily extended to deal with  use-cases without breaking or cluttering your existing code. For example a `user` Model could be extended into an `active_user` Model and a `superuser` Model, each performing modified or additional actions on different sets of fields. 
+Agile ORM Models can be easily extended to deal with evolving use-cases without breaking or cluttering your existing code. For example a `user` Model could be extended into an `active_user` Model and a `superuser` Model, each performing modified or additional actions on different sets of fields. 
 
 The combination of Model composition, Model extension, and the ability to embed reusable business logic into Models with Controllers (as explained below) helps ensure that your Models will remain lean, agile and reliable.
 
@@ -27,17 +27,18 @@ In many MVC frameworks the View is defined as the complete response.
 By contrast, in Agile Toolkit a View is any component that generates output in HTML, XML, JSON or other response format. So for an HTML request a View can be: 
 
 * **A low-level component** such as a button, a dropdown menu or a  search box 
-* **A composite component** composed from low-level components, such as a complex grid or a complete form. 
+* **A composite component** composed from low-level components, such as a complex grid or a complete form 
 * **A total response**, such as an AJAX data entry system composed from many composite forms and grids arranged on tabs.
 
 Agile Toolkit Views offer some pretty neat features to make this process as simple, fast and reliable as possible:
 
 * Views are independent of each other and can be plugged together freely
 * Complex trees of Views are rendered automatically
-* View components are easy to extend and customize
 * View components are generic: plug in a Model and they will adapt to its data
 * Views can can be manuplated with JQuery programically through PHP
-* The built-in View components automate all the tiresome issues such as the loading indicator, AJAX event handling, Json encoding, load-on-demand, dependencies, XSS avoidance and user error messages
+* You handle client-side events by writing server-side PHP
+* The built-in View components automate all the tiresome housekeeping issues such as the loading indicator, Json encoding, load-on-demand, dependencies, XSS avoidance and displaying user error messages
+* View components are easy to extend and customize
 * Views are styled with an integrated Bootstrap-like CSS framework that's easy to skin or adapt.
 
 Agile Toolkit offers a special type of View called a Page, designed as the end-point of an HTTP request. Requests are routed to Page objects, which marshal the Models, Views and Controllers required to generate the response, run the rendering and serve the output.
