@@ -134,4 +134,4 @@ This focus on simplicity extends to the code itself. The core focuses on the 20%
 
 You'll find this kind of pragmatic thinking throughout the codebase. It helps to keep the code lean and the learning curve low.
 
-Radical new benefits have required radical new approaches. As you dig into these docs you'll find that there's much about Agile Toolkit that's unfamiliar &ndash; it's not hard to learn but it does require some new thinking. So do please bear the purpose in mind: once you undestand the way that Agile Toolkit handles Abstraction, Composability and Extensibility you'll find that development is a simpler, faster and more reliable process.
+Radical new benefits require radical new approaches. As you dig into these docs you'll find there's much about Agile Toolkit that's unfamiliar &ndash; it's not hard to learn but it does require some new thinking. So do please bear the purpose in mind: once you undestand the way that Agile Toolkit handles Abstraction, Composability and Extensibility you'll find that development is a simpler, faster and more reliable process.
