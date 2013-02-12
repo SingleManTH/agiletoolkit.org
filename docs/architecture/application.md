@@ -20,7 +20,7 @@ Let's walk though the basic anatomy of an HTTP request.
     
 1. `Frontend.php` is known as the `$app` object &ndash; it's the topmost object in the Runtime Object Tree. `Frontend` extends one of the Agile Toolkit API classes, which are tailored to give you just the application features you need for different kinds of request. For example there are APIs for command-line requests and REST requests. For a normal page request you would normally use `ApiFrontend`.
 
-1. In `Frontend.php` you set up your database connections, configure your class loading and initialize your access security and application-wide Controllers.
+1. In `Frontend.php` you set up your database connections, configure your class loading, and initialize your access security and application-wide Controllers.
 
 1. Now we cascade down the Runtime Object Tree initializing all the objects required to fulfil the request...
 
@@ -71,11 +71,20 @@ There are three classes which extend directly from `AbstractObject`:
 
 ![ATK Object Structure](dia-abstract-object.png)
 
-All other classes in the Framework and Addons descend from one of these three abstract classes.
+All other classes in the Framework and Addons descend from one of these three abstract classes, and all objects in Agile Toolkit are either Models, Views or Controllers.
 
 So while most modern PHP frameworks aim at decoupling their code, Agile Toolkit is a tightly integrated system. Like any design decision this involves tradeoffs: your code is less portable to other frameworks, but in return you enjoy all the unique productivity features of the Toolkit.
 
 ## The Runtime Object Tree
 
+In another departure from conventional design, objects in Agile Toolkit are always instantiated inside a parent object using `add()` rather than the PHP `new` statement. Again, this is to assist with our Composability design goal. 
+
+So an Agile Toolkit application is a runtime tree of objects nested inside other objects. This enables us to render our Models and Views recursively into a single integrated request response.  
+
+![ATK Application Structure](dia-application.png)
 
 ## Addons
+
+Outside the Core there is a growing ecosystem of Agile Toolkit Addons. Official Addons are included in the distribution in the `atk4-addons` directory. They cover functionality such as internationalisation, integration with external services such as payment gateways and Google maps, and a range of user interface widgets.
+
+We have recently launched an [online Addon marketplace] for community and commercial Addons. It's early days, but we plan to expand this rapidly.

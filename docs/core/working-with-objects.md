@@ -5,29 +5,6 @@
 In this section we cover the fundamental principles for working with objects in Agile Toolkit. The techniques are straightforward but will be unfamiliar to most developers. So a thorough understanding of the material here is essential for achieving comfort and fluency with the framework.
 
 
-## Application Structure
-
-In another departure from conventional design, objects in Agile Toolkit are always instantiated inside a parent object.
-
-At the top of the runtime object tree is your application object, which provides fundamental services such as routing, object initialization and output rendering.
-
-![ATK Application Structure](dia-application.png)
-
-### The application object
-
-### The runtime object hierarchy
-
-### Object Properties
-
-Property Description
-    short_name System object name which identifies objects through it's parentrent's "element" array. If you have to change the name, use rename().
-    name Unique object name. No two objects in the system will have the same name.
-        elements Array containing references to all child objects. Since 4.2,   some objects may be "detached" in which case instead of a reference, the elements array will contain "true" value. This helps conserve memory.
-        owner Always pointing to object which created this object through   the call to add()
-    api Always points to application object, the top-most object (routingot)
-    model Points to "model" object, set with setModel()
-        controller Points to "controller" object, set with setController()
-        Authenticationo_track_element Regulates if adding this object will automatically incominglude link in owner's elements[] array. If set to false, object will be "detached"
 
 ## Adding Objects
 
