@@ -106,21 +106,9 @@ Agile Toolkit Documentation: Table of Contents
 
     + Distinctive Design Goals
     + A New Approach To MVC
-    + The Runtime Object Tree
-    + Anatomy Of A Request
+    + Anatomy Of An Application
 
 * Working With The Core
-
-    + Working With Framework Objects
-        - The Class Hierarchy
-        - Application Structure
-            *APIs
-            * The Runtime Object Tree
-        - Adding Objects
-        - Object Naming
-        - Initializing Objects
-        - Cloning Objects
-        - Addons & Namespaces
 
     + Working With Application APIs
     	- API Overview
@@ -149,6 +137,17 @@ Agile Toolkit Documentation: Table of Contents
     	- Extending API Classes
 			* Overview
 			* Use Cases
+
+    + Working With Framework Objects
+        - The Class Hierarchy
+        - Application Structure
+            *APIs
+            * The Runtime Object Tree
+        - Adding Objects
+        - Object Naming
+        - Initializing Objects
+        - Cloning Objects
+        - Addons & Namespaces
 
 	+ Configuration
     	- Working With Config Files

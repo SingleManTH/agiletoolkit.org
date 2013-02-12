@@ -1,4 +1,4 @@
-# Architecture & Design > Model, View, Controller
+# Architecture & Design > A New Approach To MVC
 
 ## The Agile Toolkit Approach To MVC
 
@@ -35,7 +35,7 @@ Agile Toolkit Views offer some pretty neat features to make this process as simp
 * Views are independent of each other and can be plugged together freely
 * Complex trees of Views are rendered automatically
 * View components are generic: plug in a Model and they will adapt to its data
-* Views can can be manuplated with JQuery programically through PHP
+* Views can can be manipulated with JQuery programically through PHP
 * You handle client-side events by writing server-side PHP
 * The built-in View components automate all the tiresome housekeeping issues such as the loading indicator, Json encoding, load-on-demand, dependencies, XSS avoidance and displaying user error messages
 * View components are easy to extend and customize

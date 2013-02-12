@@ -62,6 +62,11 @@ Objects know the owner-object they were added into:
     $new_object->owner === $owner;
 
 ## Object Naming
+
+One reason we initialize objects with `add()` rather than `new` is so we can assign them a unique name. The name is then used for tasks like identifying the object in the DOM.
+
+
+
 ## Initializing Objects
 ## Cloning Objects
 ## Addons & Namespaces

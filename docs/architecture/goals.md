@@ -1,4 +1,4 @@
-# Architecture & Design > Design Goals
+# Architecture & Design > Distinctive Design Goals
 
 ## What Challenges Does Agile Toolkit Solve?
 
