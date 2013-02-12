@@ -122,13 +122,13 @@ This focus on simplicity extends to the code itself. The core focuses on the 20%
 * Configuration files are plain old PHP hashes, so if you want complex conditional configurations just pop in some code.
 * Namespacing isn't used within the core and application code unless you're using Addons or external libraries. It's never caused any practical problems and we avoid tedium like this:
 
-```
+    <pre>
     namespace Acme\TaskBundle\Controller;
 
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
     use Acme\TaskBundle\Entity\Task;
     use Symfony\Component\HttpFoundation\Request;
-```
+    </pre>
 
 * We use good old $\_GET and $\_POST rather than some kind of complex request object.
 

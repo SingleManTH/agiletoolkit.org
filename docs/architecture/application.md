@@ -1,6 +1,6 @@
 # Architecture & Design > Anatomy Of An Application
 
-## The Execution Process
+## The Execution Flow
 
 Let's walk though the basic anatomy of an HTTP request.
 
@@ -24,7 +24,7 @@ Let's walk though the basic anatomy of an HTTP request.
 
 1. Now we cascade down the Runtime Object Tree initializing all the objects required to fulfil the request...
 
-1. The `$app` object will route the request to the correct Page class in your `\page` directory, throwing a 404 Page Not Found error if no page is found.
+1. The `$app` object will route the request to the correct Page class in your `/page` directory, throwing a 404 Page Not Found error if no page is found.
 
 1. The Page will orchestrate the necessary Views and Models, and these will load any Controllers they require.
 

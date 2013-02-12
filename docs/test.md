@@ -24,9 +24,17 @@ Code highlighting by github ticks:
 
 ```
 function bar(){
-    do_something_else();
+    do_something_bad();
 }
 ```
+
+Code highlighting by HTML pre tags (for code examples in lists)
+
+<pre>
+function bar(){
+    do_something_sinful();
+}
+</pre>
 
 Some text might be *italic* or **bold**
 
