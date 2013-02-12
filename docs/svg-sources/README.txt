@@ -8,7 +8,7 @@ You will also need the Open Source Ubuntu font:
 
 http://font.ubuntu.com/ 
 
-and the Open Source Iconic icon font:
+and the Open Source Iconic icon set which comes in SVG format:
 
 http://somerandomdude.com/work/iconic/
 
