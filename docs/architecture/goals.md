@@ -18,6 +18,8 @@ The increasing importance of desktop-like AJAX interfaces is a game-changer for 
 + Perhaps some raw SQL in the data layer
 + And client-server AJAX calls to tie the whole thing together
 
+![Web Development Complexity](dia-web-technologies.png)
+
 This complexity makes modern rich web applications hard to author, hard to test and hard to change.
 
 ### Agile development is hard
@@ -56,11 +58,11 @@ Compared to a typical PHP MVC framework, the design of Agile Toolkit is quite ra
 
 Typically developers will use: 
 
-* A PHP MVC framework to help abstract away HTTP, REST, HTML5, SQL and server-side AJAX
+* A PHP MVC framework to help abstract away HTTP, HTML5, SQL and server-side AJAX
 * A JavaScript toolkit such as [JQuery](http://jquery.com/) to help abstract away JavaScript, the DOM and client-side AJAX
 * And a front-end framework such as [Bootstrap](http://twitter.github.com/bootstrap/) to help abstract away CSS3.
 
-This helps bring the technology smörgåsbord under control, but working with three complex frameworks in three different languages is still a pretty major headache.
+This helps bring the technology smörgåsbord under control, but working with three complex and overlapping frameworks in three different languages is still a pretty major headache.
 
 We developed Agile Toolkit to abstract all these technologies into one integrated and constent PHP framework:
 
@@ -68,6 +70,8 @@ We developed Agile Toolkit to abstract all these technologies into one integrate
 * Setting up your JQuery and JQuery UI code and handling client-side events using PHP on the server-side
 * Styling your interface components with a fully-integrated, skinnable CSS3 framework
 * And handling the AJAX complexity required to plumb the client into the server.
+
+![Web Development Complexity](dia-web-technologies.png)
 
 Years of experience with demanding Agile projects has proven that this radical level of abstraction simplifies development and eases testing.
 
