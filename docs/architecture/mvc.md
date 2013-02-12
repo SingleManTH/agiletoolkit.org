@@ -24,7 +24,7 @@ The combination of Model composition, Model extension, and the ability to embed 
 
 In many MVC frameworks the View is defined as the complete response. 
 
-By contrast, in Agile Toolkit a View is any component that generates output in HTML, XML, JSON or other response format. So for an HTML request a View can be: 
+By contrast, in Agile Toolkit a View is any component that uses the Agile Toolkit template engine  to generate output in HTML, XML, JSON or other response format. So for an HTML request a View can be: 
 
 * **A low-level component** such as a button, a dropdown menu or a  search box 
 * **A composite component** composed from low-level components, such as a complex grid or a complete form 
@@ -34,11 +34,11 @@ Agile Toolkit Views offer some pretty neat features to make this process as simp
 
 * Views are independent of each other and can be plugged together freely
 * Complex trees of Views are rendered automatically
-* View components are generic: plug in a Model and they will adapt to its data
+* View components like data grids are generic: plug in a Model and they will adapt to its data
 * Views can can be manipulated with JQuery programically through PHP
 * You handle client-side events by writing server-side PHP
 * The built-in View components automate all the tiresome housekeeping issues such as the loading indicator, Json encoding, load-on-demand, dependencies, XSS avoidance and displaying user error messages
-* View components are easy to extend and customize
+* View components are easy to extend and customize, and it's easy to wrap 3rd party JQuery widgets
 * Views are styled with an integrated Bootstrap-like CSS framework that's easy to skin or adapt.
 
 Agile Toolkit offers a special type of View called a Page, designed as the end-point of an HTTP request. Requests are routed to Page objects, which marshal the Models, Views and Controllers required to generate the response, run the rendering and serve the output.

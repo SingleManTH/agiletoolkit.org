@@ -95,7 +95,7 @@ It's a new world for PHP and you're going to love it! To give you a taste of the
 
 But Composability is only the first step to a truly Agile web framework. In many ways the toughest challenge is adding new functionality to your components as your application evolves.
 
-This is where you need Extensibility - the ability to add new functionality without breaking existing tested code.
+This is where you need Extensibility &ndash; the ability to add new functionality without breaking existing tested code.
 
 To achieve Composability we designed our business and interface objects so they store their parameters and only render output at the last moment, once they know what other objects they're working with. So all their settings can be changed at any point. 
 

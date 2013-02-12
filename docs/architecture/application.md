@@ -57,6 +57,8 @@ There are a number of API classes available in the Core, and you can extend them
 
 There are other more specialised APIs for installers and REST requests.
 
+API classes descend from AbstractView, because they are generally used to create output.
+
 ## The Class Hierarchy
 
 Once your `$app` object is initialised it's time to build your Models, Views and Controllers. In order to achieve the integration required for the high levels of Abstraction, Composability and Extensibility that make Agile Toolkit so productive, we need to provide every object with a number of common features.
