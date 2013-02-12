@@ -71,7 +71,7 @@ We developed Agile Toolkit to abstract all these technologies into one integrate
 * Styling your interface components with a fully-integrated, skinnable CSS3 framework
 * And handling the AJAX complexity required to plumb the client into the server.
 
-![Web Development Complexity](dia-web-technologies.png)
+![Web Development Levels of Abstraction](dia-levels-of-abstraction.png)
 
 Years of experience with demanding Agile projects has proven that this radical level of abstraction simplifies development and eases testing.
 
