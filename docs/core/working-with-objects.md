@@ -4,21 +4,6 @@
 
 In this section we cover the fundamental principles for working with objects in Agile Toolkit. The techniques are straightforward but will be unfamiliar to most developers. So a thorough understanding of the material here is essential for achieving comfort and fluency with the framework.
 
-## The Class Hierarchy
-
-At the top of the class hierarchy is `AbstractObject`, which offers a number of core services that we cover in this section.
-
-There are three classes which extend directly from `AbstractObject`:
-
-* **AbstractModel**: which adds features to help manage data Entities
-* **AbstractView**: which adds features to help generate output
-* **AbstractController**: which is the root class for all Controllers. 
-
-![ATK Object Structure](dia-abstract-object.png)
-
-All other classes in the Framework and Addons descend from one of these three abstract classes.
-
-So while most modern PHP frameworks aim at decoupling their code, Agile Toolkit is a tightly integrated system. Like any design decision this involves tradeoffs: your code is less portable to other frameworks, but as you will see throughout these docs, the features offered by these abstract objects offer a great deal in terms of agility, reliability and resuablity.
 
 ## Application Structure
 
