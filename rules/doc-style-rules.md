@@ -25,6 +25,7 @@ This doc will evolve ad-hoc as use-cases come up.
 * Use 'property' for a class-scope variable
 * Use 'variable' for a method-scope variable
 * Use 'object-oriented', not 'Object-Oriented' or 'object oriented'
+* Use 'JavaScript', not 'Javascript'
 
 ### Links
 

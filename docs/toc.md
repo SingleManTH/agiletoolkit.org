@@ -175,7 +175,7 @@ Agile Toolkit Documentation: Table of Contents
 
 	+ Asset Management
     	- CSS
-    	- Javascript
+    	- JavaScript
     	- Images & Media
     	- Advanced Asset Management
     		* Uploaded files ((Link to filestore docs)
