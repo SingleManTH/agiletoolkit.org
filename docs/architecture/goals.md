@@ -48,7 +48,7 @@ But this is surely a counsel of despair. What we really need is a radical rethin
 
 ## How Does Agile Toolkit Tackle These Challenges?
 
-Compared to a typical PHP MVC framework, the design of Agile Toolkit is quite radical. Our choices have been driven by three overriding goals:
+Compared to a typical PHP MVC framework, the design of Agile Toolkit is quite radical. Our choices have been driven by three key goals:
 
 + Harnessing the **Abstraction Principle** so developers can work with the web technology smörgåsbord through a consistent PHP API
 + Harnessing the **Composability Principle** so developers can build complex business and interface components from smaller, tested subcomponents
