@@ -8,8 +8,8 @@ So at the top of the class hierarchy is `AbstractObject`, which primarily handle
 
 There are three classes which extend directly from `AbstractObject`:
 
-* **AbstractModel**: which adds features to help manage data Entities
-* **AbstractView**: which adds features to help generate output
+* **AbstractModel**: which adds features to help manage data entities
+* **AbstractView**: which adds features for generating output with nested templates
 * **AbstractController**: which is the root class for all Controllers. 
 
 ![ATK Object Structure](dia-abstract-object.png)
@@ -20,7 +20,7 @@ So while most modern PHP frameworks aim at decoupling their code, Agile Toolkit 
 
 ## The Runtime Object Tree
 
-In related departure from conventional design, objects in Agile Toolkit are always instantiated inside a parent object using the `AbstractObject add()` method rather than the PHP `new` statement. Again, this is to assist with our Composability design goal. 
+In a related departure from conventional design, objects in Agile Toolkit are always instantiated inside a parent object using the `AbstractObject add()` method rather than the PHP `new` statement. Again, this is to assist with our Composability design goal. 
 
 So an Agile Toolkit application is a runtime tree of objects nested inside other objects. This enables us to render our Models and Views recursively into a single integrated request response.  
 
