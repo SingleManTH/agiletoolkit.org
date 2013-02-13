@@ -19,20 +19,26 @@ This doc will evolve ad-hoc as use-cases come up.
 ### Naming
 
 * Use 'Agile Toolkit' not 'ATK4' or 'The Agile Toolkit'
+* When 'Agile Tookit' becomes too repetative, you can occasionally shorten it to 'the Toolkit'
 * Use 'Addon' not 'addon' or 'add-on'
+* Use 'Core' for the code in the /atk4 directory
 * For the ATK classes, capitalise View, Page, Model & Controller
+
+* Our 4 design principles are: the Simplicity Principle, the Abstraction Principle, the Composability Principle, and the Extensibility Principle
+
 * Use 'method' for a function within a class (See PHP docs).
 * Use 'property' for a class-scope variable
 * Use 'variable' for a method-scope variable
+
 * Use 'object-oriented', not 'Object-Oriented' or 'object oriented'
 * Use 'JavaScript', not 'Javascript'
 
 ### Links
 
-* To link to the API, use the markup: [api://DB_dsql]
+* To link to the API, use the markup: {api:DB_dsql}
 * To create an anchor for linking inside an article, use the syntax: {#anchor_name}
-* To cross-link within the docs, use standard Markdown link notation, with the path: /docs/section/article_name. We don't use any file extension.
-* To link to images, place the image in the same directory as the article and use a relative link: <pre>![Alt String](dia_my_img.png)</pre>
+* To cross-link within the docs, use standard Markdown link notation, with the path: `/docs/section/article[#anchor]`. We don't use any file extension.
+* To link to images, place the image in the same directory as the article and use a relative link: `![Alt String](dia_my_img.png)`
 
 ### Code examples
 
@@ -44,7 +50,11 @@ This doc will evolve ad-hoc as use-cases come up.
 
 Use standard HTML comments: <!-- -->. We'll strip them out before publication. 
 
+### Emphasis
+
+Don't use `*italic*` - it can be hard to read on screens. Use `**bold**` instead.
+
 ### Misc
 
 * Booleans in the run of text: `null`, `true`, `false`, not `NULL`, null
-* For quotes in the run of text, use 'single' not "double"
+* For quotes in the run of text, use 'single' not "double" - regarded as more modern.

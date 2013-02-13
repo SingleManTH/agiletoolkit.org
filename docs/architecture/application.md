@@ -61,7 +61,7 @@ API classes descend from AbstractView, because they are generally used to create
 
 ## The Class Hierarchy
 
-Once your `$app` object is initialised it's time to build your Models, Views and Controllers. In order to achieve the integration required for the high levels of Abstraction, Composability and Extensibility that make Agile Toolkit so productive, we need to provide every object with a number of common features.
+Once your `$app` object is initialised it's time to build your Models, Views and Controllers. In order to achieve the integration required for the Abstraction, Composability and Extensibility that make Agile Toolkit so productive, we need to provide every object with a number of common features.
 
 So at the top of the class hierarchy is `AbstractObject`, which primarily handles the creation, naming and initialization of objects.
 
@@ -73,9 +73,9 @@ There are three classes which extend directly from `AbstractObject`:
 
 ![ATK Object Structure](dia-abstract-object.png)
 
-All other classes in the Framework and Addons descend from one of these three abstract classes, and all objects in Agile Toolkit are either Models, Views or Controllers.
+All other classes descend from one of these three abstract classes, so all objects in Agile Toolkit are either Models, Views or Controllers.
 
-So while most modern PHP frameworks aim at decoupling their code, Agile Toolkit is a tightly integrated system. Like any design decision this involves tradeoffs: your code is less portable to other frameworks, but in return you enjoy all the unique productivity features of the Toolkit.
+So while most modern PHP frameworks aim at decoupling their code, Agile Toolkit is a tightly integrated system. Like any design decision this involves tradeoffs: your code is less portable to other frameworks, but in return you enjoy the unique productivity features of the Toolkit.
 
 ## The Runtime Object Tree
 
@@ -87,6 +87,8 @@ So an Agile Toolkit application is a runtime tree of objects nested inside other
 
 ## Addons
 
-Outside the Core there is a growing ecosystem of Agile Toolkit Addons. Official Addons are included in the distribution in the `atk4-addons` directory. They cover functionality such as internationalisation, integration with external services such as payment gateways and Google maps, and a range of user interface widgets.
+Outside the Core there's a growing ecosystem of Agile Toolkit Addons. Official Addons are distributed in the `/atk4-addons` directory. They cover functionality such as internationalisation and a range of useful user interface widgets.
 
-We have recently launched an [online Addon marketplace](/TODO) for community and commercial Addons. It's early days, but we plan to expand this rapidly.
+We have recently launched an [online Addon marketplace](/TODO) for community and commercial Addons. It's early days, but we plan to expand this rapidly and invite you to contribute.
+
+<!-- Will this be launched in time? -->

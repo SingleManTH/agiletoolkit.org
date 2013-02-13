@@ -17,7 +17,7 @@ Inline code highlighting: `$this->add('AgileToolkit');`
 Code highlighting by indent:
 
     function foo(){
-        do_something();
+        do_something_sensible();
     }
 
 Code highlighting by github ticks:
@@ -39,6 +39,8 @@ function bar(){
 Some text might be *italic* or **bold**
 
 We can also have [Links to other pages](http://yahoo.com/)
+
+And we can have a link to the API docs: {api:DB_dsql}
 
 Paragraph test
 ----
