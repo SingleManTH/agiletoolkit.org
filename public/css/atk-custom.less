@@ -34,6 +34,11 @@
 @fontColor:			lighten(@black,20%);		// Global font color
 @fontFamily:		"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;		// Global font family
 
+.defaultBg(#ECF3F9,#C8D3DE);	// Default State (.ui-state-default)
+.hoverBg(#F5F9FC,#D5E1ED);		// Hover State (.ui-state-hover)
+.activeBg(#ECF3F9,#FFFFFF);		// Active State (.ui-state-active)
+.headerBg(#00070F,#002D5E);		// Widget Header (.ui-widget-header)
+
 
 /* ==============================================
 	Temp
@@ -44,7 +49,7 @@
 	.position(@t:0,@l:0);
 	pointer-events:none;
 	a {
-		background:#fff;
+		background:rgba(255,255,255,0.7);
 		.border-radius(10px);
 		.box-shadow(0 1px 5px rgba(0,0,0,0.5));
 		font-size:12px;
@@ -74,6 +79,28 @@
 }
 
 .bg-green {background:#e5ffd9;color:#7a996b}
+
+
+/* ==============================================
+	Sprite
+============================================== */
+.icon-facebook-hover,
+.icon-facebook,
+.icon-github-hover,
+.icon-github, 
+.icon-google-hover,
+.icon-google,
+.icon-twitter-hover,
+.icon-twitter{ background-image:url(../images/sprite.png);display:inline-block; }
+
+.icon-facebook-hover{ background-position: 0 0; width: 24px; height: 24px; } 
+.icon-facebook{ background-position: 0 -44px; width: 24px; height: 24px; } 
+.icon-github-hover{ background-position: 0 -88px; width: 24px; height: 24px; } 
+.icon-github{ background-position: 0 -132px; width: 24px; height: 24px; } 
+.icon-google-hover{ background-position: 0 -176px; width: 24px; height: 24px; } 
+.icon-google{ background-position: 0 -220px; width: 24px; height: 24px; } 
+.icon-twitter-hover{ background-position: 0 -264px; width: 24px; height: 24px; } 
+.icon-twitter{ background-position: 0 -308px; width: 24px; height: 24px; } 
 
 
 /* ==============================================
@@ -116,18 +143,42 @@ big, .big {font-size:1.2em;}
 
 
 /* ==============================================
+	Colours
+============================================== */
+@lightGray:#e8eaed;
+@blue: #3b5397;
+@deepBlue: #242833;
+
+
+/* ==============================================
 	Styling
 ============================================== */
 a {text-decoration:none;}
 .lead {color:#7a8299;.big;}
 
-.bg-deepblue {background:#242833;}
+.bg-deepblue {background:@deepBlue;}
+
+
+/* ==============================================
+	jQueryUI
+============================================== */
+.ui-state-default.ui-button {background:@blue;border:none;text-shadow:none;color:#fff;.transition(.3s);}
+.ui-state-hover.ui-button {background:lighten(@blue,10%);}
+.ui-corner-all {.border-radius(0);}
 
 
 /* ==============================================
 	Elements
 ============================================== */
 .atk-box {margin:@margin 0;}
+input[type=text], input[type=password], textarea {
+	background:#fff;
+	.border-radius(0);
+	.box-shadow(none);
+	font-size:14px;
+	color:#333;
+	&:focus {.box-shadow(none);}
+}
 
 
 /* ==============================================
@@ -139,7 +190,11 @@ body, .global-header, .global-footer {.bg-deepblue;}
 		padding-top:@padding*2;
 		padding-bottom:@padding*2;
 		position:relative;
-		a {.transition(.3s);}
+		a {
+			.transition(.3s);
+			color:fadeout(@white,50%);
+			&:hover {color:fadeout(@white,0%);}
+		}
 		.logo {
 			height:1px;
 			display:block;
@@ -148,18 +203,93 @@ body, .global-header, .global-footer {.bg-deepblue;}
 			&:hover {.opacity(100);}
 		}
 		nav {
-			.ubuntu;.big;
+			.ubuntu;
+			.big;
 			ul, ul li {display:inline;}
 			ul {
 				li {
 					margin-left:@margin;
-					a {
-						color:fadeout(@white,50%);
-						&:hover {color:fadeout(@white,0%);}
-					}
 					&:first-child {margin-left:0;}
 					&.current a {color:fadeout(@white,0%);cursor:default;}
+					&.link-login {
+						border-top:1px solid @deepBlue;
+						border-right:1px solid rgba(255,255,255,0.1);
+						border-left:1px solid @deepBlue;
+						padding:@padding/2 @padding;
+						position:relative;
+						@width:190px;
+						>a {.transition(none);cursor:default;}
+						.flyout {
+							background:@lightGray;
+							border:1px solid darken(@lightGray,10%);
+							border-top:none;
+							.position(@t:100%,@l:-1px,@z:2);
+							.opacity(0);
+							visibility:hidden;
+							.atk-form {
+								padding:@padding/2;
+								width:@width;
+								input, button {width:@width;}
+								fieldset, .atk-buttons {margin:0;padding:0;border-top:none;}
+								.atk-form-row {
+									margin:0 0 @padding/4 0;
+									@a:darken(@lightGray,30%);
+									@placeholder:desaturate(@a,5%);
+									::-webkit-input-placeholder {color:@placeholder;}
+									::-moz-placeholder {color:@placeholder;}
+									:-ms-input-placeholder {color:@placeholder;}
+									input:-moz-placeholder {color:@placeholder;}
+									:focus::-webkit-input-placeholder {color:#999;}
+									:focus::-moz-placeholder {color:#999;}
+									:focus:-ms-input-placeholder {color:#999;}
+									input:focus:-moz-placeholder {color:#999;}
+									
+									input {
+/* 										background:darken(@lightGray,7%); */
+										background:darken(@lightGray,10%);
+										border:none;
+										padding:@padding/3;
+										&:focus {
+											background:#fff;
+										}
+									}
+								}
+								.ui-button-text-only .ui-button-text {padding:@padding/3 0;}
+							}
+						}
+						footer {
+							border-top:1px solid darken(@lightGray,5%);
+							a {
+								border-left:1px solid darken(@lightGray,5%);
+								font-size:0;
+								line-height:0;
+								text-align:center;
+								padding:@padding/2 0;
+								width:53px;
+								float:left;
+								>span {.transition(.3s);}
+								&:hover {
+									background:#fff;
+									.icon-github {.icon-github-hover;}
+									.icon-google {.icon-google-hover;}
+									.icon-facebook {.icon-facebook-hover;}
+									.icon-twitter {.icon-twitter-hover;}
+								}
+								&:first-child {border-left:none;width:52px;}
+							}
+						}
+						&:hover {
+							background:@lightGray;
+							border-color:darken(@lightGray,10%);
+							>a {color:darken(@lightGray,50%);}
+							.flyout {
+								.opacity(100);
+								visibility:visible;
+							}
+						}
+					}
 				}
+
 			}
 		}
 	}
