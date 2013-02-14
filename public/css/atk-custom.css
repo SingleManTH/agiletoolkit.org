@@ -1597,54 +1597,60 @@ input.ui-button,
 /* ==============================================
 	Sprite
 ============================================== */
-.icon-facebook-hover,
-.icon-facebook,
-.icon-github-hover,
-.icon-github,
-.icon-google-hover,
-.icon-google,
-.icon-twitter-hover,
-.icon-twitter {
+.icon-16-forgot,
+.icon-24-facebook-hover,
+.icon-24-facebook,
+.icon-24-github-hover,
+.icon-24-github,
+.icon-24-google-hover,
+.icon-24-google,
+.icon-24-twitter-hover,
+.icon-24-twitter {
   background-image: url(../images/sprite.png);
   display: inline-block;
 }
-.icon-facebook-hover {
+.icon-16-forgot {
   background-position: 0 0;
+  width: 16px;
+  height: 16px;
+}
+.icon-24-facebook-hover {
+  background-position: 0 -36px;
   width: 24px;
   height: 24px;
 }
-.icon-facebook {
-  background-position: 0 -44px;
+.icon-24-facebook {
+  background-position: 0 -80px;
   width: 24px;
   height: 24px;
 }
-.icon-github-hover {
-  background-position: 0 -88px;
+.icon-24-github-hover {
+  background-position: 0 -124px;
   width: 24px;
   height: 24px;
 }
-.icon-github {
-  background-position: 0 -132px;
+.icon-24-github {
+  background-position: 0 -168px;
   width: 24px;
   height: 24px;
 }
-.icon-google-hover {
-  background-position: 0 -176px;
+.icon-24-google-hover {
+  background-position: 0 -212px;
   width: 24px;
   height: 24px;
 }
-.icon-google {
-  background-position: 0 -220px;
+.icon-24-google {
+  background-position: 0 -256px;
   width: 24px;
   height: 24px;
 }
-.icon-twitter-hover {
-  background-position: 0 -264px;
+.icon-24-twitter-hover {
+  background-position: 0 -300px;
   width: 24px;
   height: 24px;
 }
-.icon-twitter {
-  background-position: 0 -308px;
+.icon-24-twitter {
+  background-position: 0 -344px;
   width: 24px;
   height: 24px;
 }
@@ -1814,8 +1820,8 @@ body,
   background: #242833;
 }
 .global-header .atk-wrapper {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 24px;
+  padding-bottom: 24px;
   position: relative;
 }
 .global-header .atk-wrapper a {
@@ -1833,7 +1839,7 @@ body,
   height: 1px;
   display: block;
   position: relative;
-  top: -8px;
+  top: 11px;
   bottom: auto;
   left: auto;
   right: auto;
@@ -1854,13 +1860,18 @@ body,
   font-weight: 300;
   font-size: 1.25em;
   font-size: 1.2em;
+  /* ul ends */
+
 }
 .global-header .atk-wrapper nav ul,
 .global-header .atk-wrapper nav ul li {
   display: inline;
 }
+.global-header .atk-wrapper nav ul {
+  float: left;
+}
 .global-header .atk-wrapper nav ul li {
-  margin-left: 24px;
+  padding: 12px 24px;
 }
 .global-header .atk-wrapper nav ul li:first-child {
   margin-left: 0;
@@ -1869,14 +1880,16 @@ body,
   color: #ffffff;
   cursor: default;
 }
-.global-header .atk-wrapper nav ul li.link-login {
+.global-header .atk-wrapper nav ul.nav-user {
+  float: right;
+}
+.global-header .atk-wrapper nav ul.nav-user li.link-login {
   border-top: 1px solid #242833;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid #242833;
-  padding: 12px 24px;
   position: relative;
 }
-.global-header .atk-wrapper nav ul li.link-login > a {
+.global-header .atk-wrapper nav ul.nav-user li.link-login > a {
   -webkit-transition: none;
   -moz-transition: none;
   -ms-transition: none;
@@ -1884,7 +1897,7 @@ body,
   transition: none;
   cursor: default;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout {
   background: #e8eaed;
   border: 1px solid #cbd0d7;
   border-top: none;
@@ -1900,64 +1913,62 @@ body,
   opacity: 0;
   visibility: hidden;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form {
   padding: 12px;
   width: 190px;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form input,
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form button {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form input,
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form button {
   width: 190px;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form fieldset,
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .atk-buttons {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form fieldset,
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .atk-buttons {
   margin: 0;
   padding: 0;
   border-top: none;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .atk-form-row {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .atk-form-row {
   margin: 0 0 6px 0;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .atk-form-row ::-webkit-input-placeholder {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .atk-form-row ::-webkit-input-placeholder {
   color: #979da5;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .atk-form-row ::-moz-placeholder {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .atk-form-row ::-moz-placeholder {
   color: #979da5;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .atk-form-row :-ms-input-placeholder {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .atk-form-row :-ms-input-placeholder {
   color: #979da5;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .atk-form-row input:-moz-placeholder {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .atk-form-row input:-moz-placeholder {
   color: #979da5;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .atk-form-row :focus::-webkit-input-placeholder {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .atk-form-row :focus::-webkit-input-placeholder {
   color: #999;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .atk-form-row :focus::-moz-placeholder {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .atk-form-row :focus::-moz-placeholder {
   color: #999;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .atk-form-row :focus:-ms-input-placeholder {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .atk-form-row :focus:-ms-input-placeholder {
   color: #999;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .atk-form-row input:focus:-moz-placeholder {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .atk-form-row input:focus:-moz-placeholder {
   color: #999;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .atk-form-row input {
-  /* 										background:darken(@lightGray,7%); */
-
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .atk-form-row input {
   background: #cbd0d7;
   border: none;
   padding: 8px;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .atk-form-row input:focus {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .atk-form-row input:focus {
   background: #fff;
 }
-.global-header .atk-wrapper nav ul li.link-login .flyout .atk-form .ui-button-text-only .ui-button-text {
+.global-header .atk-wrapper nav ul.nav-user li.link-login .flyout .atk-form .ui-button-text-only .ui-button-text {
   padding: 8px 0;
 }
-.global-header .atk-wrapper nav ul li.link-login footer {
+.global-header .atk-wrapper nav ul.nav-user li.link-login footer {
   border-top: 1px solid #dadde2;
 }
-.global-header .atk-wrapper nav ul li.link-login footer a {
+.global-header .atk-wrapper nav ul.nav-user li.link-login footer a {
   border-left: 1px solid #dadde2;
   font-size: 0;
   line-height: 0;
@@ -1966,56 +1977,56 @@ body,
   width: 53px;
   float: left;
 }
-.global-header .atk-wrapper nav ul li.link-login footer a > span {
+.global-header .atk-wrapper nav ul.nav-user li.link-login footer a > span {
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
 }
-.global-header .atk-wrapper nav ul li.link-login footer a:hover {
+.global-header .atk-wrapper nav ul.nav-user li.link-login footer a:hover {
   background: #fff;
 }
-.global-header .atk-wrapper nav ul li.link-login footer a:hover .icon-github {
+.global-header .atk-wrapper nav ul.nav-user li.link-login footer a:hover .icon-24-github {
   background-image: url(../images/sprite.png);
   display: inline-block;
-  background-position: 0 -88px;
+  background-position: 0 -124px;
   width: 24px;
   height: 24px;
 }
-.global-header .atk-wrapper nav ul li.link-login footer a:hover .icon-google {
+.global-header .atk-wrapper nav ul.nav-user li.link-login footer a:hover .icon-24-google {
   background-image: url(../images/sprite.png);
   display: inline-block;
-  background-position: 0 -176px;
+  background-position: 0 -212px;
   width: 24px;
   height: 24px;
 }
-.global-header .atk-wrapper nav ul li.link-login footer a:hover .icon-facebook {
+.global-header .atk-wrapper nav ul.nav-user li.link-login footer a:hover .icon-24-facebook {
   background-image: url(../images/sprite.png);
   display: inline-block;
-  background-position: 0 0;
+  background-position: 0 -36px;
   width: 24px;
   height: 24px;
 }
-.global-header .atk-wrapper nav ul li.link-login footer a:hover .icon-twitter {
+.global-header .atk-wrapper nav ul.nav-user li.link-login footer a:hover .icon-24-twitter {
   background-image: url(../images/sprite.png);
   display: inline-block;
-  background-position: 0 -264px;
+  background-position: 0 -300px;
   width: 24px;
   height: 24px;
 }
-.global-header .atk-wrapper nav ul li.link-login footer a:first-child {
+.global-header .atk-wrapper nav ul.nav-user li.link-login footer a:first-child {
   border-left: none;
   width: 52px;
 }
-.global-header .atk-wrapper nav ul li.link-login:hover {
+.global-header .atk-wrapper nav ul.nav-user li.link-login.hover {
   background: #e8eaed;
   border-color: #cbd0d7;
 }
-.global-header .atk-wrapper nav ul li.link-login:hover > a {
+.global-header .atk-wrapper nav ul.nav-user li.link-login.hover > a {
   color: #5e6878;
 }
-.global-header .atk-wrapper nav ul li.link-login:hover .flyout {
+.global-header .atk-wrapper nav ul.nav-user li.link-login.hover .flyout {
   filter: alpha(opacity=100);
   -khtml-opacity: 1;
   -moz-opacity: 1;

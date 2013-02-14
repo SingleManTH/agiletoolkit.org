@@ -84,23 +84,25 @@
 /* ==============================================
 	Sprite
 ============================================== */
-.icon-facebook-hover,
-.icon-facebook,
-.icon-github-hover,
-.icon-github, 
-.icon-google-hover,
-.icon-google,
-.icon-twitter-hover,
-.icon-twitter{ background-image:url(../images/sprite.png);display:inline-block; }
+.icon-16-forgot,
+.icon-24-facebook-hover,
+.icon-24-facebook,
+.icon-24-github-hover,
+.icon-24-github,
+.icon-24-google-hover,
+.icon-24-google,
+.icon-24-twitter-hover,
+.icon-24-twitter { background-image:url(../images/sprite.png);display:inline-block; }
 
-.icon-facebook-hover{ background-position: 0 0; width: 24px; height: 24px; } 
-.icon-facebook{ background-position: 0 -44px; width: 24px; height: 24px; } 
-.icon-github-hover{ background-position: 0 -88px; width: 24px; height: 24px; } 
-.icon-github{ background-position: 0 -132px; width: 24px; height: 24px; } 
-.icon-google-hover{ background-position: 0 -176px; width: 24px; height: 24px; } 
-.icon-google{ background-position: 0 -220px; width: 24px; height: 24px; } 
-.icon-twitter-hover{ background-position: 0 -264px; width: 24px; height: 24px; } 
-.icon-twitter{ background-position: 0 -308px; width: 24px; height: 24px; } 
+.icon-16-forgot{ background-position: 0 0; width: 16px; height: 16px; } 
+.icon-24-facebook-hover{ background-position: 0 -36px; width: 24px; height: 24px; } 
+.icon-24-facebook{ background-position: 0 -80px; width: 24px; height: 24px; } 
+.icon-24-github-hover{ background-position: 0 -124px; width: 24px; height: 24px; } 
+.icon-24-github{ background-position: 0 -168px; width: 24px; height: 24px; } 
+.icon-24-google-hover{ background-position: 0 -212px; width: 24px; height: 24px; } 
+.icon-24-google{ background-position: 0 -256px; width: 24px; height: 24px; } 
+.icon-24-twitter-hover{ background-position: 0 -300px; width: 24px; height: 24px; } 
+.icon-24-twitter{ background-position: 0 -344px; width: 24px; height: 24px; }  
 
 
 /* ==============================================
@@ -187,8 +189,8 @@ input[type=text], input[type=password], textarea {
 body, .global-header, .global-footer {.bg-deepblue;}
 .global-header {
 	.atk-wrapper {
-		padding-top:@padding*2;
-		padding-bottom:@padding*2;
+		padding-top:@padding;
+		padding-bottom:@padding;
 		position:relative;
 		a {
 			.transition(.3s);
@@ -198,7 +200,7 @@ body, .global-header, .global-footer {.bg-deepblue;}
 		.logo {
 			height:1px;
 			display:block;
-			.position(@p:relative,@t:-8px);
+			.position(@p:relative,@t:11px);
 			.opacity(90);
 			&:hover {.opacity(100);}
 		}
@@ -207,15 +209,18 @@ body, .global-header, .global-footer {.bg-deepblue;}
 			.big;
 			ul, ul li {display:inline;}
 			ul {
+				float:left;
 				li {
-					margin-left:@margin;
+					padding:@padding/2 @padding;
 					&:first-child {margin-left:0;}
 					&.current a {color:fadeout(@white,0%);cursor:default;}
-					&.link-login {
+				}
+				&.nav-user {
+					float:right;
+					li.link-login {
 						border-top:1px solid @deepBlue;
 						border-right:1px solid rgba(255,255,255,0.1);
 						border-left:1px solid @deepBlue;
-						padding:@padding/2 @padding;
 						position:relative;
 						@width:190px;
 						>a {.transition(none);cursor:default;}
@@ -243,9 +248,7 @@ body, .global-header, .global-footer {.bg-deepblue;}
 									:focus::-moz-placeholder {color:#999;}
 									:focus:-ms-input-placeholder {color:#999;}
 									input:focus:-moz-placeholder {color:#999;}
-									
 									input {
-/* 										background:darken(@lightGray,7%); */
 										background:darken(@lightGray,10%);
 										border:none;
 										padding:@padding/3;
@@ -270,15 +273,15 @@ body, .global-header, .global-footer {.bg-deepblue;}
 								>span {.transition(.3s);}
 								&:hover {
 									background:#fff;
-									.icon-github {.icon-github-hover;}
-									.icon-google {.icon-google-hover;}
-									.icon-facebook {.icon-facebook-hover;}
-									.icon-twitter {.icon-twitter-hover;}
+									.icon-24-github {.icon-24-github-hover;}
+									.icon-24-google {.icon-24-google-hover;}
+									.icon-24-facebook {.icon-24-facebook-hover;}
+									.icon-24-twitter {.icon-24-twitter-hover;}
 								}
 								&:first-child {border-left:none;width:52px;}
 							}
 						}
-						&:hover {
+						&.hover {
 							background:@lightGray;
 							border-color:darken(@lightGray,10%);
 							>a {color:darken(@lightGray,50%);}
@@ -288,9 +291,8 @@ body, .global-header, .global-footer {.bg-deepblue;}
 							}
 						}
 					}
-				}
-
-			}
+				}	
+			} /* ul ends */
 		}
 	}
 }

@@ -36,19 +36,17 @@
         		<div class="span2">
 					<?logo?><a href="<?page?>index<?/?>" class="logo"><img src="/agiletoolkit.org/public/images/logo.png" /></a><?/logo?>
         		</div>
-        		<nav class="span9 offset1">
-        			<ul style="float:right;width:auto;margin:0;">
+        		<nav class="span10">
+        			<ul class="nav-user">
 						<li class="link-login">
 							<a href="#">Login</a>
 							<div class="flyout">
 								<script>
 									$(function(){
 										$('.link-login button').button();
-										$('.atk-form-row input').focus( function() {
-											$(this).prev('span.holder').addClass('active');
-										}).blur(function() {
-											$(this).prev('span.holder').removeClass('active');
-										});
+										
+										$('.link-login').hover(function() { $(this).addClass("hover"); });
+										
 									});
 								</script>
 								<div class="atk-form stacked">
@@ -65,10 +63,10 @@
 									</form>
 								</div>
 								<footer>
-									<a href="#"><span class="icon-github"></span></a>
-									<a href="#"><span class="icon-facebook"></span></a>
-									<a href="#"><span class="icon-twitter"></span></a>
-									<a href="#"><span class="icon-google"></span></a>
+									<a href="#"><span class="icon-24-github"></span></a>
+									<a href="#"><span class="icon-24-facebook"></span></a>
+									<a href="#"><span class="icon-24-twitter"></span></a>
+									<a href="#"><span class="icon-24-google"></span></a>
 								</footer>
 							</div>
 						</li>
