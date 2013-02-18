@@ -1,12 +1,12 @@
-# Architecture & Design > Anatomy Of An Application
+# Overview > Anatomy Of An Application
 
 ## The Class Hierarchy
 
-In order to implement the Composability and Extensibility that make Agile Toolkit so productive we need to provide every object with a number of common features.
+In order to implement the [Composability](/TODO) and [Extensibility](/TODO) that make Agile Toolkit so productive we need to provide every object with a number of common features.
 
 So at the top of the class hierarchy is `AbstractObject`, which primarily handles the creation, naming and initialization of objects.
 
-There are three classes which extend directly from `AbstractObject`:
+There are three classes that extend directly from `AbstractObject`:
 
 * **AbstractModel**: which adds features to help manage data entities
 * **AbstractView**: which adds features for generating output with nested templates
@@ -16,7 +16,7 @@ There are three classes which extend directly from `AbstractObject`:
 
 All other classes descend from one of these three abstract classes, so all objects in Agile Toolkit are either Models, Views or Controllers.
 
-So while most modern PHP frameworks aim at decoupling their code, Agile Toolkit is a tightly integrated system. Like any design decision this involves tradeoffs: your code is somewhat less portable to other frameworks, but in return you enjoy the unique productivity features of the Toolkit.
+While most modern PHP frameworks aim at decoupling their code, Agile Toolkit is a tightly integrated system. Like any design decision this involves tradeoffs: your code is somewhat less portable to other frameworks, but in return you enjoy the unique productivity features of the Toolkit.
 
 ## The Runtime Object Tree
 
@@ -79,16 +79,8 @@ There are a number of API classes available in the Core, and you can extend them
 
 * [ApiCLI](/TODO): a minimal frontend for command line requests
 * [ApiWEB](/TODO): a minimal frontend for web applications, mainly used for integrating with other frameworks
-* [ApiFrontend](/TODO): extends ApiWeb with routing, default page layouts and Page classes
+* [ApiFrontend](/TODO): a comprehensive API for web applications, extending ApiWeb with routing, an integrated CSS stying system, and Page classes
 
 There are other more specialised APIs for installers and REST requests.
 
 API classes descend from AbstractView, because they are generally used to create output.
-
-## Addons
-
-Outside the Core there's a growing ecosystem of Agile Toolkit Addons. Official Addons are distributed in the `/atk4-addons` directory. They cover functionality such as internationalization and a range of useful user interface widgets.
-
-We have recently launched an [Addon marketplace](/TODO) for community and commercial Addons. It's early days, but we plan to expand this rapidly and invite you to contribute.
-
-<!-- Will this be launched in time? -->

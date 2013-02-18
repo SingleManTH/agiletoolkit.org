@@ -93,7 +93,7 @@ Agile Toolkit Documentation: Table of Contents
 
     + Why Use Agile Toolkit?
     + What Are The Key Design Principles?
-    + A New Approach To MVC
+    + A Fresh Approach To MVC
     + Anatomy Of An Application
     + How To Learn Agile Toolkit
 

@@ -40,7 +40,7 @@ To achieve Composability our Model and View objects store their parameters and o
 
 This means that when you extend an object any of its settings can be modified to provide different or additional functionality without breaking the existing, tested, parent object.
 
-In general, best practice in Agile Toolkit is to add new functionality by extending the existing object, without disrupting its code and tests. The Extensibility features are designed to ensure that this process is rapid and reliable.
+In general, best practice in Agile Toolkit is to add new functionality by extending the existing object, without disrupting its code and tests. The Extensibility features are designed to ensure that this process is reliable and flexible.
 
 ## The Testability Principle
 
