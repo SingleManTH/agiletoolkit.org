@@ -89,6 +89,14 @@ Agile Toolkit Documentation: Table of Contents
 	+ Advanced Configuration 							
     + Troubleshooting 									
 
+* Agile Toolkit Overview
+
+    + Why Use Agile Toolkit?
+    + What Are The Key Design Principles?
+    + A New Approach To MVC
+    + Anatomy Of An Application
+    + How To Learn Agile Toolkit
+
 * Tutorials
 	+ Hello World ->>
 	+ DVD Rental (Beginner) ->>
@@ -101,12 +109,6 @@ Agile Toolkit Documentation: Table of Contents
     + Request Flow Chart
     + Agile Toolkit Cheat Sheet
     + Coding Standards
-
-* Architecture & Design
-
-    + Distinctive Design Goals
-    + A New Approach To MVC
-    + Anatomy Of An Application
 
 * Working With The Core
 
@@ -215,7 +217,7 @@ Agile Toolkit Documentation: Table of Contents
     		* Selenium
     		* Behat
 
-* Working With Data
+* Working With Models
 
 	+ DSQL Query Builder
     	- Overview
@@ -375,7 +377,7 @@ Agile Toolkit Documentation: Table of Contents
 	+ How To Access Community Addons
  	+ How To Create Your Own Addons
 
-* The Agile Toolkit Development Process
+* Developing With Agile Toolkit
 	+ Structural Choices
     + Agile Development
     + Best Practices
