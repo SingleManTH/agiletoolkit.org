@@ -15,7 +15,7 @@
                 "reference": null,
                 "shasum": null
             },
-            "time": "2013-02-11 03:16:38",
+            "time": "2013-02-12 04:50:24",
             "type": "library",
             "autoload": {
                 "psr-0": {
@@ -367,12 +367,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/romaninsh/opauth",
-                "reference": "864fbd0d478e383a8d605a541eb2119b2d523936"
+                "reference": "c71ff9561ba5e40265f4012c46c3aef8ffb2d2f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/romaninsh/opauth/zipball/864fbd0d478e383a8d605a541eb2119b2d523936",
-                "reference": "864fbd0d478e383a8d605a541eb2119b2d523936",
+                "url": "https://api.github.com/repos/romaninsh/opauth/zipball/c71ff9561ba5e40265f4012c46c3aef8ffb2d2f6",
+                "reference": "c71ff9561ba5e40265f4012c46c3aef8ffb2d2f6",
                 "shasum": ""
             },
             "require": {
@@ -380,7 +380,7 @@
                 "opauth/opauth": ">=0.4.3",
                 "php": ">=5.3"
             },
-            "time": "2013-02-11 03:33:51",
+            "time": "2013-02-11 03:58:24",
             "type": "library",
             "autoload": {
                 "psr-0": {

@@ -34,6 +34,11 @@
 @fontColor:			lighten(@black,20%);		// Global font color
 @fontFamily:		"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;		// Global font family
 
+.defaultBg(#ECF3F9,#C8D3DE);	// Default State (.ui-state-default)
+.hoverBg(#F5F9FC,#D5E1ED);		// Hover State (.ui-state-hover)
+.activeBg(#ECF3F9,#FFFFFF);		// Active State (.ui-state-active)
+.headerBg(#00070F,#002D5E);		// Widget Header (.ui-widget-header)
+
 
 /* ==============================================
 	Temp
@@ -44,7 +49,7 @@
 	.position(@t:0,@l:0);
 	pointer-events:none;
 	a {
-		background:#fff;
+		background:rgba(255,255,255,0.7);
 		.border-radius(10px);
 		.box-shadow(0 1px 5px rgba(0,0,0,0.5));
 		font-size:12px;
@@ -74,6 +79,30 @@
 }
 
 .bg-green {background:#e5ffd9;color:#7a996b}
+
+
+/* ==============================================
+	Sprite
+============================================== */
+.icon-16-forgot,
+.icon-24-facebook-hover,
+.icon-24-facebook,
+.icon-24-github-hover,
+.icon-24-github,
+.icon-24-google-hover,
+.icon-24-google,
+.icon-24-twitter-hover,
+.icon-24-twitter { background-image:url(../images/sprite.png);display:inline-block; }
+
+.icon-16-forgot{ background-position: 0 0; width: 16px; height: 16px; } 
+.icon-24-facebook-hover{ background-position: 0 -36px; width: 24px; height: 24px; } 
+.icon-24-facebook{ background-position: 0 -80px; width: 24px; height: 24px; } 
+.icon-24-github-hover{ background-position: 0 -124px; width: 24px; height: 24px; } 
+.icon-24-github{ background-position: 0 -168px; width: 24px; height: 24px; } 
+.icon-24-google-hover{ background-position: 0 -212px; width: 24px; height: 24px; } 
+.icon-24-google{ background-position: 0 -256px; width: 24px; height: 24px; } 
+.icon-24-twitter-hover{ background-position: 0 -300px; width: 24px; height: 24px; } 
+.icon-24-twitter{ background-position: 0 -344px; width: 24px; height: 24px; }  
 
 
 /* ==============================================
@@ -116,18 +145,42 @@ big, .big {font-size:1.2em;}
 
 
 /* ==============================================
+	Colours
+============================================== */
+@lightGray:#e8eaed;
+@blue: #3b5397;
+@deepBlue: #242833;
+
+
+/* ==============================================
 	Styling
 ============================================== */
 a {text-decoration:none;}
 .lead {color:#7a8299;.big;}
 
-.bg-deepblue {background:#242833;}
+.bg-deepblue {background:@deepBlue;}
+
+
+/* ==============================================
+	jQueryUI
+============================================== */
+.ui-state-default.ui-button {background:@blue;border:none;text-shadow:none;color:#fff;.transition(.3s);}
+.ui-state-hover.ui-button {background:lighten(@blue,10%);}
+.ui-corner-all {.border-radius(0);}
 
 
 /* ==============================================
 	Elements
 ============================================== */
 .atk-box {margin:@margin 0;}
+input[type=text], input[type=password], textarea {
+	background:#fff;
+	.border-radius(0);
+	.box-shadow(none);
+	font-size:14px;
+	color:#333;
+	&:focus {.box-shadow(none);}
+}
 
 
 /* ==============================================
@@ -136,31 +189,110 @@ a {text-decoration:none;}
 body, .global-header, .global-footer {.bg-deepblue;}
 .global-header {
 	.atk-wrapper {
-		padding-top:@padding*2;
-		padding-bottom:@padding*2;
+		padding-top:@padding;
+		padding-bottom:@padding;
 		position:relative;
-		a {.transition(.3s);}
+		a {
+			.transition(.3s);
+			color:fadeout(@white,50%);
+			&:hover {color:fadeout(@white,0%);}
+		}
 		.logo {
 			height:1px;
 			display:block;
-			.position(@p:relative,@t:-8px);
+			.position(@p:relative,@t:11px);
 			.opacity(90);
 			&:hover {.opacity(100);}
 		}
 		nav {
-			.ubuntu;.big;
+			.ubuntu;
+			.big;
 			ul, ul li {display:inline;}
 			ul {
+				float:left;
 				li {
-					margin-left:@margin;
-					a {
-						color:fadeout(@white,50%);
-						&:hover {color:fadeout(@white,0%);}
-					}
+					padding:@padding/2 @padding;
 					&:first-child {margin-left:0;}
 					&.current a {color:fadeout(@white,0%);cursor:default;}
 				}
-			}
+				&.nav-user {
+					float:right;
+					li.link-login {
+						border-top:1px solid @deepBlue;
+						border-right:1px solid rgba(255,255,255,0.1);
+						border-left:1px solid @deepBlue;
+						position:relative;
+						@width:190px;
+						>a {.transition(none);cursor:default;}
+						.flyout {
+							background:@lightGray;
+							border:1px solid darken(@lightGray,10%);
+							border-top:none;
+							.position(@t:100%,@l:-1px,@z:2);
+							.opacity(0);
+							visibility:hidden;
+							.atk-form {
+								padding:@padding/2;
+								width:@width;
+								input, button {width:@width;}
+								fieldset, .atk-buttons {margin:0;padding:0;border-top:none;}
+								.atk-form-row {
+									margin:0 0 @padding/4 0;
+									@a:darken(@lightGray,30%);
+									@placeholder:desaturate(@a,5%);
+									::-webkit-input-placeholder {color:@placeholder;}
+									::-moz-placeholder {color:@placeholder;}
+									:-ms-input-placeholder {color:@placeholder;}
+									input:-moz-placeholder {color:@placeholder;}
+									:focus::-webkit-input-placeholder {color:#999;}
+									:focus::-moz-placeholder {color:#999;}
+									:focus:-ms-input-placeholder {color:#999;}
+									input:focus:-moz-placeholder {color:#999;}
+									input {
+										background:darken(@lightGray,10%);
+										border:none;
+										padding:@padding/3;
+										&:focus {
+											background:#fff;
+										}
+									}
+								}
+								.ui-button-text-only .ui-button-text {padding:@padding/3 0;}
+							}
+						}
+						footer {
+							border-top:1px solid darken(@lightGray,5%);
+							a {
+								border-left:1px solid darken(@lightGray,5%);
+								font-size:0;
+								line-height:0;
+								text-align:center;
+								padding:@padding/2 0;
+								width:53px;
+								float:left;
+								>span {.transition(.3s);}
+								&:hover {
+									background:#fff;
+									.icon-24-github {.icon-24-github-hover;}
+									.icon-24-google {.icon-24-google-hover;}
+									.icon-24-facebook {.icon-24-facebook-hover;}
+									.icon-24-twitter {.icon-24-twitter-hover;}
+								}
+								&:first-child {border-left:none;width:52px;}
+							}
+						}
+						&.hover {
+							background:@lightGray;
+							border-color:darken(@lightGray,10%);
+							>a {color:darken(@lightGray,50%);}
+							.flyout {
+								.opacity(100);
+								visibility:visible;
+							}
+						}
+					}
+				}	
+			} /* ul ends */
 		}
 	}
 }

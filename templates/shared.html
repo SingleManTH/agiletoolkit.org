@@ -36,7 +36,42 @@
         		<div class="span2">
 					<?logo?><a href="<?page?>index<?/?>" class="logo"><img src="/agiletoolkit.org/public/images/logo.png" /></a><?/logo?>
         		</div>
-        		<nav class="span9 offset1">
+        		<nav class="span10">
+        			<ul class="nav-user">
+						<li class="link-login">
+							<a href="#">Login</a>
+							<div class="flyout">
+								<script>
+									$(function(){
+										$('.link-login button').button();
+										
+										$('.link-login').hover(function() { $(this).addClass("hover"); });
+										
+									});
+								</script>
+								<div class="atk-form stacked">
+									<form>
+								    	<fieldset>
+											<div class="atk-form-row atk-row atk-form-row-line">
+												<div class="atk-form-field"><input name="input-login" id="input-login" type="text" placeholder="Username"></div>
+											</div>
+											<div class="atk-form-row atk-row atk-form-row-line">
+												<div class="atk-form-field"><input name="input-password" id="input-password" type="password" placeholder="Password"></div>
+											</div>
+										</fieldset>
+										<div class="atk-buttons"><button>Login</button></div>
+									</form>
+								</div>
+								<footer>
+									<a href="#"><span class="icon-24-github"></span></a>
+									<a href="#"><span class="icon-24-facebook"></span></a>
+									<a href="#"><span class="icon-24-twitter"></span></a>
+									<a href="#"><span class="icon-24-google"></span></a>
+								</footer>
+							</div>
+						</li>
+						<li class="link-signup"><a href="#">Sign Up</a></li>
+					</ul>
 					<?Menu?>
 				    <li class="ui-state-default"><a href="javascript:void(0)">Menu is not defined</a></li>
 					<?/?>
