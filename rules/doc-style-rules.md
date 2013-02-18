@@ -20,6 +20,7 @@ This doc will evolve ad-hoc as use-cases come up.
 
 * Use 'Agile Toolkit' not 'ATK4' or 'The Agile Toolkit'
 * When 'Agile Tookit' becomes too repetative, you can occasionally shorten it to 'the Toolkit'
+* Agile Toolkit is never a "framework", always a "Toolkit"
 * Use 'Addon' not 'addon' or 'add-on'
 * Use 'Core' for the code in the /atk4 directory
 * For the ATK classes, capitalise View, Page, Model & Controller

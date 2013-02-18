@@ -1,103 +1,101 @@
-# Architecture & Design > Distinctive Design Goals
+# Architecture & Design > Design Goals
 
-## What Challenges Does Agile Toolkit Solve?
+## What Challenges Is Agile Toolkit Designed To Solve?
 
-Agile Toolkit is designed to help developers of data-intensive web applications solve three of their greatest challenges:
+Agile Toolkit is a new kind of PHP framework focused on easing the development of rich-client AJAX applications. 
 
-+ Rich web interfaces
-+ Agile development
-+ Code reusability
+The increasing importance of desktop-like AJAX interfaces is a game-changer for PHP application developers:
 
-### Rich web interfaces are hard
+* Rich interfaces require complex HTML5 and CSS3
+* We need non-trivial JavaScript in the client to enforce business rules, handle events and bind data structures to the interface
+* We need to move data between the database, our PHP server-side objects and our JavaScript in the client
+* For security, we need to double-check client-side business rules on the server
+* And we have to tie all this together with AJAX calls in both directions.
 
-The increasing importance of desktop-like AJAX interfaces is a game-changer for PHP developers. Nowadays you'll typically be juggling with a veritable smörgåsbord of technologies:
+![The Web Technology Challenge](/dia-web-technologies.png)
 
-+ HTML5 & CSS3 for the client interface
-+ JavaScript for client interactivity
-+ A PHP MVC framework on the server side
-+ Perhaps some raw SQL in the data layer
-+ And client-server AJAX calls to tie the whole thing together
+The PHP community offers an exceptional choice of well-engineered MVC frameworks, but even the best can only offer a partial solution to the many challenges of developing rich-client applications.
 
-![Web Development Complexity](dia-web-technologies.png)
+With some frameworks you create your AJAX data management system though code generation, and this can work well for straightforward requirements. But your application design is constrained by the features built into the generator, and you can end up adapting more complex projects to the framework rather than the framework to the project.
 
-This complexity makes modern rich web applications hard to author, hard to test and hard to change.
+The other main option is a multi-framework development stack. Typically this involves a PHP MVC framework on the server-side, a JavaScript user interface framework such as JQuery UI on the client-side, and perhaps a CSS framework such as Bootstrap to ease the styling headache. But now you're working with two or three complex and overlapping frameworks in different languages, and you're still having to figure out your own way to tie them together with AJAX. It's a challenge to keep things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself) and avoid duplicating effort on the client and the server. The learning curve is steep. And the resulting code can be hard to test and tricky to change as requirements evolve. 
 
-### Agile development is hard
+Neither of these solutions met the needs of our busy web development house. So we set out to build a more integrated, flexible and reliable approach to developing rich web applications.
 
-The benefits of [Agile development](http://en.wikipedia.org/wiki/Agile_development) are increasingly understood, but until now PHP frameworks haven't really evolved to meet the new demands of Agile processes. 
+## What Benefits Does Agile Toolkit Deliver?
 
-Ideally we want to incrementally add business and interface functionality without breaking our working code, and to plug together the work of different developers or teams for frequent releases with minimal integration headaches.
+With so many excellent PHP frameworks, any new project has to justify its existence by delivering dictinctive and compelling benefits.
 
-How much help does your current framework offer with these Agile challenges?
+Our inspiration has been desktop GUI frameworks such as Cocoa, QT and .Net. Compared to mainstream PHP frameworks, these offer a notably easier route to building rich applications:
 
-### Code reusability is hard
+* They abstract away most of the complexity of full-featured GUIs without sacrificing flexibility, freeing the developer to focus on business functionality rather than low-level nuts and bolts
+* You do your work in a single language and access the framework functionality through a single API
+* You create a rich user experience by plugging together and configuring well-tested GUI components
+* You develop new GUI components by combining sub-components
+* You can plug in additional functionality through a thriving ecosystem of open source and commercial addons
+* The GUI is nicely styled by default and is easy to re-skin
+* And on the business side, your data structures bind seamlessly to your interface widgets.
 
-This was the great promise of object-oriented design, but long experience has proved that effective reuse is a truly hard problem. 
+Agile Toolkit offers all of these benefits to developers building data-centric AJAX applications in PHP. 
 
-One of the most successful approaches is component reuse &ndash; flexible business and interface components can accelerate development and increase reliability.
+We call our solution a Toolkit rather than a framework because the focus is on rapid development with reusable interface and business components. And we call it Agile because the components are designed to adapt easily and reliably as agile requirements evolve.
 
-But few PHP application frameworks offer much help if you want to build truly useful components that can adapt to changing requirements.
+In practice, you'll be working with:
 
-### The need for a fresh approach
+* **A fresh approach to Views**: building a rich user experience by snapping together flexible, event-aware View components using only PHP([see more...](/TODO)) 
+* **A fresh approach to Models**: building your business logic in Models that plug directly into your View components and adapt robustly as requirements evolve ([see more...](/TODO)) 
+* **A fresh approach to Addons**: plugging in additional functionality from an ecosystem of Addons that take full advantage of the event handling and styling features of the Toolkit Core ([see more...](/TODO)).
 
-As we've seen, the demands on developers are evolving rapidly, but there's been surprisingly little innovation in the world of PHP application frameworks. The focus is on server-side implementations of the [MVC pattern](http://en.wikipedia.org/wiki/MVC_Pattern) (Model, View, Controller) and most of the main players seem to be converging on a very similar approach, to the point that their increasingly decoupled libraries are becoming interchangable. There have been major improvements in the field of testability through the use of [dependency injection](http://en.wikipedia.org/wiki/Dependency_Injection), but in most other respects the MVC frameworks of today are quite similar to the previous generation. 
+So what is the payoff for you, the developer? Quite simply, AJAX applications that are:
 
-So measured against the challenges of rich application interfaces, of Agile development and of code reusability, how much practical payoff is your big full-stack MVC framework really offering in return for the complexity and learning curve? It's a question that many are asking with increasing seriousness, and we even have community gurus such as Rasmus Lerdorf (the original author of PHP) arguing that you're better off with a [no-framework](http://toys.lerdorf.com/archives/38-The-no-framework-PHP-MVC-framework.html) approach.
+* Easier to build
+* Easier to test
+* And easier to change.
 
-But this is surely a counsel of despair. What we really need is a radical rethink of the purpose of PHP application frameworks to ensure that they offer practical help with the truly hard problems of rich application development.
+### Example: a full-featured CRUD application in just TODO lines of code
 
-## How Does Agile Toolkit Tackle These Challenges?
+To whet your appetite, here's a complete [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) system for a `user` table, with searching, browsing, sorting, paging, creating, updating, deleting, validation and localized user error messages. With some popular frameworks this would require dozens, even hundreds of lines of code. Not with Agile Toolkit:
 
-Compared to a typical PHP MVC framework, the design of Agile Toolkit is quite radical. Our choices have been driven by three key goals:
+<?-- Would it be better to show them a relational example with master-detail? Even more impressive??>
 
-+ Harnessing the **Abstraction Principle** so developers can work with the web technology smörgåsbord through a consistent PHP API
-+ Harnessing the **Composability Principle** so developers can build complex business and interface components from smaller, tested subcomponents
-+ Harnessing the **Extensibility Principle** so developers can add new functionality to their components with ease as Agile requirements evolve.
+    TODO
+    // Let's set up a data Model
+    // Now we'll add some validation rules
+    // We plug our Model into the Agile Toolkit CRUD Addon
+    // And configure some additional UI functionality
+
+That's all there is to it. Every aspect of the functionality and look-and-feel can be customized with ease &ndash; you can even swap in a different grid component! And this is what you get in just xx lines of code &ndash; a full-featured, attractive data entry system that's ready to go:
+
+    TODO
+    // Screenshot? Screencast? Live demo?
+
+## How Does Agile Toolkit Deliver These Benefits?
+
+New benefits require new approaches. The techniques are widely used in desktop frameworks, but may be unfamiliar to web developers.
+
+You'll find the Toolkit easier to learn if you understand the four key engineering principles it's built on.
 
 ### The Abstraction Principle
 
-Typically developers will use: 
-
-* A PHP MVC framework to help abstract away HTTP, HTML5, SQL and server-side AJAX
-* A JavaScript toolkit such as [JQuery](http://jquery.com/) to help abstract away JavaScript, the DOM and client-side AJAX
-* And a front-end framework such as [Bootstrap](http://twitter.github.com/bootstrap/) to help abstract away HTML5, CSS3 and JavaScript.
-
-This helps bring the technology smörgåsbord under control, but working with three complex and overlapping frameworks in three different languages is still a pretty major headache.
-
-We developed Agile Toolkit to abstract all these technologies into one integrated and consistent PHP framework:
-
-* Managing the server-side with MVC refactored for the demands of Agile, component-driven development
-* Native integration of JQuery and JQuery UI, defining client-side behaviour and handling client-side events using PHP on the server-side
-* Styling your interface components with a fully-integrated CSS3 framework that's easy to skin and adapt
-* And handling all the AJAX complexity required to plumb the client into the server.
+We abstract all the technologies of the client-side and the server-side behind a consistent PHP interface. You lay out your data entry system, define UI behaviour and handle client-side events using PHP on the server.
 
 ![Web Development Levels of Abstraction](dia-levels-of-abstraction.png)
 
-Years of experience with demanding Agile projects has proven that this radical level of abstraction simplifies development and eases testing.
+Years of experience with demanding Agile projects has proven that this radical level of abstraction shortens the learning curve, simplifies development and eases testing.
 
 ### The Composability Principle
 
-As developers we've worked with GUI frameworks such as Cocoa, and when we began to build rich web interfaces we wondered why it had to be so hard. So we've adapted techniques from desktop GUI frameworks to the client-server world of web applications.
+The Toolkit is designed from the ground up to help developers compose View components from smaller sub-components. Component-focused development shortens delivery cycles and increases reliability, and it's Composability that makes this possible.
 
-On the desktop you build complex GUI components from simpler, tested subcomponents such as buttons, fields, data grids, forms and tabs. This is a practical example of [Composability](http://en.wikipedia.org/wiki/Composability)
+Techically, Composability requires components that are independent, keep track of their own state and know how to cooperate with each other. Much of the design of Agile Toolkit is focused on achieving these requirements.
 
-Our goal for Agile Toolkit was to make it equally easy to build interactive, event-aware interface components using HTML5, CSS3, JavaScript and AJAX. 
+Composability isn't restricted to View components &ndash; Models are composable too. So you can build complex business rules from simpler sub-components.
 
-Achieving Composability requires new approaches to framework design. Components need to be independent, keep track of their own state and know how to cooperate with each other. This is a challenge for developers, so as far as possible the framework has to handle this for them. In Agile Toolkit all objects descend from an `Abstract Object` class which provides a number of Composability services. You'll find the details in the article [Working With Objects](/TODO).
-
-In Agile Toolkit, Composability  means that interface objects know how to render their children and access them dynamically with JQuery. For example you can create a form, plug in layers of interactive, event-aware subcomponents, write your event handling code in PHP and the whole thing will automatically render and run. It all just works.
-
-From there it's a short step to realizing that SQL queries can also be rendered from nested templates, so we built Agile ORM, an object-relational mapper that allows you to compose SQL queries from smaller query components such as expressions and subqueries.
-
-It's a new world for PHP and you're going to love it! To give you a taste of the power of Composability, here's a complete [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) system for a `user` table, with searching, browsing, sorting, paging, creating, updating, deleting, validation and localized user error messages. It's built with an Addon component composed from a wide range of subcomponents.
-
-    TODO, with the new declarative validation plugin
-
-With Agile Toolkit any developer can quickly develop a range of tested and reliable business and interface components to meet the repeating requirements of your problem domain.
+With Agile Toolkit any developer can quickly develop a range of flexible business and interface components to meet the repeating requirements of your problem domain.
 
 ### The Extensibility Principle
 
-But Composability is only the first step to a truly Agile web framework. In many ways the toughest challenge is adding functionality to your components as your application evolves.
+Composability is only the first step to a truly Agile web framework. In many ways the toughest challenge is adding functionality to your components as your application evolves.
 
 This is where you need [Extensibility](http://en.wikipedia.org/wiki/Extensibility) &ndash; the ability to add new functionality without breaking existing tested code.
 
@@ -105,26 +103,16 @@ To achieve Composability we designed our Model and View objects so they store th
 
 This means that when you extend an object any of its settings can be modified to provide different or additional functionality without breaking the existing, tested, parent object.
 
-Say, for example, you have a `user` Model handling your business rules and actions for application users. Then the client decides that they also need a `superuser` entity. A `superuser` does most things the same way as a `user`, does some things differently, and does some new actions not shared with a `user` which use different fields. With most ORMs this wouldn't be easy to achieve without disrupting existing code and tests. With Agile Toolkit, it's simple to extend your Model to add the new requirements:
+In general, best practice in Agile Toolkit is to add new functionality by extending the existing object, without disrupting its existing code and tests. The Extensibility features are designed to ensure that this process is rapid and realiable.
 
-    TODO: example
+Our focus on Composability and Extensibility means that everything in Agile Toolkit is an object &ndash; there's no use of static classes. Any component can be reconfigured or swapped out at runtime, so the Toolkit is a software tester's dream! 
 
-Any code using the parent `user` Model will continue to work, because nothing has changed. And there's no danger that new code using the the `superuser` Model will inadvertantly apply `superuser` operations to a mere `user` because you changed the query conditions to select only `superusers` to operate on: there's a clean separation of concerns. Your old `user` tests continue to run, and you add specific tests for the new `superuser` functionality. So changing your code is easy, robust and safe. That's the power of the Extensibility Principle, and you'll find it applied throughout the View and Model objects within the Toolkit.
+### The Simplicity Principle
 
-As an important side effect, this means that Agile Toolkit is radically injectable: any object can be swapped out or reconfigured at any stage with no need for any special planning or configuration. So it's a software tester's dream!
-
-## The Simplicity Principle
-
-To summarize, our overriding aim is to simplify the process of developing data-intensive rich web applications. Frankly, with some of the leading PHP frameworks there are times you can feel that they're making simple things complex. With Agile Toolkit, our focus is always to make complex things simpler:
-
-* It's simpler to build rich web interfaces
-* It's simpler to build reusable business and interface components
-* And its simpler to adapt your components as Agile requirements evolve.
-
-This focus on simplicity extends to the code itself. The Core is small and lean, with non-essential services provided by optional Addons. And we always adopt the simplest practical approach, even if it's not the trendiest. For example:
+Finally, working with web frameworks you can sometimes feel that they're making simple things complex. With Agile Toolkit we strive to avoid this by always adopting the simplest practical approach, even if it's not the 'purest' or trendiest. For example:
 
 * Configuration files are plain old PHP hashes, so if you want complex conditional configurations just pop in some code.
-* Namespacing isn't used within the core and application code unless you're using Addons or external libraries. It's never caused any practical problems and we avoid tedium like this:
+* You won't need namespacing unless you're using Addons or external libraries. This has never caused any practical problems and we avoid tedium like this:
 
     <pre>
     namespace Acme\TaskBundle\Controller;
@@ -134,8 +122,6 @@ This focus on simplicity extends to the code itself. The Core is small and lean,
     use Symfony\Component\HttpFoundation\Request;
     </pre>
 
-* We use good old $\_GET and $\_POST rather than some kind of complex request object.
+* We use directories in the file system to define our routes, just as HTTP intended.
 
 You'll find this kind of pragmatic thinking throughout the codebase. It helps to keep the code lean and the learning curve low.
-
-Radical new benefits require radical new approaches. As you dig into these docs you'll find there's much about Agile Toolkit that's unfamiliar &ndash; it's not hard to learn but it does require some new thinking. So do please bear the purpose in mind: Agile Toolkit is designed to deliver new levels of Abstraction, Composability and Extensibility so that development becomes simpler, faster and more agile.

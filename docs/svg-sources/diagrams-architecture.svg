@@ -26,9 +26,9 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.2534575"
      inkscape:cx="1617.0504"
-     inkscape:cy="275.97127"
+     inkscape:cy="92.721144"
      inkscape:document-units="px"
-     inkscape:current-layer="g16000"
+     inkscape:current-layer="g11874"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1148"
@@ -2670,17 +2670,15 @@
            transform="matrix(4.4913397,0,0,4.4913397,965.92865,127.72999)"
            id="g12122">
           <g
-             id="g12124">
-</g>
+             id="g12124" />
           <g
              id="g12126">
-	<path
-   inkscape:connector-curvature="0"
-   style="fill:#4e4e50"
-   d="M 13.665445,2.6764431 H 2.0073323 V 29.323557 H 21.992668 V 11.002001 L 13.665445,2.6764431 z M 5.3382215,25.992668 V 6.0073323 H 12 v 6.6617787 h 6.661778 V 25.992668 H 5.3382215 z"
-   id="path12128" />
-
-</g>
+            <path
+               inkscape:connector-curvature="0"
+               style="fill:#4e4e50"
+               d="M 13.665445,2.6764431 H 2.0073323 V 29.323557 H 21.992668 V 11.002001 L 13.665445,2.6764431 z M 5.3382215,25.992668 V 6.0073323 H 12 v 6.6617787 h 6.661778 V 25.992668 H 5.3382215 z"
+               id="path12128" />
+          </g>
         </g>
         <text
            sodipodi:linespacing="125%"
@@ -3034,34 +3032,32 @@
           <g
              id="g12393"
              style="fill:#4e4e50;fill-opacity:1">
-	<path
-   id="path12395"
-   d="M 50,46.24 C 22.386,46.24 0,43.025 0,39.061 v 21.885 c 0,3.964 22.386,7.18 50,7.18 27.612,0 50,-3.216 50,-7.18 V 39.061 c 0,3.964 -22.388,7.179 -50,7.179 z"
-   inkscape:connector-curvature="0"
-   style="fill:#4e4e50;fill-opacity:1" />
-
-</g>
+            <path
+               id="path12395"
+               d="M 50,46.24 C 22.386,46.24 0,43.025 0,39.061 v 21.885 c 0,3.964 22.386,7.18 50,7.18 27.612,0 50,-3.216 50,-7.18 V 39.061 c 0,3.964 -22.388,7.179 -50,7.179 z"
+               inkscape:connector-curvature="0"
+               style="fill:#4e4e50;fill-opacity:1" />
+          </g>
           <g
              id="g12397"
              style="fill:#4e4e50;fill-opacity:1">
-	<path
-   id="path12399"
-   d="M 50,78.116 C 22.386,78.116 0,74.9 0,70.935 V 92.821 C 0,96.787 22.386,100 50,100 c 27.612,0 50,-3.213 50,-7.179 V 70.936 c 0,3.964 -22.388,7.18 -50,7.18 z"
-   inkscape:connector-curvature="0"
-   style="fill:#4e4e50;fill-opacity:1" />
-
-</g>
+            <path
+               id="path12399"
+               d="M 50,78.116 C 22.386,78.116 0,74.9 0,70.935 V 92.821 C 0,96.787 22.386,100 50,100 c 27.612,0 50,-3.213 50,-7.179 V 70.936 c 0,3.964 -22.388,7.18 -50,7.18 z"
+               inkscape:connector-curvature="0"
+               style="fill:#4e4e50;fill-opacity:1" />
+          </g>
         </g>
         <text
            xml:space="preserve"
            style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-           x="1517.2567"
+           x="1518.1993"
            y="143.97371"
            id="text12154-5"
            sodipodi:linespacing="125%"><tspan
              id="tspan12156-8"
              sodipodi:role="line"
-             x="1517.2567"
+             x="1518.1993"
              y="143.97371"
              style="font-size:12px;text-align:center;text-anchor:middle;fill:#ffffff">RDBMS</tspan></text>
       </g>
@@ -3379,7 +3375,7 @@
            id="tspan11936-3-6"
            x="1205.4845"
            y="561.78967"
-           style="font-size:19.92500687px;fill:#000000">The Web Technology Smörgåsbord</tspan></text>
+           style="font-size:19.92500687px;fill:#000000">The Web Technology Challenge</tspan></text>
       <g
          id="g16963">
         <g

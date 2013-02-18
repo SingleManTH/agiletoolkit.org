@@ -1,5 +1,45 @@
 # Architecture & Design > A New Approach To MVC
 
+For example you can create a form, plug in layers of interactive, event-aware subcomponents, write your event handling code in PHP and the whole thing will automatically render and run. It all just works.
+## What Are The Key Features Of Agile Toolkit?
+
+We can sum up the key features under three headings:
+
+* A fresh approach to Views
+* A fresh approach to Models
+* And a fresh approach to Addons (our term for plugins).
+
+### A fresh approach to Views
+
+As with a GUI development framework, in Agile Toolkit you build your UI by plugging together and configuring widgets such as buttons, fields, tabs, forms and grids. You lay out your interface, define widget behaviour, bind data and handle events exclusively on the server using PHP. All the AXAX plumbing is handled for you under the hood, and everything simply works. View components are objects, and can be extended and customized at will.
+
+There's also a default styling system so your interface looks good from the get-go, but again, you can customize to your heart's content.
+
+Even if you're a JavaScript guru there are payoffs for managing your client with PHP. Agile Toolkit is smart enough to handle the interractions between your interface objects with minimal developer input:
+
+    // Show a flyout message when file upload completes
+
+    $upload = $this->add('FileUploadComponent');
+    $flyout = $this->add('FlyoutComponent');
+    $upload->js('completed', $flyout->showJS());
+
+### A fresh approach to Models
+
+In Agile Toolkit, Models are fully integrated with View components, so data binding becomes as easy as this:
+
+    $grid->setModel('Product');
+
+Now the Toolkit will handle all the AJAX loading for you behind the scenes. 
+
+But we went further. The Agile ORM is exceptionally flexible, and your queries can be  be extended and customised. With Agile Toolkit, you can build your agile application incrementally, adding new functionality by extending and customising existing objects without breaking your old code or your working tests. 
+
+### A fresh approach to Addons
+
+With the mainstream PHP frameworks the recent emphasis has been decoupling functionality into standalone [PSR-compliant](https://github.com/php-fig/fig-standards/tree/master/accepted) libraries.  
+
+By contrast, Agile Toolkit Addons are highly coupled to the Toolkit. You lose a certain degree of code portability, but you gain a great deal of built-in functionality. So your UI Addons, for example, get immediate access to all the built-in styling and JavaScript smarts of the Toolkit Core. 
+
+
 ## The Agile Toolkit Approach To MVC
 
 Agile Toolkit takes a highly opinionated approach to MVC, building it into the object structure of the framework. Every line of code you write (excluding Exceptions) is descended from an `AbstractModel` class, an `AbstractView` class, or an `AbstractController` class. So everything in your application is either a Model, a View or a Controller. 
