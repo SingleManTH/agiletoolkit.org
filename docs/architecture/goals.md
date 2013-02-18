@@ -42,7 +42,7 @@ We call our solution a Toolkit rather than a framework because the focus is on r
 
 In practice, you'll be working with:
 
-* **A fresh approach to Views**: building a rich user experience by snapping together flexible, event-aware View components using only PHP([see more...](/TODO)) 
+* **A fresh approach to Views**: building a rich user experience by snapping together flexible, event-aware View components using only PHP ([see more...](/TODO)) 
 * **A fresh approach to Models**: building your business logic in Models that plug directly into your View components and adapt robustly as requirements evolve ([see more...](/TODO)) 
 * **A fresh approach to Addons**: plugging in additional functionality from an ecosystem of Addons that take full advantage of the event handling and styling features of the Toolkit Core ([see more...](/TODO)).
 
@@ -56,7 +56,7 @@ So what is the payoff for you, the developer? Quite simply, AJAX applications th
 
 To whet your appetite, here's a complete [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) system for a `user` table, with searching, browsing, sorting, paging, creating, updating, deleting, validation and localized user error messages. With some popular frameworks this would require dozens, even hundreds of lines of code. Not with Agile Toolkit:
 
-<?-- Would it be better to show them a relational example with master-detail? Even more impressive??>
+<?-- Would it be better to show them a relational example with master-detail? Even more impressive? ?>
 
     TODO
     // Let's set up a data Model
@@ -91,7 +91,7 @@ Techically, Composability requires components that are independent, keep track o
 
 Composability isn't restricted to View components &ndash; Models are composable too. So you can build complex business rules from simpler sub-components.
 
-With Agile Toolkit any developer can quickly develop a range of flexible business and interface components to meet the repeating requirements of your problem domain.
+With Agile Toolkit you can quickly develop a range of flexible business and interface components to meet the repeating requirements of your problem domain.
 
 ### The Extensibility Principle
 
@@ -103,7 +103,7 @@ To achieve Composability we designed our Model and View objects so they store th
 
 This means that when you extend an object any of its settings can be modified to provide different or additional functionality without breaking the existing, tested, parent object.
 
-In general, best practice in Agile Toolkit is to add new functionality by extending the existing object, without disrupting its existing code and tests. The Extensibility features are designed to ensure that this process is rapid and realiable.
+In general, best practice in Agile Toolkit is to add new functionality by extending the existing object, without disrupting its code and tests. The Extensibility features are designed to ensure that this process is rapid and reliable.
 
 Our focus on Composability and Extensibility means that everything in Agile Toolkit is an object &ndash; there's no use of static classes. Any component can be reconfigured or swapped out at runtime, so the Toolkit is a software tester's dream! 
 
@@ -122,6 +122,6 @@ Finally, working with web frameworks you can sometimes feel that they're making 
     use Symfony\Component\HttpFoundation\Request;
     </pre>
 
-* We use directories in the file system to define our routes, just as HTTP intended.
+* We use directories in the file system to define our routes without complex configuration conventions, just as HTTP intended.
 
-You'll find this kind of pragmatic thinking throughout the codebase. It helps to keep the code lean and the learning curve low.
+You'll find this kind of pragmatic thinking throughout the codebase. It helps to keep the code lean and the learning curve manageable.
