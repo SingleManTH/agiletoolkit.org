@@ -89,7 +89,7 @@ Agile Toolkit Documentation: Table of Contents
 	+ Advanced Configuration 							
     + Troubleshooting 									
 
-* Agile Toolkit Overview
+* Overview
 
     + Why Use Agile Toolkit?
     + What Are The Key Design Principles?
