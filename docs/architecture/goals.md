@@ -99,7 +99,7 @@ Composability is only the first step to a truly Agile web framework. In many way
 
 This is where you need [Extensibility](http://en.wikipedia.org/wiki/Extensibility) &ndash; the ability to add new functionality without breaking existing tested code.
 
-To achieve Composability we designed our Model and View objects so they store their parameters and only render output at the last moment, once they know what other objects they're working with. So all their settings can be changed at any stage before they render. 
+To achieve Composability our Model and View objects store their parameters and only render output at the last moment, once they know what other objects they're working with. So all their settings can be changed at any stage before they render. 
 
 This means that when you extend an object any of its settings can be modified to provide different or additional functionality without breaking the existing, tested, parent object.
 
