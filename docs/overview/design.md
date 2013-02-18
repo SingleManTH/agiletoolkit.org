@@ -2,9 +2,9 @@
 
 ## A Fresh Approach To Framework Design
 
-New benefits require new design principles. They're widely used in desktop frameworks, but may be unfamiliar to web developers.
+New benefits require new approches. The patterns we use in Agile Toolkit are widely used in desktop frameworks, but may be unfamiliar to web developers.
 
-You'll find the Toolkit easier to learn if you understand the five key engineering principles that have driven its design:
+You'll find the Toolkit easier to learn if you understand the five key principles that have driven its design:
 
 * The Abstraction Principle
 * The Composability Principle
@@ -22,11 +22,11 @@ Years of experience with demanding Agile projects has proven that this radical l
 
 ## The Composability Principle
 
-The Toolkit is designed from the ground up to help developers compose View components from smaller sub-components. Component-focused development shortens delivery cycles and increases reliability. It's Composability that makes this possible.
-
-Techically, Composability requires components that are independent, keep track of their own state and know how to cooperate with each other. Much of the design of Agile Toolkit is focused on achieving these requirements.
+The Toolkit is designed from the ground up to help developers compose View components from smaller sub-components. Powerful and flexible components speed development and increase reliability, and it's Composability that makes this possible.
 
 Composability isn't restricted to View components &ndash; Models are composable too. So you can build complex business rules from simpler sub-components.
+
+Techically, Composability requires components that are independent, keep track of their own state and know how to cooperate with each other. Much of the design of Agile Toolkit is focused on offering these features transparently to every View and Model component.
 
 With Agile Toolkit you can quickly develop a range of flexible business and interface components to meet the repeating requirements of your problem domain.
 
@@ -38,9 +38,7 @@ This is where you need [Extensibility](http://en.wikipedia.org/wiki/Extensibilit
 
 To achieve Composability our Model and View objects store their parameters and only render output at the last moment, once they know what other objects they're working with. So all their settings can be changed at any stage before they render. 
 
-This means that when you extend an object any of its settings can be modified to provide different or additional functionality without breaking the existing, tested, parent object.
-
-In general, best practice in Agile Toolkit is to add new functionality by extending the existing object, without disrupting its code and tests. The Extensibility features are designed to ensure that this process is reliable and flexible.
+This means that when you extend an object any of its settings can be modified to provide different or additional functionality without breaking the existing, tested, parent object. The Extensibility features in Agile Toolkit add agility to your development process.
 
 ## The Testability Principle
 

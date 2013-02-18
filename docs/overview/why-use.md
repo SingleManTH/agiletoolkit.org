@@ -14,7 +14,7 @@ The increasing importance of desktop-like AJAX interfaces is a game-changer for 
 
 ![The Web Technology Challenge](/dia-web-technologies.png)
 
-The PHP community offers an exceptional choice of well-engineered MVC frameworks, but even the best can only offer a partial solution to the many challenges of developing rich-client applications.
+The PHP community offers an exceptional choice of well-engineered MVC frameworks, but even the best can only offer a partial solution to the many challenges of developing rich client data-centric applications.
 
 With some frameworks you create your AJAX data management system though code generation, and this can work well for straightforward requirements. But your application design is constrained by the features built into the generator, and you can end up adapting more complex projects to the framework rather than the framework to the project.
 
@@ -64,8 +64,17 @@ To whet your appetite, here's a complete [CRUD](http://en.wikipedia.org/wiki/Cre
     // We plug our Model into the Agile Toolkit CRUD Addon
     // And configure some additional UI functionality
 
-That's all there is to it. Every aspect of the functionality and look-and-feel can be customized with ease &ndash; you can even swap in a different grid component! And this is what you get in just xx lines of code &ndash; a full-featured, attractive data entry system that's ready to go:
+That's all there is to it. Every aspect of the functionality and look-and-feel can be customized with ease &ndash; you can even swap in a different grid component. And this is what you get in just TODO lines of code &ndash; a full-featured, attractive data entry system that's ready to go:
 
     TODO
     // Screenshot? Screencast? Live demo?
 
+Repeat this level of ease for every form in your application and you can begin to appreciate the productivity gains developers are achieving with Agile Toolkit.
+
+## Can I Use Agile Toolkit With My Existing Code?
+
+We recognise that many developers will be coming to Agile Toolkit with a significant investment in other MVC frameworks, or in content management frameworks such as WordPress, Drupal and Joomla. 
+
+So Agile Toolkit is designed to play well with other frameworks. You'll find the details [here](/TODO).
+
+So you can use your Toolkit skills to build new projects at warp speed, and to add impressive AJAX data admin features to your legacy applications.
