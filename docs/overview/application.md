@@ -2,7 +2,7 @@
 
 ## The Class Hierarchy
 
-In order to implement the [Composability](/TODO) and [Extensibility](/TODO) that make Agile Toolkit so productive we need to provide every object with a number of common features.
+To implement the [Composability](/TODO) and [Extensibility](/TODO) that make Agile Toolkit so productive we need to provide every object with a number of common features.
 
 So at the top of the class hierarchy is `AbstractObject`, which primarily handles the creation, naming and initialization of objects.
 

@@ -22,9 +22,9 @@ Models implement our [Composability](/TODO) design principle: complex Models can
 
 And crucially, models also implement our [Extensibility](/TODO) principle. Because you can reconfigure all aspects of your queries Agile ORM Models can be easily extended to deal with evolving use-cases without refactoring your existing code.
 
-For example, a `user` Model could be extended into a `superuser` Model, an `active_user` Model, and an `admin_user` Model, or whatever your application requires. Any behaviour common with the parent can be maintained or overridden, and new actions can be added to work with any subset of the relevant fields. A powerful feature of extended Models is the ability to add filters to ensure that only entities with the correct charateristics can be modified by the extended object, eliminating a whole class of bugs. 
+For example, a `user` Model could be extended into a `superuser` Model, an `active_user` Model, and an `admin_user` Model, or whatever your application requires. Any behaviour common with the parent can be reused or overridden, and new actions can be added to work with any subset of the relevant fields. A powerful feature of extended Models is the ability to add filters to ensure that only entities with the correct charateristics can be modified by the extended object, eliminating a whole class of bugs. 
 
-In Agile Toolkit, best practice for adding new functionality generally involves extending existing code rather than refactoring the original object. The parent Model and its tests remain intact and classes using the parent continue to function. The new functionality is encapsulated in the extended Model and can be tested separately. There's a clean separation of concerns.
+In Agile Toolkit, best practice for adding new functionality generally involves extending existing code rather than refactoring the original object. The parent Model and its tests remain intact and classes using the parent continue to work  correctly. The new functionality is encapsulated in the extended Model and can be tested separately. There's a clean separation of concerns.
 
 The combination of Model Composability, Model Extendability and the ability to inject reusable business logic into Models with Controllers (as explained below) helps ensure that your Toolkit Models will remain lean, agile and reliable.
 
@@ -39,7 +39,7 @@ The reason for this difference is our focus on [Composability](/TODO) &ndash; bu
 So for an HTML request a View can be: 
 
 * **A low-level component** such as a button, a dropdown menu or a search box 
-* **A composite component** such as a form or multi-featured gridcomposed from low-level View components and simpler composite components.
+* **A composite component** such as a form or multi-featured grid composed from low-level View components and simpler composite components.
 
 Views are independent of each other and can be plugged together freely. When the response is fully configured, complex trees of Views are rendered automatically for output.
 
@@ -62,7 +62,7 @@ Naturally, you can bind a Model to a data-aware View component with a single lin
 
 Now the Toolkit will handle all the AJAX loading for you behind the scenes. 
 
-Finally, Views are styled with an integrated Bootstrap-like CSS framework that's easy to skin or adapt.
+Finally, Views are automatically styled with an integrated Bootstrap-like CSS framework that's quick to skin or adapt.
 
 The Toolkit ships with a powerful collection of customizable View components, and it's easy to add your own.
 
@@ -78,19 +78,21 @@ In Agile Toolkit **Controllers do not coordinate the response to HTTP requests**
 
 * **Business logic**, such as shipping cost calculators
 * **Wrappers** for external APIs such as email broadcasting, social networks or payment gateways
-* **Service Classes** for coordinating complex activities between multiple Models
-* **Utility Classes**, such as loggers or libraries for encryption and date manipulation
-* **Complex configuration**, such as a class to add standard audit fields to Models.
+* **Service classes** for coordinating complex interactions between multiple Models
+* **Utility classes**, such as loggers or libraries for encryption and date manipulation
+* **Object configurators**, such as a class to add standard audit fields to Models.
 
 Controllers can be thought of as similar to the Traits feature introduced in PHP 5.4, where bundles of methods can be embedded within multiple classes.
 
-And with Agile Toolkit's [Runtime Object Tree](/TODO) easy to ensure that Controller functionality is accessible wherever it's needed without any need for static methods.
+And with Agile Toolkit's [Runtime Object Tree](/TODO) it's easy to ensure that Controller functionality is accessible wherever it's needed without any need for static methods.
 
 ## A Fresh Approach To Addons
 
-Agile Toolkit also takes a different approach to building pluggable Views and Models aimed, as always, at improving Composability and Extendability.
+A critical aspect of an MVC architecture is the ability to plug in additional View and Model components.
 
-With the mainstream PHP frameworks the recent emphasis has been decoupling functionality into standalone [PSR-compliant](https://github.com/php-fig/fig-standards/tree/master/accepted) libraries.  
+Here too Agile Toolkit takes a fresh approach aimed, as always, at improving Composability and Extensibility.
+
+With mainstream PHP frameworks the recent emphasis has been decoupling functionality into standalone [PSR-compliant](https://github.com/php-fig/fig-standards/tree/master/accepted) libraries.  
 
 By contrast, Agile Toolkit Addon Models and Views are highly coupled to the Toolkit. So your View Addons, for example, can automatically access all the built-in Composability, AJAX and styling features of the Toolkit Core. 
 
@@ -102,4 +104,4 @@ And we've recently launched an [Addon marketplace](/TODO) for community and comm
 
 ## Do you find yourself sceptical of this approach?
 
-MVC is a loosely defined pattern, and many developers have become comfortable with their own interpretation. Sometimes newcomers to the Toolkit get stuck trying to square our approach with their own theoretical views on MVC. We urge you not to overthink the issue until you've had some hands-on experience of the practical advantages the approach in action. It evolved over a decade of corporate consulting and has proven it's effectiveness with challenging Agile projects. 
+MVC is a loosely defined pattern, and many developers have become comfortable with their own interpretation. Sometimes newcomers to the Toolkit get stuck trying to square our approach with their own theoretical views on MVC. We urge you not to overthink the issue until you've had some hands-on experience of the practical advantages this approach in action. It evolved over a decade of corporate consulting and has proven its effectiveness with challenging Agile projects. 

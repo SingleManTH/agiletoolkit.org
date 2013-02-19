@@ -46,14 +46,14 @@ Our inspiration has been desktop GUI frameworks such as Cocoa, QT and .Net. Comp
 
 Agile Toolkit offers all of these benefits to developers building data-centric AJAX applications in PHP. 
 
-We call our solution a Toolkit rather than a framework because the focus is on rapid development with reusable interface and business components. And we call it Agile because the components are designed to adapt easily and reliably as agile requirements evolve.
-
 ### So how is Agile Toolkit different?
+
+We call our solution a Toolkit rather than a framework because the focus is on rapid development with reusable interface and business components. And we call it Agile because the components are designed to adapt easily and reliably as agile requirements evolve.
 
 Compared to conventional PHP MVC frameworks, you'll be working with:
 
-* **A fresh approach to Views**: building a rich user experience by snapping together flexible, event-aware View components using only PHP ([see more...](/TODO)) 
-* **A fresh approach to Models**: building your business logic in Models that plug directly into your View components and adapt robustly as requirements evolve ([see more...](/TODO)) 
+* **A fresh approach to Views**: building a rich user experience by snapping together flexible, event-aware View components using only PHP on the server ([see more...](/TODO)) 
+* **A fresh approach to Models**: building your business logic in Models that bind directly to your View components and adapt robustly as requirements evolve ([see more...](/TODO)) 
 * **A fresh approach to Addons**: plugging in additional functionality from an ecosystem of Addons that take full advantage of the AJAX, event handling and styling features of the Toolkit Core ([see more...](/TODO)).
 
 ### The payoff
@@ -89,4 +89,4 @@ We recognise that many developers will be coming to Agile Toolkit with a signifi
 
 If you want to add sophisticated data handling to your legacy code, Agile Toolkit is designed to play well with other frameworks. You'll find the details [here](/TODO).
 
-So you can use your Agile Toolkit skills to build new projects at warp speed, and to add impressive AJAX features to your existing applications.
+So you can use your Agile Toolkit skills to build new projects at warp speed, or to add impressive AJAX features to your existing applications.
