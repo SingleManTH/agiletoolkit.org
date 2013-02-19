@@ -4,6 +4,8 @@
 
 Agile Toolkit is a new kind of PHP framework focused on easing the development of rich-client AJAX applications. 
 
+### The challenge of developing rich AJAX applications
+
 The increasing importance of desktop-like AJAX interfaces is a game-changer for PHP application developers:
 
 * Rich interfaces require complex HTML5 and CSS3
@@ -14,11 +16,15 @@ The increasing importance of desktop-like AJAX interfaces is a game-changer for 
 
 ![The Web Technology Challenge](/dia-web-technologies.png)
 
+### The limitations of mainstream solutions
+
 The PHP community offers an exceptional choice of well-engineered MVC frameworks, but even the best can only offer a partial solution to the many challenges of developing rich client data-centric applications.
 
-With some frameworks you create your AJAX data management system though code generation, and this can work well for straightforward requirements. But your application design is constrained by the features built into the generator, and you can end up adapting more complex projects to the framework rather than the framework to the project.
+With some frameworks you create your AJAX data management system though code generation, and this can offer a rapid solution for straightforward requirements. But your application design is constrained by the features built into the generator, and you can end up adapting more complex projects to the framework rather than the framework to the project.
 
 The other main option is a multi-framework development stack. Typically this involves a PHP MVC framework on the server-side, a JavaScript user interface framework such as JQuery UI on the client-side, and perhaps a CSS framework such as Bootstrap to ease the styling headache. But now you're working with two or three complex and overlapping frameworks in different languages, and you're still having to figure out your own way to tie them together with AJAX. It's a challenge to keep things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself) and avoid duplicating effort on the client and the server. The learning curve is steep. And the resulting code can be hard to test and tricky to change as requirements evolve. 
+
+### The need for a fresh approach
 
 Neither of these solutions met the needs of our busy web development house. So we set out to build a more integrated, flexible and reliable approach to developing rich web applications.
 
@@ -26,7 +32,9 @@ Neither of these solutions met the needs of our busy web development house. So w
 
 With so many excellent PHP frameworks, any new project has to justify its existence by delivering dictinctive and compelling benefits.
 
-Our inspiration has been desktop GUI frameworks such as Cocoa, QT and .Net. Compared to mainstream PHP frameworks, these offer a notably easier route to building rich applications:
+### Bringing the ease of desktop development to the web
+
+Our inspiration has been desktop GUI frameworks such as Cocoa, QT and .Net. Compared to mainstream PHP frameworks, these offer a notably easier route to building rich data-driven applications:
 
 * They abstract away most of the complexity of full-featured GUIs without sacrificing flexibility, freeing the developer to focus on business functionality rather than low-level nuts and bolts
 * You do your work in a single language and access the framework functionality through a single API
@@ -40,17 +48,21 @@ Agile Toolkit offers all of these benefits to developers building data-centric A
 
 We call our solution a Toolkit rather than a framework because the focus is on rapid development with reusable interface and business components. And we call it Agile because the components are designed to adapt easily and reliably as agile requirements evolve.
 
-In practice, you'll be working with:
+### So how is Agile Toolkit different?
+
+Compared to conventional PHP MVC frameworks, you'll be working with:
 
 * **A fresh approach to Views**: building a rich user experience by snapping together flexible, event-aware View components using only PHP ([see more...](/TODO)) 
 * **A fresh approach to Models**: building your business logic in Models that plug directly into your View components and adapt robustly as requirements evolve ([see more...](/TODO)) 
-* **A fresh approach to Addons**: plugging in additional functionality from an ecosystem of Addons that take full advantage of the event handling and styling features of the Toolkit Core ([see more...](/TODO)).
+* **A fresh approach to Addons**: plugging in additional functionality from an ecosystem of Addons that take full advantage of the AJAX, event handling and styling features of the Toolkit Core ([see more...](/TODO)).
+
+### The payoff
 
 So what is the payoff for you, the developer? Quite simply, AJAX applications that are:
 
 * Easier to build
-* Easier to test
-* And easier to change.
+* Easier to test, and
+* Easier to change.
 
 ### Example: a full-featured CRUD application in just TODO lines of code
 
