@@ -89,4 +89,4 @@ We recognise that many developers will be coming to Agile Toolkit with a signifi
 
 If you want to add sophisticated data handling to your legacy code, Agile Toolkit is designed to play well with other frameworks. You'll find the details [here](/TODO).
 
-So you can use your Toolkit skills to build new projects at warp speed, and to add impressive AJAX data admin features to your legacy applications.
+So you can use your Agile Toolkit skills to build new projects at warp speed, and to add impressive AJAX features to your existing applications.
