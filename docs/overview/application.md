@@ -79,7 +79,7 @@ There are a number of API classes available in the Core, and you can extend them
 
 * [ApiCLI](/TODO): a minimal frontend for command line requests
 * [ApiWEB](/TODO): a minimal frontend for web applications, mainly used for integrating with other frameworks
-* [ApiFrontend](/TODO): a comprehensive API for web applications, extending ApiWeb with routing, an integrated CSS stying system, and Page classes
+* [ApiFrontend](/TODO): a comprehensive API for web applications, extending ApiWeb with routing, an integrated CSS styling system, and Page classes
 
 There are other more specialised APIs for installers and REST requests.
 
