@@ -48,13 +48,13 @@ Now you understand the Runtime Object Tree we can walk though the basic anatomy 
 
 1. In `Frontend.php` you set up your database connections, configure your class loading, and initialize access security and application-wide Controllers.
 
-1. Now the application cascades down the Runtime Object Tree initializing all the objects required to fulfil the request...
+1. Now the application cascades down the Runtime Object Tree initializing all the objects required to fulfill the request...
 
 1. The `$app` object will route the request to the correct Page class in your `/page` directory, throwing a 404 Page Not Found error if no matching page is found.
 
 1. The Page will orchestrate the necessary Views and Models, and these will load any Controllers they require.
 
-1. The Views use the SMLite template engine to generate their HTML output, and the Models use the DSQL (Dynamic SQL) Query Builder to generate runtime SQL.
+1. The Views use the SMlite template engine to generate their HTML output, and the Models use the DSQL (Dynamic SQL) Query Builder to generate runtime SQL.
 
 1. Once all objects are initialized, the `$app` will recursively render the nested tree of Views and echo out the response.
 
@@ -73,7 +73,7 @@ The Agile Toolkit Core sits in the `/atk4` directory and handles the plumbing of
 
 ## The Application Object
 
-As we've said, the topmost object in the Runtime Object Tree is your `$app` object, which is extended from an API class. Most of the Core features are provided through the `$app` object. 
+As we've said, the topmost object in the Runtime Object Tree is your Application object `$api`, which is extended from an API class. Most of the Core features are provided through this object. 
 
 There are a number of API classes available in the Core, and you can extend them yourself to add any specific features you commonly require. The main Core APIs are:
 
@@ -81,6 +81,6 @@ There are a number of API classes available in the Core, and you can extend them
 * [ApiWEB](/TODO): a minimal frontend for web applications, mainly used for integrating with other frameworks
 * [ApiFrontend](/TODO): a comprehensive API for web applications, extending ApiWeb with routing, an integrated CSS styling system, and Page classes
 
-There are other more specialised APIs for installers and REST requests.
+There are other more specialized APIs for installers and REST requests.
 
 API classes descend from `AbstractView`, because they are generally used to create output.
