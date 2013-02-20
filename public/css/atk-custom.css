@@ -1883,10 +1883,20 @@ body,
   left: 0;
   right: auto;
   z-index: 2;
-  filter: alpha(opacity=0);
-  -khtml-opacity: 0;
-  -moz-opacity: 0;
-  opacity: 0;
+  transform: scale(1, 0.5);
+  -ms-transform: scale(1, 0.5);
+  -webkit-transform: scale(1, 0.5) translate3d(0, 0, 0);
+  -o-transform: scale(1, 0.5);
+  -moz-transform: scale(1, 0.5);
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
   visibility: hidden;
 }
 .global-header .atk-wrapper nav ul > li .flyout h6 {
@@ -1932,10 +1942,11 @@ body,
   color: #5e6878;
 }
 .global-header .atk-wrapper nav ul > li.hover .flyout {
-  filter: alpha(opacity=100);
-  -khtml-opacity: 1;
-  -moz-opacity: 1;
-  opacity: 1;
+  transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -webkit-transform: scale(1, 1) translate3d(0, 0, 0);
+  -o-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
   visibility: visible;
 }
 .global-header .atk-wrapper nav ul > li.documentation .multi-column {
@@ -1943,6 +1954,14 @@ body,
 }
 .global-header .atk-wrapper nav ul > li.documentation .multi-column .column {
   width: 20%;
+}
+.global-header .atk-wrapper nav ul > li.documentation > a {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+  cursor: default;
 }
 .global-header .atk-wrapper nav ul > li.login {
   border-top: 1px solid #242833;
