@@ -37,19 +37,17 @@ And crucially, models also implement our [Extensibility](/TODO) principle. Becau
 
 For example, a `user` Model could be extended into a `superuser` Model, an `active_user` Model, and an `admin_user` Model, or whatever your application requires. Any behavior common with the parent can be reused or overridden, and new actions can be added to work with any subset of the relevant fields. A powerful feature of extended Models is the ability to add filters to ensure that only entities with the correct charateristics can be modified by the extended object, eliminating a whole class of bugs. 
 
-In Agile Toolkit, best practice for adding new functionality generally involves extending existing code rather than refactoring the original object. The parent Model and its tests remain intact and classes using the parent continue to work  correctly. The new functionality is encapsulated in the extended Model and can be tested separately. There's a clean separation of concerns.
+Furthermore you can use hooks to supply actions which Model performs at certain times, such as afterLoad or beforeSave.
+
+In Agile Toolkit, best practice for adding new functionality generally involves extending existing code rather than refactoring the original object. The parent Model and its tests remain intact and classes using the parent continue to work  correctly. The new functionality is encapsulated in the extended Model and can be tested separately. There's a clean separation of concerns highly suitable for Agile development and clearly implementing our [Testability](/TODO) principle.
 
 The combination of Model Composability, Model Extendability and the ability to inject reusable business logic into Models with Controllers (as explained below) helps ensure that your Toolkit Models will remain lean, agile and reliable.
 
 ## What Is A View In Agile Toolkit?
 
-In many MVC frameworks the View is defined as the complete response. 
+In many MVC frameworks the View is defined as the complete response to a requested URL. 
 
-In Agile Toolkit a View is any component that uses the Agile Toolkit template engine  to generate output in HTML, XML, JSON or other response format. 
-
-The reason for this difference is our focus on [Composability](/TODO) &ndash; building complex Views from simpler View components. 
-
-So for an HTML request a View can be: 
+In Agile Toolkit a View is an object capable of rendering itself, typically into HTML. Instead of having one View/Template per page, you can now have as many as you wish. 
 
 * **A low-level component** such as a button, a dropdown menu or a search box 
 * **A composite component** such as a form or multi-featured grid composed from low-level View components and simpler composite components.
@@ -57,9 +55,9 @@ So for an HTML request a View can be:
 Views are independent of each other and can be plugged together freely. When the response is fully configured, complex trees of Views are rendered automatically for output.
 
 Views also implement our [Abstraction](/TODO) design principle:
-You lay out your interface, define widget behaviour, bind data and handle events exclusively on the server using PHP. All the tiresome AXAX plumbing is handled for you under the hood, and everything simply works. 
+You lay out your interface, define widget behavior, bind data and handle events exclusively on the server using PHP. All the tiresome AJAX plumbing is handled for you under the hood, and everything simply works. 
 
-Even if you're a JavaScript guru there are payoffs for managing your client with PHP. Agile Toolkit is smart enough to handle the interractions between your interface objects with minimal developer input:
+Even if you're a JavaScript guru and are rather use JavaScript-based grid (such as jqGrid), Agile Toolkit can help you too. You will encapsulate your JavaScript dependencies into a PHP object allowing any user from Agile Toolkit community to simply "add" your grid anywhere and have it work consistent to a basic grid. Agile Toolkit is smart enough to handle the interactions between your interface objects with minimal developer input:
 
     // Show a flyout message when file upload completes
 
@@ -69,21 +67,18 @@ Even if you're a JavaScript guru there are payoffs for managing your client with
 
 Views also implement our [Extensibility](/TODO) principle: any aspect of any View component can be reconfigured with ease in a reusable extended class.
 
-Naturally, you can bind a Model to a data-aware View component with a single line of code, and the View will adapt to its data.
+Naturally, you can bind a Model to a data-aware View component with a single line of code, and the View will adapt to its structure.
 
     $grid->setModel('Product');
+    $grid->addPaginator(5);
 
-Now the Toolkit will handle all the AJAX loading for you behind the scenes. 
+Paginator in Grid is implemented as a separate view and enables AJAX communication between the browser and Grid as you paginate. You don't need to teach Grid how it can communicate with the PHP class, Agile Toolkit already does it for you.
 
-Finally, Views are automatically styled with an integrated Bootstrap-like CSS framework that's quick to skin or adapt.
-
-The Toolkit ships with a powerful collection of customizable View components, and it's easy to add your own.
+Finally, Views are automatically styled with an integrated Bootstrap-compatible CSS framework based on jQuery UI themeroller, which [can be used](http://jqueryui.com/themeroller/) to theme your installation of Agile Toolkit.
 
 ## What Is A Page In Agile Toolkit?
 
-Agile Toolkit offers a special type of View called a Page, designed as the end-point of an HTTP request. Requests are routed to Page objects, which marshal the Models, Views and Controllers required to generate the response, run the rendering and serve the output.
-
-So viewed strictly, the architecture of Agile Toolkit is Model, Page, View, Controller.
+Agile Toolkit offers a special type of View called a Page, designed as the end-point of an HTTP request. Requests are routed to Page objects, which marshal the Models and Views required to generate the response, run the rendering and serve the output.
 
 ## What Is A Controller In Agile Toolkit?
 
@@ -97,23 +92,23 @@ In Agile Toolkit **Controllers do not coordinate the response to HTTP requests**
 
 Controllers can be thought of as similar to the Traits feature introduced in PHP 5.4, where bundles of methods can be embedded within multiple classes.
 
-And with Agile Toolkit's [Runtime Object Tree](/TODO) it's easy to ensure that Controller functionality is accessible wherever it's needed without any need for static methods.
+And with Agile Toolkit's [Runtime Object Tree](/TODO) it's easy to ensure that Controller functionality is accessible wherever it's needed without any need <!-- needed need --> for static methods.
 
 ## A Fresh Approach To Addons
 
-A critical aspect of an MVC architecture is the ability to plug in additional View and Model components.
+A critical aspect of an MVC architecture is the ability to plug in additional View and Model components of any complexity.
 
 Here too Agile Toolkit takes a fresh approach aimed, as always, at improving Composability and Extensibility.
 
-With mainstream PHP frameworks the recent emphasis has been decoupling functionality into standalone [PSR-compliant](https://github.com/php-fig/fig-standards/tree/master/accepted) libraries.  
+With mainstream PHP frameworks the recent emphasis has been decoupling functionality into standalone [PSR-compliant](https://github.com/php-fig/fig-standards/tree/master/accepted) libraries. A good way to browse and install decoupled libraries is [www.packagist.org](http://packagist.org). Agile Toolkit natively support PHP Composer and you can install any of addons available through Packagist.
 
-By contrast, Agile Toolkit Addon Models and Views are highly coupled to the Toolkit. So your View Addons, for example, can automatically access all the built-in Composability, AJAX and styling features of the Toolkit Core. 
+By contrast, Agile Toolkit native Add-ons are designed to rely on Agile Toolkit base classes. Such an add-on is likely to offer you new Models and Views classes and is highly coupled to the Toolkit. Installing "User Management" add-on might contribute few significant classes into your application - Models, Views, Controllers and other helpers. Naturally you can also use supplied View with your own User model and all the involved views adapt to your data structure.
 
-There's a growing ecosystem of Agile Toolkit Addons. Official Addons are distributed in the `/atk4-addons` directory. They cover functionality such as internationalization and a range of useful user interface widgets.
-
-And we've recently launched an [Addon marketplace](/TODO) for community and commercial Addons. It's early days, but we plan to expand this rapidly and invite you to contribute.
+There's a growing ecosystem of Agile Toolkit Addons. After installing Agile Toolkit, you can use a native User Interface to browse and install more add-ons from either packagist.org or agiletoolkit.org.
 
 <!-- Will this be launched in time? -->
+<!-- yes -->
+
 
 ## Do you find yourself sceptical of this approach?
 
