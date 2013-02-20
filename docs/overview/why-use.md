@@ -164,6 +164,8 @@ This example just demonstrated you some of the fine points of Agile Toolkit:
 
 We recognise that many developers will be coming to Agile Toolkit with a significant investment in other MVC frameworks, or in content management frameworks such as WordPress, Drupal and Joomla. 
 
-If you want to add sophisticated data handling to your legacy code, Agile Toolkit is designed to play well with other frameworks. You'll find the details [here](/TODO).
-
-So you can use your Agile Toolkit skills to build new projects at warp speed, or to add impressive AJAX features to your existing applications.
+If you want to add sophisticated data handling to your legacy code, Agile Toolkit is designed to play well with other
+frameworks. You may use the UI of Agile Toolkit inside your CodeIgniter project just on a couple of pages or you can
+take advantage of Agile Toolkit ORM and build your REST interface for your JavaScript fronted. Most commonly
+users decide to re-write their backend/admin system using Agile Toolkit as a first step in integration.
+You'll find more details [here](/TODO).
