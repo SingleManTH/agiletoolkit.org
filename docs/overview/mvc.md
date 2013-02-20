@@ -1,6 +1,6 @@
 # Overview > A Fresh Approach To MVC
 
-## The Agile Toolkit Approach To MVC
+## The Agile Toolkit Approach To MVC and Presenters
 
 Agile Toolkit has refactored the MVC pattern to better meet the realities of rich application development. It takes a highly opinionated approach to MVC, building it into the object structure of the framework. Every line of code you write (excluding Exceptions) is descended from an `AbstractModel` class, an `AbstractView` class, or an `AbstractController` class. So everything in your application is either a Model, a View or a Controller. 
 
@@ -8,21 +8,34 @@ Each of these components has a well-defined role, so in Agile Toolkit it's usual
 
 But it's important to note that the division of labor between Models, Views and Controllers is different from the typical MVC framework. 
 
-## What Is A Model In Agile Toolkit?
+## How Models Views and Controllers are connected
+
+![MVC and Presenter implementation in Agile Toolkit](tmp-mvc-presenter.png)
+
+Strictly speaking, Views in Agile Toolkit are often "Presenters" (especially when View is using composition), while Model and Controller can be optional. As a UI developer, your primary task is to add a proper view inside another view and associate it with proper model. Agile Toolkit may add one or few controllers along the way as a "grease" to help View work with your Model better.
+
+We define the top-most object, an Application also as a View. This view would contain a Page View which then may contain CRUD View which contain Form View which contain Fields and Buttons Views.
+
+In this typical tree some of the complex views would be associated with Model (CRUD and Form) and other views may contain controllers (DB and Logger in Application).
+
+
+## What Is a Model In Agile Toolkit?
 
 In Agile Toolkit, a Model encapsulates: 
 
-* The data associated with an entity
+* The data structure of an entity
 * The business logic that's specific to that entity
-* The persistence of the entity in a database or file.
+* Definition of persistent external storage
+* Record-level access
 
-You'll build your relational Models with [Agile ORM](/TODO), an [object-relational mapper](http://en.wikipedia.org/wiki/Object-relational_mapping) offering an innovative blend of simplicity, flexibilty and performance. And [support for NoSQL](/TODO) is available too, though currently not at the same level of sophistication.
+You'll build your relational Models with [Agile ORM](/TODO), an [object-relational mapper](http://en.wikipedia.org/wiki/Object-relational_mapping) offering an innovative blend of simplicity, flexibility and power or using a basic [support for NoSQL](/TODO) compatible with wide array of non-relational databases.
 
-Models implement our [Composability](/TODO) design principle: complex Models can be composed from simpler Models. For example, you can create a Model for a type of `price` or `date` and reuse it in other Models.
+
+Models implement our [Composability](/TODO) design principle: Models consist of Fields which can be associated with other Models. For example `Model_Book` may contain a field `author_id` which references `Model_Author` and Form will automatically use a drop-down (or auto-complete) allowing you to select a relevant entry from related model. Through add-ons you can add support for much more advanced fields such as `Image` which is uploaded, cropped thumbnailed and stored in unique folder then associated with your model entirely behind the scenes following best principle of [Abstraction](/TODO)
 
 And crucially, models also implement our [Extensibility](/TODO) principle. Because you can reconfigure all aspects of your queries Agile ORM Models can be easily extended to deal with evolving use-cases without refactoring your existing code.
 
-For example, a `user` Model could be extended into a `superuser` Model, an `active_user` Model, and an `admin_user` Model, or whatever your application requires. Any behaviour common with the parent can be reused or overridden, and new actions can be added to work with any subset of the relevant fields. A powerful feature of extended Models is the ability to add filters to ensure that only entities with the correct charateristics can be modified by the extended object, eliminating a whole class of bugs. 
+For example, a `user` Model could be extended into a `superuser` Model, an `active_user` Model, and an `admin_user` Model, or whatever your application requires. Any behavior common with the parent can be reused or overridden, and new actions can be added to work with any subset of the relevant fields. A powerful feature of extended Models is the ability to add filters to ensure that only entities with the correct charateristics can be modified by the extended object, eliminating a whole class of bugs. 
 
 In Agile Toolkit, best practice for adding new functionality generally involves extending existing code rather than refactoring the original object. The parent Model and its tests remain intact and classes using the parent continue to work  correctly. The new functionality is encapsulated in the extended Model and can be tested separately. There's a clean separation of concerns.
 
