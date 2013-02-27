@@ -9,7 +9,7 @@ So at the top of the class hierarchy is `AbstractObject`, which primarily handle
 There are three classes that extend directly from `AbstractObject`:
 
 * **AbstractModel**: which adds features to help manage data entities
-* **AbstractView**: which adds features for generating output with nested templates
+* **AbstractView**: which adds features for generating user interface output with nested templates
 * **AbstractController**: which is the root class for all Controllers. 
 
 ![ATK Object Structure](dia-abstract-object.png)
