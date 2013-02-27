@@ -207,17 +207,69 @@ body, .global-header, .global-footer {.bg-deepblue;}
 		nav {
 			.ubuntu;
 			.big;
-			ul, ul li {display:inline;}
 			ul {
 				float:left;
-				li {
+				>li {
 					padding:@padding/2 @padding;
-					&:first-child {margin-left:0;}
-					&.current a {color:fadeout(@white,0%);cursor:default;}
-				}
-				&.nav-user {
-					float:right;
-					li.link-login {
+					position:relative;
+					display:inline;
+					.flyout {
+						background:@lightGray;
+						border:1px solid darken(@lightGray,10%);
+						border-top:none;
+						white-space:nowrap;
+						padding:@padding;
+						.position(@t:100%,@l:0,@z:2);
+						.scale(@x:1,@y:0.5);
+						  -webkit-transform-origin:top;
+						  transform-origin: top;
+						  -webkit-animation-fill-mode: forwards;  
+						  animation-fill-mode: forwards; 
+						.transition(.2s);
+						visibility:hidden;
+						h6 {color:darken(@lightGray,55%);margin-top:@margin/2; &:first-child{margin-top:0;}}
+						ul {
+							margin:0;
+							padding:0;
+							float:none;
+							li {
+								line-height:1;
+								margin:@padding/4 0 0 0;
+								padding:0;
+								display:block;
+								a {
+									font-size:13px;
+								}
+								&:first-child {margin-top:0;}
+							}
+						}
+						&.multi-column {
+							display:table-row;
+							.column {
+								border-right:1px solid darken(@lightGray,5%);
+								padding:0 @padding;
+								display:table-cell;
+								&:last-child {border-right:none;}
+							}
+						}
+					}
+					&.hover {
+						background:@lightGray;
+						border-color:darken(@lightGray,10%);
+						a {color:darken(@lightGray,50%);}
+						.flyout {
+							.scale(@x:1,@y:1);
+							visibility:visible;
+						}
+					}
+					&.documentation {
+						.multi-column { 
+							padding:@padding/2 0;
+							.column {width:20%;}
+						}
+						>a {.transition(none);cursor:default;}
+					}
+					&.login {
 						border-top:1px solid @deepBlue;
 						border-right:1px solid rgba(255,255,255,0.1);
 						border-left:1px solid @deepBlue;
@@ -225,12 +277,7 @@ body, .global-header, .global-footer {.bg-deepblue;}
 						@width:190px;
 						>a {.transition(none);cursor:default;}
 						.flyout {
-							background:@lightGray;
-							border:1px solid darken(@lightGray,10%);
-							border-top:none;
-							.position(@t:100%,@l:-1px,@z:2);
-							.opacity(0);
-							visibility:hidden;
+							padding:0;
 							.atk-form {
 								padding:@padding/2;
 								width:@width;
@@ -281,17 +328,11 @@ body, .global-header, .global-footer {.bg-deepblue;}
 								&:first-child {border-left:none;width:52px;}
 							}
 						}
-						&.hover {
-							background:@lightGray;
-							border-color:darken(@lightGray,10%);
-							>a {color:darken(@lightGray,50%);}
-							.flyout {
-								.opacity(100);
-								visibility:visible;
-							}
-						}
 					}
-				}	
+					&:first-child {margin-left:0;}
+					&.current a {color:fadeout(@white,0%);cursor:default;}
+				}
+				&.nav-user {float:right;}
 			} /* ul ends */
 		}
 	}

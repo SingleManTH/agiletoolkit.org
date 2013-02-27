@@ -53,7 +53,7 @@ Agile Toolkit is a software tester's dream!
 Finally, working with web frameworks you can sometimes feel that they're making simple things complex. With Agile Toolkit we strive to avoid this by always adopting the simplest practical approach, even if it's not the 'purest' or trendiest. For example:
 
 * Configuration settings are plain old PHP hashes, so if you want complex conditional configurations just pop in some code.
-* You won't need namespacing unless you're using Addons or external libraries. This has never caused any practical problems and we avoid tedium like this:
+* You won't need namespacing unless you're developing Addons or external libraries. This has never caused any practical problems and we avoid tedium like this:
 
     <pre>
     namespace Acme\TaskBundle\Controller;

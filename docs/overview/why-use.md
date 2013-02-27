@@ -66,27 +66,106 @@ So what is the payoff for you, the developer? Quite simply, AJAX applications th
 
 ### Example: a full-featured CRUD application in just TODO lines of code
 
-To whet your appetite, here's a complete [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) system for a `user` table, with searching, browsing, sorting, paging, creating, updating, deleting, validation and localized user error messages. With some popular frameworks this would require dozens, even hundreds of lines of code. Not with Agile Toolkit:
+To whet your appetite, here are some examples with [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) implementation in Agile Toolkit. This example is designed to show you the Agility of the UI.
 
-<?-- Would it be better to show them a relational example with master-detail? Even more impressive? ?>
+Lets start with a simple and basic built-in CRUD component.
 
-    TODO
-    // Let's set up a data Model
-    // Now we'll add some validation rules
-    // We plug our Model into the Agile Toolkit CRUD Addon
-    // And configure some additional UI functionality
+```
+$crud=$this->add('CRUD');
+$crud->setModel('Book');
+```
 
-That's all there is to it. Every aspect of the functionality and look-and-feel can be customized with ease &ndash; you can even swap in a different grid component. And this is what you get in just TODO lines of code &ndash; a full-featured, attractive data entry system that's ready to go:
+You might not be impressed as CRUDs are a standard features in many frameworks. However this is as far as they go. For Agile Toolkit, CRUD is just another component. First, let's enhance UI a little. CRUD is composite view relying on Grid, Form and Button views. We can interact with those views directly:
 
-    TODO
-    // Screenshot? Screencast? Live demo?
+```
+$crud=$this->add('CRUD');
+$crud->setModel('Book');
 
-Repeat this level of ease for every form in your application and you can begin to appreciate the productivity gains developers are achieving with Agile Toolkit.
+if ($crud->grid) {
+    if ($crud->grid->addButton('Populate Data')->isClicked()) {
+        $crud->grid->model->populateData();
+        $crud->grid->js()->reload()->execute();
+    }
+}
+```
+
+Now we have a button which uses a pice of AJAX to re-populate the CRUD data with default set. The actual implementation of populateData is the part of business logic and resides in the Model.
+
+The Model we supply can be changed quite a lot: 
+
+
+```
+$book=$this->add('Model_Book');
+$author=$book->leftJoin('author');
+$author->addField('author_name','name')->editable(false);
+
+$crud=$this->add('CRUD');
+$crud->setModel($book);
+
+if ($crud->grid) {
+    if ($crud->grid->addButton('Populate Data')->isClicked()) {
+        $crud->grid->model->populateData();
+        $crud->grid->js()->reload()->execute();
+    }
+}
+
+```
+
+CRUD now is displaying data from 2 tables.
+
+Now you might say that database joins are not welcome as a part of a component and we agree. Let's create a new model:
+
+```
+class Model_BookWithAuthor extends Model_Book
+{
+    function init()
+    {
+        parent::init();
+        $author=$this->leftJoin('author');
+        $author->addField('author_name','name')->editable(false);
+    }
+}
+```
+
+Furthermore, you might want to have CRUD with "Populate Data" button as a standard component, so let's also move it into a new class:
+
+```
+class MyCRUD extends CRUD
+{
+    function render()
+    {
+        if ($this->grid && $this->grid->model->hasMethod('populateData'))) {
+            if ($this->grid->addButton('Populate Data')->isClicked()) {
+                $this->grid->model->populateData();
+                $this->grid->js()->reload()->execute();
+            }
+        }
+        parent::render();
+    }
+}
+```
+
+Now back to our main code. It looks simple again.
+
+```
+$crud=$this->add('MyCRUD');
+$crud->setModel('BookWithAuthor');
+```
+
+This example just demonstrated you some of the fine points of Agile Toolkit:
+
+* You can enhance any existing component and even interact with components it's built of
+* The built-in ORM supports joins amongst other things transparently with no extra SQL queries
+* Code can be easily refactored and contained in a dedicated classes both for models and views
+* Abstraction at it's finest. Once you develop and test your own components separately, construct UI of any complexity out of them.
+
 
 ## Can I Use Agile Toolkit With My Existing Code?
 
 We recognise that many developers will be coming to Agile Toolkit with a significant investment in other MVC frameworks, or in content management frameworks such as WordPress, Drupal and Joomla. 
 
-If you want to add sophisticated data handling to your legacy code, Agile Toolkit is designed to play well with other frameworks. You'll find the details [here](/TODO).
-
-So you can use your Agile Toolkit skills to build new projects at warp speed, or to add impressive AJAX features to your existing applications.
+If you want to add sophisticated data handling to your legacy code, Agile Toolkit is designed to play well with other
+frameworks. You may use the UI of Agile Toolkit inside your CodeIgniter project just on a couple of pages or you can
+take advantage of Agile Toolkit ORM and build your REST interface for your JavaScript fronted. Most commonly
+users decide to re-write their backend/admin system using Agile Toolkit as a first step in integration.
+You'll find more details [here](/TODO).

@@ -1,8 +1,14 @@
 New Agile Toolkit Homepage
 =====
-This is a restructurized homepage. Just a few notes to move around:
+We are rebuilding AgileToolkit's website. The goals are to make it simpler and cleaner and also improve interaction. 
 
- * unreviewed - Contains documents which are not reviewed yet
+ * Old site: http://agiletoolkit.org/
+ * New site: http://www3.agiletoolkit.org/
+
+Helping out
+----
+We can use your help. Review the tasks we are currently worknig on or latest commits and provide feedback or fixes:
+ * Task Tracker: https://www.pivotaltracker.com/projects/612907
 
 Installation
 ----
