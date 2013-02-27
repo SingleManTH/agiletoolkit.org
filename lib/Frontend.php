@@ -47,11 +47,18 @@ class Frontend extends ApiFrontend {
         $a->setModel('User');
 
         // Enable authentication through OPauth
-        $op=$a->add('romaninsh/opauth/Controller_Opauth');
+        $op=$a->add(
+            'romaninsh/opauth/Controller_Opauth',
+            array(
+                'register_page'=>'ofinish'
+            )
+        );
         $op->addStrategy('github,facebook,twitter,google');
 
         if($a->isLoggedIn()){
             $this->me=$a->model;
+            $nav=$this->add('View',null,'NavUser',array('view/navuser'));
+            $nav->template->trySet('name',$this->me['username']);
         }
 
 
