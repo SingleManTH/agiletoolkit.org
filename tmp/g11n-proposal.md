@@ -84,41 +84,46 @@ A controversial area is message keys. Perhaps becuase of PDO, PHP frameworks oft
 
 In my experience it's handy to have 3 levels of key:
 
-catalogue_id -> message_group_id -> message_id
+    catalogue_id -> message_group_id -> message_id
 
 This allows for handy grouping and filtering in the editing grid without requiring a silly number of Message Catalogues. For example:
 
-info->about_us->head_1
-info->about_us->head_2
-info->about_us->body
-info->privacy->head_1
-info->privacy->head_2
-info->privacy->body
-validation->numeric->greater_than
-validation->numeric->less_than
-validation->formats->email
-validation->formats->credit_card_num
+    info->about_us->head_1
+    info->about_us->head_2
+    info->about_us->body
+
+    info->privacy->head_1
+    info->privacy->head_2
+    info->privacy->body
+
+    validation->numeric->greater_than
+    validation->numeric->less_than
+    validation->formats->email
+    validation->formats->credit_card_num
 
 Hopefully you can start to see how this 3-level system makes things more manageable.
 
 So the message table would look like this:
 
-```
-id (auto increment)
+    id (auto increment)
     catalogue_id (editable dropdown)
     message_group_id
     message_id
     processor_id (editable dropdown, default null) to flag that it's Markdown or some other form of markup
     blacklist (optional string) for a delimited list of locales where this string should be ignored for translation.
-```
 
 Then cols are added to hold the strings for each locale, with the base language first, en_GB, de_DE etc.
 
 The interface would offer the option to export all strings in a Catalogue in xliff format, or the base langage paired with a target language. It would also offer upload and import of translated Catalogues.
 
+Obviously, you need a way to add placeholders into the message strings and substitute with values:
+
+    "Number should be more than {1} and less than {2}"
+    $msg = __('validation.numeric.between', 10, 100);
+
 There is a particular issue with very similar languages, such as GB and US English, or German and Swiss German. This is handled OK by translation software, but at times it would be easier just to put the options into a single string with some kind of markup, and have the system parse the string into each locale before caching it in the array for production. I did this in my old system like this: {{autumn|fall}}. I had a simple configuration which told the parser what to do. Not essential, but nice to have if you can think of a clean way to do it.
 
-##Localised assets
+## Localised assets
 
 Users may need to serve separate images, css files etc dependent on locale. Where an asset is localisable, there is a need to call a locale-aware url-builder that will search for the best match.
 
