@@ -103,29 +103,31 @@ Hopefully you can start to see how this 3-level system makes things more managea
 
 So the message table would look like this:
 
+```
 id (auto increment)
     catalogue_id (editable dropdown)
     message_group_id
     message_id
     processor_id (editable dropdown, default null) to flag that it's Markdown or some other form of markup
     blacklist (optional string) for a delimited list of locales where this string should be ignored for translation.
+```
 
-    Then cols are added to hold the strings for each locale, with the base language first, en_GB, de_DE etc.
+Then cols are added to hold the strings for each locale, with the base language first, en_GB, de_DE etc.
 
-    The interface would offer the option to export all strings in a Catalogue in xliff format, or the base langage paired with a target language. It would also offer upload and import of translated Catalogues.
+The interface would offer the option to export all strings in a Catalogue in xliff format, or the base langage paired with a target language. It would also offer upload and import of translated Catalogues.
 
-    There is a particular issue with very similar languages, such as GB and US English, or German and Swiss German. This is handled OK by translation software, but at times it would be easier just to put the options into a single string with some kind of markup, and have the system parse the string into each locale before caching it in the array for production. I did this in my old system like this: {{autumn|fall}}. I had a simple configuration which told the parser what to do. Not essential, but nice to have if you can think of a clean way to do it.
+There is a particular issue with very similar languages, such as GB and US English, or German and Swiss German. This is handled OK by translation software, but at times it would be easier just to put the options into a single string with some kind of markup, and have the system parse the string into each locale before caching it in the array for production. I did this in my old system like this: {{autumn|fall}}. I had a simple configuration which told the parser what to do. Not essential, but nice to have if you can think of a clean way to do it.
 
 ##Localised assets
 
-    Users may need to serve separate images, css files etc dependent on locale. Where an asset is localisable, there is a need to call a locale-aware url-builder that will search for the best match.
+Users may need to serve separate images, css files etc dependent on locale. Where an asset is localisable, there is a need to call a locale-aware url-builder that will search for the best match.
 
-    I've done this two ways. At first I created directory trees:
+I've done this two ways. At first I created directory trees:
 
     /img/en_GB/products
     /img/en_US/products
 
-    This becomes a pain - it's hard to get an overview of what you have. So I switched to using a naming convention in a flat directory structure:
+This becomes a pain - it's hard to get an overview of what you have. So I switched to using a naming convention in a flat directory structure:
 
     /img/products/myproduct_en_GB.jpg
     /img/products/myproduct_en_US.jpg
@@ -134,13 +136,13 @@ id (auto increment)
 
 ## Localised Time
 
-    The Locale object should allow loggers etc to get the current time in a locale. This is practical with the help of the PHP Intl library.
+The Locale object should allow loggers etc to get the current time in a locale. This is practical with the help of the PHP Intl library.
 
 ## Localised number, date, time and currency formatting
 
-    Again, this is quite simple using the Intl library. I have tested code. The issue here is ensuring that all relevant strings are localised without requiring a lot of manual work in the Page or View.
+Again, this is quite simple using the Intl library. I have tested code. The issue here is ensuring that all relevant strings are localised without requiring a lot of manual work in the Page or View.
 
 ## Other Locale object services
 
-    + It should be possible for the caller to temporarily change the active locale (for multi-lingual pages, for example), ensuring that it reverts to the default for future calls.
-    + By default, the Locale object should configure itself using request locale slugs. But there are scenarios such as sign-in using user preferences where the app will need to set the locale directly.
++ It should be possible for the caller to temporarily change the active locale (for multi-lingual pages, for example), ensuring that it reverts to the default for future calls.
++ By default, the Locale object should configure itself using request locale slugs. But there are scenarios such as sign-in using user preferences where the app will need to set the locale directly.
