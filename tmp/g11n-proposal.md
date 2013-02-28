@@ -64,7 +64,7 @@ These days professional translators use sophisticated Translation Memory softwar
 
 Many PHP G11n solutions I've seen assume that translators will work in some kind of primitive web interface, but this is totally impractical for projects of any scale. So the solution needs to offer:
 
-1. An environment for users to author and store Message Catalogues in the primary language
+1. An environment for users to author/import and store Message Catalogues in the primary language
 1. A way to export and import Message Catalogues in a form that will work for freelance translators and translation agencies
 1. A robust and flexible system of message keys
 1. A way to process messages stored as Markdown, with pluggability for other markdown languages
@@ -74,9 +74,9 @@ For production, I would suggest that caching a PHP array is the fastest and most
 
 But a PHP array is a pretty miserable way to edit messages, especially complex messages such as HTML, XML etc. It makes managing large message catalogues difficult, and is a poor and error-prone format for interchange with professional translators.
 
-So I suggest a simple database interface where messages can be edited inline in a grid, with a popup text editor for working with longer strings. Authors would edit long texts outside the system and paste them in. Short texts, or small edits to longer texts could be done in the DB interface.
+So I suggest a simple database interface where messages can be edited inline in a grid, with a popup text editor for working with longer strings. Authors would edit long texts outside the system and paste them in. Short texts, or small edits to longer texts could be done in the DB interface. We should also offer pluggable import, starting with drivers for, say CSV and Excel.
 
-For interchange with translators there is an XML standard known as xliff which is universally acceptable. A very simple subset of xliff should meet our needs (see the Symfony Translation lib for an example). So we need a way to export from the DB to xliff and back, with other drivers pluggable in case someone ever has an exotic requirement.
+For interchange with translators there is an XML standard known as xliff which is universally acceptable. A very simple subset of xliff should meet our needs (see the Symfony Translation lib for an example). So we need a way to export from the DB to xliff and back, with other drivers pluggable in case someone ever has an exotic requirement. Some PHP translation libs use xlif as the storage and query format, but it was never designed for this.
 
 Translation memory software will handle the diffs - to update a Message Catalogue, you simply send them the whole message catalogue and their software does the rest. So versioning would be good, but not essential. The diffs are stored in a standard format, so reputable translators will normally give you your diff if you want to move to a new contractor.
 
