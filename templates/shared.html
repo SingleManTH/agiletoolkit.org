@@ -140,7 +140,8 @@
 							</div>
 						</li>
 					</ul>
-        			<ul class="nav-user">
+                    <?NavUser?>
+                    <ul id="<?$_name?>" class="nav-user">
 						<li class="login">
 							<a href="#">Login</a>
 							<div class="flyout">
@@ -173,8 +174,9 @@
 								</footer>
 							</div>
 						</li>
-						<li class="signup"><a href="#">Sign Up</a></li>
+                        <li class="signup"><a href="<?page?>signup<?/?>">Sign Up</a></li>
 					</ul>
+                    <?/?>
 					<div style="display:none;">
 					<?Menu?>
 				    <li class="ui-state-default"><a href="javascript:void(0)">Menu is not defined</a></li>
