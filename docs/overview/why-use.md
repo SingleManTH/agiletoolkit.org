@@ -28,6 +28,8 @@ The other main option is a multi-framework development stack. Typically this inv
 
 Neither of these solutions met the needs of our busy web development house. So we set out to build a more integrated, flexible and reliable approach to developing rich web applications.
 
+This current release is the result of a decade of development and the experience of over 100 commercial projects. Agile Toolkit is mature, production-ready software.
+
 ## What Benefits Does Agile Toolkit Deliver?
 
 With so many excellent PHP frameworks, any new project has to justify its existence by delivering dictinctive and compelling benefits.
@@ -39,7 +41,7 @@ Our inspiration has been desktop GUI frameworks such as Cocoa, QT and .Net. Comp
 * They abstract away most of the complexity of full-featured GUIs without sacrificing flexibility, freeing the developer to focus on business functionality rather than low-level nuts and bolts
 * You do your work in a single language and access the framework functionality through a single API
 * You create a rich user experience by plugging together and configuring well-tested GUI components
-* You develop new GUI components by combining sub-components
+* You develop new GUI components by combining subcomponents
 * You can plug in additional functionality through a thriving ecosystem of open source and commercial addons
 * The GUI is nicely styled by default and is easy to re-skin
 * And on the business side, your data structures bind seamlessly to your interface widgets.
@@ -64,18 +66,18 @@ So what is the payoff for you, the developer? Quite simply, AJAX applications th
 * Easier to test, and
 * Easier to change.
 
-### Example: a full-featured CRUD application in just TODO lines of code
+### Example: a full-featured CRUD application
 
-To whet your appetite, here are some examples with [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) implementation in Agile Toolkit. This example is designed to show you the Agility of the UI.
-
-Lets start with a simple and basic built-in CRUD component.
+To demonstrate the agility of the Agile Toolkit approach, here's how you'd build a fully AJAXed [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application.  Let's start with the built-in CRUD component:
 
 ```
 $crud=$this->add('CRUD');
 $crud->setModel('Book');
 ```
 
-You might not be impressed as CRUDs are a standard features in many frameworks. However this is as far as they go. For Agile Toolkit, CRUD is just another component. First, let's enhance UI a little. CRUD is composite view relying on Grid, Form and Button views. We can interact with those views directly:
+In Agile Toolkit, CRUD is just another component: there are many powerful and flexible features built-in, and it's easy to extend and customize. So how do we work with it?
+
+First, let's enhance the UI a little. CRUD is a composite View relying on Grid, Form and Button Views. We can interact with those subcomponents directly:
 
 ```
 $crud=$this->add('CRUD');
@@ -89,10 +91,9 @@ if ($crud->grid) {
 }
 ```
 
-Now we have a button which uses a pice of AJAX to re-populate the CRUD data with default set. The actual implementation of populateData is the part of business logic and resides in the Model.
+Now we have a button which uses some AJAX to repopulate the CRUD form with a default data set: this is a working AJAX form with a usable default interface &ndash; it really is as easy as that. The actual implementation of `populateData()` is part of the business logic and resides in Model_Book.
 
-The Model we supply can be changed quite a lot: 
-
+Models in Agile Toolkit are powerful and flexible:
 
 ```
 $book=$this->add('Model_Book');
@@ -111,9 +112,7 @@ if ($crud->grid) {
 
 ```
 
-CRUD now is displaying data from 2 tables.
-
-Now you might say that database joins are not welcome as a part of a component and we agree. Let's create a new model:
+Now our CRUD component is displaying data from 2 tables. But in Agile Toolkit it would be better style to encapsulate our join in a new Model:
 
 ```
 class Model_BookWithAuthor extends Model_Book
@@ -127,7 +126,7 @@ class Model_BookWithAuthor extends Model_Book
 }
 ```
 
-Furthermore, you might want to have CRUD with "Populate Data" button as a standard component, so let's also move it into a new class:
+Finally, you might want to have CRUD with the "Populate Data" button as a standard component, so let's move it into another new class:
 
 ```
 class MyCRUD extends CRUD
@@ -145,27 +144,22 @@ class MyCRUD extends CRUD
 }
 ```
 
-Now back to our main code. It looks simple again.
+Now our main code looks simple again:
 
 ```
 $crud=$this->add('MyCRUD');
 $crud->setModel('BookWithAuthor');
 ```
 
-This example just demonstrated you some of the fine points of Agile Toolkit:
+This example gives you a first glimpse of some of the most powerful features of Agile Toolkit:
 
-* You can enhance any existing component and even interact with components it's built of
-* The built-in ORM supports joins amongst other things transparently with no extra SQL queries
-* Code can be easily refactored and contained in a dedicated classes both for models and views
-* Abstraction at it's finest. Once you develop and test your own components separately, construct UI of any complexity out of them.
+* You can easily enhance existing components and even interact with the subcomponents it's built of
+* Code in Models and Views can be quickly refactored to encapsulate new functionality
+* You can develop and test custom components separately, then combine into a UI of any complexity.
 
 
 ## Can I Use Agile Toolkit With My Existing Code?
 
 We recognise that many developers will be coming to Agile Toolkit with a significant investment in other MVC frameworks, or in content management frameworks such as WordPress, Drupal and Joomla. 
 
-If you want to add sophisticated data handling to your legacy code, Agile Toolkit is designed to play well with other
-frameworks. You may use the UI of Agile Toolkit inside your CodeIgniter project just on a couple of pages or you can
-take advantage of Agile Toolkit ORM and build your REST interface for your JavaScript fronted. Most commonly
-users decide to re-write their backend/admin system using Agile Toolkit as a first step in integration.
-You'll find more details [here](/TODO).
+If you want to add sophisticated data handling to your legacy code, Agile Toolkit is designed to play well with other frameworks. For example you might use the Agile Toolkit UI features for just a couple of Pages inside your CodeIgniter project, or you can use the unique features of the Agile Toolkit ORM to build the REST interface for your JavaScript frontend. Most commonly, users decide to rewrite their backend/admin system using Agile Toolkit as a first step towards integration. You'll find more details [here](/TODO).
