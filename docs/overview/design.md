@@ -22,7 +22,7 @@ Years of experience with demanding Agile projects has proven that this radical l
 
 ## The Composability Principle
 
-The Toolkit is designed from the ground up to help developers compose View components from smaller sub-components. Powerful and flexible components speed development and increase reliability, and it's Composability that makes this possible.
+The Toolkit is designed from the ground up to help developers compose View components from smaller sub-components. Powerful and flexible components speed development and increase reliability, and it's [Composability](http://en.wikipedia.org/wiki/Composability) that makes this possible.
 
 Composability isn't restricted to View components &ndash; Models are composable too. So you can build complex business rules from simpler sub-components.
 
@@ -38,7 +38,15 @@ This is where you need [Extensibility](http://en.wikipedia.org/wiki/Extensibilit
 
 To achieve Composability our Model and View objects store their parameters and only render output at the last moment, once they know what other objects they're working with. So all their settings can be changed at any stage before they render. 
 
-This means that when you extend an object any of its settings can be modified to provide different or additional functionality without breaking the existing, tested, parent object. The Extensibility features in Agile Toolkit add agility to your development process.
+This adds power to the traditional 'Extend and Override' principle of object-oriented software. For example you can reconfigure Views and their subcomponents after they are added to your application, or even destroy them if you wish.
+
+And Agile Toolkit gives you additional ways to extend your objects:
+
+* Use call-backs (hooks) to inject event-aware code
+* Inject new methods into any object with addMethod() or even into all objects simultaniously (as PHP5.5 traits do for classes)
+    * Replace standard classes with your own (so you can, for example, swap out the default Grid class)
+
+ The Extensibility features in Agile Toolkit add agility to your development process.
 
 ## The Testability Principle
 

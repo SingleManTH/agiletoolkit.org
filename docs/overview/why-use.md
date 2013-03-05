@@ -32,19 +32,20 @@ This current release is the result of a decade of development and the experience
 
 ## What Benefits Does Agile Toolkit Deliver?
 
-With so many excellent PHP frameworks, any new project has to justify its existence by delivering dictinctive and compelling benefits.
+With so many excellent PHP frameworks, any new project has to justify its existence by delivering distinctive and compelling benefits.
 
 ### Bringing the ease of desktop development to the web
 
-Our inspiration has been desktop GUI frameworks such as Cocoa, QT and .Net. Compared to mainstream PHP frameworks, these offer a notably easier route to building rich data-driven applications:
+### Bringing the ease of desktop development to the web
 
-* They abstract away most of the complexity of full-featured GUIs without sacrificing flexibility, freeing the developer to focus on business functionality rather than low-level nuts and bolts
-* You do your work in a single language and access the framework functionality through a single API
-* You create a rich user experience by plugging together and configuring well-tested GUI components
-* You develop new GUI components by combining subcomponents
-* You can plug in additional functionality through a thriving ecosystem of open source and commercial addons
-* The GUI is nicely styled by default and is easy to re-skin
-* And on the business side, your data structures bind seamlessly to your interface widgets.
+We believe that conventional PHP frameworks offer very little help with building reusable user interface components, so Agile Toolkit borrows core principles found in desktop GUI frameworks such as Cocoa, QT and .Net. This means that:
+
+* The framework provides a consistent, skinnable and professional look and feel for your application, based on standard UI components such as buttons, menus, forms and fields
+* Actual implementation of a UI component (HTML template, JavaScript widgets, events and CSS) is abstracted and knowledge of the underlying nuts and bolts is not necessary to build your application
+* In general everything is done in PHP, including configuration, Models and advanced data queries, and View layout, logic and Event binding
+* Components are modular and independent &ndash; for example placing multiple CRUD components on the same page or embedding them inside your custom component is simple and intuitive
+* UI logic is cleanly separated from Business logic by design
+* And your data structures bind seamlessly to your interface widgets.
 
 Agile Toolkit offers all of these benefits to developers building data-centric AJAX applications in PHP. 
 
@@ -126,7 +127,7 @@ class Model_BookWithAuthor extends Model_Book
 }
 ```
 
-Finally, you might want to have CRUD with the "Populate Data" button as a standard component, so let's move it into another new class:
+Finally, you might want to have CRUD with the 'Populate Data' button as a standard component, so let's move it into another new class:
 
 ```
 class MyCRUD extends CRUD
@@ -155,7 +156,7 @@ This example gives you a first glimpse of some of the most powerful features of 
 
 * You can easily enhance existing components and even interact with the subcomponents it's built of
 * Code in Models and Views can be quickly refactored to encapsulate new functionality
-* You can develop and test custom components separately, then combine into a UI of any complexity.
+* You can develop and test custom components separately, then combine them into a UI of any complexity.
 
 
 ## Can I Use Agile Toolkit With My Existing Code?
