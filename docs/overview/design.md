@@ -18,7 +18,7 @@ We abstract all the technologies of the client-side and the server-side behind a
 
 ![Web Development Levels of Abstraction](dia-levels-of-abstraction.png)
 
-Years of experience with demanding Agile projects has proven that this radical level of abstraction shortens the learning curve, simplifies development and eases testing.
+Years of experience with over 100 demanding Agile projects has proven that this radical level of abstraction shortens the learning curve, simplifies development and eases testing.
 
 ## The Composability Principle
 
