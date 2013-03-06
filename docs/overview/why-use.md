@@ -38,7 +38,7 @@ In the crowded world of PHP frameworks any new project should justify its existe
 
 Agile Toolkit borrows proven principles from GUI frameworks such as Cocoa, QT and .Net to bring the convenience and power of desktop development to PHP developers building AJAX applications.
 
-* Agile Toolkit provides a consistent, professional look and feel for your application, based on standard UI components such as buttons, menus, forms and fields
+* The framework provides a consistent, professional look and feel for your application, based on standard UI components such as buttons, menus, forms and fields
 * The look and feel is easy to skin or customise
 * Actual implementation of a UI component (HTML template, JavaScript widgets, events and CSS) is abstracted and knowledge of the underlying nuts and bolts is not necessary to build your application
 * In general everything is done in PHP, from Models and advanced data queries to View layout, logic and event binding
@@ -143,6 +143,8 @@ So now we can use our two new components with just 2 lines of code:
 
     $crud = $this->add('MyCRUD');
     $crud->setModel('BookWithAuthor');
+
+With other solutions, this CRUD functionality might require dozens, even hundreds of lines of generated or hand-written code.
 
 This example gives you a foretaste of some of the most powerful features of Agile Toolkit:
 

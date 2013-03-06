@@ -22,9 +22,9 @@ Years of experience with over 100 demanding Agile projects has proven that this 
 
 ## The Composability Principle
 
-The Toolkit is designed from the ground up to help developers compose View components from smaller sub-components. Powerful and flexible components speed development and increase reliability, and it's [Composability](http://en.wikipedia.org/wiki/Composability) that makes this possible.
+The Toolkit is designed from the ground up to help developers compose View components from smaller subcomponents. Powerful and flexible components speed development and increase reliability, and it's [Composability](http://en.wikipedia.org/wiki/Composability) that makes this possible.
 
-Composability isn't restricted to View components &ndash; Models are composable too. So you can build complex business rules from simpler sub-components.
+Composability isn't restricted to View components &ndash; Models are composable too. So you can build complex business rules from simpler subcomponents.
 
 Techically, Composability requires components that are independent, keep track of their own state and know how to cooperate with each other. Much of the design of Agile Toolkit is focused on offering these features transparently to every View and Model component.
 
@@ -32,19 +32,19 @@ With Agile Toolkit you can quickly develop a range of flexible business and inte
 
 ## The Extensibility Principle
 
-Composability is only the first step to a truly Agile web framework. In many ways the toughest challenge is adding functionality to your components as your application evolves.
+Composability is only the first step to a truly agile web framework. In many ways the toughest challenge is adding functionality to your components as your application evolves.
 
 This is where you need [Extensibility](http://en.wikipedia.org/wiki/Extensibility) &ndash; the ability to add new functionality without breaking existing tested code.
 
 To achieve Composability our Model and View objects store their parameters and only render output at the last moment, once they know what other objects they're working with. So all their settings can be changed at any stage before they render. 
 
-This adds power to the traditional 'Extend and Override' principle of object-oriented software. For example you can reconfigure Views and their subcomponents after they are added to your application, or even destroy them if you wish.
+So extended components can reconfigure any aspect of the parent and its subcomponents, and they can be farther.
 
 And Agile Toolkit gives you additional ways to extend your objects:
 
 * Use call-backs (hooks) to inject event-aware code
 * Inject new methods into any object with addMethod() or even into all objects simultaniously (as PHP5.5 traits do for classes)
-    * Replace standard classes with your own (so you can, for example, swap out the default Grid class)
+* Replace standard classes with your own (so you can, for example, swap out the default Grid class).
 
  The Extensibility features in Agile Toolkit add agility to your development process.
 
@@ -52,7 +52,7 @@ And Agile Toolkit gives you additional ways to extend your objects:
 
 Agile development relies on testing, and testability has been a key consideration in the Toolkit's design.
 
-Our focus on Composability and Extensibility means that everything in the Toolkit is an object &ndash; there's no use of static classes. And every parameter in every object can be configured at runtime. So any component can be reconfigured or swapped out for testing with no special planning or setup.  
+Our focus on Composability and Extensibility means that everything in the Toolkit is an object &ndash; there's no use of static classes. And as we've seen every parameter in every object can be configured at runtime. So any component can be reconfigured or swapped out for testing with no special planning or setup.  
 
 Agile Toolkit is a software tester's dream! 
 
