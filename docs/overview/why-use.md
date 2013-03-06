@@ -32,7 +32,7 @@ Though our experience of over 100 commercial projects, Agile Toolkit has evolved
 
 ## What Unique Benefits Does Agile Toolkit Deliver?
 
-With so many excellent PHP frameworks, any new project has to justify its existence by delivering distinctive and compelling benefits.
+PHP developers can choose between many excellent frameworks, so any new project should justify its existence by delivering distinctive and compelling benefits.
 
 ### Bringing the ease of desktop development to the web
 
@@ -41,7 +41,7 @@ We believe that conventional PHP frameworks offer very little help with building
 * The framework provides a consistent, professional look and feel for your application, based on standard UI components such as buttons, menus, forms and fields
 * The look and feel is easy to skin or customise
 * Actual implementation of a UI component (HTML template, JavaScript widgets, events and CSS) is abstracted and knowledge of the underlying nuts and bolts is not necessary to build your application
-* In general everything is done in PHP, including:  Models and advanced data queries; and View layout, logic and event binding
+* In general everything is done in PHP, from Models and advanced data queries to View layout, logic and event binding
 * Components are modular and independent &ndash; for example placing multiple CRUD components on the same page or embedding them inside your custom component is simple and intuitive
 * UI logic is cleanly separated from business logic by design
 * And your data structures bind seamlessly to your interface widgets.
