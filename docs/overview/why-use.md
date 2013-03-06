@@ -32,13 +32,13 @@ Though our experience of over 100 commercial projects, Agile Toolkit has evolved
 
 ## What Unique Benefits Does Agile Toolkit Deliver?
 
-PHP developers can choose between many excellent frameworks, so any new project should justify its existence by delivering distinctive and compelling benefits.
+In the crowded world of PHP frameworks any new project should justify its existence by delivering distinctive and compelling benefits.
 
 ### Bringing the ease of desktop development to the web
 
-We believe that conventional PHP frameworks offer very little help with building reusable user interface components, so Agile Toolkit borrows proven principles found in desktop GUI frameworks such as Cocoa, QT and .Net. This means that:
+Agile Toolkit borrows proven principles from GUI frameworks such as Cocoa, QT and .Net to bring the convenience and power of desktop development to PHP developers building AJAX applications.
 
-* The framework provides a consistent, professional look and feel for your application, based on standard UI components such as buttons, menus, forms and fields
+* Agile Toolkit provides a consistent, professional look and feel for your application, based on standard UI components such as buttons, menus, forms and fields
 * The look and feel is easy to skin or customise
 * Actual implementation of a UI component (HTML template, JavaScript widgets, events and CSS) is abstracted and knowledge of the underlying nuts and bolts is not necessary to build your application
 * In general everything is done in PHP, from Models and advanced data queries to View layout, logic and event binding
@@ -46,7 +46,6 @@ We believe that conventional PHP frameworks offer very little help with building
 * UI logic is cleanly separated from business logic by design
 * And your data structures bind seamlessly to your interface widgets.
 
-Agile Toolkit brings the convenience and power of desktop frameworks to PHP developers building data-centric AJAX applications.
 
 ### How is Agile Toolkit different?
 
@@ -140,7 +139,7 @@ Finally, you might want to have CRUD with the 'Populate Data' button as a standa
         }
     }
 
-So now we can use our 2 new components with just 2 lines of code:
+So now we can use our two new components with just 2 lines of code:
 
     $crud = $this->add('MyCRUD');
     $crud->setModel('BookWithAuthor');
