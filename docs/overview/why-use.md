@@ -109,7 +109,7 @@ Let's add a relational join:
         }
     }
 
-Our CRUD component is displaying data from 2 tables. But in Agile Toolkit it would be better style to encapsulate our join in a new Model:
+Our CRUD component is displaying data from two tables. But in Agile Toolkit it would be better style to encapsulate our join in a new Model:
 
     class Model_BookWithAuthor extends Model_Book
     {
@@ -123,7 +123,7 @@ Our CRUD component is displaying data from 2 tables. But in Agile Toolkit it wou
 
 Models in Agile Toolkit are unusually powerful and flexible &ndash; this is merely a first glimpse of how they work.
 
-Finally, you might want to have CRUD with the 'Populate Data' button as a standard component, so let's move it into another new class:
+Finally, you might want your CRUD with the 'Populate Data' button as a reusable component, so let's move it into another new class:
 
     class MyCRUD extends CRUD
     {
