@@ -12,7 +12,7 @@ The increasing importance of desktop-like AJAX interfaces is a game-changer for 
 * We need non-trivial JavaScript in the client to enforce business rules, handle events and bind data structures to the interface
 * We need to move data between the database, our PHP server-side objects and our JavaScript in the client
 * For security, we need to double-check client-side business rules on the server
-* And we have to tie all this together with AJAX calls in both directions.
+* And we have to tie all this together with AJAX calls and responses.
 
 ![The Web Technology Challenge](/dia-web-technologies.png)
 
@@ -30,7 +30,7 @@ Neither of these solutions met the needs of our busy web development house. So w
 
 Though our experience of over 100 commercial projects, Agile Toolkit has evolved into a mature, production-ready development tool.
 
-## What Benefits Does Agile Toolkit Deliver?
+## What Unique Benefits Does Agile Toolkit Deliver?
 
 With so many excellent PHP frameworks, any new project has to justify its existence by delivering distinctive and compelling benefits.
 
@@ -41,12 +41,12 @@ We believe that conventional PHP frameworks offer very little help with building
 * The framework provides a consistent, professional look and feel for your application, based on standard UI components such as buttons, menus, forms and fields
 * The look and feel is easy to skin or customise
 * Actual implementation of a UI component (HTML template, JavaScript widgets, events and CSS) is abstracted and knowledge of the underlying nuts and bolts is not necessary to build your application
-* In general everything is done in PHP, including configuration, Models and advanced data queries, and View layout, logic and Event binding
+* In general everything is done in PHP, including configuration, Models and advanced data queries, and View layout, logic and event binding
 * Components are modular and independent &ndash; for example placing multiple CRUD components on the same page or embedding them inside your custom component is simple and intuitive
 * UI logic is cleanly separated from business logic by design
 * And your data structures bind seamlessly to your interface widgets.
 
-Agile Toolkit bring the convenience and power of desktop development to building data-centric AJAX applications in PHP. 
+Agile Toolkit brings the convenience and power of desktop frameworks to PHP developers building data-centric AJAX applications.
 
 ### How is Agile Toolkit different?
 
@@ -73,7 +73,7 @@ To demonstrate the agility of the Agile Toolkit approach, here's how you'd build
     $crud=$this->add('CRUD');
     $grid->setModel('Employee');
 
-That's it - we have an attractive and functional CRUD interface on our page.  
+That's it &ndash; our page is now displaying an attractive and functional CRUD interface.
 
 In Agile Toolkit CRUD is just another component, with many powerful and flexible features built-in:
 
@@ -92,7 +92,7 @@ And components are easy to extend and customize. CRUD is a composite View relyin
         }
     }
 
-Now we have a button which uses some AJAX to repopulate the CRUD form with a default data set. As you can see, there's no need to get your hands dirty with the AJAX internals. The actual implementation of `populateData()` is part of the business logic and resides in Model_Book.
+Now we have a button which uses some AJAX to repopulate the CRUD form with a default data set. As you can see, there's no need to get your hands dirty with the AJAX internals. The actual implementation of `populateData()` is part of the business logic and resides in `Model_Book`.
 
 Now let's add a relational join:
 
@@ -122,7 +122,7 @@ Our CRUD component is displaying data from 2 tables. But in Agile Toolkit it wou
         }
     }
 
-Models in Agile Toolkit are powerful and flexible, with many unique features &ndash; this is merely a first glimpse of how they work.
+Models in Agile Toolkit are powerful and flexible with many unique features &ndash; this is merely a first glimpse of how they work.
 
 Finally, you might want to have CRUD with the 'Populate Data' button as a standard component, so let's move it into another new class:
 
@@ -147,8 +147,8 @@ So now we can use our two new components with just two lines of code:
 
 This example gives you a quick taste some of the most powerful features of Agile Toolkit:
 
-* You can easily enhance existing components and even interact with the subcomponents it's built from
-* Code in Models and Views can be quickly refactored to encapsulate new functionality
+* You can easily enhance existing components and even interact with the subcomponents they're built from
+* Code in Models and Views can be quickly refactored to encapsulate new functionality without disrupting existing code and tests
 * You can develop and test custom components separately, then combine them into a UI of any complexity.
 
 
@@ -156,4 +156,4 @@ This example gives you a quick taste some of the most powerful features of Agile
 
 We recognise that many developers will be coming to Agile Toolkit with a significant investment in other MVC frameworks, or in content management frameworks such as WordPress, Drupal and Joomla. 
 
-If you want to add sophisticated data handling to your legacy code, Agile Toolkit is designed to play well with other frameworks. For example you might use the Agile Toolkit UI features for just a couple of Pages inside your CodeIgniter project, or you can use the unique features of the Agile Toolkit ORM to build the REST interface for your JavaScript frontend. Most commonly, users decide to rewrite their backend/admin system using Agile Toolkit as a first step towards integration. You'll find more details [here](/TODO).
+If you want to add sophisticated data handling to your legacy code, Agile Toolkit is designed to play well with other frameworks. For example you might use the Agile Toolkit UI features for just a couple of pages inside your CodeIgniter project, or you can use the unique features of the Agile Toolkit ORM to build the REST interface for your JavaScript frontend. Most commonly, developers decide to rewrite their backend/admin system using Agile Toolkit as a first step towards integration. You'll find more details [here](/TODO).
