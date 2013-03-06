@@ -18,7 +18,7 @@ The increasing importance of desktop-like AJAX interfaces is a game-changer for 
 
 ### The limitations of mainstream solutions
 
-The PHP community offers an exceptional choice of well-engineered MVC frameworks, but even the best can only offer a partial solution to the many challenges of developing rich client data-centric applications.
+The PHP community offers a wide choice of well-engineered MVC frameworks, but even the best can only offer a partial solution to the many challenges of developing rich client data-centric applications.
 
 With some frameworks you create your AJAX data management system though code generation, and this can offer a rapid solution for straightforward requirements. But your application design is constrained by the features built into the generator, and you can end up adapting more complex projects to the framework rather than the framework to the project.
 
@@ -28,7 +28,7 @@ The other main option is a multi-framework development stack. Typically this inv
 
 Neither of these solutions met the needs of our busy web development house. So we set out to build a more integrated, flexible and reliable approach to developing rich web applications.
 
-This current release is the result of a decade of development and the experience of over 100 commercial projects. Agile Toolkit is mature, production-ready software.
+Though our experience of over 100 commercial projects, Agile Toolkit has evolved into a mature, production-ready development tool.
 
 ## What Benefits Does Agile Toolkit Deliver?
 
@@ -36,20 +36,19 @@ With so many excellent PHP frameworks, any new project has to justify its existe
 
 ### Bringing the ease of desktop development to the web
 
-### Bringing the ease of desktop development to the web
-
 We believe that conventional PHP frameworks offer very little help with building reusable user interface components, so Agile Toolkit borrows core principles found in desktop GUI frameworks such as Cocoa, QT and .Net. This means that:
 
-* The framework provides a consistent, skinnable and professional look and feel for your application, based on standard UI components such as buttons, menus, forms and fields
+* The framework provides a consistent, professional look and feel for your application, based on standard UI components such as buttons, menus, forms and fields
+* The look and feel is easy to skin or customise
 * Actual implementation of a UI component (HTML template, JavaScript widgets, events and CSS) is abstracted and knowledge of the underlying nuts and bolts is not necessary to build your application
 * In general everything is done in PHP, including configuration, Models and advanced data queries, and View layout, logic and Event binding
 * Components are modular and independent &ndash; for example placing multiple CRUD components on the same page or embedding them inside your custom component is simple and intuitive
-* UI logic is cleanly separated from Business logic by design
+* UI logic is cleanly separated from business logic by design
 * And your data structures bind seamlessly to your interface widgets.
 
-Agile Toolkit offers all of these benefits to developers building data-centric AJAX applications in PHP. 
+Agile Toolkit bring the convenience and power of desktop development to building data-centric AJAX applications in PHP. 
 
-### So how is Agile Toolkit different?
+### How is Agile Toolkit different?
 
 We call our solution a Toolkit rather than a framework because the focus is on rapid development with reusable interface and business components. And we call it Agile because the components are designed to adapt easily and reliably as agile requirements evolve.
 
@@ -67,94 +66,88 @@ So what is the payoff for you, the developer? Quite simply, AJAX applications th
 * Easier to test, and
 * Easier to change.
 
-### Example: a full-featured CRUD application
+### Example: a full-featured CRUD UI in two lines of code
 
-To demonstrate the agility of the Agile Toolkit approach, here's how you'd build a fully AJAXed [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application.  Let's start with the built-in CRUD component:
+To demonstrate the agility of the Agile Toolkit approach, here's how you'd build a fully AJAXed [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application.  Let's start with the vanilla built-in CRUD component:
 
-```
-$crud=$this->add('CRUD');
-$crud->setModel('Book');
-```
+    $crud=$this->add('CRUD');
+    $grid->setModel('Employee');
 
-In Agile Toolkit, CRUD is just another component: there are many powerful and flexible features built-in, and it's easy to extend and customize. So how do we work with it?
+That's it - we have an attractive and functional CRUD interface on our page.  
 
-First, let's enhance the UI a little. CRUD is a composite View relying on Grid, Form and Button Views. We can interact with those subcomponents directly:
+In Agile Toolkit CRUD is just another component, with many powerful and flexible features built-in:
 
-```
-$crud=$this->add('CRUD');
-$crud->setModel('Book');
+    $crud->addPaginator(5);
+    $grid->addQuickSearch(array('name'));
 
-if ($crud->grid) {
-    if ($crud->grid->addButton('Populate Data')->isClicked()) {
-        $crud->grid->model->populateData();
-        $crud->grid->js()->reload()->execute();
+And components are easy to extend and customize. CRUD is a composite View relying on Grid, Form and Button Views and we can interact with those subcomponents directly:
+
+    $crud=$this->add('CRUD');
+    $crud->setModel('Book');
+
+    if ($crud->grid) {
+        if ($crud->grid->addButton('Populate Data')->isClicked()) {
+            $crud->grid->model->populateData();
+            $crud->grid->js()->reload()->execute();
+        }
     }
-}
-```
 
-Now we have a button which uses some AJAX to repopulate the CRUD form with a default data set: this is a working AJAX form with a usable default interface &ndash; it really is as easy as that. The actual implementation of `populateData()` is part of the business logic and resides in Model_Book.
+Now we have a button which uses some AJAX to repopulate the CRUD form with a default data set. As you can see, there's no need to get your hands dirty with the AJAX internals. The actual implementation of `populateData()` is part of the business logic and resides in Model_Book.
 
-Models in Agile Toolkit are powerful and flexible:
+Now let's add a relational join:
 
-```
-$book=$this->add('Model_Book');
-$author=$book->leftJoin('author');
-$author->addField('author_name','name')->editable(false);
+    $book=$this->add('Model_Book');
+    $author=$book->leftJoin('author');
+    $author->addField('author_name','name')->editable(false);
 
-$crud=$this->add('CRUD');
-$crud->setModel($book);
+    $crud=$this->add('CRUD');
+    $crud->setModel($book);
 
-if ($crud->grid) {
-    if ($crud->grid->addButton('Populate Data')->isClicked()) {
-        $crud->grid->model->populateData();
-        $crud->grid->js()->reload()->execute();
+    if ($crud->grid) {
+        if ($crud->grid->addButton('Populate Data')->isClicked()) {
+            $crud->grid->model->populateData();
+            $crud->grid->js()->reload()->execute();
+        }
     }
-}
 
-```
+Our CRUD component is displaying data from 2 tables. But in Agile Toolkit it would be better style to encapsulate our join in a new Model:
 
-Now our CRUD component is displaying data from 2 tables. But in Agile Toolkit it would be better style to encapsulate our join in a new Model:
-
-```
-class Model_BookWithAuthor extends Model_Book
-{
-    function init()
+    class Model_BookWithAuthor extends Model_Book
     {
-        parent::init();
-        $author=$this->leftJoin('author');
-        $author->addField('author_name','name')->editable(false);
+        function init()
+        {
+            parent::init();
+            $author=$this->leftJoin('author');
+            $author->addField('author_name','name')->editable(false);
+        }
     }
-}
-```
+
+Models in Agile Toolkit are powerful and flexible, with many unique features &ndash; this is merely a first glimpse of how they work.
 
 Finally, you might want to have CRUD with the 'Populate Data' button as a standard component, so let's move it into another new class:
 
-```
-class MyCRUD extends CRUD
-{
-    function render()
+    class MyCRUD extends CRUD
     {
-        if ($this->grid && $this->grid->model->hasMethod('populateData'))) {
-            if ($this->grid->addButton('Populate Data')->isClicked()) {
-                $this->grid->model->populateData();
-                $this->grid->js()->reload()->execute();
+        function render()
+        {
+            if ($this->grid && $this->grid->model->hasMethod('populateData'))) {
+                if ($this->grid->addButton('Populate Data')->isClicked()) {
+                    $this->grid->model->populateData();
+                    $this->grid->js()->reload()->execute();
+                }
             }
+            parent::render();
         }
-        parent::render();
     }
-}
-```
 
-Now our main code looks simple again:
+So now we can use our two new components with just two lines of code:
 
-```
-$crud=$this->add('MyCRUD');
-$crud->setModel('BookWithAuthor');
-```
+    $crud=$this->add('MyCRUD');
+    $crud->setModel('BookWithAuthor');
 
-This example gives you a first glimpse of some of the most powerful features of Agile Toolkit:
+This example gives you a quick taste some of the most powerful features of Agile Toolkit:
 
-* You can easily enhance existing components and even interact with the subcomponents it's built of
+* You can easily enhance existing components and even interact with the subcomponents it's built from
 * Code in Models and Views can be quickly refactored to encapsulate new functionality
 * You can develop and test custom components separately, then combine them into a UI of any complexity.
 
