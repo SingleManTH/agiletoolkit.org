@@ -70,7 +70,7 @@ So what is the payoff for you, the developer? Quite simply, AJAX applications th
 
 To demonstrate the agility of the Agile Toolkit approach, here's how you'd build a fully AJAXed [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application.  Let's start with the vanilla built-in CRUD component:
 
-    $crud=$this->add('CRUD');
+    $crud = $this->add('CRUD');
     $grid->setModel('Employee');
 
 That's it &ndash; our page is now displaying an attractive and functional CRUD interface.
@@ -82,7 +82,7 @@ In Agile Toolkit CRUD is just another component, with many powerful and flexible
 
 And components are easy to extend and customize. CRUD is a composite View relying on Grid, Form and Button Views and we can interact with those subcomponents directly:
 
-    $crud=$this->add('CRUD');
+    $crud = $this->add('CRUD');
     $crud->setModel('Book');
 
     if ($crud->grid) {
@@ -96,11 +96,11 @@ Now we have a button which uses some AJAX to repopulate the CRUD form with a def
 
 Let's add a relational join:
 
-    $book=$this->add('Model_Book');
-    $author=$book->leftJoin('author');
+    $book = $this->add('Model_Book');
+    $author = $book->leftJoin('author');
     $author->addField('author_name','name')->editable(false);
 
-    $crud=$this->add('CRUD');
+    $crud = $this->add('CRUD');
     $crud->setModel($book);
 
     if ($crud->grid) {
@@ -117,7 +117,7 @@ Our CRUD component is displaying data from 2 tables. But in Agile Toolkit it wou
         function init()
         {
             parent::init();
-            $author=$this->leftJoin('author');
+            $author = $this->leftJoin('author');
             $author->addField('author_name','name')->editable(false);
         }
     }
@@ -142,7 +142,7 @@ Finally, you might want to have CRUD with the 'Populate Data' button as a standa
 
 So now we can use our two new components with just two lines of code:
 
-    $crud=$this->add('MyCRUD');
+    $crud = $this->add('MyCRUD');
     $crud->setModel('BookWithAuthor');
 
 This example gives you a quick taste some of the most powerful features of Agile Toolkit:
