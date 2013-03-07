@@ -46,6 +46,7 @@ Agile Toolkit borrows proven principles from GUI frameworks such as Cocoa, QT an
 * UI logic is cleanly separated from business logic by design
 * And your data structures bind seamlessly to your interface widgets.
 
+![Simplifying Rich Application Development](/dia-simplifying-development.png)
 
 ### How is Agile Toolkit different?
 
