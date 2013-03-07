@@ -26,7 +26,7 @@ The other main option is a multi-framework development stack. Typically this inv
 
 ### The need for a fresh approach
 
-Neither of these solutions met the needs of our busy web development house. So we set out to build a more integrated, flexible and reliable approach to developing rich web applications.
+Neither of these solutions met the needs of our busy web development house. So we set out to build a simpler, faster and more reliable approach to developing rich web applications.
 
 Though our experience of over 100 commercial projects, Agile Toolkit has evolved into a mature, production-ready development tool.
 
@@ -144,7 +144,7 @@ So now we can use our two new components with just 2 lines of code:
     $crud = $this->add('MyCRUD');
     $crud->setModel('BookWithAuthor');
 
-With other solutions, this CRUD functionality might require dozens, even hundreds of lines of generated or hand-written code.
+With other solutions, similar CRUD functionality might require dozens, even hundreds of lines of generated or hand-written code. So Agile Toolkit offers the potential to accelerate your CRUD development by a factor of ten or more.
 
 This example gives you a foretaste of some of the most powerful features of Agile Toolkit:
 

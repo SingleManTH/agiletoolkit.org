@@ -58,10 +58,12 @@ Agile Toolkit is a software tester's dream!
 
 ## The Simplicity Principle
 
-Finally, working with web frameworks you can sometimes feel that they're making simple things complex. With Agile Toolkit we strive to avoid this by always adopting the simplest practical approach, even if it's not the 'purest' or trendiest. For example:
+With Agile Toolkit the aim is that everything simply works straight out of the box. The syntax is clear and simple and all the plumbing is handled for you, so you can focus on the features that are unique to your application.
+
+With a typical web frameworks you can sometimes feel that they're making simple things complex. With Agile Toolkit we strive to avoid this by adopting the simplest practical approach, even if it's not the 'purest' or trendiest. For example:
 
 * Configuration settings are plain old PHP hashes, so if you want complex conditional configurations just pop in some code.
-* You won't need namespacing unless you're developing Addons or external libraries. This has never caused any practical problems and we avoid tedium like this:
+* You won't need namespacing when you're working with the Toolkit core. This has never caused any practical problems and we avoid tedium like this:
 
     <pre>
     namespace Acme\TaskBundle\Controller;
