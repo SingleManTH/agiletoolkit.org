@@ -57,6 +57,9 @@ Compared to conventional PHP MVC frameworks, you'll be working with:
 * **A fresh approach to Views**: building a rich user experience by snapping together flexible, event-aware View components using only PHP on the server ([see more...](/TODO)) 
 * **A fresh approach to Models**: building your business logic in Models that bind directly to your View components and adapt robustly as requirements evolve ([see more...](/TODO)) 
 * **A fresh approach to Addons**: plugging in additional functionality from an ecosystem of Addons that take full advantage of the AJAX, event handling and styling features of the Toolkit core ([see more...](/TODO)).
+you can also mention - both 
+
+Compared to most other PHP frameworks, Agile Toolkit offers a comprehensive approach to rich application development. So there's only one way to do things &ndash; the right way. The architectural decisions and client-side plumbing are handled for you, enabling you to focus on the functionality of your application from the get-go.
 
 ### The payoff
 
@@ -151,7 +154,8 @@ This example gives you a foretaste of some of the most powerful features of Agil
 
 * You can easily enhance existing components and even interact with the subcomponents they're built from
 * Code in Models and Views can be quickly refactored to encapsulate new functionality without disrupting existing code and tests
-* You can develop and test custom components separately, then combine them into a UI of any complexity.
+* You can develop and test custom components separately, then combine them into a UI of any complexity
+* Components benefit from the built-in CSS styling, providing you with an attractive interface with no additional work.
 
 
 ## Can I Use Agile Toolkit With My Existing Code?

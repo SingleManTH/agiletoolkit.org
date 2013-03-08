@@ -22,11 +22,11 @@ Years of experience with over 100 demanding Agile projects has proven that this 
 
 ## The Composability Principle
 
-The Toolkit is designed from the ground up to help developers compose View components from smaller subcomponents. Powerful and flexible components speed development and increase reliability, and it's [Composability](http://en.wikipedia.org/wiki/Composability) that makes this possible.
+The Toolkit is designed from the ground up to help developers compose reusable View components from smaller subcomponents. Powerful and flexible components speed development and increase reliability, and it's [Composability](http://en.wikipedia.org/wiki/Composability) that makes this possible.
 
-Composability isn't restricted to View components &ndash; Models are composable too. So you can build complex business rules from simpler subcomponents.
+Composability isn't restricted to View components &ndash; Models are composable too. So you can build complex business rules from existing subqueries, expressions and field definitions .
 
-Techically, Composability requires components that are independent, keep track of their own state and know how to cooperate with each other. Much of the design of Agile Toolkit is focused on offering these features transparently to every View and Model component.
+Techically, Composability requires components that are independent, keep track of their own state and know how to cooperate with each other. Much of the design of Agile Toolkit is focused on offering these features transparently to every View and Model component, protecting the developer from the underlying complexities.
 
 With Agile Toolkit you can quickly develop a range of flexible business and interface components to meet the repeating requirements of your problem domain.
 
@@ -36,14 +36,12 @@ Composability is only the first step to a truly agile web framework. In many way
 
 This is where you need [Extensibility](http://en.wikipedia.org/wiki/Extensibility) &ndash; the ability to add new functionality without breaking existing tested code.
 
-To achieve Composability our Model and View objects store their parameters and only render output at the last moment, once they know what other objects they're working with. So all their settings can be changed at any stage before they render. 
-
-So extended components can reconfigure any aspect of the parent and its subcomponents, and they can be farther.
+To achieve Composability our Model and View objects store their parameters and only render output at the last moment, once they know what other objects they're working with. So all their settings can be changed at any stage before they render. This means that extended components can reconfigure any aspect of the parent and its subcomponents.
 
 And Agile Toolkit gives you additional ways to extend your objects:
 
 * Use call-backs (hooks) to inject event-aware code
-* Inject new methods into any object with addMethod() or even into all objects simultaniously (as PHP5.5 traits do for classes)
+* Inject new methods into any object at runtime with addMethod() or even into all objects simultaniously (as PHP5.5 traits do for classes)
 * Replace standard classes with your own (so you can, for example, swap out the default Grid class).
 
  The Extensibility features in Agile Toolkit add agility to your development process.
@@ -58,11 +56,9 @@ Agile Toolkit is a software tester's dream!
 
 ## The Simplicity Principle
 
-With Agile Toolkit the aim is that everything simply works straight out of the box. The syntax is clear and simple and all the plumbing is handled for you, so you can focus on the features that are unique to your application.
+In addition to Abstraction and Composability our search for simplicity extends to the code itself. You'll find that the codebase is lean, the syntax is elegant and expressive, and the faff level is kept to a minimum. We prefer intuitive conventions to elaborate configuration. And we always adopt the simplest practical approach, even if it's not the 'purest' or trendiest. For example:
 
-With a typical web frameworks you can sometimes feel that they're making simple things complex. With Agile Toolkit we strive to avoid this by adopting the simplest practical approach, even if it's not the 'purest' or trendiest. For example:
-
-* Configuration settings are plain old PHP hashes, so if you want complex conditional configurations just pop in some code.
+* Configuration settings are plain old PHP hashes, so if you want complex conditional configurations at runtime just pop in some code.
 * You won't need namespacing when you're working with the Toolkit core. This has never caused any practical problems and we avoid tedium like this:
 
     <pre>
@@ -75,4 +71,4 @@ With a typical web frameworks you can sometimes feel that they're making simple 
 
 * We use directories in the file system to define our routes without complex configuration conventions, just as HTTP intended.
 
-You'll find this kind of pragmatic thinking throughout the codebase. It helps to keep the code lean and the learning curve manageable.
+You'll find this kind of pragmatic thinking throughout the codebase. With Agile Toolkit you can just get on with the job without the framework getting in the way.

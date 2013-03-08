@@ -26,7 +26,21 @@ So an Agile Toolkit application is a runtime tree of objects nested inside other
 
 ![ATK Application Structure](dia-application.png)
 
+## How Models Views and Controllers are connected
+
+![MVC and Presenter implementation in Agile Toolkit](tmp-mvc-presenter.png)
+
+Strictly speaking, Views in Agile Toolkit are often "Presenters" (especially when View is using composition), while Model and Controller can be optional. As a UI developer, your primary task is to add a proper view inside another view and associate it with proper model. Agile Toolkit may add one or few controllers along the way as a "grease" to help View work with your Model better.
+
+We define the top-most object, an Application also as a View. This view would contain a Page View which then may contain CRUD View which contain Form View which contain Fields and Buttons Views.
+
+In this typical tree some of the complex views would be associated with Model (CRUD and Form) and other views may contain controllers (DB and Logger in Application).
+
+
 ## The Execution Flow
+ Agile Toolkit does not use Singletons or static methods and this allows you to actually initialize multiple "Application" classes and even run them side-by-side. Advanced techniques like that enable some powerful application debugging capabilities, contextual testing and many other useful patterns.
+
+- Application class is dirrevative of a View. Rendering your application will produce complete HTML which is sent to the browser.
 
 Now you understand the Runtime Object Tree we can walk though the basic anatomy of an HTTP request.
 
