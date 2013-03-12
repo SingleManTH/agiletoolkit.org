@@ -2,7 +2,7 @@
 
 ## The Agile Toolkit Approach To MVC
 
-Agile Toolkit has refactored the MVC pattern to better meet the realities of rich application development. It takes a highly opinionated approach to MVC, building it into the object structure of the framework. Every class you write (excluding Exceptions) is descended from an `AbstractModel` class, an `AbstractView` class, or an `AbstractController` class. So everything in your application is either a Model, a View or a Controller. 
+Agile Toolkit has refactored the MVC pattern to better meet the realities of rich application development. We take a highly opinionated approach to MVC, building it into the object structure of the framework. Every class you write (excluding Exceptions) is descended from an `AbstractModel` class, an `AbstractView` class, or an `AbstractController` class. So everything in your application is either a Model, a View or a Controller. 
 
 And in contrast to many frameworks, Models, Views and Controllers are all proper classes with powerful built-in functionality designed to be extended, overriden or encapsulated.
 
@@ -12,26 +12,36 @@ But it's important to note that the division of labor between Models, Views and 
 
 ## What Is a Model In Agile Toolkit?
 
-In Agile Toolkit, a Model encapsulates: 
+In Agile Toolkit a Model represents a logical business entity such as `User`, `Payment`, `Book` or a sub-set of an existing Model such as `User_Admin`, `Payment_Pending` or `Delisted_Book`. Models are implemented as classes and inheritance is strongly encouraged. 
+
+A Model encapsulates: 
 
 * The data structure of an entity
-* The business logic that's specific to that entity
-* Persistent external storage
-* Record-level access.
+* The business rules and logic specific to that entity
+* Persistent external storage, including single and multi-record data access.
 
-You'll build your relational Models with [Agile ORM](/TODO), an [object-relational mapper](http://en.wikipedia.org/wiki/Object-relational_mapping) offering an innovative blend of simplicity, flexibility and power. We also offer basic [support for NoSQL](/TODO) compatible with wide array of non-relational databases.
+Models can be manipulated within the application or they can be supplied to Views for user editing. For example, by adding `Model_User` to a `CRUD` View, you can easily create an admin page for editing your system users.
 
-Models implement our [Composability](/TODO) design principle. For example: `Model_Book` may contain a field `author_id` which references `Model_Author` and Form will automatically use a drop-down (or auto-complete) allowing you to select a relevant entry from the related Model. 
+There are two main implementations of Model: 
 
-Through Addons you can add support for much more advanced fields such as `Image`, where a user's image is uploaded, cropped, thumbnailed, stored and associated with your Model entirely behind the scenes, following best principles of [Abstraction](/TODO)
+- `Model_Table` is the most commonly used and offers powerful [ORM](http://en.wikipedia.org/wiki/Object-relational_mapping) features for working with relational databases
+- `Model`, provides a pluggable interface to many of the popular NoSQL data stores, to Arrays and to Sessions.
 
-And crucially, models also implement our [Extensibility](/TODO) principle. Because you can reconfigure all aspects of your queries Agile ORM Models can be easily extended to deal with evolving use-cases without refactoring your existing code.
+`Model_Table` is the Agile ORM. It provides all the features you've come to expect from a heavyweight PHP ORM, such as data structure definition, business rules, built-in query methods, joins, caching and record lifecycle events. But you'll be pleasantly surprised by the simplicity, flexibility and efficiency with which this is achieved.
 
-For example, a `user` Model could be extended into a `superuser` Model, an `active_user` Model, and an `admin_user` Model, or whatever your application requires. Any behavior common with the parent can be reused or overridden, and new actions can be added to work with any subset of the relevant fields. A powerful feature of extended Models is the ability to add filters to ensure that only entities with the correct charateristics can be modified by the extended object, eliminating a whole class of bugs. 
+Agile ORM implements our [Composability](/TODO) design principle. For example: `Model_Book` may contain a field `author_id` which references `Model_Author` and `Form` will automatically offer a drop-down (or auto-complete) for selecting
+ a relevant entry from the related Model. 
 
-Furthermore you can use hooks to supply actions which Model performs at certain times, such as `afterLoad` or `beforeSave`.
+And through Addons you can add support for much more advanced fields such as `Image`, where a user's image is uploaded, cropped, thumbnailed, stored and associated with your Model entirely behind the scenes, following best principles of [Abstraction](/TODO).
 
-In Agile Toolkit, best practice for adding new functionality generally involves extending existing code rather than refactoring the original object. The parent Model and its tests remain intact and classes using the parent continue to work  correctly. The new functionality is encapsulated in the extended Model and can be tested separately. There's a clean separation of concerns highly suitable for Agile development and clearly implementing our [Testability](/TODO) principle.
+Crucially, Models also implement our [Extensibility](/TODO) principle. Because you can reconfigure your field definitions, rules and queries, Agile ORM Models can be easily extended to deal with evolving use-cases without refactoring your existing tests and code. The new functionality is encapsulated in the extended Model and can be tested separately.
+
+In addition:
+
+- Agile Toolkit's [DSQL Query Builder](/TODO) class gives safe and elegant access the full power of your chosen DBMS, including expressions, complex joins and multi-step transactions
+- Definition of rules and normalizations is exceptionally easy and powerful
+- You can work with both single records and multi-record sets
+- Joins are handled efficiently, using a single SQL query.
 
 The combination of Model Composability, Model Extendability and the ability to inject reusable business logic into Models with Controllers (as explained below) helps ensure that your Toolkit Models will remain lean, agile and reliable.
 
@@ -39,7 +49,7 @@ The combination of Model Composability, Model Extendability and the ability to i
 
 Agile Toolkit offers a special type of View called a Page which organises the response to a particular URL. In desktop frameworks an Agile Toolkit Page would often be called a 'Presenter'.
 
-Requests are routed to Page classes, which organize the Views required to render the response.
+Requests are routed to Page classes, which marshall the Views required to render the response.
 
 ## What Is A View In Agile Toolkit?
 
@@ -52,7 +62,7 @@ Views implement our [Composability](/TODO) design principle: you would typically
 For example:
 
 - A button is a simple View which enhances itself with jQueryUI button widget
-- `Form` is a great example of a composite View, built from field Views, fieldset Views and button Views.
+- `Form` is a good example of a composite View, built from field Views, fieldset Views and button Views.
 
 You can add Views freely to Pages or to other Views and they will never conflict visually or logically.
 
@@ -101,17 +111,17 @@ And finally, Views are automatically styled with an integrated Bootstrap-compati
 
 In most MVC frameworks, Controllers organize the response to HTTP requests. As we've seen, in Agile Toolkit this is handled by Pages.
 
-Controllers in Agile Toolkit are similar to PHP5.4 Traits: they can be added to Models and Views to extend their functionality.
+So it's important to understand that Controllers in Agile Toolkit are similar to PHP5.4 Traits: they can be added to Models and Views to extend their functionality.
 
 For example you can add Controllers to the API to provide global functionality:
 
 - `Logger`: extends Application to provide more powerful exception reporting and logging tools
-- `DB`: Provides connectivity with database
+- `DB`: Provides connectivity with databases.
 
-Or you can use controllers in one or more View and Models:
+Or you can use controllers in one or more Views and Models:
 
-- `Order`: Allows you to re-arrange elements, for example if you want to change field order in a form
-- `ModelAudit`: Enables soft-delete, created datetime and updated datetime inside your Model.
+- `Order`: allows you to re-arrange elements, for example if you want to change field order in a form
+- `ModelAudit`: enables soft-delete, created datetime and updated datetime inside your Model.
 
 Uses for Controllers include:
 
@@ -129,10 +139,10 @@ A critical aspect of an MVC architecture is the ability to plug in additional Vi
 
 Here too Agile Toolkit takes a fresh approach aimed, as always, at improving Composability and Extensibility.
 
-With mainstream PHP frameworks the recent emphasis has been decoupling functionality into standalone [PSR-compliant](https://github.com/php-fig/fig-standards/tree/master/accepted) libraries. 
+With mainstream PHP frameworks the recent emphasis has been decoupling functionality into standalone [PSR-compliant](https://github.com/php-fig/fig-standards/tree/master/accepted) libraries. However this limits the potential for libries to collaborate in helpful ways.
 
-By contrast, Agile Toolkit Addons are designed to rely on Agile Toolkit base classes. They are likely to offer you new Model and Views classe and are highly coupled to the Toolkit so you get seamless access to all the core features.
+By contrast, Agile Toolkit Addons are designed to rely on Agile Toolkit base classes. They will normally offer new Model and View classes and are highly coupled to the Toolkit so they enjoy seamless access to all the Core features.
 
-For example, you could plug your existing User Model directly into a User Management Addon and seamlessly integrate the supplied Views into your Interface.
+For example, you could plug your existing User Model directly into a new User Management Addon and seamlessly integrate the supplied Views into your existing interface using the Core styling system.
 
-There's a growing ecosystem of Agile Toolkit Addons and the your install will offer a native User Interface to browse and install more Addons from either packagist.org or agiletoolkit.org.
+There's a growing ecosystem of Agile Toolkit Addons and your install will offer a native User Interface to browse and install Addons from either packagist.org or agiletoolkit.org.

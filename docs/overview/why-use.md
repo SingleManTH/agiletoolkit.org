@@ -18,11 +18,11 @@ The increasing importance of desktop-like AJAX interfaces is a game-changer for 
 
 ### The limitations of mainstream solutions
 
-The PHP community offers a wide choice of well-engineered MVC frameworks, but even the best can only offer a partial solution to the many challenges of developing rich client data-centric applications.
+The PHP community offers a wide choice of well-engineered MVC frameworks, but even the best can only offer a partial solution to the many challenges of developing rich interfaces for data-centric applications.
 
-With some frameworks you create your AJAX data management system though code generation, and this can offer a rapid solution for straightforward requirements. But your application design is constrained by the features built into the generator, and you can end up adapting more complex projects to the framework rather than the framework to the project.
+With some frameworks you create your AJAX data management system though code generation or big, monolithic libraries. This can offer a rapid solution for straightforward requirements, but your application design is constrained by the features built into the generator or library, and you can end up adapting more complex projects to the framework rather than the framework to the project.
 
-The other main option is a multi-framework development stack. Typically this involves a PHP MVC framework on the server-side, a JavaScript user interface framework such as JQuery UI on the client-side, and perhaps a CSS framework such as Bootstrap to ease the styling headache. But now you're working with two or three complex and overlapping frameworks in different languages, and you're still having to figure out your own way to tie them together with AJAX. It's a challenge to keep things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself) and avoid duplicating effort on the client and the server. The learning curve is steep. And the resulting code can be hard to test and tricky to change as requirements evolve. 
+For more complex requirements your main option is a multi-framework development stack. Typically this involves a PHP MVC framework on the server-side, a JavaScript user interface framework such as JQuery UI on the client-side, and perhaps a CSS framework such as Bootstrap to ease the styling headache. But now you're working with two or three complex and overlapping frameworks in different languages, and you're still having to figure out your own way to tie them together with AJAX. It's a challenge to keep things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself) and avoid duplicating effort on the client and the server. The learning curve is steep. And the resulting code can be hard to test and tricky to change as requirements evolve. 
 
 ### The need for a fresh approach
 
@@ -56,10 +56,9 @@ Compared to conventional PHP MVC frameworks, you'll be working with:
 
 * **A fresh approach to Views**: building a rich user experience by snapping together flexible, event-aware View components using only PHP on the server ([see more...](/TODO)) 
 * **A fresh approach to Models**: building your business logic in Models that bind directly to your View components and adapt robustly as requirements evolve ([see more...](/TODO)) 
-* **A fresh approach to Addons**: plugging in additional functionality from an ecosystem of Addons that take full advantage of the AJAX, event handling and styling features of the Toolkit core ([see more...](/TODO)).
-you can also mention - both 
+* **A fresh approach to Addons**: plugging in additional functionality from an ecosystem of Addons that take full advantage of the AJAX, event handling and styling features of the Toolkit Core ([see more...](/TODO)).
 
-Compared to most other PHP frameworks, Agile Toolkit offers a comprehensive approach to rich application development. So there's only one way to do things &ndash; the right way. The architectural decisions and client-side plumbing are handled for you, enabling you to focus on the functionality of your application from the get-go.
+Agile Toolkit offers a comprehensive approach to rich application development, so there's only one way to do things &ndash; the right way. The architectural decisions and client-side plumbing are handled for you, enabling you to focus on the functionality of your application from the get-go.
 
 ### The payoff
 
@@ -76,9 +75,9 @@ To demonstrate the agility of the Agile Toolkit approach, here's how you'd build
     $crud = $this->add('CRUD');
     $crud->setModel('Employee');
 
-That's it &ndash; our page is now displaying an attractive and functional CRUD interface.
+That's it &ndash; our page is now displaying an attractive and functional CRUD interface, and enforcing any rules set in our `Employee` Model.
 
-In Agile Toolkit CRUD is just another component, with many powerful and flexible features built-in:
+In Agile Toolkit CRUD is just another component, with many powerful and flexible features built-in. For example:
 
     $crud->addPaginator(5);
     $crud->addQuickSearch(array('name'));
@@ -148,7 +147,7 @@ So now we can use our two new components with just 2 lines of code:
     $crud = $this->add('MyCRUD');
     $crud->setModel('BookWithAuthor');
 
-With other solutions, similar CRUD functionality might require dozens, even hundreds of lines of generated or hand-written code. So Agile Toolkit offers the potential to accelerate your CRUD development by a factor of ten or more.
+With other solutions similar CRUD functionality might require dozens, even hundreds of lines of code. So Agile Toolkit offers the potential to accelerate your CRUD development by a factor of ten or more.
 
 This example gives you a foretaste of some of the most powerful features of Agile Toolkit:
 

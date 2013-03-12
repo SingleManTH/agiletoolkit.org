@@ -2,9 +2,9 @@
 
 ## A Fresh Approach To Framework Design
 
-New benefits require new approches. The patterns we use in Agile Toolkit are widely used in desktop frameworks, but may be unfamiliar to web developers.
+New benefits require new approaches. The patterns we use in Agile Toolkit are widely used in desktop frameworks, but may be unfamiliar to web developers.
 
-You'll find the Toolkit easier to learn if you understand the five key principles that have driven its design:
+You'll find Agile Toolkit easier to learn if you understand the five key principles that have driven its design:
 
 * The Abstraction Principle
 * The Composability Principle
@@ -24,7 +24,7 @@ Years of experience with over 100 demanding Agile projects has proven that this 
 
 The Toolkit is designed from the ground up to help developers compose reusable View components from smaller subcomponents. Powerful and flexible components speed development and increase reliability, and it's [Composability](http://en.wikipedia.org/wiki/Composability) that makes this possible.
 
-Composability isn't restricted to View components &ndash; Models are composable too. So you can build complex business rules from existing subqueries, expressions and field definitions .
+Composability isn't restricted to View components &ndash; Models are composable too. So you can build complex queries from existing subqueries, expressions and field definitions.
 
 Techically, Composability requires components that are independent, keep track of their own state and know how to cooperate with each other. Much of the design of Agile Toolkit is focused on offering these features transparently to every View and Model component, protecting the developer from the underlying complexities.
 
@@ -59,7 +59,7 @@ Agile Toolkit is a software tester's dream!
 In addition to Abstraction and Composability our search for simplicity extends to the code itself. You'll find that the codebase is lean, the syntax is elegant and expressive, and the faff level is kept to a minimum. We prefer intuitive conventions to elaborate configuration. And we always adopt the simplest practical approach, even if it's not the 'purest' or trendiest. For example:
 
 * Configuration settings are plain old PHP hashes, so if you want complex conditional configurations at runtime just pop in some code.
-* You won't need namespacing when you're working with the Toolkit core. This has never caused any practical problems and we avoid tedium like this:
+* You won't need namespacing when you're working with the Toolkit Core. This has never caused any practical problems and we avoid tedium like this:
 
     <pre>
     namespace Acme\TaskBundle\Controller;
