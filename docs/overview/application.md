@@ -37,7 +37,7 @@ As we've said, the topmost object in the Runtime Object Tree is your Application
 There are a number of API classes available in the Core, and you can extend them yourself to add any specific features you commonly require. The main Core APIs are:
 
 * [ApiCLI](/TODO): a minimal frontend for command line requests
-* [ApiWEB](/TODO): a minimal frontend for web applications, mainly used for integrating with other frameworks
+* [ApiWeb](/TODO): a minimal frontend for web applications, mainly used for integrating with other frameworks
 * [ApiFrontend](/TODO): a comprehensive API for web applications, extending ApiWeb with routing, an integrated CSS styling system, and Page classes
 
 There are other more specialized APIs for installers and REST requests.
@@ -46,7 +46,7 @@ API classes descend from `AbstractView`, because they are generally used to crea
 
 ## The Execution Flow
 
-Now you understand the Runtime Object Tree we can walk though the basic anatomy of an HTTP request.
+Now you understand the Runtime Object Tree and the `$app` object we can walk though the basic anatomy of an HTTP request.
 
 ![Agile Toolkit Execution Flow](dia-execution-flow.png)
 
@@ -62,7 +62,7 @@ Now you understand the Runtime Object Tree we can walk though the basic anatomy 
     $api->main();
     </pre>
     
-1. `Frontend.php` is known as the `$app` object &ndash; it's the topmost object in the Runtime Object Tree. `Frontend` extends one of the Core API classes, which are tailored to give you just the application features you need for different kinds of request, such as Command Line requests or REST requests. For a normal page request you would generally use `ApiFrontend`.
+1. `Frontend.php` is the `$app` object &ndash; extended from the `ApiFrontend` API.
 
 1. In `Frontend.php` you set up your database connections, configure your class loading, and initialize access security and Controllers for application-wide functionality such as database access and logging.
 
@@ -72,7 +72,7 @@ Now you understand the Runtime Object Tree we can walk though the basic anatomy 
 
 1. Once all objects are initialized, the `$app` will recursively render the nested tree. Views use the SMlite template engine to generate their HTML output, and Models use the DSQL (Dynamic SQL) Query Builder to generate runtime SQL. 
 
-1. Finally, the `app` object will echo out the response as HTML, XML or whatever is required.
+1. Finally, the `app` object will echo out the HTTP response as HTML, XML or whatever is required.
 
 ## The Application Core
 
