@@ -26,7 +26,7 @@ The Toolkit is designed from the ground up to help developers compose reusable V
 
 Composability isn't restricted to View components &ndash; Models are composable too. So you can build complex queries from existing subqueries, expressions and field definitions.
 
-Techically, Composability requires components that are independent, keep track of their own state and know how to cooperate with each other. Much of the design of Agile Toolkit is focused on offering these features transparently to every View and Model component, protecting the developer from the underlying complexities.
+Technically, Composability requires components that are independent, keep track of their own state and know how to cooperate with each other. Much of the design of Agile Toolkit is focused on offering these features transparently to every View and Model component, protecting the developer from the underlying complexities.
 
 With Agile Toolkit you can quickly develop a range of flexible business and interface components to meet the repeating requirements of your problem domain.
 
@@ -41,8 +41,8 @@ To achieve Composability our Model and View objects store their parameters and o
 And Agile Toolkit gives you additional ways to extend your objects:
 
 * Use call-backs (hooks) to inject event-aware code
-* Inject new methods into any object at runtime with addMethod() or even into all objects simultaniously (as PHP5.5 traits do for classes)
-* Replace standard classes with your own (so you can, for example, swap out the default Grid class).
+* Inject new methods into any object at runtime with `addMethod()` or even into all objects simultaniously (as PHP5.5 traits do for classes)
+* Replace standard classes with your own (so you can, for example, swap out the default `Grid` class in a `CRUD` View).
 
  The Extensibility features in Agile Toolkit add agility to your development process.
 

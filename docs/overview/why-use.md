@@ -20,7 +20,7 @@ The increasing importance of desktop-like AJAX interfaces is a game-changer for 
 
 The PHP community offers a wide choice of well-engineered MVC frameworks, but even the best can only offer a partial solution to the many challenges of developing rich interfaces for data-centric applications.
 
-With some frameworks you create your AJAX data management system though code generation or big, monolithic libraries. This can offer a rapid solution for straightforward requirements, but your application design is constrained by the features built into the generator or library, and you can end up adapting more complex projects to the framework rather than the framework to the project.
+With some frameworks you create your AJAX data management system though code generation or big, monolithic libraries. This can offer a rapid solution for straightforward requirements. But your application design is constrained by the features built into the generator or library, and you can end up adapting more complex projects to the framework rather than the framework to the project.
 
 For more complex requirements your main option is a multi-framework development stack. Typically this involves a PHP MVC framework on the server-side, a JavaScript user interface framework such as JQuery UI on the client-side, and perhaps a CSS framework such as Bootstrap to ease the styling headache. But now you're working with two or three complex and overlapping frameworks in different languages, and you're still having to figure out your own way to tie them together with AJAX. It's a challenge to keep things [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself) and avoid duplicating effort on the client and the server. The learning curve is steep. And the resulting code can be hard to test and tricky to change as requirements evolve. 
 
@@ -39,12 +39,12 @@ In the crowded world of PHP frameworks any new project should justify its existe
 Agile Toolkit borrows proven principles from GUI frameworks such as Cocoa, QT and .Net to bring the convenience and power of desktop development to PHP developers building AJAX applications.
 
 * The framework provides a consistent, professional look and feel for your application, based on standard UI components such as buttons, menus, forms and fields
-* The look and feel is easy to skin or customise
+* The look and feel is easy to skin or customize
 * Actual implementation of a UI component (HTML template, JavaScript widgets, events and CSS) is abstracted and knowledge of the underlying nuts and bolts is not necessary to build your application
 * In general everything is done in PHP, from Models and advanced data queries to View layout, logic and event binding
 * Components are modular and independent &ndash; for example placing multiple CRUD components on the same page or embedding them inside your custom component is simple and intuitive
 * UI logic is cleanly separated from business logic by design
-* And your data structures bind seamlessly to your interface widgets.
+* And your data structures move seamlessly between your data store and your AJAX interface.
 
 ![Simplifying Rich Application Development](/dia-simplifying-development.png)
 
@@ -77,12 +77,12 @@ To demonstrate the agility of the Agile Toolkit approach, here's how you'd build
 
 That's it &ndash; our page is now displaying an attractive and functional CRUD interface, and enforcing any rules set in our `Employee` Model.
 
-In Agile Toolkit CRUD is just another component, with many powerful and flexible features built-in. For example:
+In Agile Toolkit CRUD is just another component, with many powerful and flexible features built-in &ndash; for example:
 
     $crud->addPaginator(5);
     $crud->addQuickSearch(array('name'));
 
-And components are easy to extend and customize. CRUD is a composite View relying on Grid, Form and Button Views and we can interact with those subcomponents directly:
+Components are easy to extend and customize. CRUD is a composite View relying on Grid, Form and Button Views and we can interact with those subcomponents directly:
 
     $crud = $this->add('CRUD');
     $crud->setModel('Book');
@@ -147,7 +147,7 @@ So now we can use our two new components with just 2 lines of code:
     $crud = $this->add('MyCRUD');
     $crud->setModel('BookWithAuthor');
 
-With other solutions similar CRUD functionality might require dozens, even hundreds of lines of code. So Agile Toolkit offers the potential to accelerate your CRUD development by a factor of ten or more.
+With other solutions similar CRUD functionality might require dozens, even hundreds of lines of code. So Agile Toolkit offers the potential to accelerate your CRUD development by a factor of ten or more, without resorting to inflexible libraries or code generation.
 
 This example gives you a foretaste of some of the most powerful features of Agile Toolkit:
 
@@ -161,4 +161,4 @@ This example gives you a foretaste of some of the most powerful features of Agil
 
 We recognise that many developers will be coming to Agile Toolkit with a significant investment in other MVC frameworks, or in content management frameworks such as WordPress, Drupal and Joomla. 
 
-If you want to add sophisticated data handling to your legacy code, Agile Toolkit is designed to play well with other frameworks. For example you might use the Agile Toolkit UI features for just a couple of pages inside your CodeIgniter project, or you can use the unique features of the Agile Toolkit ORM to build the REST interface for your JavaScript frontend. Commonly, developers will use Agile Toolkit to modernise the backend/admin area of an existing project. You'll find more details [here](/TODO).
+If you want to add sophisticated data handling to your legacy code, Agile Toolkit is designed to play well with these other frameworks. For example you might use the Agile Toolkit UI features for just a couple of pages inside your CodeIgniter project, or you can use the unique features of the Agile Toolkit ORM to build the REST interface for your JavaScript frontend. Commonly, developers will use Agile Toolkit to modernise the backend/admin area of an existing project. You'll find more details [here](/TODO).

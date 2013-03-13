@@ -24,7 +24,7 @@ So an Agile Toolkit application is a runtime tree of objects nested inside other
 
 Because of the focus on UI development, the application object at the top of the tree is a View, responsible for recursively rendering the output from all the child Views.
 
-The Page View contains the top-level UI objects such as menus and tabs, and they contain more detailed Views such as forms, fields and buttons down as many levels of nesting as required. And within data-aware views like grids, you find the necessary Models and Controllers.
+The Page View contains the top-level UI objects such as menus and tabs, and they contain more detailed Views such as forms, fields and buttons down as many levels of nesting as required. And within data-aware views like grids you'll find the necessary Models and Controllers.
 
 When developing the UI, your primary task is to add the Views you need inside a parent View and associate them with the appropriate Model and any required Controllers. 
 
@@ -62,9 +62,9 @@ Now you understand the Runtime Object Tree and the `$app` object we can walk tho
     $api->main();
     </pre>
     
-1. `Frontend.php` is the `$app` object &ndash; extended from the `ApiFrontend` API.
+1. `Frontend.php` is the `$app` class, extended from the `ApiFrontend` API.
 
-1. In `Frontend.php` you set up your database connections, configure your class loading, and initialize access security and Controllers for application-wide functionality such as database access and logging.
+1. In `Frontend.php` you configure your class loading, initialize access security and add Controllers for application-wide functionality such as database access and logging.
 
 1. The `$app` object will route the request to the correct Page class in your `/page` directory, throwing a 404 Page Not Found error if no matching page is found.
 
