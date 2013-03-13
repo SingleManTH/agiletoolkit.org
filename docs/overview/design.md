@@ -44,7 +44,7 @@ And Agile Toolkit gives you additional ways to extend your objects:
 * Inject new methods into any object at runtime with `addMethod()` or even into all objects simultaniously (as PHP5.5 traits do for classes)
 * Replace standard classes with your own (so you can, for example, swap out the default `Grid` class in a `CRUD` View).
 
- The Extensibility features in Agile Toolkit add agility to your development process.
+The Extensibility features in Agile Toolkit add agility to your development process.
 
 ## The Testability Principle
 

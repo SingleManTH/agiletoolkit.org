@@ -72,7 +72,7 @@ Now you understand the Runtime Object Tree and the `$app` object we can walk tho
 
 1. Once all objects are initialized, the `$app` will recursively render the nested tree. Views use the SMlite template engine to generate their HTML output, and Models use the DSQL (Dynamic SQL) Query Builder to generate runtime SQL. 
 
-1. Finally, the `app` object will echo out the HTTP response as HTML, XML or whatever is required.
+1. Finally, the `$app` object will echo out the HTTP response as HTML, XML or whatever is required.
 
 ## The Application Core
 

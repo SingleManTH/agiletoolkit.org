@@ -49,8 +49,6 @@ The combination of Model Composability, Model Extendability and the ability to i
 
 Agile Toolkit offers a special type of View called a Page which organises the response to a particular URL. In desktop frameworks an Agile Toolkit Page would often be called a 'Presenter'.
 
-Requests are routed to Page classes, which marshall the Views required to render the response.
-
 ## What Is A View In Agile Toolkit?
 
 In Agile Toolkit, you can think of a View as a UI widget or component. A View can appear anywhere: inside another View, on a particular page or on multiple pages. 
@@ -115,7 +113,7 @@ So it's important to understand that Controllers in Agile Toolkit are similar to
 
 For example you can add Controllers to the API to provide global functionality:
 
-- `Logger`: extends Application to provide more powerful exception reporting and logging tools
+- `Logger`: extends `Application` to provide more powerful exception reporting and logging tools
 - `DB`: Provides connectivity with databases.
 
 Or you can use controllers in one or more Views and Models:
