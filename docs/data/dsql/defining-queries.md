@@ -8,7 +8,7 @@ We assume a basic knowledge of SQL.
 
 ## Expressions & Subqueries
 
-Expressions & Subqueries are used in a number of query definition methods, so we'll deal with them first.
+Expressions & Subqueries are used in a number of query definition methods, so we'll cover them first.
 
 ### Expressions
 
@@ -20,7 +20,7 @@ You can use named parameters in expressions to ensure that untrusted data is saf
 
 	$q->where('age', $q->expr('between [left] and [right]', array('left'=>$l, 'right'=>$r)));
 
-The expression will be parsed as a template, which is why we use the the [placeholder] syntax from the Agile Toolkit template engine.
+The expression will be parsed as a template, which is why we use the the `[placeholder]` syntax from the Agile Toolkit template engine.
 
 ### Subqueries
 
@@ -36,19 +36,19 @@ You can use $q->dsql() to produce sub-queries. Calling this method will create a
 Use the table() method to set one or more tables for your query:
 
 	table('user') 								// Sets the main table
-	table('user','u') 							// Aliases the table with 'u'
+	table('user', 'u') 							// Aliases the table with 'u'
 
 	table('user')->table('salary') 				// Sets multiple tables (for joins, etc)
 	table('user', 'u')->table('salary', 's') 	// Sets multiple aliased tables
 	
 	table(array('user', 'salary')) 				// Alternative syntax for setting multiple tables
-	table(array('u'=>'user','s'=>'salary')); 	// Set aliases for multiple tables
+	table(array('u'=>'user','s'=>'salary')); 	// Alternative syntax for multiple aliased tables
 
 ## Fields
 
 Use the field() method to add physical ﬁelds to the query, or ﬁelds expressed with a formula (expressions). You can also set field aliases to shorten long field names for debugging or logging.
 
-If you don't call ﬁeld() in your query, DSQL will default to '*'.
+If you don't call ﬁeld() in your query, DSQL will default to '*' and select all fields.
 
 	ﬁeld('name') 									// Set a single field
 	ﬁeld('name', 'user') 							// Set field 'name' in explicit table 'user' (for joins, etc)
@@ -103,7 +103,7 @@ To compare field values, use the getField() helper method to format a quoted fie
 ### 'IN' clauses:
 	
 	// Outputs: 'where state in (open, closed, resolved)'
-	$q->where('state', array('open','closed','resolved'));  
+	$q->where('state', array('open', 'closed', 'resolved'));  
 	
 ### Expressions: expr()
 
@@ -141,16 +141,18 @@ Calling where() multiple times will require all of the conditions to be met, usi
 
 Calling where() with a single array argument will use OR to join those conditions.
 
+	// Generates: where (id=:a or id=:b)  array('a'=>1, 'b'=>2)
+
 	$q->where(array(
   		array('id',1),
   		array('id',2)
   	));
 
-	// Generates: where (id=:a or id=:b)  array('a'=>1, 'b'=>2)
 
 You can even specify arrays recursively:
 
 	// Generates: where (len(name)>:a or a=b)  array('a'=>5)
+
 	$q->where(array(
   		array($q->expr('len(name)'),'>',5),
   		array($q->expr('a=b')) 
@@ -277,8 +279,9 @@ Use the `limit()` method to limit the result set:
 Many SQL commands offer options such as SELECT DISTINCT or INSERT DELAYED. There are currently two methods for setting options:
 
 	option('distinct'); 				// Set options for SELECT queries
-	option_insert('delayed'); 			// Set options for INSERT queries
 	option('distinct high_priority'); 	// Set multiple options
+
+	option_insert('delayed'); 			// Set options for INSERT queries
 
 ## Setting Values
 
@@ -324,7 +327,7 @@ To replicate this in DSQL:
  
 As an alternative to `expr()`, Agile Toolkit currently offers the following cross-database methods:
 
-	concat(arg,arg,...) 	// string concatination
+	concat(arg, arg,...) 	// string concatination
 	describe(table) 		// select table schema
 	random() 				// return random value 0..1
 	sum(ﬁeld) 				// returns result of expression sum(..)

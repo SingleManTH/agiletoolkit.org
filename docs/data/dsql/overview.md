@@ -31,7 +31,7 @@ Or if you prefer, DSQL will also give you access to most of the vendor-specific 
 
 Unlike most query builders DSQL allows you to add or remove any element of your query at any time, including fields, joins, conditions and parametric variables. You can even change the query type &ndash; from SELECT to DELETE for example. After you execute the query you can still reconfigure and reuse the object.
 
-This is important when you need to pass query information between Models or even allow a Controller or Addon to interact with a query. Queries can be copied, adapted and extended. And multiple queries can coexist and execute without affecting each other.
+This is important when you need to pass query information between Models or even allow a Controller or Addon to interact with a query. Queries can be cloned, adapted and extended. And multiple queries can coexist and execute without affecting each other.
 
 ### Use a DSQL object as a subquery
 
@@ -41,7 +41,7 @@ Another cool feature is the ability to use existing query objects within a DSQL 
 
 While all modern ORMS and Query Builders offer a mechanism for parametizing untrusted input it's often rather tedious to use.
 
-PDO Example:
+    // PDO Example
 	
 	$sth = $dbh->prepare("select name from user where id = :id"); 	
     $sth->execute(array(':id'=>$id));	
@@ -49,7 +49,7 @@ PDO Example:
 
 In DSQL the syntax is simpler, so even a harassed developer is less likely to take shortcuts and write unsafe code.
 
-DSQL Example:
+    // DSQL Example
 
 	$name = $dsql->table('user')->field('name')->where('id', $id)->getOne();
 
@@ -59,7 +59,7 @@ Though it's important to remember that you may still be vulnerable to vendor-spe
 
 ### Enjoy the benefits without performance issues
 
-DSQL is lean and fast. It adds a minor overhead when building the query, but creates no overheads when executing the query and fetching data. You will rarely, if ever, encounter a use-case where you need to use raw SQL for performance reasons.
+DSQL is lean and fast. It adds a trivial overhead when building the query string, but creates no overheads when executing the query and fetching data. You will rarely, if ever, encounter a use-case where you need to use raw SQL for performance reasons.
 
 ## Code Example
 
@@ -70,7 +70,7 @@ Here's a simple example of DSQL in action:
 			->table('user')
 			->where('gender','M')
 			as $row) {
-				echo "Name: ".$row['name'];."\n";
+				echo "Name: " . $row['name'];."\n";
 			}
 
 ## How It Works

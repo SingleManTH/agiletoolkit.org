@@ -62,7 +62,7 @@ Then in your application you call:
 
 If you call connect() without an argument it will look for a DSN string in $config['dsn'].
 
-Database connections in Agile Toolkit are lazy — they will not be physically created until you execute a query.
+Database connections in Agile Toolkit are lazy &ndash; they will not be physically created until you execute a query.
 
 ## Creating The DSQL Query Object
 
@@ -74,7 +74,7 @@ DSQL query objects are created by calling the dsql() method of the default DB ob
 	// Use additional connections
 	$query = $mydb->dsql();
 
-Finally, you can also clone $dsql object which will give you the exact copy. There are other ways to generate a new dsql object, for example calling $model->dsql() will return a DSQL query object initialized for your $model. This query would have "table", and "where" clauses set and might also use some joins.
+Finally, you can also clone a `$dsql` object which will give you an  exact copy. There are other ways to generate a new DSQL object, for example calling $model->dsql() will return a DSQL query object initialized for your $model. This query would have 'table', and 'where' clauses set and might also use some joins.
 
 You can also call $model->dsql() which will return a DSQL query object initialized with your existing Model settings, which can then be customized.
 
@@ -102,7 +102,7 @@ DSQL offers a [comprehensive range of methods](/docs/data/dsql/defining-queries)
 	// Produces: 
 	//   $data=array(
 	//      array('id'=>1, 'name'=>'John', 'surname'=>'Smith'),
-	//      array('id'=>2, 'name'=>'Joe', 'surname'=>'Bloggs')
+	//      array('id'=>2, 'name'=>'Joline', 'surname'=>'Bloggs')
 	//    ); 
 
 When you build the query by calling methods, your arguments could be:
@@ -120,7 +120,7 @@ Always call DSQL methods with the correct type of argument, so they are quoted c
 
 For MySQL the example above will produce the query:
 
-    select count(*) from `id`=123 and `expired`<now();
+    select count(*) from `id`=123 and `expired` < now();
 
 Calling $query->table('my_table') is the only requirement before you execute your query.
 
