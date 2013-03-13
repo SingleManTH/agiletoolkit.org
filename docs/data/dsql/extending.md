@@ -4,7 +4,7 @@
 
 In this section you'll learn how to extend DSQL with sytax for new commands and support for new databases.
 
-In this article we give some tips to help you get oriented. The class is extensively commented, so please read the code if need more detail.
+In this article we give some tips to help you get oriented. The class is extensively commented, so please read the code if you need more detail.
 
 ## Properties Of The DSQL Object
 
@@ -12,7 +12,7 @@ There are a a couple of public properties that are useful when extending the cla
 
 ### Field-name quoting
 
-`$q->bt`: by default, DSQL adds a MySQL-style backtick to field-names. Set to an empty string to avoid quoting of field names, or to the quoting character used by your RDBMS
+`$q->bt`: by default, DSQL adds a MySQL-style backtick to field-names. Set to an empty string to avoid quoting of field names, or to the quoting character used by your RDBMS.
 
 ### Query Templates
                    
@@ -22,10 +22,11 @@ Templates are used to construct most common queries. When extending the class, t
         'select'=>"select [options] [field] [from] [table] [join] [where] [group] [having] [order] [limit]",
         'insert'=>"insert [options_insert] into [table_noalias] ([set_fields]) values ([set_values])",
         'replace'=>"replace [options_replace] into [table_noalias] ([set_fields]) values ([set_value])",
-    'update'=>"update [table_noalias] set [set] [where]",
-    'delete'=>"delete from  [table_noalias] [where]",
-    'truncate'=>'truncate table [table_noalias]'
-                                                            );
+        'update'=>"update [table_noalias] set [set] [where]",
+        'delete'=>"delete from  [table_noalias] [where]",
+        'truncate'=>'truncate table [table_noalias]'
+    );
+
 ## The DSQL Class Structure
 
 To customise the SQL generated for each database, DSQL uses database-specific classes that extend the base class `DB_dsql`:
