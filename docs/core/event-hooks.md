@@ -123,7 +123,7 @@ You can also pass in arguments from the scope of the parent object. These are ad
 
 ## Prioritising Hooks
 
-When calling `addHook()`, the fourth argument is the hook's priority in the execution chain for that hook spot. The default priority is 5 &ndash; set it lower to ensure that your hook is called earlier, higher to call it later.
+When calling `addHook()`, the fourth argument is the hook's priority in the execution chain for that hook spot. The default priority is 5. Hooks priorities are executed in ascending order, so set it lower to ensure that your hook is called earlier, higher for later.
 
      $obj = $this->add('MyClass');
 
@@ -134,7 +134,7 @@ When calling `addHook()`, the fourth argument is the hook's priority in the exec
 Note that in this example, the '3' was passed as the 3rd argument, not the 4th. 
 `addHook()` automatically recognizes a non-array value as a priority if the array with arguments is omitted. Agile Toolkit often uses this kind of overloading to simplify the syntax.
      
-Hooks with same priority will be executed in the same order they have been added. To reverse this order use negative priority.
+Hooks with the same priority will be executed in the same order they have been added. To reverse this order use negative priority:
 
     // Returns array('hello', 'world');
 
@@ -157,15 +157,6 @@ When called from inside a hook callable, `breakHook()` will break the chain of e
 
     $res = $obj->hook('foo'); // returns array('override value');
 
-## Removing All Hooks From A Hook Spot
-
-To remove all hooks form a spot:
-
-    $obj = $this->add('MyClass');
-    $obj->addHook('foo',function($o){ return 1; });
-    $obj->removeHook('foo');
-    $res = $obj->hook('foo'); // array();
-
 ## Testing For Hooks
 
     // TODO: but what if the hooks added simply don't return a value?
@@ -178,6 +169,18 @@ Here's a useful construct which uses fallback code if no hooks are defined:
 
         // Default handler
     }
+
+## Removing All Hooks From A Spot
+
+To remove all hooks from a spot:
+
+    $obj = $this->add('MyClass');
+
+    $obj->addHook('foo', function($o){ return 1; });
+    $obj->addHook('foo', function($o){ return 2; });
+
+    $obj->removeHook('foo');
+    $res = $obj->hook('foo'); // array();
 
 ## Hooks And Cloning
 

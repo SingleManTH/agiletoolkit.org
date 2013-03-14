@@ -16,15 +16,15 @@ There are several advantages to this approach.
 
     // TODO: Example of how this is used, please
 
-Using the `new` statement creates a class, but it's not associated in any way with a current object. When the exception is captured there's no indication where it originated. Calling `exception()` will automatically associate the exception object with the current `$this` class.
+Using the `new` statement creates a class, but it's not associated in any way with a current object. When the exception is caught there's no indication where it originated. Calling `exception()` will automatically associate the exception object with the current `$this` class.
 
 ### Object-specific Exception class selection
 
 An exception raised in Model is different to an exception raised in PathFinder or DSQL. 
 
-    // TODO: in the docs you say each object - but wouldn't the default be set in the class??
+Each object in Agile Toolkit can define a default exception class which will be initialized by the `exception()` method. When you throw an exception, the correct exception class will be used automatically.
 
-Each object in Agile Toolkit can define a default exception class which will be initialized by the `exception()` method. When you throw an exception, the correct class will be used automatically.
+    // TODO: can you provide an example here, please?
 
 ### Chaining methods before throwing exceptions
 
