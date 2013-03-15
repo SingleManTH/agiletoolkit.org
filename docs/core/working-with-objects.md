@@ -95,7 +95,7 @@ The `add()` pattern also enables every object to use API methods and any Control
     include 'atk4/loader.php';
 
     // Create the API object
-    $api = new ApiCLI(); 
+    $api = new ApiFrontend(); 
 
     // Every object can access the API through the $api property
 
@@ -110,7 +110,7 @@ The `add()` pattern also enables every object to use API methods and any Control
 
 ## Initializing Objects 
 
-In Agile Toolkit, we don't initialise objects with PHP's `__construct()` method. Instead, when you add an object, Agile Toolkit will automatically execute any `init()` method in the new object. 
+In Agile Toolkit, we don't initialise objects with PHP's `__construct()` method. Instead, when you add an object Agile Toolkit will automatically execute an `init()` method in the new object. 
 
 This allows us to initialise the object after its `owner`, `api` and `name` properties are set. Once again, this helps with our Composability design goal. 
 
@@ -193,9 +193,9 @@ One benefit of initializing objects with `add()` is so we can assign them a uniq
 
 ## Element Tracking 
 
-This is a more technical note for developers building low-level components &ndash; in normal use this will happen automatically.
+This is a more technical note for developers building low-level components &ndash; in normal use element tracking is handled for you.
 
-When adding an object, the owner may add a reference to the object in its `elements` property. This process is called 'element tracking'. 
+When adding an object, the owner object may add a reference to the new object in its `elements` property. This process is called 'element tracking'. 
 
 When you are adding one View into another, this reference enables the application to perform recursive rendering without the developer having to render child objects explicitly.
 
@@ -203,7 +203,7 @@ However the default behavior for non-View objects is not to store an object refe
 
 There are, however, some exceptions where non-View tracking is necessary, such as Model Fields which need to be associated with the Model object.  
 
-When developing new types of component, set an object's `auto_track_element` to `false` whenever there is no need for element tracking.
+When developing new types of component, set an object's `auto_track_element` property to `false` whenever there is no need for element tracking.
 
 You can destroy detatched objects safely with `removeElement('name')`.
 
@@ -220,15 +220,15 @@ As we have seen, `AbstractObject` provides a number of useful properties to ever
     </thead>
     <tbody>
         <tr>
-            <td>`short_name`</td>
+            <td>short_name</td>
             <td>Object name unique to its parent's 'element' array.</td>
         </tr>
         <tr>
-            <td>`name`</td>
+            <td>name</td>
             <td>Object name unique to the entire application.</td>
         </tr>
         <tr>
-            <td>`elements`</td>
+            <td>elements</td>
             <td>Array containing references to child objects for element tracking. Where tracking are not required, objects may be 'detached' and their `elements` value will be `true`. This helps conserve memory.</td>
         </tr>
         <tr>
