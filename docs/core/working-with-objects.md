@@ -18,7 +18,7 @@ In Agile Toolkit, objects are **never** created this free-floating way. The `Abs
 1. Registers the new object with its parent
 1. Returns an instance of the new object.
 
-    $new_object = $owner->add('MyClass');
+```$new_object = $owner->add('MyClass');```
 
 This is primarily to assist with our goal of Composability, so objects know how to combine themselves into components. For example, you might `add()` a button to a View object to show on a page, or add a field to a Model object to be used in a query. 
 
@@ -27,7 +27,7 @@ This is primarily to assist with our goal of Composability, so objects know how 
 Objects may deﬁne new methods for adding certain types of object &ndash; this [syntactic sugar](http://en.wikipedia.org/wiki/Syntactic_sugar) helps keep code clean and expressive. For example: 
 
 - `Form` has a method called `addField()`
-- `Grid` has a method `addButton()``;
+- `Grid` has a method `addButton()`;
 
 In addition to calling `add()`, these methods often take arguments which save you from chaining calls:
 
@@ -36,7 +36,7 @@ In addition to calling `add()`, these methods often take arguments which save yo
 
 ## Adding Existing Objects
 
-If an object is already created, you can use it as a ﬁrst argument of an `add()` call. This will re-assign the object's `owner` property. Please use this functionality with caution. 
+If an object is already created, you can use it as the ﬁrst argument of an `add()` call. This will re-assign the object's `owner` property. Please use this functionality with caution. 
 
     // TODO: Please explain what using with caution means in practical terms
 
@@ -48,7 +48,7 @@ If an object is already created, you can use it as a ﬁrst argument of an `add(
 
 ## Adding Models with setModel()
 
-You create Model and Controller objects have their own specialized methods.
+Model and Controller objects are created with their own specialized methods.
 
 Any object can call the `setModel()` method. This will initialize the Model and assign it to the object's `model` property. 
 
@@ -64,7 +64,7 @@ This syntax allows classes to redeﬁne `setModel()` so they can, for example, b
 
 ## Adding Controllers with setController()
 
-You can use `setController('Foo')` as a shortcut for add('Controller_Foo'). 
+You can use `setController('Foo')` as a shortcut for `add('Controller_Foo')``. 
 
 The argument can be a Controller name or an existing Controller object.
 
@@ -201,11 +201,11 @@ When you are adding one View into another, this reference enables the applicatio
 
 However the default behavior for non-View objects is not to store an object reference: we call these 'detatched objects'. Instead, the `elements` property would contain `'short_name'=>true;`. This enables the PHP garbage collecter to destroy objects that are no longer required, saving memory.
 
-There are however some exceptions where non-View tracking is necessary, such as Model Fields which need to be associated with the Model object.  
+There are, however, some exceptions where non-View tracking is necessary, such as Model Fields which need to be associated with the Model object.  
 
 When developing new types of component, set an object's `auto_track_element` to `false` whenever there is no need for element tracking.
 
-You can destroy detatched objects safely with removeElement('name').
+You can destroy detatched objects safely with `removeElement('name')`.
 
 ## Object Properties
 
@@ -243,7 +243,7 @@ As we have seen, `AbstractObject` provides a number of useful properties to ever
             <td>model</td>
             <td>Points to Model objects set with `setModel()`</td>
         </tr>
-        <tr 
+        <tr> 
             <td>controller</td>
             <td>Points to Controller objects set with `setController()`</td>
         </tr>
