@@ -88,26 +88,6 @@ In the true spirit of jQuery, most object methods will return a reference to the
     $page->getElement('myview');    // Returns $view or exception
     $view->destroy();               // Removes object from parent and memory
 
-## Object Naming
-
-One benefit of initializing objects with `add()` is so we can assign them a unique name, either automatically or manually. The name is then used for applications such as AJAX requests, HTML ID properties and selective rendering of HTML.
-    
-    // Automatic naming
-    $my_object = $api->add('myClass');
-
-    // The name property is unique to the application
-    // and is based on the realm and class name
-    $name = $my_object->name;
-
-    // The short_name property is unique to the object
-    $short_name = $my_object->short_name;
-
-    // Manual naming (not normally required)
-
-    $my_object = $owner->add('myClass', 'foo');
-    echo $my_object->name;          // realm_name_of_owner_foo
-    echo $my_object->short_name;    // foo
-
 ## Objects With Global Scope
 
 The `add()` pattern also enables every object to use API methods and any Controllers added into the API, without having to resort to static methods or complex Inversion of Control containers. Here's a simple Agile Toolkit app:
@@ -190,6 +170,26 @@ If you have added an object and later need to remove it, call `$object->destroy(
             $this->getElement('email')->destroy();
         }
     }
+
+## Object Naming
+
+One benefit of initializing objects with `add()` is so we can assign them a unique name, either automatically or manually. The name is then used for applications such as AJAX requests, HTML ID properties and selective rendering of HTML.
+    
+    // Automatic naming
+    $my_object = $api->add('myClass');
+
+    // The name property is unique to the application
+    // and is based on the realm and class name
+    $name = $my_object->name;
+
+    // The short_name property is unique to the object
+    $short_name = $my_object->short_name;
+
+    // Manual naming (not normally required)
+
+    $my_object = $owner->add('myClass', 'foo');
+    echo $my_object->name;          // realm_name_of_owner_foo
+    echo $my_object->short_name;    // foo
 
 ## Element Tracking 
 
