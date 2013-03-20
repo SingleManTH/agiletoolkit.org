@@ -61,13 +61,13 @@ In addition to Abstraction and Composability our search for simplicity extends t
 * Configuration settings are plain old PHP hashes, so if you want complex conditional configurations at runtime just pop in some code.
 * You won't need namespacing when you're working with the Toolkit Core. This has never caused any practical problems and we avoid tedium like this:
 
-    <pre>
+    <pre><code>
     namespace Acme\TaskBundle\Controller;
 
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
     use Acme\TaskBundle\Entity\Task;
     use Symfony\Component\HttpFoundation\Request;
-    </pre>
+    </code></pre>
 
 * We use directories in the file system to define our routes without complex configuration conventions, just as HTTP intended.
 

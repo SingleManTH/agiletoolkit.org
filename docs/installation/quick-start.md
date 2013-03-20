@@ -3,9 +3,9 @@ Quick Start
 ====
 The quickest way to install Agile Toolkit is by running this command from your terminal:
 
-    curl -sS https://agiletoolkit.org/installer | php
+    curl -sS https://agiletoolkit.org/install | sh
 
-You should execute this command from the empty folder where you would like to have you Agile Toolkit installed. Agile Toolkit installation relies on http://composer.org/.
+You should execute this command from the empty folder where you would like to have you new Agile Toolkit project installed. Agile Toolkit installation relies on http://composer.org/ so you will need to have "git" and "php" working in he command-line.
 
 If you are looking to install an existing project developed with Agile Toolkit, please refer to [Project Install](project-install.md) section.
 

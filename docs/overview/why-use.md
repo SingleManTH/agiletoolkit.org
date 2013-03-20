@@ -14,7 +14,8 @@ The increasing importance of desktop-like AJAX interfaces is a game-changer for 
 * For security, we need to double-check client-side business rules on the server
 * And we have to tie all this together with AJAX calls and responses.
 
-![The Web Technology Challenge](/dia-web-technologies.png)
+<?Image?>dia-web-technologies.png The Web Technology Challenge<?/?>
+
 
 ### The limitations of mainstream solutions
 
@@ -46,7 +47,7 @@ Agile Toolkit borrows proven principles from GUI frameworks such as Cocoa, QT an
 * UI logic is cleanly separated from business logic by design
 * And your data structures move seamlessly between your data store and your AJAX interface.
 
-![Simplifying Rich Application Development](/dia-simplifying-development.png)
+<?Image?>dia-simplifying-development.png Simplifying Rich Application Development<?/?>
 
 ### How is Agile Toolkit different?
 
@@ -72,7 +73,7 @@ So what is the payoff for you, the developer? Quite simply, AJAX applications th
 
 To demonstrate the agility of the Agile Toolkit approach, here's how you'd build a fully AJAXed [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete) application.  Let's start with the vanilla built-in CRUD component:
 
-    $crud = $this->add('CRUD');
+    $crud = $page->add('CRUD');
     $crud->setModel('Employee');
 
 That's it &ndash; our page is now displaying an attractive and functional CRUD interface, and enforcing any rules set in our `Employee` Model.

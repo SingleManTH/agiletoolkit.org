@@ -21,12 +21,14 @@ class Frontend extends ApiFrontend {
         $this->public_location = $this->pathfinder->addLocation('my-public',array(
             'js'=>'js',
             'css'=>'css',
+            'public'=>'.',
         ))->setBasePath($parent_directory.'/public')
         ;
 
         $this->public_atk4 = $this->pathfinder->addLocation('atk4-public',array(
             'js'=>'js',
             'template'=>'.',
+            'public'=>'.',
         ))->setBasePath($parent_directory.'/public/atk4')
         ;
     }
@@ -45,6 +47,13 @@ class Frontend extends ApiFrontend {
         $a=$this->api->add('Auth');
         $a->usePasswordEncryption();
         $a->setModel('User');
+
+        $r = $this->add("Controller_PatternRouter");
+        $r
+          ->addRule('doc\/(.*)', "doc", array('doc'))
+          ->route();
+
+
 
         // Enable authentication through OPauth
         $op=$a->add(
