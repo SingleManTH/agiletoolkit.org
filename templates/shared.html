@@ -17,9 +17,6 @@
         <link rel="stylesheet" href="<?css?>main.css<?/?>">
 		<link rel="stylesheet" type="text/css" href="<?css?>atk-custom.css<?/?>" />
 		<?$js_include?>
-        <script src="<?js?>modernizr-2.6.2.min.js<?/?>"></script>
-        <script src="<?js?>plugins.js<?/?>"></script>
-        <script src="<?js?>main.js<?/?>"></script>
 		<script type="text/javascript">
 			$(function(){
 				<?$document_ready?>
@@ -38,7 +35,7 @@
         		</div>
         		<nav class="span10">
         			<ul>
-						<li class="documentation">
+						<li class="documentation hoverable">
 							<a href="#">Documentation</a>
 							<div class="flyout multi-column">
 								<div class="column">
@@ -142,17 +139,10 @@
 					</ul>
                     <?NavUser?>
                     <ul id="<?$_name?>" class="nav-user">
-						<li class="login">
+						<li class="login hoverable">
 							<a href="#">Login</a>
 							<div class="flyout">
-								<script>
-									$(function(){
-										$('.global-header .login button, .global-header .documentation button').button();
-										
-										$('.global-header .login, .global-header .documentation').hover(function() { $(this).addClass("hover"); });
-										
-									});
-								</script>
+                                <?Login?>
 								<div class="atk-form stacked">
 									<form>
 								    	<fieldset>
@@ -166,6 +156,7 @@
 										<div class="atk-buttons"><button>Login</button></div>
 									</form>
 								</div>
+                                <?/?>
 								<footer>
 									<a href="#"><span class="icon-24-github"></span></a>
 									<a href="#"><span class="icon-24-facebook"></span></a>

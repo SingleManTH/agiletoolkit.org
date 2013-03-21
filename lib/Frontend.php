@@ -54,6 +54,12 @@ class Frontend extends ApiFrontend {
           ->route();
 
 
+        $this->js(true)
+            ->_load('modernizr-2.6.2.min')
+            ->_load('plugins')
+            ->_load('main')
+            ->univ()->page_init()
+            ;
 
         // Enable authentication through OPauth
         $op=$a->add(
@@ -68,6 +74,17 @@ class Frontend extends ApiFrontend {
             $this->me=$a->model;
             $nav=$this->add('View',null,'NavUser',array('view/navuser'));
             $nav->template->trySet('name',$this->me['username']);
+        }else{
+            $f=$this->add('Form',array('js_widget'=>null),'Login',array('login-form'));
+            $f->addField('line','email','');
+            $f->addField('line','password','');
+            $f->addSubmit('Login');
+            if($f->isSubmitted()){
+                if($a->verifyCredentials($f->get('email'), $f->get('password'))){
+                    $a->login($f->get('email'));
+                    $a->loggedIn($f->get('email'),$f->get('password'));
+                }
+            }
         }
 
 
