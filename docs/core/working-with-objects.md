@@ -13,7 +13,7 @@ Typically in PHP you create an object directly with the `new` statement:
     $bar = new foo;
     $bar->doFoo();
 
-In Agile Toolkit, objects are **never** created this free-floating way. The `AbstractObject` provides all objects with an `add()` method which: 
+In Agile Toolkit, native objects are **never** created this free-floating way (With the exception of 3rd party incompatible objects). The `AbstractObject` provides all objects with an `add()` method which: 
 
 1. Registers the new object with its parent
 1. Returns an instance of the new object.
@@ -24,27 +24,31 @@ This is primarily to assist with our goal of Composability, so objects know how 
 
 ## Indirect Adding Of Objects 
 
-Objects may deﬁne new methods for adding certain types of object &ndash; this [syntactic sugar](http://en.wikipedia.org/wiki/Syntactic_sugar) helps keep code clean and expressive. For example: 
+Objects may deﬁne wrapper methods for adding certain types of object &ndash; this [syntactic sugar](http://en.wikipedia.org/wiki/Syntactic_sugar) helps keep code clean and expressive. For example: 
 
 - `Form` has a method called `addField()`
 - `Grid` has a method `addButton()`;
 
 In addition to calling `add()`, these methods often take arguments which save you from chaining calls:
 
-    $form->addButton('Click Me');
-    $form->add('Button')->setLabel('Click Me');
+    $form->addButton('Click Me'); 
+
+instead of a longer and more complex call using add() method:
+
+    $form->add('Button',null,'form_buttons')->setLabel('Click Me');
 
 ## Adding Existing Objects
 
-If an object is already created, you can use it as the ﬁrst argument of an `add()` call. This will re-assign the object's `owner` property. Please use this functionality with caution. 
-
-    // TODO: Please explain what using with caution means in practical terms
+If an object is already created, you can use it as the ﬁrst argument of an `add()` call. This will move object into a new `owner`. Please keep in mind that some objects may expect to reside within objects of a certain type. Adding paginator inside `Grid` and then moving it into other object might have some unpredictable effects. Agile Toolkit does not pursue a goal to make objects moveable.
 
     $form = $page->add('Form');
     $field = $form->addField('line','foo');
 
-    $frame = $form->add('View_Frame');
-    $frame->add($field); // Moves field inside frame
+    $columns = $form->add('Columns'); // Adds grid-system based columns 50/50
+    $left=$columns->addColumn(6);
+    $right=$columns->addColumn(6);
+
+    $right->add($field); // Moves field inside right column
 
 ## Adding Models with setModel()
 
@@ -58,15 +62,13 @@ Although it's easier to simply access the `model` property, you can also use the
     $form = $page->add('Form'); 
 
     $grid->setModel('User');        // Uses class Model_User 
-    $form->setModel($grid->model);  // Uses the same object 
+    $form->setModel($grid->model);  // Reuses the same model object
     
-This syntax allows classes to redeﬁne `setModel()` so they can, for example, bind the Model to a UI component. When calling `setModel()` on a View you can specify a second argument, which is list of the Model ﬁelds to be used.
+Some views will customize `setModel()` and perform additional tasks when setting a model. For example - `Grid` will import some columns from the model automatically. You can control which columns are added by specifying a second argument.
 
 ## Adding Controllers with setController()
 
-You can use `setController('Foo')` as a shortcut for `add('Controller_Foo')``. 
-
-The argument can be a Controller name or an existing Controller object.
+You can use `setController('Foo')` as a shortcut for `add('Controller_Foo')`. The argument can be a Controller name or an existing Controller object. Additionally setController will also initialize objects `controller` property. While you can call setController multiple times, the property will point to the last controller you used.
 
 ## Chaining Object Methods
 

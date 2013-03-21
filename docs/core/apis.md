@@ -10,47 +10,46 @@ The main APIs are:
 * [ApiWeb](/TODO): a minimal frontend for web applications, mainly used for integrating with other frameworks
 * [ApiFrontend](/TODO): a comprehensive API for web applications, extending ApiWeb with routing, an integrated CSS styling system, and Page classes
 
-There are other more specialized APIs for installers and REST requests.
-
-If there are features you regularly add to your API classes, simply extend one of these Core APIs and you have a reusable custom `$app` class.
+There are other more specialized APIs for installers and REST requests. In process of developing your own application, you will have to create your own Application class extended from a standard Api class.
 
 ## The Purpose Of The API Classes
 
-UNDERSTANDING API CLASSES
+### Understanding Application Class
 
-Agile Toolkit does not use any static elements or global variables. The only global variable you use in the "index.php" class is "$api". All additional classes are added into your API, or into other objects inside the API.
+Agile Toolkit does not use any static elements or global variables. All objects you create are related to each-other. All objects also store reference to the Application class through `$this->api` property.
 
 This leads to several interesting points:
 
 - You can have more than one API running at the same time;
 - APIs are independent, and will never share same ID, Cookie name or session name;
-- You can create one API from inside another one, but the latter won't be able to access the former.
+- You can create one Application from inside another one. The latter will function perfectly yet unaware of the former Application.
 
-Controllers versus Singletons
+### Controllers versus Singletons
 
-Agile Toolkit does not use singletons. Singletons do not provide any performance or persistence benefits in PHP5.2 or higher. Instead, Agile Toolkit has the concept of "Controllers". A controller can be added into an object, but a controller of a certain type can only be added to a certain object once. This is a "soft" restriction: you can still add second controller of same type to the same object at your own risk, if you specify a different name for it.
+Agile Toolkit does not use singletons. Singletons do not provide any significant performance or persistence benefits. Instead, Agile Toolkit has the concept of "Controllers". A controller can be added into an object. If you attempt to add another controller of the same class into same object, you'll get reference to existing controller instead. This is a "soft" restriction: you can have more controllers of same type within object if you specify a different name for it.
 
-For example: you can add a "Logger" controller into the API, which enhances the way errors are displayed. Adding another Logger into the API again will do nothing, and will simply return a reference to your existing Logger.
+#### Example
+You may add "Logger" controller into the API to improve logging capabilities. Some other part of your application may also attempt to add "Logger" controller, however because it exists already it won't be added twice.
 
 Because it's possible to have multiple APIs at the same time, this opens up new strategies for testing. For instance, a 'testing' API can initialize your 'real' API. Before executing a test, the 'test' API can destroy() some of the controllers in the 'real' API, and replace them with new ones. This implements a dependency-injection based testing framework, which is really close to the real-life environment of your application.
 
-Realms
+#### Realms
 
-When the API class is initialized it expects only one argument: the "realm". A Realm must be unique to an application or even to an installation. The realm becomes the "name" of your $api, and it will also be used in all unique IDs (cookies, DOM id's, session variables).
+When the API class is initialized it expects only one argument: the "realm". A Realm must be unique to an application or even to an installation. The realm becomes the "name" of your application class, and it will also be used in all unique IDs (cookies, DOM id's, session variables).
 
-Through combining the concept of multiple APIs with proper realms, you can implement some unique features - such as a "Login As User" feature, by actually using the frontend API and calling the "login" method of its auth object.
+Using unique realms results in your application being independent or sharing authentication and other things.
 
-## What Features Are Offered?
+## Choosing most suitable application class
 
 ### ApiCLI
 
-`ApiCLI` offers the bare minimum features to run command-line requests:
+`ApiCLI` offers the bare minimum features. It's mostly suitable to run command-line or CRON requests. Application offers the following features:
 
-- Configuration
-- Database connectivity
-- Lazy class loading
-- Link building
+- PathFinder for locating files
+- Lazy configuration file access
+- Lazy database connectivity
 - Error handling & logging.
+- PathFinder
 
 Here's Agile Toolkit's version of 'Hello World':
 
@@ -60,95 +59,137 @@ Here's Agile Toolkit's version of 'Hello World':
     $api = new ApiCLI();
     echo "Hello World\n";
 
+If you are willing to access database, you should explicitly call `api->dbConnect()`. If you try to get some configuration options through `api->getConfig()`, application will load `config-default.php` and then `config.php` file.
+
 ### ApiWeb
 
-`ApiWeb` adds the miminum features you need to interract with other PHP web frameworks:
+`ApiWeb` adds the minimum features you need to interact with browsers through HTML. The following features are initialized automatically:
 
-- Templates and rendering (for HTML, XML, textfiles etc)
+- Logger (better error logging and reporting)
+- PageManager (determining base URL and URL generation)
+- Headers (by default will use no-cache headers)
+- Basic application template
 - Pages and routing (for handling HTTP requests)
-- Sessions 
-- Event hooks
-- HTTP headers & output.
+
+To make your web app more compliant with European Browser Cookie Law the session will only be initialized if you use memorize/recall. Some controller rely on memorize/recall (Authentication) and will cause session to be initialized.
+
+ApiWeb does not use Page classes, so if you want to display any Views, you need to add them directly into Application.
+
+    include 'atk4/loader.php';
+    $api = new ApiWeb();
+    $api->add('HelloWorld');
+    $api->main();
 
 ### ApiFrontend
 
-Finally, `ApiFrontend` adds sophisticated [layouts](/TODO) to your Views.
+Finally, `ApiFrontend` adds sophisticated [layouts](/TODO) system into your application. Layouts allow you to define a certain regions inside your main template, which are URL dependent. By default, &lt;?Content?&gt; area will be substituted by an adequate page class.
 
+Mapping URL into Page class is the default routing mechanism of Agile Toolkit.
 
-EXECUTION OF THE API CLASS
+#### Execution of he Application Class
 
-An API in Agile Toolkit splits the whole execution of the application into 2 parts. In the first part, the API initializes the objects, coupling them with proper models. The second part is the execution: the API will cause objects to query the database, iterate through results, produce and render output.
+An Application class in Agile Toolkit splits the whole execution of the application in 2 parts. In the first part, the API initializes all the objects, coupling them with proper models. The second part is the execution: the API will determine which part of the page needs rendering, will cause objects to run their queries and produce HTML, then send output to the browser.
 
-Agile Toolkit objects never output anything directly. Instead, they insert their output into their parent's template. The API sends the combined output to the user's browser through "echo".
+Agile Toolkit objects never `echo` anything directly. Instead, they insert their output into their parent's template. The API sends the combined output to the user's browser through a single `echo` command.
 
-Initialization
-Depending on which API you use, it will initialize several sub-components which call Controllers. When you extend an API class, you should re-define the init() function and add initialization in there - things like connecting to the database, adding controllers, etc.
+#### Initialization
+
+Depending on which API you use, it will initialize several sub-components which call Controllers. When you extend an API class, you should re-define the init() function and add additional initialization in there - things like adding authentication mechanism, extending routing rules, adding controllers or placing View on all the pages (Such as a image of currently logged-in user).
 
 ApiFrontend will automatically initialize Logger() which makes error logging more bearable.
 
-Layouts
+#### Layouts
+
 A Layout is a region in the shared template (shared.html), which is parsed by the API class. If the region is defined, then a corresponding layout function is called.
 
-The first and most significant layout element is "Content". Content will determine which page is requested and proceed with all the logic of page initialization. However if "Content" is not present in the API template, the page will not be initialized.
+The first and most significant layout element is "Content". Content will determine which page is requested and proceed with all the logic of page initialization. However if "Content" is not present in the API template (`shared.html`), the page will not be initialized.
 
-You can add additional layout elements. For example, calling addLayout('Menu') inside api->init() will instruct API to call layout_Menu() method if tag <?Menu?> is found when parsing the template.
+You can add additional layout elements. For example, calling addLayout('Menu') inside api->init() which will instruct API to call layout_Menu() method if tag &lt;?Menu?&gt; is found when parsing the template.
 
-This approach can be used to initialize various things such as sidebars, toolbars and widgets, if they exist inside the API template. You can manipulate different templates from inside the defaultTemplate() function of your API.
+This approach is designed to have multiple layout components initialized based on the use of global template. This way your application can easily produce output for multiple form-factor devices. When opened on a mobile device, your application can load a different application template (such as `shared-mobile.html`) which would omit some tags and bypass initialization of certain regions.
 
-Initializing Auth and checking Auth
-While you can also execute auth->check() inside init(), we recommend performing auth-check inside an initLayout() function:
+You can specify which template file is used by specifying it from inside the defaultTemplate() function of your API.
+
+    function defaultTemplate(){
+        if($_GET['mobile']){
+            return array('shared-mobile');
+        }else{
+            return array('shared');
+        }
+    }
+
+#### Using user-authentication
+
+Agile Toolkit comes with an "Auth" controller. This controller allows you to limit access to your application to logged-in users only. Here is a most basic use of the Auth controller:
 
     function init(){
-            parent::init();
-            $this->add('BasicAuth')->allow('john','secret');
-        }
-    function initLayout(){
-            $this->auth->check();
-            parent::initLayout();
-    
-            // Replace "login" link region with logout/user info
-            if($this->auth->isLoggedIn()){
-                        $this->add('View',null,'UserMenu','view/usermenu/loggedin')
-                            ->set($this->auth->get()));
-                    }
-        }
-Did you notice that the call to auth->check() is done before calling parent::initLayout()? That's because we do not want any pages to be initialized before authentication is done.
+        parent::init();
+        $this->add('Auth')->allow('john','secret')->check();
+    }        
 
-Form Submission
-Form submission is normally handled after all other views are initialized. When form is submitted, the rendering phase is skipped also. Submission occurs only if a form with a proper ID has been found.
+In most modern applications you would want to use users from a database, so you should specify a model instead:
 
-Rendering
-Agile Toolkit provides support for partial rendering of views based on 3 criteria: cut_page - outputs only page's content, cut_object - outputs content of a certain object and cut_region - outputs content of a certain region. This is explained in more depth later
+    function init(){
+        parent::init();
+        $auth=$this->add('Auth');
+        $auth->setModel('User');
+        $auth->usePasswordEncryption();
+        $auth->check();
+    }
+        
+When `$auth->check()` is executed, it will interrupt your regular application flow to display a login form for non-authenticated users.
 
-Interrupting initialization phase
-It is possible to interrupt execution of the init() phase. This might be necessary if you wish to avoid any more objects being added to some view. To terminate execution of init:
+#### Form Submission
 
-// from inside View
+Application supports number of hooks such as `post-init` or `pre-render`. By adding your handlers there, you can execute certain things between the two major execution steps.
 
-// if product is not selected:
+There is one more step in between - form submission. It is used as a call-back into a standard `Form` class. Forms want to parse POST data after they have been fully initialized but before they start rendering.
 
-if(!$product){
-    $this->add('ProductSelector');
-    throw $this->exception('Stop showing page until product is selected','StopInit');
-        // throws Exception_StopInit
-}
-This approach should be used only if calling "return" is not sufficient - that is: from either a view which has been placed inside page, or if your page extends another, common abstract page.}
+Forms use unique IDs to determine if they have been submitted, so even if you have multiple forms on the page, they will be able to determine which one have been submitted without your help.
+
+#### Rendering
+
+Agile Toolkit provides support for partial rendering of views based on 3 criteria: cut_page - outputs only page's content (used by dialogs and frames), cut_object - outputs content of a certain object (used when object is reloaded) and cut_region - outputs content of a certain region in template. (cut_region is not safe and should be avoided). 
+
+#### Interrupting initialization phase
+
+It is possible to interrupt execution of the init() or render() phases. This might be necessary if you wish to avoid any more objects being added to some view. This technique is used by the Auth class. If user is not logged in, Auth class wants to display a login-form but it wants to bypass initialization of any objects on your page for security reasons. 
+
+To terminate execution of init, use:
+
+    $this->exception('','StopInit');
+
+This exception is automatically intercepted and ignored by the Application class. If you wish to stop rendering, you can use:
+
+    $this->exception('','StopRender');
+
 
 ## Structuring A Multi-API Application
 
-STRUCTURING A MULTI-API APPLICATION
+You should view your Application class as a "glue". While it might be tempting to add some business logic inside your application class, try to put it into a separate controller.
 
-There are several cases when it makes sense to create multiple API classes. Below are a few typical scenarios. As some API functionality might be needed by all APIs, it's incorporated into a System Controller.
+This will help you to create multiple application classes without duplicating any of the main logic.
 
-Multiple Interfaces
+#### Multiple Interfaces
 
-Most web software use multiple web interfaces. User Frontend and Admin are separate Web interfaces, both of which take advantage of the page concept. Then there are command-line utilities which are designed for a single purpose, such as doing a cron-job, or for command-line manipulations.
+Most web software use multiple web interfaces. User Frontend and Admin are separate Web interfaces, both of which take advantage of the page concept. While backend functionality is shared between both - Models, Controllers, only Administrators may access the Admin interface so the "Auth" class would be configured differently.
 
-Multi-lingual or satellite sites
+#### Command-line utilities
+
+If you want to execute your application-specific code from command-line you wouldn't use any Views or Pages. Created a ApiCLI based application and then accessing your models and controllers from it is an ideal way to create compact interface to your application logic.
+
+#### Multi-lingual or satellite sites
 
 Sometimes you will want your software to run in multiple regions mostly unchanged, however you need to have the flexibility to add regional or site-specific changes. In this case you will want to create an intermediate API (parent), which is then extended for each regional site.
 
-Site1 and Site2 API classes can change theme, skin or add additional templates/translations for localization.
+Site1 and Site2 API classes can change theme, skin or add additional templates/translations for localization, but would rely on the same common Application class for all the base functionality.
 
-Specific Applications
-If your Agile Toolkit-based software requires installation, you may want to create a simple interface which can help the user set up the software. You might want to create a new API for an installer in general, then extend it to customize it with your installation steps. This way you can share the generic installer class with the community, or with other projects while retaining the flexibility of customization.
+#### Specific-purpose applicaiton
+
+If your Agile Toolkit-based software requires installation, you may want to create a simple interface which can help the user set up the software. 
+
+Take a look at `ApiInstall` which might already offer you what you need. It is a specific implementation of Application for building installers.
+
+You might want to create a completely new type of Application which could bind your Agile Toolkit environment with Wordpress or Joomla environment.
+
+This way you can share the generic installer class with the community, or with other projects while retaining the flexibility of customization.
