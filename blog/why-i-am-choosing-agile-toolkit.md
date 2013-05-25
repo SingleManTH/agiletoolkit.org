@@ -58,8 +58,8 @@ Here's the code that caught my interest:
             'name','days_worked','salary'
         )
     );
-    if($crud-grid){
-        $crud-grid-addPaginator(5);
+    if($crud->grid){
+        $crud->grid->addPaginator(5);
     }
 
 Wow - now that really is something helpful! I'm getting a functional grid fully integrated with my back-end model and rules. I'm getting good-looking forms for create, read update and delete. I'm getting pagination, double-click protection and a slew of other goodies.
