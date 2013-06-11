@@ -3,7 +3,7 @@ New Agile Toolkit Homepage
 We are rebuilding AgileToolkit's website. The goals are to make it simpler and cleaner and also improve interaction. 
 
  * Old site: http://agiletoolkit.org/
- * New site: http://www3.agiletoolkit.org/
+ * New site: http://www3.agiletoolkit.org/public
 
 Helping out
 ----
