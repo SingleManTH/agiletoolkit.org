@@ -38,7 +38,7 @@ class Frontend extends ApiFrontend {
         $a=$this->dbConnect();
 
         $this->public_location->setBaseURL($this->pm->base_path);
-        $this->public_atk4->setBaseURL($this->pm->base_path.'/atk4');
+        $this->public_atk4->setBaseURL($this->pm->base_path.'atk4');
 
         $this->add('jUI');
 
