@@ -1,5 +1,5 @@
 <?php
-class Model_Purchase extends DisjointModel {
+class Model_Purchase extends Model_DisjointModel {
     public $table='purchase';
     public $type='Purchase';
     function init(){
@@ -16,7 +16,8 @@ class Model_Purchase extends DisjointModel {
         $this->addField('expires_dts')->type('datetime');
         $this->addField('expires')->calculated(true);
 
-        $this->addExpression('is_valid')->type('boolean')
+        $this->debug();
+        $this->addExpression('is_valid')->type('boolean')->system(true)
             ->set('if(is_paid=1 and expires_dts>now(),1,0)');
 
         $this->addExpression('name')->set(function($m){

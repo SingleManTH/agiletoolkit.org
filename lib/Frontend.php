@@ -51,6 +51,7 @@ class Frontend extends ApiFrontend {
         $r = $this->add("Controller_PatternRouter");
         $r
           ->addRule('doc\/(.*)', "doc", array('doc'))
+          ->link('edit/addon',array('id'))
           ->route();
 
 
@@ -65,7 +66,8 @@ class Frontend extends ApiFrontend {
         $op=$a->add(
             'romaninsh/opauth/Controller_Opauth',
             array(
-                'register_page'=>'ofinish'
+                'register_page'=>'ofinish',
+                'default_action'=>array('redirect_me'=>'my'),
             )
         );
         $op->addStrategy('github,facebook,twitter,google');

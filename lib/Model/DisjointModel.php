@@ -1,10 +1,11 @@
 <?php
-class DisjointModel extends Model_Table {
+class Model_DisjointModel extends Model_Table {
     public $type=null;
     function init(){
         parent::init();
 
-        $this->addCondition('type',$this->type);
+        $this->addField('type');
+        if($this->type)$this->addCondition('type',$this->type);
         $this->addExpression('is_editable')->set(array($this,'isEditable'));
     }
     function isEditable($m=null){

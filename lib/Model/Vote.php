@@ -1,5 +1,6 @@
 <?php
 class Model_Vote extends Model_Table {
+    public $table='vote';
     function init(){
         parent::init();
 

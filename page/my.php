@@ -9,16 +9,16 @@ class page_my extends Page {
 
         if($this->api->me['is_admin'])$this->add('AdminMenu');
 
-        $m=$this->add('View_DropButton')->set('Add New ..')->useMenu();
+        $m=$this->add('Button')->set('Add New ..')->addMenu();
         $m->addMenuItem($this->js()->univ()->frameURL(
-            'Add New Forum Post',
-            $this->api->url('./add',array('t'=>'Post'))), 'Forum Post');
+            'Add New Article',
+            $this->api->url('./add',array('t'=>'Article'))), 'Forum Post');
         $m->addMenuItem($this->js()->univ()->frameURL(
             'Add New Support Article',
             $this->api->url('./add',array('t'=>'Article'))), 'Support Article');
         $m->addMenuItem($this->js()->univ()->frameURL(
             'Add New Plugin',
-            $this->api->url('./add',array('t'=>'Plugin'))), 'Agile Toolkit Plugin');
+            $this->api->url('./add',array('t'=>'Addon'))), 'Agile Toolkit Plugin');
         $m->addMenuItem($this->js()->univ()->frameURL(
             'Add New Theme',
             $this->api->url('./add',array('t'=>'Theme'))), 'Agile Toolkit Theme');
@@ -74,7 +74,18 @@ class page_my extends Page {
     }
 
     function page_add(){
-        $m='Model_Content_'.basename($_GET['t']);
+        $m='Model_Content_'.basename($this->api->stickyGET('t'));
         $m=$this->add($m);
+
+        $f=$this->add('Form');
+        $f->setModel($m->my(),$m->add_fields);
+        $f->addSubmit('Add');
+        if($f->isSubmitted()){
+            $f->update();
+            $f->js()->univ()->location($this->api->url(
+                'edit/'.strtolower($_GET['t']),
+                array('t'=>false,'id'=>$m->id)
+            ))->execute();
+        }
     }
 }

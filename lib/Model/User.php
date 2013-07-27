@@ -43,7 +43,7 @@ class Model_User extends Model_Table {
         // have a username. Without a username, there is nothing user
         // can do. We will encourage users to select a username.
 
-        $this->addField('username')->mandatory(true)->editable(false);
+        $this->addField('name')->mandatory(true)->caption('Username');
         $this->addField('email')->mandatory(true)->editable(false);
 
         // At some point user needs to confirm his email

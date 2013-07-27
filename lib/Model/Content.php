@@ -1,7 +1,6 @@
 <?php
-class Model_Content extends DisjointModel {
+class Model_Content extends Model_DisjointModel {
     public $table='content';
-    public $type='Content';
 
     function init(){
         parent::init();
@@ -24,19 +23,20 @@ class Model_Content extends DisjointModel {
         // This is a cached reputation for this object. It's calculated
         // by total reputation received for this piece of content plus
         // half of the reputation of the owner.
-        $this->add('rep')->caption('Reputation');
+        $this->addField('rep')->caption('Reputation')->system(true)->visible(true)
+            ->defaultValue(0);
         $this->hasMany('Vote');
 
         // my total vote
         $this->addExpression('my_vote')->set(function($m){
             $p=$m->refSQL('Vote');
-            $p->addCondition('user_id',$this->api->me->id);
+            $p->addCondition('voter_id',$this->api->me->id);
             return $p->sum('weight');
         });
     }
 
     function my(){
-        $this->addCondition('owner_id',$this->api->me->id);
+        $this->addCondition('user_id',$this->api->me->id);
 
         return $this;
     }
@@ -56,3 +56,4 @@ class Model_Content extends DisjointModel {
         $vote->save();
     }
 
+}
