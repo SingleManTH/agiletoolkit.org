@@ -20,7 +20,7 @@ class Model_Content_Addon extends Model_Content {
                 ->tryLoadAny();
 
             if($mm->loaded() && $mm->id != $m->id){
-                throw $m->exception('Namespace alerady exists','Exception_ForUser');
+                throw $m->exception('Namespace already exists','Exception_ForUser');
             }
         });
 
