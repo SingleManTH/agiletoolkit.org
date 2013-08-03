@@ -3,3 +3,4 @@ doc/dbupdates/*.ok
 vendor
 config.php
 composer.phar
+/nbproject/private/

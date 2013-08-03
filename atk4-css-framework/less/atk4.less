@@ -1,0 +1,54 @@
+/*!
+ * Agile Toolkit CSS Framework
+ *
+ * Copyright 2000-2013 Agile Toolkit Limited
+ * http://agiletoolkit.org/
+ *
+ * This file combines all the less files together. If
+ * you wish to change your CSS settings - use CodeKit
+ * or a dedicated Agile Toolkit add-on
+ */
+
+// Settings for jQuery UI Theme
+@import "jui-config.less";
+
+// Settings for Agile Toolkit Theme
+@import "atk-config.less";
+
+// Reset Browser Default Styles
+@import "atk-normalize.less";
+@import "atk-print.less";
+
+
+// Mixins and Helpers. 
+@import "atk-mixins-css3.less";  // Support for new CSS3 properties across browsers
+@import "atk-mixins-transitions.less";
+@import "atk-mixins-backgrounds.less";
+@import "atk-mixins.less";      // TODO: break this into several files
+
+
+/*!
+ * Debug: there must be NO CSS code above this (in main.css)
+ */
+
+// Core Agile Toolkit CSS
+@import "atk-typography.less";  // Defines basic H1..H6 styles, definition lists etc
+@import "atk-gs12.less";        // 12-column grid system (responsive)
+@import "atk-gs12-compat.less"; // 12-column grid system (compatible)
+@import "atk-flexy.less";       // Flexy layouts
+@import "atk-layout.less";      // Top-bar, bottom-bar sidebars, etc
+
+// Defines core features
+@import "atk-core.less";        // classes like "float-right", "clearfix" used throughout
+
+
+// Components
+@import "atk-continers.less";   // frames, bevels, boxes and other outlines
+@import "atk-labels.less";      // badges, tags, etc
+@import "atk-buttons.less";     // allows changing size and color of the buttons
+
+@import "atk-grid.less";        // agile toolkit grid support
+@import "atk-growl.less";       // agile toolkit growl / notifications
+@import "atk-form.less";        // agile toolkit forms
+@import "atk-popover.less";     // popovers and arrow
+
