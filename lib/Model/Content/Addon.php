@@ -11,7 +11,7 @@ class Model_Content_Addon extends Model_Content {
         $this->a->addField('version');
         $this->a->addField('namespace')
             ->placeholder('johnsmith/HelloWorld')
-            ->hint('Namespace myst be unique and may contain slash');
+            ->hint('Namespace must be unique and may contain slash');
 
         $this->addHook('beforeSave',function($m){
             // avoid conditions
@@ -20,7 +20,7 @@ class Model_Content_Addon extends Model_Content {
                 ->tryLoadAny();
 
             if($mm->loaded() && $mm->id != $m->id){
-                throw $m->exception('Namespace alerady exists','Exception_ForUser');
+                throw $m->exception('Namespace already exists','Exception_ForUser');
             }
         });
 
