@@ -6,6 +6,7 @@
         "atk4/atk4": "dev-master",
         "romaninsh/documenting": "dev-master",
         "opauth/opauth": ">=0.4.3",
+        "omnipay/omnipay": "1.*",
         "romaninsh/opauth": "dev-master",
         "opauth/github": ">=0.1.0",
         "opauth/facebook": ">=0.2.1",
