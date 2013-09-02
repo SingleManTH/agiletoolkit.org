@@ -10,7 +10,7 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:atk4/atk4.git",
+                "url": "https://github.com/atk4/atk4.git",
                 "reference": "origin/master"
             },
             "dist": {
@@ -34,7 +34,7 @@
                 "atk4",
                 "framework"
             ],
-            "time": "2013-07-24 18:40:38"
+            "time": "2013-09-02 08:03:32"
         },
         {
             "name": "dflydev/markdown",
@@ -100,13 +100,13 @@
             "version": "0.2.1",
             "source": {
                 "type": "git",
-                "url": "git://github.com/uzyn/opauth-facebook.git",
-                "reference": "0.2.1"
+                "url": "https://github.com/opauth/facebook.git",
+                "reference": "28c0e53393a03a66cbfea03073d1d6aacfaddb69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/uzyn/opauth-facebook/zipball/0.2.1",
-                "reference": "0.2.1",
+                "url": "https://api.github.com/repos/opauth/facebook/zipball/28c0e53393a03a66cbfea03073d1d6aacfaddb69",
+                "reference": "28c0e53393a03a66cbfea03073d1d6aacfaddb69",
                 "shasum": ""
             },
             "require": {
@@ -137,20 +137,20 @@
                 "auth",
                 "facebook"
             ],
-            "time": "2012-09-20 21:47:35"
+            "time": "2012-09-21 04:47:35"
         },
         {
             "name": "opauth/github",
             "version": "0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/uzyn/opauth-github",
-                "reference": "0.1.0"
+                "url": "https://github.com/opauth/github.git",
+                "reference": "9c4fe16dc6498b2c94f4c2a41ab93b0fe4b7fa73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/uzyn/opauth-github/zipball/0.1.0",
-                "reference": "0.1.0",
+                "url": "https://api.github.com/repos/opauth/github/zipball/9c4fe16dc6498b2c94f4c2a41ab93b0fe4b7fa73",
+                "reference": "9c4fe16dc6498b2c94f4c2a41ab93b0fe4b7fa73",
                 "shasum": ""
             },
             "require": {
@@ -181,20 +181,20 @@
                 "auth",
                 "github"
             ],
-            "time": "2012-07-22 23:13:59"
+            "time": "2012-07-23 06:13:59"
         },
         {
             "name": "opauth/google",
             "version": "0.2.2",
             "source": {
                 "type": "git",
-                "url": "git://github.com/uzyn/opauth-google.git",
-                "reference": "0.2.2"
+                "url": "https://github.com/opauth/google.git",
+                "reference": "35df77684c14acb346a8c3753ae3809852d1a47e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/uzyn/opauth-google/zipball/0.2.2",
-                "reference": "0.2.2",
+                "url": "https://api.github.com/repos/opauth/google/zipball/35df77684c14acb346a8c3753ae3809852d1a47e",
+                "reference": "35df77684c14acb346a8c3753ae3809852d1a47e",
                 "shasum": ""
             },
             "require": {
@@ -225,7 +225,7 @@
                 "auth",
                 "google"
             ],
-            "time": "2012-10-18 07:39:52"
+            "time": "2012-10-18 14:39:52"
         },
         {
             "name": "opauth/opauth",
@@ -233,12 +233,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/opauth.git",
-                "reference": "0.4.4"
+                "reference": "436fb98c2374c9e8ae4d8adddf83214bee4d9c72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/opauth/zipball/0.4.4",
-                "reference": "0.4.4",
+                "url": "https://api.github.com/repos/opauth/opauth/zipball/436fb98c2374c9e8ae4d8adddf83214bee4d9c72",
+                "reference": "436fb98c2374c9e8ae4d8adddf83214bee4d9c72",
                 "shasum": ""
             },
             "require": {
@@ -286,12 +286,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/twitter.git",
-                "reference": "0.3.1"
+                "reference": "24792d512ccc67e7d11e9249737616f039551c11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/twitter/zipball/0.3.1",
-                "reference": "0.3.1",
+                "url": "https://api.github.com/repos/opauth/twitter/zipball/24792d512ccc67e7d11e9249737616f039551c11",
+                "reference": "24792d512ccc67e7d11e9249737616f039551c11",
                 "shasum": ""
             },
             "require": {
@@ -329,13 +329,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/romaninsh/documenting",
-                "reference": "7fa17f84f5544eb199177d9f8013a2ef7d023fdf"
+                "url": "https://github.com/romaninsh/documenting.git",
+                "reference": "ddd80e43a99ef579a4debf0b3ef072bdeb12849f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/romaninsh/documenting/zipball/7fa17f84f5544eb199177d9f8013a2ef7d023fdf",
-                "reference": "7fa17f84f5544eb199177d9f8013a2ef7d023fdf",
+                "url": "https://api.github.com/repos/romaninsh/documenting/zipball/ddd80e43a99ef579a4debf0b3ef072bdeb12849f",
+                "reference": "ddd80e43a99ef579a4debf0b3ef072bdeb12849f",
                 "shasum": ""
             },
             "require": {
@@ -363,7 +363,7 @@
             "keywords": [
                 "atk4"
             ],
-            "time": "2013-02-07 00:58:12"
+            "time": "2013-08-01 12:53:35"
         },
         {
             "name": "romaninsh/opauth",
