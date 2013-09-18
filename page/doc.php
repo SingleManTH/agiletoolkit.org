@@ -26,6 +26,7 @@ class page_doc extends Page {
 
         $page=$this;
 
+        /*
         $page->template->eachTag('Code',function($a,$b) use($page){
             $page->add('romaninsh/documenting/View_Example',null,$b)->set($a,true);
         });
@@ -33,6 +34,7 @@ class page_doc extends Page {
         $page->template->eachTag('Example',function($a,$b) use($page){
             $page->add('romaninsh/documenting/View_Example',null,$b)->set($a);
         });
+         */
 
         $page->template->eachTag('Image',function($a,$b) use($page){
             list($file,$title)=explode(' ',$a,2);

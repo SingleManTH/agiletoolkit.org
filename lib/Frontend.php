@@ -13,6 +13,16 @@ class Frontend extends ApiFrontend {
         $a=$this->dbConnect();
 
 
+        $this->pathfinder->public_location->addRelativeLocation('atk43',
+            array(
+                'css'=>'css',
+                'addons'=>'vendor',
+            ));
+
+        $this->api->pathfinder->base_location->defineContents(array(
+            'docs'=>array('docs','doc')
+        ));
+
         $this->add('MainMenu',null,'Menu');
 
         $a=$this->api->add('Auth');
