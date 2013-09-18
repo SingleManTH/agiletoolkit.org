@@ -11,7 +11,7 @@ class Model_DisjointModel extends Model_Table {
     function isEditable($m=null){
         if(!$this->hasElement('user_id'))return 0;
         if($m){
-            if($this->api->me['is_admin'])return 1;
+            if($this->api->me()['is_admin'])return 1;
 
             return $this->_dsql()->expr('if([user_id]=[me],1,0)',
                 array(
