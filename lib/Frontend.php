@@ -4,8 +4,6 @@ class Frontend extends ApiFrontend {
     public $public_location;    // js, css, images
     public $private_location;   // templates, php files, resources
 
-    public $me;
-
     function init(){
         parent::init();
 
@@ -16,11 +14,11 @@ class Frontend extends ApiFrontend {
         $this->pathfinder->public_location->addRelativeLocation('atk43',
             array(
                 'css'=>'css',
-                'addons'=>'vendor',
             ));
 
         $this->api->pathfinder->base_location->defineContents(array(
-            'docs'=>array('docs','doc')
+            'docs'=>array('docs','doc'),
+            'addons'=>'vendor',
         ));
 
         $this->add('MainMenu',null,'Menu');
@@ -72,6 +70,20 @@ class Frontend extends ApiFrontend {
         }
 
 
+    }
+    function me() {
+        if (!$this->auth->isLoggedIn()) {
+            throw $this->exception('Must be logged in');
+        }
+
+        return $this->auth->model;
+    }
+    function myID() {
+        if (!$this->auth->isLoggedIn()) {
+            throw $this->exception('Must be logged in');
+        }
+
+        return $this->auth->model->id;
     }
     /*
     function getConfig($path, $default_value = undefined){

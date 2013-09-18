@@ -16,7 +16,7 @@ class Model_DisjointModel extends Model_Table {
             return $this->_dsql()->expr('if([user_id]=[me],1,0)',
                 array(
                     'user_id'=>$this->getElement('user_id'),
-                    'me'=>$this->api->me->id
+                    'me'=>$this->api->myID()
                 )
             );
         }else{

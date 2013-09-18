@@ -15,7 +15,7 @@ class Model_Content extends Model_DisjointModel {
         $this->hasMany('Purchase');
         $this->addExpression('is_purchased')->set(function($m){
             $p=$m->refSQL('Purchase');
-            $p->addCondition('user_id',$this->api->me->id);
+            $p->addCondition('user_id',$this->api->myID());
             $p->addCondition('is_valid',true);
             return $p->count();
         });
@@ -30,13 +30,13 @@ class Model_Content extends Model_DisjointModel {
         // my total vote
         $this->addExpression('my_vote')->set(function($m){
             $p=$m->refSQL('Vote');
-            $p->addCondition('voter_id',$this->api->me->id);
+            $p->addCondition('voter_id',$this->api->myID());
             return $p->sum('weight');
         });
     }
 
     function my(){
-        $this->addCondition('user_id',$this->api->me->id);
+        $this->addCondition('user_id',$this->api->myID());
 
         return $this;
     }

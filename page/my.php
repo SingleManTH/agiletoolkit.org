@@ -7,7 +7,7 @@ class page_my extends Page {
     function page_index(){
 
 
-        if($this->api->me['is_admin'])$this->add('AdminMenu');
+        if($this->api->me()['is_admin'])$this->add('AdminMenu');
 
         $m=$this->add('Button')->set('Add New ..')->addMenu();
         $m->addMenuItem($this->js()->univ()->frameURL(
