@@ -10,10 +10,17 @@ class MainMenu extends Menu {
         $this->addMenuItem('my','My Account');
 
 
-        $this->add('View_Popover')
-            ->add('HelloWorld');
+        $pop = $this->add('View_Popover');
+        $pop->add('View',null,null,array('view/navdoc'));
+        $this->on('click', '#agiletoolkit_org_mainmenu_i1', 
+            $pop->showJS(
+                '#agiletoolkit_org_mainmenu_i1',
+                array('width'=>'900')
+            )
+        );
 
-        //$this->on('click','#agiletoolkit_org_mainmenu_i1')
-            //->univ()->alert(535);
+
+
+
     }
 }

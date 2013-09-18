@@ -14,6 +14,7 @@ class Frontend extends ApiFrontend {
         $this->pathfinder->public_location->addRelativeLocation('atk43',
             array(
                 'css'=>'css',
+                'public'=>'.',
             ));
 
         $this->api->pathfinder->base_location->defineContents(array(
