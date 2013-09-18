@@ -1,10 +1,11 @@
 .example,
 .demo {
-  padding: 2em;
+  padding: 23px;
   background: whiteSmoke url(../images/pattern-grid.png);
   border: 1px solid #CCC;
-  margin-bottom: 2em;
+  margin-bottom: 24px;
   position: relative;
+  line-height: 24px;
 }
 .example .label,
 .demo .label {

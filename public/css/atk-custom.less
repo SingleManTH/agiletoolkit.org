@@ -2,42 +2,7 @@
 	Import
 ============================================== */
 @import 'atk-main.less';
-
-
-/* ==============================================
-	Settings
-    http://agiletoolkit.org/doc/css
-============================================== */
-@gridColumns:       12;					// Column count
-@gridColumnWidth:   3%;					// Column width
-@gridGutterWidth:   5.8%;				// Gutter width
-@margin:			@lineHeight;		// Global margin
-@padding:			@lineHeight;		// Global padding
-@label:				7em;		// Label width for form/dl
-@labelMargin:		2em;		// Label margin
-@footerSticky:		true;		// Footer sticked to the bottom of the page
-@footerHeight:		@lineHeight * 4;	// Footer height needs to be specific if sticky footer is applied
-@dialogMargin:		120px;		// Dialog top margin
-@link:				#0053b3;	// Link color
-@shadowColor:		#000;		// Global shadow color (used in dialogs, dropmenus, etc.)
-@thborder:			#242833;	// Table header border color
-@border:			#e5e5e5;	// Global border color (used in tables, hr, forms, etc.)
-@even:				#f0f5fa;	// Color for even row
-@inputBorder:		#ccc;		// Input Border
-@focused: 			#00aaff;	// Color on input focus
-@error:				#e51717;	// Error
-@white:				#fff;		// White color
-@black:				#000;		// Black color
-@lineHeight:		24px;						// Global line height
-@lightGray:			lighten(@black,60%);		// Used for comments
-@fontSize:			14px;						// Global font size
-@fontColor:			lighten(@black,20%);		// Global font color
-@fontFamily:		"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;		// Global font family
-
-.defaultBg(#f0f2f5,#f0f2f5);	// Default State (.ui-state-default)
-.hoverBg(#e6e9ed,#e6e9ed);		// Hover State (.ui-state-hover)
-.activeBg(#FFFFFF,#FFFFFF);		// Active State (.ui-state-active)
-.headerBg(#242833,#242833);		// Widget Header (.ui-widget-header)
+@import 'atk-settings.less';
 
 
 /* ==============================================
@@ -128,10 +93,12 @@ h6 {font-size:12px;margin:0;}
 h1+p, h2+p, h3+p, h4+p, h5+p, h6+p, p:first-child {margin-top:0;}
 p:last-child {margin-bottom:0;}
 
-p, ul, blockquote {margin:@lineHeight 0;}
+p, ul, ol, blockquote {margin:@lineHeight 0;}
 ul, ol {
 	li {margin:0;}
-	ul, ol {margin:@lineHeight/2 0 @lineHeight/2 @lineHeight;}
+	// ul, ol {margin:@lineHeight/2 0 @lineHeight/2 @lineHeight;}
+	ul, ol {margin: @lineHeight/2 0 @lineHeight/2 @lineHeight/2;}
+
 }
 blockquote {
 	border-left:5px solid #6f85ca;
@@ -252,7 +219,7 @@ a {text-decoration:none;}
 		}
 	}
 	&.inline {
-		.clearafter;
+		.clearfix;
 		.ui-menu-item {
 /* 			margin:0 1px; */
 			width:auto;
@@ -326,7 +293,7 @@ a {text-decoration:none;}
 				min-height:@lineHeight;
 				input[type=text],
 				input[type=password],
-				textarea {min-height:@lineHeight;}
+				textarea {min-height:@lineHeight - 2px;}
 				input[type=file] {height:24px;font-size:12px;}
 				select {font-size:12px;line-height:@lineHeight;height:24px;margin-top:0;}
 				textarea {margin:0;}
@@ -419,12 +386,25 @@ input[type=text], input[type=password], textarea {
 	background:#fff;
 	.border-radius(0);
 	.box-shadow(none);
+	.box-sizing();
 	line-height:@lineHeight - 2px;
 	.clear-padding;
 	color:#333;
+	min-height: 0;
 	&:focus {.box-shadow(none);}
 }
 input[type=file] {line-height:@lineHeight;}
+
+.example, .demo {
+	line-height: 24px !important;
+	padding: 23px !important;
+	margin: 0 !important;
+}
+.syntaxhighlighter {
+	a, div, code, table, table td, table tr, table tbody, table thead, table caption, textarea {
+		line-height: 24px !important;
+	}
+}
 
 
 /* ==============================================
@@ -449,8 +429,8 @@ body, .global-header, .global-footer {.bg-deepblue;}
 			&:hover {.opacity(100);}
 		}
 		nav {
-			.ubuntu;
-			.big;
+			// .ubuntu;
+			// .big;
 			>ul {
 				float:left;
 				>li {
@@ -482,7 +462,7 @@ body, .global-header, .global-footer {.bg-deepblue;}
 								padding:0;
 								display:block;
 								a {
-									font-size:13px;
+									// font-size:13px;
 								}
 								&:first-child {margin-top:0;}
 							}
@@ -514,7 +494,7 @@ body, .global-header, .global-footer {.bg-deepblue;}
 						>a {.transition(none);cursor:default;}
 					}
 					&.login {
-						border-top:1px solid @deepBlue;
+						// border-top:1px solid @deepBlue;
 						border-right:1px solid rgba(255,255,255,0.1);
 						border-left:1px solid @deepBlue;
 						position:relative;

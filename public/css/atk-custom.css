@@ -1415,125 +1415,6 @@ input.ui-button,
 	Settings
     http://agiletoolkit.org/doc/css
 ============================================== */
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default {
-  background-color: #f0f2f5;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#f0f2f5), to(#f0f2f5));
-  /* Konqueror */
-
-  background-image: -moz-linear-gradient(top, #f0f2f5, #f0f2f5);
-  /* FF 3.6+ */
-
-  background-image: -ms-linear-gradient(top, #f0f2f5, #f0f2f5);
-  /* IE10 */
-
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f0f2f5), color-stop(100%, #f0f2f5));
-  /* Safari 4+, Chrome 2+ */
-
-  background-image: -webkit-linear-gradient(top, #f0f2f5, #f0f2f5);
-  /* Safari 5.1+, Chrome 10+ */
-
-  background-image: -o-linear-gradient(top, #f0f2f5, #f0f2f5);
-  /* Opera 11.10 */
-
-  background-image: linear-gradient(top, #f0f2f5, #f0f2f5);
-  /* The standard */
-
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f2f5', endColorstr='#f0f2f5', GradientType=0);
-  /* IE9 and down */
-
-}
-.ui-state-hover,
-.ui-widget-content .ui-state-hover,
-.ui-state-focus,
-.ui-widget-content .ui-state-focus {
-  background-color: #e6e9ed;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#e6e9ed), to(#e6e9ed));
-  /* Konqueror */
-
-  background-image: -moz-linear-gradient(top, #e6e9ed, #e6e9ed);
-  /* FF 3.6+ */
-
-  background-image: -ms-linear-gradient(top, #e6e9ed, #e6e9ed);
-  /* IE10 */
-
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e6e9ed), color-stop(100%, #e6e9ed));
-  /* Safari 4+, Chrome 2+ */
-
-  background-image: -webkit-linear-gradient(top, #e6e9ed, #e6e9ed);
-  /* Safari 5.1+, Chrome 10+ */
-
-  background-image: -o-linear-gradient(top, #e6e9ed, #e6e9ed);
-  /* Opera 11.10 */
-
-  background-image: linear-gradient(top, #e6e9ed, #e6e9ed);
-  /* The standard */
-
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e6e9ed', endColorstr='#e6e9ed', GradientType=0);
-  /* IE9 and down */
-
-}
-.ui-state-active,
-.ui-widget-content .ui-state-active,
-.ui-widget-header .ui-state-active {
-  background-color: #ffffff;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
-  /* Konqueror */
-
-  background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
-  /* FF 3.6+ */
-
-  background-image: -ms-linear-gradient(top, #ffffff, #ffffff);
-  /* IE10 */
-
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #ffffff));
-  /* Safari 4+, Chrome 2+ */
-
-  background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
-  /* Safari 5.1+, Chrome 10+ */
-
-  background-image: -o-linear-gradient(top, #ffffff, #ffffff);
-  /* Opera 11.10 */
-
-  background-image: linear-gradient(top, #ffffff, #ffffff);
-  /* The standard */
-
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
-  /* IE9 and down */
-
-}
-.ui-widget-header {
-  background-color: #242833;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#242833), to(#242833));
-  /* Konqueror */
-
-  background-image: -moz-linear-gradient(top, #242833, #242833);
-  /* FF 3.6+ */
-
-  background-image: -ms-linear-gradient(top, #242833, #242833);
-  /* IE10 */
-
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #242833), color-stop(100%, #242833));
-  /* Safari 4+, Chrome 2+ */
-
-  background-image: -webkit-linear-gradient(top, #242833, #242833);
-  /* Safari 5.1+, Chrome 10+ */
-
-  background-image: -o-linear-gradient(top, #242833, #242833);
-  /* Opera 11.10 */
-
-  background-image: linear-gradient(top, #242833, #242833);
-  /* The standard */
-
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#242833', endColorstr='#242833', GradientType=0);
-  /* IE9 and down */
-
-}
 /* ==============================================
 	Temp
 ============================================== */
@@ -1716,6 +1597,7 @@ p:last-child {
 }
 p,
 ul,
+ol,
 blockquote {
   margin: 24px 0;
 }
@@ -1727,7 +1609,7 @@ ul ul,
 ol ul,
 ul ol,
 ol ol {
-  margin: 12px 0 12px 24px;
+  margin: 12px 0 12px 12px;
 }
 blockquote {
   border-left: 5px solid #6f85ca;
@@ -2053,7 +1935,7 @@ a {
 .atk-form fieldset .atk-form-row .atk-form-field input[type=text],
 .atk-form fieldset .atk-form-row .atk-form-field input[type=password],
 .atk-form fieldset .atk-form-row .atk-form-field textarea {
-  min-height: 24px;
+  min-height: 22px;
 }
 .atk-form fieldset .atk-form-row .atk-form-field input[type=file] {
   height: 24px;
@@ -2221,10 +2103,15 @@ textarea {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
   line-height: 22px;
   padding-top: 0;
   padding-bottom: 0;
   color: #333;
+  min-height: 0;
 }
 input[type=text]:focus,
 input[type=password]:focus,
@@ -2235,6 +2122,24 @@ textarea:focus {
 }
 input[type=file] {
   line-height: 24px;
+}
+.example,
+.demo {
+  line-height: 24px !important;
+  padding: 23px !important;
+  margin: 0 !important;
+}
+.syntaxhighlighter a,
+.syntaxhighlighter div,
+.syntaxhighlighter code,
+.syntaxhighlighter table,
+.syntaxhighlighter table td,
+.syntaxhighlighter table tr,
+.syntaxhighlighter table tbody,
+.syntaxhighlighter table thead,
+.syntaxhighlighter table caption,
+.syntaxhighlighter textarea {
+  line-height: 24px !important;
 }
 /* ==============================================
 	Global
@@ -2281,10 +2186,6 @@ body,
   opacity: 1;
 }
 .global-header .atk-wrapper nav {
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: 300;
-  font-size: 1.25em;
-  font-size: 1.2em;
   /* ul ends */
 
 }
@@ -2342,9 +2243,6 @@ body,
   padding: 0;
   display: block;
 }
-.global-header .atk-wrapper nav > ul > li .flyout ul li a {
-  font-size: 13px;
-}
 .global-header .atk-wrapper nav > ul > li .flyout ul li:first-child {
   margin-top: 0;
 }
@@ -2389,7 +2287,6 @@ body,
   cursor: default;
 }
 .global-header .atk-wrapper nav > ul > li.login {
-  border-top: 1px solid #242833;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-left: 1px solid #242833;
   position: relative;
