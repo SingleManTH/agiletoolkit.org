@@ -24,6 +24,11 @@ class page_my extends Page {
             $this->api->url('./add',array('t'=>'Theme'))), 'Agile Toolkit Theme');
 
 
+        $b = $this->add('Button')->set('Test2');
+        $pop = $this->add('View_Popover');
+        $pop->add('HelloWorld');
+        $b->js('click', $pop->showJS($b));
+
 
         $tt=$this->add('Tabs');
         $tt->addTabURL('./profile');
