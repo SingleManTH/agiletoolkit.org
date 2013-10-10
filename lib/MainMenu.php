@@ -3,10 +3,11 @@ class MainMenu extends Menu {
     function init(){
         parent::init();
 
-        $this->addMenuItem('index');
+        $this->addMenuItem('about');
+        $this->addMenuItem('download');
         $this->addMenuItem('doc','Documentation');
-        $this->addMenuItem('support');
-        $this->addMenuItem('market');
+        $this->addMenuItem('blog');
+        $this->addMenuItem('help');
         $this->addMenuItem('my','My Account');
 
 

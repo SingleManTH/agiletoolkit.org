@@ -22,7 +22,15 @@ class Frontend extends ApiFrontend {
             'addons'=>'vendor',
         ));
 
-        $this->add('MainMenu',null,'Menu');
+
+        $l=$this->add('Layout_Fluid');
+
+        $l->addMenu('MainMenu');
+
+        // See if sidebar is needed
+        //$sb = yaml_parse_file('content/toc.yaml');
+        //var_Dump($sb);
+
 
         $a=$this->api->add('Auth');
         $a->usePasswordEncryption();
