@@ -1,5 +1,5 @@
 <?php
-class MainMenu extends Menu {
+class LeftMenu extends Menu {
     public $current_menu_class="atk-state-active";
     public $inactive_menu_class="";
 
@@ -14,20 +14,10 @@ class MainMenu extends Menu {
         $this->addMenuItem('my','My Account');
 
 
-        $pop = $this->add('View_Popover');
-        $pop->add('View',null,null,array('view/navdoc'));
-        $this->on('click', '#agiletoolkit_org_mainmenu_i1', 
-            $pop->showJS(
-                '#agiletoolkit_org_mainmenu_i1',
-                array('width'=>'900')
-            )
-        );
-
-
 
 
     }
     function defaultTemplate() {
-        return array('mainmenu');
+        return array('leftmenu');
     }
 }
