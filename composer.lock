@@ -3,14 +3,14 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "68e68a011259c3c8a72e31d3f5e470cd",
+    "hash": "eef957db5265cad534760f5dfac6e511",
     "packages": [
         {
             "name": "atk4/atk4",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:atk4/atk4.git",
+                "url": "https://github.com/atk4/atk4.git",
                 "reference": "origin/master"
             },
             "dist": {
@@ -34,20 +34,20 @@
                 "atk4",
                 "framework"
             ],
-            "time": "2013-09-17 18:00:25"
+            "time": "2013-10-04 08:31:00"
         },
         {
             "name": "dflydev/markdown",
-            "version": "dev-master",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dflydev/dflydev-markdown.git",
-                "reference": "11f8faa2d17f717a038b4d372abd22a6ac4a15dc"
+                "reference": "6baed9b50f29c980795b6656d43722aadb126f7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dflydev/dflydev-markdown/zipball/11f8faa2d17f717a038b4d372abd22a6ac4a15dc",
-                "reference": "11f8faa2d17f717a038b4d372abd22a6ac4a15dc",
+                "url": "https://api.github.com/repos/dflydev/dflydev-markdown/zipball/6baed9b50f29c980795b6656d43722aadb126f7e",
+                "reference": "6baed9b50f29c980795b6656d43722aadb126f7e",
                 "shasum": ""
             },
             "require": {
@@ -93,21 +93,21 @@
             "keywords": [
                 "markdown"
             ],
-            "time": "2012-07-15 16:31:27"
+            "time": "2013-09-23 12:00:18"
         },
         {
             "name": "guzzle/common",
-            "version": "v3.7.3",
+            "version": "v3.7.4",
             "target-dir": "Guzzle/Common",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/common.git",
-                "reference": "bf73c87375f60861f8c7ccc7b95878023ade5306"
+                "reference": "5126e268446c7e7df961b89128d71878e0652432"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/common/zipball/bf73c87375f60861f8c7ccc7b95878023ade5306",
-                "reference": "bf73c87375f60861f8c7ccc7b95878023ade5306",
+                "url": "https://api.github.com/repos/guzzle/common/zipball/5126e268446c7e7df961b89128d71878e0652432",
+                "reference": "5126e268446c7e7df961b89128d71878e0652432",
                 "shasum": ""
             },
             "require": {
@@ -137,21 +137,21 @@
                 "event",
                 "exception"
             ],
-            "time": "2013-09-08 21:09:18"
+            "time": "2013-10-02 20:47:00"
         },
         {
             "name": "guzzle/http",
-            "version": "v3.7.3",
+            "version": "v3.7.4",
             "target-dir": "Guzzle/Http",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/http.git",
-                "reference": "1034125dfd906b73119e535f03153a62fccb1989"
+                "reference": "3420035adcf312d62a2e64f3e6b3e3e590121786"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/http/zipball/1034125dfd906b73119e535f03153a62fccb1989",
-                "reference": "1034125dfd906b73119e535f03153a62fccb1989",
+                "url": "https://api.github.com/repos/guzzle/http/zipball/3420035adcf312d62a2e64f3e6b3e3e590121786",
+                "reference": "3420035adcf312d62a2e64f3e6b3e3e590121786",
                 "shasum": ""
             },
             "require": {
@@ -194,11 +194,11 @@
                 "http",
                 "http client"
             ],
-            "time": "2013-09-06 11:34:26"
+            "time": "2013-09-20 22:05:53"
         },
         {
             "name": "guzzle/parser",
-            "version": "v3.7.3",
+            "version": "v3.7.4",
             "target-dir": "Guzzle/Parser",
             "source": {
                 "type": "git",
@@ -242,7 +242,7 @@
         },
         {
             "name": "guzzle/stream",
-            "version": "v3.7.3",
+            "version": "v3.7.4",
             "target-dir": "Guzzle/Stream",
             "source": {
                 "type": "git",
@@ -295,16 +295,16 @@
         },
         {
             "name": "omnipay/omnipay",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/adrianmacneil/omnipay.git",
-                "reference": "2145cd43e467f41f66bfc41347f9e97b5bf20d37"
+                "reference": "4f5e82232161939c0b14f5921c092ed77980d450"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adrianmacneil/omnipay/zipball/2145cd43e467f41f66bfc41347f9e97b5bf20d37",
-                "reference": "2145cd43e467f41f66bfc41347f9e97b5bf20d37",
+                "url": "https://api.github.com/repos/adrianmacneil/omnipay/zipball/4f5e82232161939c0b14f5921c092ed77980d450",
+                "reference": "4f5e82232161939c0b14f5921c092ed77980d450",
                 "shasum": ""
             },
             "require": {
@@ -376,20 +376,20 @@
                 "twocheckout",
                 "worldpay"
             ],
-            "time": "2013-08-28 16:13:54"
+            "time": "2013-09-20 23:40:41"
         },
         {
             "name": "opauth/facebook",
             "version": "0.2.1",
             "source": {
                 "type": "git",
-                "url": "git://github.com/uzyn/opauth-facebook.git",
-                "reference": "0.2.1"
+                "url": "https://github.com/opauth/facebook.git",
+                "reference": "28c0e53393a03a66cbfea03073d1d6aacfaddb69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/uzyn/opauth-facebook/zipball/0.2.1",
-                "reference": "0.2.1",
+                "url": "https://api.github.com/repos/opauth/facebook/zipball/28c0e53393a03a66cbfea03073d1d6aacfaddb69",
+                "reference": "28c0e53393a03a66cbfea03073d1d6aacfaddb69",
                 "shasum": ""
             },
             "require": {
@@ -420,20 +420,20 @@
                 "auth",
                 "facebook"
             ],
-            "time": "2012-09-20 21:47:35"
+            "time": "2012-09-21 04:47:35"
         },
         {
             "name": "opauth/github",
             "version": "0.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/uzyn/opauth-github",
-                "reference": "0.1.0"
+                "url": "https://github.com/opauth/github.git",
+                "reference": "9c4fe16dc6498b2c94f4c2a41ab93b0fe4b7fa73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/uzyn/opauth-github/zipball/0.1.0",
-                "reference": "0.1.0",
+                "url": "https://api.github.com/repos/opauth/github/zipball/9c4fe16dc6498b2c94f4c2a41ab93b0fe4b7fa73",
+                "reference": "9c4fe16dc6498b2c94f4c2a41ab93b0fe4b7fa73",
                 "shasum": ""
             },
             "require": {
@@ -464,20 +464,20 @@
                 "auth",
                 "github"
             ],
-            "time": "2012-07-22 23:13:59"
+            "time": "2012-07-23 06:13:59"
         },
         {
             "name": "opauth/google",
             "version": "0.2.2",
             "source": {
                 "type": "git",
-                "url": "git://github.com/uzyn/opauth-google.git",
-                "reference": "0.2.2"
+                "url": "https://github.com/opauth/google.git",
+                "reference": "35df77684c14acb346a8c3753ae3809852d1a47e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/uzyn/opauth-google/zipball/0.2.2",
-                "reference": "0.2.2",
+                "url": "https://api.github.com/repos/opauth/google/zipball/35df77684c14acb346a8c3753ae3809852d1a47e",
+                "reference": "35df77684c14acb346a8c3753ae3809852d1a47e",
                 "shasum": ""
             },
             "require": {
@@ -508,7 +508,7 @@
                 "auth",
                 "google"
             ],
-            "time": "2012-10-18 07:39:52"
+            "time": "2012-10-18 14:39:52"
         },
         {
             "name": "opauth/opauth",
@@ -516,12 +516,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/opauth.git",
-                "reference": "0.4.4"
+                "reference": "436fb98c2374c9e8ae4d8adddf83214bee4d9c72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/opauth/zipball/0.4.4",
-                "reference": "0.4.4",
+                "url": "https://api.github.com/repos/opauth/opauth/zipball/436fb98c2374c9e8ae4d8adddf83214bee4d9c72",
+                "reference": "436fb98c2374c9e8ae4d8adddf83214bee4d9c72",
                 "shasum": ""
             },
             "require": {
@@ -569,12 +569,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/opauth/twitter.git",
-                "reference": "0.3.1"
+                "reference": "24792d512ccc67e7d11e9249737616f039551c11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opauth/twitter/zipball/0.3.1",
-                "reference": "0.3.1",
+                "url": "https://api.github.com/repos/opauth/twitter/zipball/24792d512ccc67e7d11e9249737616f039551c11",
+                "reference": "24792d512ccc67e7d11e9249737616f039551c11",
                 "shasum": ""
             },
             "require": {
@@ -649,6 +649,47 @@
             "time": "2013-08-01 12:53:35"
         },
         {
+            "name": "romaninsh/mdcms",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/romaninsh/mdcms.git",
+                "reference": "fd952b61bb4e4f766f76bf150b949e2bcc76fb9f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/romaninsh/mdcms/zipball/fd952b61bb4e4f766f76bf150b949e2bcc76fb9f",
+                "reference": "fd952b61bb4e4f766f76bf150b949e2bcc76fb9f",
+                "shasum": ""
+            },
+            "require": {
+                "dflydev/markdown": "1.0.*@dev",
+                "php": ">=5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "romaninsh\\mdcms": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Romans Malinovskis",
+                    "email": "romans@agiletoolkit.org"
+                }
+            ],
+            "description": "Markdown CMS for Agile Toolkit",
+            "homepage": "http://github.com/romaninsh/mdcms",
+            "keywords": [
+                "atk4"
+            ],
+            "time": "2013-10-14 12:05:08"
+        },
+        {
             "name": "romaninsh/opauth",
             "version": "dev-master",
             "source": {
@@ -691,17 +732,17 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.3.4",
+            "version": "v2.3.6",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "41c9826457c65fa3cf746f214985b7ca9cba42f8"
+                "reference": "7fc72a7a346a1887d3968cc1ce5642a15cd182e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/41c9826457c65fa3cf746f214985b7ca9cba42f8",
-                "reference": "41c9826457c65fa3cf746f214985b7ca9cba42f8",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/7fc72a7a346a1887d3968cc1ce5642a15cd182e9",
+                "reference": "7fc72a7a346a1887d3968cc1ce5642a15cd182e9",
                 "shasum": ""
             },
             "require": {
@@ -741,21 +782,21 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2013-07-21 12:12:18"
+            "time": "2013-09-19 09:45:20"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.3.4",
+            "version": "v2.3.6",
             "target-dir": "Symfony/Component/HttpFoundation",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "fdf130fe65457aedbc4639a22f4ef9d3be5c002c"
+                "reference": "59e712338cd05463ebcb8da6422a01b1291871e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/fdf130fe65457aedbc4639a22f4ef9d3be5c002c",
-                "reference": "fdf130fe65457aedbc4639a22f4ef9d3be5c002c",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/59e712338cd05463ebcb8da6422a01b1291871e3",
+                "reference": "59e712338cd05463ebcb8da6422a01b1291871e3",
                 "shasum": ""
             },
             "require": {
@@ -791,7 +832,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2013-08-26 05:49:51"
+            "time": "2013-09-29 19:41:41"
         }
     ],
     "packages-dev": [
@@ -803,9 +844,9 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "atk4/atk4": 20,
+        "romaninsh/mdcms": 20,
         "romaninsh/documenting": 20,
-        "romaninsh/opauth": 20,
-        "dflydev/markdown": 20
+        "romaninsh/opauth": 20
     },
     "platform": [
 

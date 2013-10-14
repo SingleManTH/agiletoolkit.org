@@ -7,6 +7,8 @@ class Frontend extends ApiFrontend {
     function init(){
         parent::init();
 
+        $this->requires('atk','4.3');
+
         $this->add('jUI');
         $a=$this->dbConnect();
 
