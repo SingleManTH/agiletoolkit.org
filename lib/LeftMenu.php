@@ -1,12 +1,14 @@
 <?php
-class LeftMenu extends Menu {
+class LeftMenu extends Menu_Objective {
     public $current_menu_class="atk-state-active";
     public $inactive_menu_class="";
 
     function init(){
         parent::init();
 
-        $this->addMenuItem('about');
+      //  $this->addSubMenu('sub')
+       //     ->addMenuItem('about');
+
         $this->addMenuItem('download');
         $this->addMenuItem('doc','Documentation');
         $this->addMenuItem('blog');
