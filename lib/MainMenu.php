@@ -1,5 +1,8 @@
 <?php
 class MainMenu extends Menu {
+    public $current_menu_class="atk-state-active";
+    public $inactive_menu_class="";
+
     function init(){
         parent::init();
 
@@ -18,5 +21,8 @@ class MainMenu extends Menu {
                 array('width'=>'900')
             )
         );
+    }
+    function defaultTemplate() {
+        return array('mainmenu');
     }
 }

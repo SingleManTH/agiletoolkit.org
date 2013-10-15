@@ -62,6 +62,3 @@ For commercial and private projects we offer a very affordable yet valuable reso
  - Share your Agile Toolkit code snippets with the rest of the world.
  
 If you are contributing back and are a valuable member of Agile Toolkit community, we reward you with free "Golden Membership" - in recognition of your loyalty and dedication.
-
-
-

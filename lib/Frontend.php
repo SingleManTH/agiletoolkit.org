@@ -7,6 +7,8 @@ class Frontend extends ApiFrontend {
     function init(){
         parent::init();
 
+        $this->requires('atk','4.3');
+
         $this->add('jUI');
         $a=$this->dbConnect();
 
@@ -18,12 +20,13 @@ class Frontend extends ApiFrontend {
             ));
 
         $this->api->pathfinder->base_location->defineContents(array(
-            'docs'=>array('docs','doc'),
+            'docs'=>array('docs','doc'),  // Documentation (external)
+            'content'=>'content',          // Content in MD format
             'addons'=>'vendor',
         ));
 
 
-        $l=$this->add('Layout_Fluid');
+        $this->layout=$l=$this->add('Layout_Fluid');
 
         $l->addMenu('MainMenu');
 
@@ -35,6 +38,20 @@ class Frontend extends ApiFrontend {
         $a=$this->api->add('Auth');
         $a->usePasswordEncryption();
         $a->setModel('User');
+
+
+        // There are a number of public pages. Take them out
+        $this->add('romaninsh/mdcms/Controller',
+            array('target'=>$l,'callback'=>function($p){
+                $bar=$p->api->layout->addLeftBar();
+                $m=$bar->add('LeftMenu');
+                $m->addMenuItem('hello');
+
+
+
+            })
+        );
+
 
         $r = $this->add("Controller_PatternRouter");
         $r
