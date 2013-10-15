@@ -3,7 +3,7 @@
         "psr-0": {"": "lib/"}
     },
     "require": {
-        "atk4/atk4": "dev-master",
+        "atk4/atk4": "4.3.*@dev",
         "romaninsh/mdcms": "dev-master",
         "romaninsh/documenting": "dev-master",
         "opauth/opauth": ">=0.4.3",
