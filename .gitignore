@@ -4,3 +4,4 @@ vendor
 config.php
 composer.phar
 /nbproject/private/
+composer.lock

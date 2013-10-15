@@ -10,7 +10,6 @@ class MainMenu extends Menu {
         $this->addMenuItem('help');
         $this->addMenuItem('my','My Account');
 
-
         $pop = $this->add('View_Popover');
         $pop->add('View',null,null,array('view/navdoc'));
         $this->on('click', '#agiletoolkit_org_mainmenu_i1', 
@@ -19,9 +18,5 @@ class MainMenu extends Menu {
                 array('width'=>'900')
             )
         );
-
-
-
-
     }
 }
