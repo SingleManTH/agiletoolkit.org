@@ -11,3 +11,30 @@
 /*!
  * Debug: there must be NO CSS code above this (in main.css)
  */
+.main-menu {
+
+}
+.main-menu li {
+    padding: 1px;
+    cursor: pointer;
+}
+.main-sub-menu {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 150px;
+}
+.main-sub-menu li {
+    padding: 0;
+    margin: 0;
+}
+.main-sub-menu li a {
+    padding: 0;
+    margin: 0;
+}
+.bottom-menu {
+
+}
+.bottom-menu > li {
+    float: left;
+}
