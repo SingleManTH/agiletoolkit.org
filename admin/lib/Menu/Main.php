@@ -15,6 +15,7 @@ class Menu_Main extends Menu {
 
         $this->addMenuItem('index','Dashboard');
         $this->addMenuItem('users');
+        $this->addMenuItem('migr');
     }
     function defaultTemplate() {
         return array('view/main_menu');
