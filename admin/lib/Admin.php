@@ -23,6 +23,7 @@ class Admin extends ApiFrontend {
             'docs'=>array('docs','doc'),  // Documentation (external)
             'content'=>'content',          // Content in MD format
             'addons'=>array('vendor','addons'),
+            'php'=>array('shared',),
         ));
 
 //        $a=$this->api->add('Auth');

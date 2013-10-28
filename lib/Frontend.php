@@ -23,6 +23,7 @@ class Frontend extends ApiFrontend {
             'docs'=>array('docs','doc'),  // Documentation (external)
             'content'=>'content',          // Content in MD format
             'addons'=>'vendor',
+            'php'=>array('shared',),
         ));
 
 
