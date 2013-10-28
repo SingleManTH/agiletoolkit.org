@@ -1,0 +1,277 @@
+<MIGR_ID>
+ATK_ORG-1382968284
+</MIGR_ID>
+<MIGR_NAME>
+initial dump
+</MIGR_NAME>
+<MIGR_DESCR>
+---
+</MIGR_DESCR>
+<MIGR_QUERY>
+/*
+SQLyog Ultimate v9.50 
+MySQL - 5.5.34-0ubuntu0.12.04.1 : Database - agiletoolkit
+*********************************************************************
+*/
+
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*Table structure for table `atk4_mysql_migrator_migration` */
+
+DROP TABLE IF EXISTS `atk4_mysql_migrator_migration`;
+
+CREATE TABLE `atk4_mysql_migrator_migration` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `statuses_json` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `atk4_mysql_migrator_migration` */
+
+/*Table structure for table `atk_addon` */
+
+DROP TABLE IF EXISTS `atk_addon`;
+
+CREATE TABLE `atk_addon` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `atk_user_id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `descr` text,
+  `homepage_url` varchar(255) DEFAULT NULL,
+  `created_dts` datetime DEFAULT NULL,
+  `expires_dts` datetime DEFAULT NULL,
+  `cost` decimal(8,2) DEFAULT NULL,
+  `paypal` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `name` (`name`),
+  KEY `fk_atk_addon_atk_user1` (`atk_user_id`),
+  CONSTRAINT `fk_atk_addon_atk_user1` FOREIGN KEY (`atk_user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `atk_addon` */
+
+/*Table structure for table `atk_addon_version` */
+
+DROP TABLE IF EXISTS `atk_addon_version`;
+
+CREATE TABLE `atk_addon_version` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `atk_addon_id` int(11) NOT NULL,
+  `version` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `checksum` varchar(255) DEFAULT NULL,
+  `is_public` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_atk_addon_version_atk_addon1` (`atk_addon_id`),
+  CONSTRAINT `fk_atk_addon_version_atk_addon1` FOREIGN KEY (`atk_addon_id`) REFERENCES `atk_addon` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `atk_addon_version` */
+
+/*Table structure for table `atk_certificate` */
+
+DROP TABLE IF EXISTS `atk_certificate`;
+
+CREATE TABLE `atk_certificate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `atk_purchase_id` int(11) NOT NULL,
+  `license_data` varchar(255) DEFAULT NULL,
+  `license_checksum` varchar(255) DEFAULT NULL,
+  `certificate` text,
+  `issued_dts` datetime DEFAULT NULL,
+  `expires_dts` date DEFAULT NULL,
+  `domain` varchar(255) DEFAULT NULL,
+  `cert_id` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `repo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_atk_certificate_atk_purchase1` (`atk_purchase_id`),
+  CONSTRAINT `fk_atk_certificate_atk_purchase1` FOREIGN KEY (`atk_purchase_id`) REFERENCES `atk_purchase` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `atk_certificate` */
+
+/*Table structure for table `atk_download` */
+
+DROP TABLE IF EXISTS `atk_download`;
+
+CREATE TABLE `atk_download` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `atk_user_id` int(11) DEFAULT NULL,
+  `file` varchar(255) DEFAULT NULL,
+  `datetime` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_atk_download_atk_user` (`atk_user_id`),
+  CONSTRAINT `fk_atk_download_atk_user` FOREIGN KEY (`atk_user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `atk_download` */
+
+/*Table structure for table `atk_purchase` */
+
+DROP TABLE IF EXISTS `atk_purchase`;
+
+CREATE TABLE `atk_purchase` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `atk_user_id` int(11) DEFAULT NULL,
+  `is_paid` enum('Y','N') DEFAULT 'N',
+  `type` varchar(255) DEFAULT NULL,
+  `domain` varchar(255) DEFAULT NULL,
+  `expires_dts` datetime DEFAULT NULL,
+  `purchased_dts` datetime DEFAULT NULL,
+  `cost` decimal(8,2) DEFAULT NULL,
+  `purchase_ref` varchar(255) DEFAULT NULL,
+  `project_type` varchar(10) DEFAULT NULL,
+  `project_url` varchar(255) DEFAULT NULL,
+  `project_info` text,
+  PRIMARY KEY (`id`),
+  KEY `fk_atk_purchase_atk_user1` (`atk_user_id`),
+  CONSTRAINT `fk_atk_purchase_atk_user1` FOREIGN KEY (`atk_user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `atk_purchase` */
+
+/*Table structure for table `atk_survey` */
+
+DROP TABLE IF EXISTS `atk_survey`;
+
+CREATE TABLE `atk_survey` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `descr` text,
+  `page` varchar(255) DEFAULT NULL,
+  `is_public` enum('Y','N') DEFAULT NULL,
+  `model` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `atk_survey` */
+
+/*Table structure for table `atk_survey_1` */
+
+DROP TABLE IF EXISTS `atk_survey_1`;
+
+CREATE TABLE `atk_survey_1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `descr` text,
+  `model` varchar(255) DEFAULT NULL,
+  `is_public` enum('Y','N') DEFAULT 'N',
+  `user_id` int(11) NOT NULL,
+  `user_survey_id` int(11) DEFAULT NULL,
+  `created_dts` datetime DEFAULT NULL,
+  `background` varchar(255) DEFAULT NULL,
+  `php_experience` varchar(255) DEFAULT NULL,
+  `frameworks` varchar(255) DEFAULT NULL,
+  `languages` varchar(255) DEFAULT NULL,
+  `oop_level` varchar(255) DEFAULT NULL,
+  `atk_progress` varchar(255) DEFAULT NULL,
+  `atk_continue` varchar(255) DEFAULT NULL,
+  `atk_stop_why` varchar(255) DEFAULT NULL,
+  `atk_stop_descr` text,
+  `atk_time` varchar(255) DEFAULT NULL,
+  `atk_improve_doc` varchar(255) DEFAULT NULL,
+  `atk_improve_license` varchar(255) DEFAULT NULL,
+  `atk_improve_license_descr` text,
+  `atk_features` varchar(255) DEFAULT NULL,
+  `prof_ui` varchar(255) DEFAULT NULL,
+  `prof_js` varchar(255) DEFAULT NULL,
+  `prof_ajax` varchar(255) DEFAULT NULL,
+  `prof_models` varchar(255) DEFAULT NULL,
+  `prof_views` varchar(255) DEFAULT NULL,
+  `prof_templates` varchar(255) DEFAULT NULL,
+  `prof_deploy` varchar(255) DEFAULT NULL,
+  `prof_share` varchar(255) DEFAULT NULL,
+  `prof_educate` varchar(255) DEFAULT NULL,
+  `is_completed` enum('Y','N') DEFAULT 'Y',
+  PRIMARY KEY (`id`),
+  KEY `fk_atk_survey_atk_user1` (`user_id`),
+  KEY `fk_atk_survey_1_atk_user_survey1` (`user_survey_id`),
+  CONSTRAINT `fk_atk_survey_1_atk_user_survey1` FOREIGN KEY (`user_survey_id`) REFERENCES `atk_user_survey` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_atk_survey_atk_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `atk_survey_1` */
+
+/*Table structure for table `atk_user_survey` */
+
+DROP TABLE IF EXISTS `atk_user_survey`;
+
+CREATE TABLE `atk_user_survey` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `survey_id` int(11) NOT NULL,
+  `is_completed` enum('Y','N') DEFAULT 'N',
+  `is_invited` enum('Y','N') DEFAULT 'N',
+  PRIMARY KEY (`id`),
+  KEY `fk_atk_user_survey_atk_user1` (`user_id`),
+  KEY `fk_atk_user_survey_atk_survey1` (`survey_id`),
+  CONSTRAINT `fk_atk_user_survey_atk_survey1` FOREIGN KEY (`survey_id`) REFERENCES `atk_survey` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_atk_user_survey_atk_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `atk_user_survey` */
+
+/*Table structure for table `atk_video` */
+
+DROP TABLE IF EXISTS `atk_video`;
+
+CREATE TABLE `atk_video` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ord` int(11) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `is_public` enum('Y','N') DEFAULT NULL,
+  `src` varchar(255) DEFAULT NULL,
+  `descr` text,
+  `type` varchar(45) DEFAULT NULL,
+  `atk_version` varchar(45) DEFAULT NULL,
+  `complexity` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `type` (`type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `atk_video` */
+
+/*Table structure for table `user` */
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `rep` int(11) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `is_email_confirmed` varchar(45) NOT NULL DEFAULT '0',
+  `is_admin` tinyint(1) NOT NULL DEFAULT '0',
+  `full_name` varchar(255) DEFAULT NULL,
+  `twitter_token` varchar(255) DEFAULT NULL,
+  `google_token` varchar(255) DEFAULT NULL,
+  `facebook_token` varchar(255) DEFAULT NULL,
+  `token_email` varchar(255) DEFAULT NULL,
+  `created_dts` datetime DEFAULT NULL,
+  `logged_dts` datetime DEFAULT NULL,
+  `email_global` tinyint(1) NOT NULL DEFAULT '1',
+  `email_major_releases` tinyint(1) NOT NULL DEFAULT '1',
+  `email_blog` tinyint(1) NOT NULL DEFAULT '1',
+  `email_minor_releases` tinyint(1) NOT NULL DEFAULT '1',
+  `email_survey` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `user` */
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+</MIGR_QUERY>
