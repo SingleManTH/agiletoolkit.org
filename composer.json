@@ -4,6 +4,7 @@
     },
     "require": {
         "atk4/atk4": "4.3.*@dev",
+        "erusev/parsedown": "dev-master",
         "romaninsh/mdcms": "dev-master",
         "romaninsh/documenting": "dev-master",
         "opauth/opauth": ">=0.4.3",
