@@ -26,11 +26,13 @@ class Frontend extends ApiFrontend {
             'php'=>array('shared',),
         ));
 
+        /*
 
         $this->layout=$l=$this->add('Layout_Fluid');
 
         $l->addMenu('MainMenu')->addItems();
         $l->addFooter()->add('BottomMenu')->addItems();
+         */
 
         // See if sidebar is needed
         //$sb = yaml_parse_file('content/toc.yaml');
