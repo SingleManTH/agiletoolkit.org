@@ -43,6 +43,7 @@ class Frontend extends ApiFrontend {
 
 
         // There are a number of public pages. Take them out
+        /*
         $this->add('romaninsh/mdcms/Controller',
             array('target'=>$l,'callback'=>function($p){
                 $bar=$p->api->layout->addLeftBar();
@@ -54,6 +55,7 @@ class Frontend extends ApiFrontend {
             })
         );
 
+         */
 
         $r = $this->add("Controller_PatternRouter");
         $r
