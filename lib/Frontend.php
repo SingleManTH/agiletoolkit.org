@@ -54,6 +54,7 @@ class Frontend extends ApiFrontend {
             })
         );*/
 
+         */
 
         $r = $this->add("Controller_PatternRouter");
         $r
