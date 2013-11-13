@@ -1,0 +1,838 @@
+// ==========================================================
+// Mass Effect
+// ==========================================================
+
+* { 
+   -webkit-box-sizing: border-box; 
+   -moz-box-sizing: border-box; 
+   box-sizing: border-box;
+}
+
+// This part should be rewised
+.atk-form, p {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+// ==========================================================
+// Components
+// ==========================================================
+
+.atk-text-nowrap {
+    white-space: nowrap;
+}
+.atk-push-halve {
+    margin-bottom: @margin/2;
+}
+.atk-push {
+    margin-bottom: @margin;
+}
+.atk-push-double {
+   margin-bottom: @margin*2;
+}
+.atk-sep {
+    margin-left: @margin/3 !important;
+    margin-right: @margin/3 !important;
+}
+.atk-cells {
+    display:table;
+    > .atk-cell {
+        display: table-cell;
+        vertical-align: top;
+        .box-sizing();
+    }
+    &.atk-cells-gutter {
+        > .atk-cell {
+            + .atk-cell {
+                padding-left: 1em;
+            }
+        }
+    }
+}
+.atk-wrapper {
+    .fixed-container();
+}
+a,
+a:link,
+a:visited,
+button,
+input[type=button],
+input[type=submit] {
+    &.atk-button, &.ui-button {
+        .border-radius(@cornerRadius);
+        .stateDefault;
+        display: inline-block;
+        // font-size: @bodySize;
+        // font-size: 1em;
+        font-weight: 500;
+        line-height: @bodyBaseline;
+        // padding: @margin/4 @margin/2;
+        padding: 0.5em 1em;
+        &.atk-button-outline {
+            background: none;
+            border: 0.25em solid #fff;
+            color: #fff;
+        }
+    }
+}
+.atk-box {
+    .border-radius(@cornerRadius);
+    background: lightgray;
+    padding: @margin;
+    margin-bottom: @margin;
+    >h1, >h2, >h3, >h4, >h5, >h6 {
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}
+.atk-label {
+    .border-radius(@cornerRadius);
+    font-weight: bold;
+    padding: 0.2em 0.4em;
+}
+.atk-buttons {
+  .ui-button, button {
+    + * {
+      margin-left: @margin/3;
+    }
+  }
+}
+.atk-avatar {
+    display: inline-block;
+}
+.atk-pagination {
+    .clear-font;
+    >a {
+        background: #fff;
+        border: 1px solid @borderClickable;
+        font-size: @bodySize;
+        padding: @margin/4 @margin/2;
+        *[class*=icon] {
+            .position(relative, @r:-@margin/4);
+            margin-left: -@margin/2;
+        }
+        &:first-child {
+            .border-radius(@cornerRadius 0 0 @cornerRadius);
+            border-right-color: @borderStatic;
+        }
+        &:last-child {
+            .border-radius(0 @cornerRadius @cornerRadius 0); 
+            border-left-color: @borderClickable;
+            border-right-color: @borderClickable;
+        }
+        + a {
+            border-left-width: 0;
+            border-right-color: @borderStatic;
+        }
+    }
+}
+
+ // Growl 
+.atk-growl {
+    font-weight:bold;
+    position:fixed;
+    top:@margin*2;
+    right:@margin*2;
+    z-index:9999;
+    .opacity(80);
+    >div {
+        width:180px;
+        margin-top:@margin;
+        position:relative;
+        &:first-child {margin-top:0;}
+        .ui-icon-closethick {.opacity(0);@transition: opacity .2s;.transition(@transition);}
+        &:hover {.ui-icon-closethick {.opacity(100);}}
+    }
+}
+
+ // Notification 
+.atk-notification {
+    padding:@padding/2;
+    position:relative;
+    .atk-notification-text {
+        padding:0 20px;
+        >.ui-icon {position:absolute;top:@padding/1.8;left:@padding/2;}
+    }
+    >a.ui-icon-closethick {position:absolute;top:@padding/4;right:@padding/4;}
+}
+.atk-notification {.box-shadow(0 10px 20px @white inset);}
+.atk-growl>.atk-notification {
+    @shadow: 0 5px 10px fadeout(@shadowColor,60%),0 10px 20px @white inset;
+    .box-shadow(@shadow);
+}
+
+// Dialog Minimal
+.ui-dialog {
+    &.atk-dialog-minimal {
+        background: none;
+        border: none;
+        box-shadow: 0 0 100px rgba(0,0,0,0.25);
+        .ui-dialog-titlebar.ui-widget-header {
+            .atk-size-kilo;
+            background: #fff;
+            border: none;
+            border-radius: 0;
+            color: #000;
+            font-weight: 300;
+            margin: 0;
+            padding: @margin @margin 0 @margin;
+            .ui-dialog-titlebar-close {
+                display: none;
+            }
+        }
+        .ui-dialog-content.ui-widget-content {
+            background: #fff;
+            padding: @margin/2 @margin @margin @margin;
+            p {
+                margin-bottom: @margin/1.5;
+            }
+            .atk-form {
+                fieldset {
+                    margin: 0;
+                }
+                .atk-form-row {
+                    label {
+                        display: none;
+                    }
+                    .atk-form-field input {
+                        .atk-size-kilo;
+                        background: gray;
+                        border-color: black;
+                        // margin-left: -@margin;
+                        padding: @margin/2;
+                        .placeholder(red);
+                        .transition(.3s);
+                        &:focus {
+                            background: #fff;
+                        }
+                    }
+                    + .atk-form-row {
+                        margin-top: 0;
+                        // .atk-form-field input {
+                        //  border-top: none;
+                        // }
+                    }
+                }
+                .atk-buttons {
+                    display: none;
+                }
+            }
+        }
+        .ui-dialog-buttonpane {
+            border-color: black;
+            margin: 0;
+            padding: 0;
+            .ui-dialog-buttonset {
+                .flex;
+                float: none;
+                width: 100%;
+                .ui-button {
+                    .box-flex;
+                    .atk-size-kilo;
+                    background: none;
+                    border: none;
+                    border-radius: 0;
+                    color: red;
+                    display: block;
+                    font-weight: 300;
+                    line-height: 1;
+                    margin: 0;
+                    padding: 1em 0;
+                    text-shadow: none;
+                    &:hover {
+                        background: lighten(gray,3%);
+                    }
+                    + .ui-button {
+                        border-left: 1px solid black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// ==========================================================
+// Widgets
+// ==========================================================
+.atk-actions {
+    >* {
+        + * {
+            margin-left: 0.3em;
+        }
+    }   
+}
+.atk-media-block {
+    display: table;
+    .atk-media, .atk-content {
+        display: table-cell;
+        vertical-align: top;
+    }
+    .atk-media>img {
+        display: block;
+    }
+    .atk-media + .atk-content {
+        padding-left: @margin;
+    }
+    .atk-table & .atk-media + .atk-content {
+        padding-left: @margin/2;
+    }
+}
+// .atk-menu-bar {
+//     width: 100%;
+//     &.atk-cells>* {
+//         vertical-align: middle;
+//         .atk-logo, .atk-actions, .atk-media-block {
+//             margin-left: @margin;
+//             margin-right: @margin;
+//             white-space: nowrap;
+//         }
+//         .atk-logo {
+//             display: inline-block;
+//             margin-top: 0.5em;
+//             margin-bottom: 0.5em;
+//         }
+//         .atk-media-block .atk-content {
+//             padding-left: @margin/3;
+//         }
+//     }
+// }
+.atk-menu-bar {
+    line-height: 1;
+    padding: @margin 0;
+    width: 100%;
+    &.atk-cells>* {
+        padding-right: 2.5em;
+        .atk-logo {
+            display: inline-block;
+        }
+        .atk-media-block .atk-content {
+            padding-left: @margin/3;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+.atk-menu {
+    display: inline-block;
+    &, li {
+        .clear-ul;
+    }
+    >li {
+        // margin-left: 1px;
+        a {
+            display: block;
+            // padding: 0.6em 1.2em;
+            margin: 0 1.2em;
+        }
+        &:first-child a {
+            .border-radius(@cornerRadius 0 0 @cornerRadius);
+            // margin: 0;
+        }
+        &:last-child a {
+            .border-radius(0 @cornerRadius @cornerRadius 0);
+        }
+    }
+    &.atk-menu-horizontal {
+        display: table;
+        >li {
+            display: table-cell;
+        }
+    }
+    &.atk-menu-horizontal-justified {
+        .flex;
+        >li {
+            .box-flex(1);
+            text-align: center;
+            margin-left: 1px;
+        }
+    }
+    &.atk-swatch-1 {
+        background: none !important;
+        >li {
+            a {
+                background: @swatch1;
+                &:hover {
+                    background: darken(@swatch1, 10%);
+                    color: #000;
+                }
+            }
+            &.atk-state-active {
+                background: darken(@swatch1, 5%);
+            }
+        }
+    }
+}
+.atk-popover.ui-dialog {
+    border-color: @borderStatic;
+    border-radius: @cornerRadius;
+    box-shadow: 0 5px 10px fade(@colorDark,30%);
+    >.ui-dialog-titlebar {
+        display: none;
+    }
+    >.ui-dialog-content {
+        background: #fff;
+        border-radius: @cornerRadius;
+        padding: @margin/2;
+        z-index: 2;
+    }
+    .arrow.top {
+        margin-bottom: -5px;
+        z-index: 1 !important;
+        &:after {
+            background: #fff;
+            border-color: @borderStatic;
+        }
+    }
+}
+
+
+
+
+// ==========================================================
+// Selection Colors
+// ==========================================================
+
+::selection {
+    background: green;
+    color: blue;
+}
+::-moz-selection {
+    background: green;
+    color: blue;
+}
+img::selection {
+    background: transparent;
+}
+img::-moz-selection {
+    background: transparent;
+}
+body {
+    -webkit-tap-highlight-color: green;
+}
+
+
+// ==========================================================
+// Styling
+// ==========================================================
+
+a {
+    color: @linkColor;
+    text-decoration: none;
+    &:hover, &:focus{
+        color: @linkColorHover;
+    }
+}
+
+// Helpers
+.atk-jackscrew {
+    width: 100%;
+}
+
+// Clearers
+.atk-clear-fix {
+    .clear-fix;
+}
+
+// Object Positioning
+.atk-move-left {
+    float: left;
+}
+.atk-move-center {
+    margin-left: auto;
+    margin-right: auto;
+    &.atk-button {
+        display: block;
+    }
+}
+.atk-move-right {
+    float: right;
+}
+
+// Horizontal Alignment
+.atk-align-left {
+    text-align: left;
+}
+.atk-align-right {
+    text-align: right;
+}
+.atk-align-center {
+    text-align: center;
+}
+
+// Vertical Alignment
+.atk-valign-top {
+    vertical-align: top !important;
+}
+.atk-valign-middle {
+    vertical-align: middle !important;
+}
+.atk-valign-bottom {
+    vertical-align: bottom !important;
+}
+
+
+// Shapes
+.atk-shape-rounded {
+    &, img& {
+        .border-radius(@cornerRadius);
+    }
+}
+.atk-shape-circle {
+    &, img& {
+        .border-radius(50%);
+    }
+}
+// .atk-shape-diamond {
+//     &, img& {
+//         .rotate(-45deg);
+//         .transform-origin(50% 50%)
+//     }
+// }
+
+
+// States
+.stateDefault() {
+    .box-shadow(0 1px 0 rgba(0,0,0,0.1));
+    background: @stateDefault;
+    border: 1px solid @borderClickable;
+    color: @bodyColor;
+}
+.stateHover() {
+    background: @stateHover;
+    border: 1px solid @borderClickable;
+    color: @bodyColor;
+}
+.stateActive() {
+    background: @stateActive;
+    border: 1px solid @borderClickable;
+    color: @bodyColor;
+}
+
+
+
+// ==========================================================
+// Colors
+// ==========================================================
+
+.colorCheck (@a) when (lightness(@a) >= 50%) {
+  color: black;
+}
+.colorCheck (@a) when (lightness(@a) < 50%) {
+  color: white;
+}
+
+*[class*=atk-swatch], .atk-button[class*=atk-swatch], .atk-label[class*=atk-swatch] {
+    color: #fff;
+    a {
+        color: #000;
+        &:hover {
+            color: blue;
+        }
+    }
+    hr {
+        background-color: #000;
+    }
+    &.atk-swatch-1 {
+        background: @swatch1;
+        border-color: @swatch2;
+        &, a {
+            .colorCheck(@swatch1);
+        }
+    }
+    &.atk-swatch-2 {
+        background: @swatch2;
+        border-color: @swatch2;
+        &, a {
+            .colorCheck(@swatch2);
+        }
+    }
+    &.atk-swatch-3 {
+        background: @swatch3;
+        border-color: @swatch3;
+        &, a {
+            .colorCheck(@swatch3);
+        }
+    }
+    &.atk-swatch-4 {
+        background: @swatch4;
+        border-color: @swatch4;
+        &, a {
+            .colorCheck(@swatch4);
+        }
+    }
+    &.atk-swatch-5 {
+        background: @swatch5;
+        border-color: @swatch5;
+        &, a {
+            .colorCheck(@swatch5);
+        }
+    }
+    &.atk-button:hover {
+        &.atk-swatch-1 {
+            background: lighten(@swatch1, 5%);
+        }
+        &.atk-swatch-2 {
+            background: lighten(@swatch2, 5%);
+        }
+        &.atk-swatch-3 {
+            background: lighten(@swatch3, 5%);
+        }
+        &.atk-swatch-4 {
+            background: lighten(@swatch4, 5%);
+        }
+        &.atk-swatch-5 {
+            background: lighten(@swatch5, 5%);
+        }
+    }
+}
+*[class*=atk-effect] {
+    &.atk-effect-danger {
+        background: @effectDanger;
+    }
+    &.atk-effect-warning {
+        background: @effectWarning;
+    }
+    &.atk-effect-success {
+        background: @effectSuccess;
+    }
+    &.atk-effect-info {
+        background: @effectInfo;
+    }
+    &.atk-button {
+        &.atk-effect-danger {
+            .stateDefault;
+            color: red;
+        }
+    }
+}
+
+
+// ==========================================================
+// jQueryUI
+// ==========================================================
+
+// Components
+.ui-corner-all {
+    .border-radius(@cornerRadius);
+}
+.ui-state-default {
+    &, a:link, a:visited {
+        color: @bodyColor;
+    }
+    &,
+    .ui-widget-content &,
+    .ui-widget-header & {
+        .stateDefault;
+        &.ui-state-hover {
+            .stateHover;
+        }
+        &.ui-state-active, &.ui-state-focus {
+            .stateActive;
+        }
+    }
+}
+.ui-button {
+    .ui-button-text {
+        padding: 0;
+    }
+}
+.ui-widget {
+    color: @bodyColor;
+    font-family: @bodyFamily;
+    font-size: @bodySize;
+}
+.ui-widget-header {
+    .clear-area;
+    color: @bodyColor;
+    .ui-state-hover {
+        background: @stateHover;
+    }
+}
+.ui-widget-content {
+    background: @colorLight;
+    color: @bodyColor;
+    a {
+        color: @linkColor;
+        &:hover {
+            color: @linkColorHover;
+        }
+    }
+}
+.ui-helper-reset {
+    font-size: @bodySize;
+    line-height: @bodyBaseline;
+}
+
+
+// Widgets
+.ui-datepicker {
+    border-color: @borderOverlay;
+    padding: @margin/2;
+    .ui-datepicker-header {
+        background: none;
+        border: none;
+        color: #000;
+        margin-bottom: @margin/2;
+        padding: 0;
+        .ui-icon {
+            display: none;
+        }
+        .ui-datepicker-title {
+            .atk-size-mega;
+            font-weight: 300;
+            line-height: 1;
+            margin: 0;
+        }
+        .ui-datepicker-next, .ui-datepicker-prev {
+            cursor: pointer;
+            height: auto;
+            // position: static;
+            line-height: 1;
+            padding-top: @margin/7;
+            padding-bottom: @margin/8;
+            text-align: center;
+            width: 1.2rem;
+            &:before {
+                color: @colorPrimary;
+                display: block;
+                font-family: "fontello";
+                font-size: 12px;
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .ui-state-hover {
+            // background: @colorHover;
+            border: none;
+        }
+        .ui-datepicker-prev {
+            left: 0;
+            // padding-left: @margin/4;
+            // padding-right: @margin/5;
+            top: 0;
+            &:before {
+                content: '\ea60';
+            }
+            &.ui-datepicker-prev-hover {
+                left: 0;
+                top: 0;
+            }
+        }
+        .ui-datepicker-next {
+            right: 0;
+            // padding-left: @margin/3;
+            // padding-right: @margin/5;
+            text-indent: 0.1rem;
+            top: 0;
+            &:before {
+                content: '\ea61';
+            }
+            &.ui-datepicker-next-hover {
+                right: 0;
+                top: 0;
+            }
+        }
+    }
+    table.ui-datepicker-calendar {
+        border-collapse: collapse;
+        border-spacing: 0;
+        line-height: 1;
+        margin: 0;
+        table-layout: fixed;
+        tr {
+            a, span {
+                display: inline-block;
+                padding: @margin/5;
+            }
+            td, th {
+                border: 1px solid @borderStatic;
+                padding: 0;
+                text-align: center;
+                &:first-child {
+                    border-left: none;
+                }
+                &:last-child {
+                    border-right: none;
+                }
+            }
+            th {
+                border-top: none;
+            }
+            td {
+                a.ui-state-default {
+                    // background: none;
+                    border: none;
+                    display: block;
+                    font-weight: normal;
+                    text-align: center;
+                }
+                &.ui-datepicker-today {
+                    // background: @effectInfo;
+                    a {
+                        // .position(relative, @t:-1px, @l:-1px);
+                        outline: 1px solid red;
+                        // padding: 1px;
+                    }
+                }
+            }
+            &:last-child {
+                td {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
+.ui-tabs {
+    .clear-area;
+    .ui-tabs-nav.ui-widget-header {
+        border-bottom: 1px solid @borderStatic;
+        padding: 0;
+        .ui-state-default {
+            .box-shadow(none);
+            background: none;
+            border-bottom: none;
+            border-color: transparent;
+            &.ui-state-active {
+                background: @colorLight;
+                border-color: @borderStatic;
+            }
+        }
+    }
+    .ui-tabs-panel.ui-widget-content {
+        background: @colorLight;
+        border: 1px solid @borderStatic;
+        border-top-width: 0;
+        padding: @margin;
+    }
+}
+.ui-accordion {
+    .ui-accordion-header {
+        &.ui-state-active {
+            background: @colorLight;
+            border-color: @borderStatic;
+            border-bottom-color: @colorLight;
+            &, +.ui-accordion-content {
+                .box-shadow(none);
+            }
+        }
+    }
+    .ui-accordion-content {
+        border-color: @borderStatic;
+        padding: @margin/2;
+    }
+}
+
+
+// ==========================================================
+// Fixes
+// ==========================================================
+
+.row {
+    .clear-fix;
+}

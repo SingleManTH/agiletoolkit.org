@@ -2,6 +2,7 @@
 $.each({
 
     page_init: function(){
+        alert("test");
         $('.global-header .login button, .global-header .documentation button').button();
         //$('.global-header .login, .global-header .documentation').hover(function() { $(this).addClass("hover"); });
 

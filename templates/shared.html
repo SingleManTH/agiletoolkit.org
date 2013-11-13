@@ -14,16 +14,9 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <link href="<?css?>agiletoolkit.css<?/?>" rel="stylesheet" type="text/css" />
-        <link href="<?css?>agiletoolkit-custom.css<?/?>" rel="stylesheet" type="text/css" />
+        <link href="/.<?css?>agiletoolkit-custom.css<?/?>" rel="stylesheet" type="text/css" />
 
-		<?$js_include?>
 
-		<script type="text/javascript">
-			$(function(){
-				<?$document_ready?>
-			});
-		</script>
 	</head>
 	<body id="<?$pagename?>">
         <!--[if lt IE 7]>
@@ -34,22 +27,95 @@
 
         <div class="atk-layout">
 			<div class="atk-layout-row">
-				<header id="atk-header" class="giga">AgileToolkit 4.3 &ndash; <strong>Snippets</strong></header>
-                <?$Menu?>
+				<header id="header" class="atk-swatch-2">
+					<div class="atk-wrapper">
+						<div class="atk-bar atk-cells atk-text-nowrap">
+							<div class="atk-cell atk-valign-middle">
+								<a href="#" class="atk-logo">
+									<img src="./<?template?>images/logo-agiletoolkit.png<?/?>" alt="Agile Toolkit" />
+								</a>
+							</div>
+							<div class="atk-cell  atk-valign-middle atk-jackscrew">
+								<ul class="atk-menu atk-menu-horizontal">
+									<li class="atk-state-active"><a href="#">Item 1</a></li>
+									<li><a href="#">Item 2</a></li>
+									<li><a href="#">Item 3</a></li>
+								</ul>
+								<!-- <?$Menu?> -->
+							</div>
+							<div class="atk-cell atk-valign-middle">
+								<div class="atk-actions">
+									<a href="#" class="atk-label atk-swatch-3">Upgrade</a><span class="atk-sep">&sdot;</span><a href="#">Help</a>
+								</div>
+							</div>
+							<div class="atk-cell atk-valign-middle">
+								<div class="atk-media-block">
+									<div class="atk-media atk-valign-middle">
+										<img src="./<?template?>/temp/kanye.png<?/?>" alt="Apples" width="32" class="atk-shape-circle" />
+									</div>
+									<div class="atk-content atk-valign-middle">John Smith<span class="icon-down-dir"></span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</header>
 			</div>
-
-            <div id="atk-content">
-                <?$Content?>
-            </div>
-
+			<div class="atk-layout-row fluid" id="atk-main">
+				<div class="atk-layout" id="atk-main-inner">
+		            <div class="atk-layout-column fluid" id="atk-content">
+		                <?$Content?>
+		            </div>
+				</div>
+			</div>
 			<div class="atk-layout-row">
-				<footer id="atk-footer">
-					&copy; Agile Toolkit 2013
+				<footer id="footer" class="atk-swatch-2">
+					<section class="atk-section sitemap">
+						<div class="atk-wrapper row">
+							<ul class="atk-list-clean atk-simple span_3 col">
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+							</ul>
+							<ul class="atk-list-clean span_3 col">
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+							</ul>
+							<ul class="atk-list-clean span_3 col">
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+							</ul>
+							<ul class="atk-list-clean span_3 col">
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+								<li><a href="#">Test</a></li>
+							</ul>
+						</div>
+					</section>
+					<section class="atk-switch-1">
+						<div class="atk-wrapper">&copy; Agile Toolkit 2013</div>
+					</section>
 				</footer>
 			</div>
 		</div>
 
         <?/?>
 
+
+		<?$js_include?>
+		<script type="text/javascript">
+			$(function(){
+				<?$document_ready?>
+			});			
+		</script>
 	</body>
 </html>

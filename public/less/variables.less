@@ -1,0 +1,63 @@
+// ==========================================================
+// General
+// ==========================================================
+
+@bodyBackground:       #fff;
+@margin:               1rem * @bodyBaseline;
+@cornerRadius:         3px;
+@siteWidth:            960px;
+
+
+// ==========================================================
+// Typography
+// ==========================================================
+
+@bodyFamily:           "NeueHaasGroteskDisp W01", "Helvetica Neue", "Helvetica", @jui-ffDefault;
+@bodyColor:            #393d40;
+@bodySize:             1rem; /* 16px */
+@bodyBaseline:         1.618; /* 24px */
+
+@headingColor:         #2b3033;
+@headingFamily:        "NeueHaasGroteskText W01", "Helvetica Neue", "Helvetica", @jui-ffDefault;
+@headingWeight:        400;
+
+
+// ==========================================================
+// Colors
+// ==========================================================
+
+@linkColor:            shade(@swatch2, 15%);
+@linkColorHover:       shade(@swatch2, 40%);
+
+@borderStatic:         #e1e1e1;
+@borderClickable:      #c1c1c1;
+@borderOverlay:        darken(@borderStatic, 25%);
+
+@stateDefault:         #fff;
+@stateHover:           #f5f5f5;
+@stateActive:          #eee;
+
+@colorFocus:           blue; // (!)
+@colorLight:           #fff; // (!)
+@colorDark:            #000; // (!)
+
+@swatch1:              #e6f2ec;
+@swatch2:              #1c2933;
+@swatch3:              #ffec1a;
+@swatch4:              #00e673;
+@swatch5:              #3da7f2;
+
+@effectSuccess:        #ccffdb;
+@effectWarning:        #fcffcc;
+@effectDanger:         #ffcccc;
+@effectInfo:           #cceeff;
+
+
+// ==========================================================
+// Import
+// ==========================================================
+
+@import                "jui-variables.less";
+
+
+// (!) — Need to check if it can be simplified.

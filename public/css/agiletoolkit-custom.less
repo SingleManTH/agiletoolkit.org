@@ -1,0 +1,120 @@
+// ==========================================================
+// Import
+// ==========================================================
+
+@import '/css/agiletoolkit.less';
+@import "../less/variables.less";
+@import "../less/mixins.less";
+
+
+// ==========================================================
+// Variables
+// ==========================================================
+
+@swatch1Darken:   #cfd9d4;
+@swatch1Lighten:  #eef6f2;
+@swatch2Darken:   #19252e;
+@swatch2Lighten:  #616a71;
+@swatch3Darken:   #ffd417;
+@swatch3Lighten:  #fff25f;
+@swatch4Darken:   #00cf67;
+@swatch4Lighten:  #4dee9d;
+@swatch5Darken:   #3796d9;
+@swatch5Lighten:  #78c2f6;
+
+@siteWidth: 71.25em;
+
+
+// ==========================================================
+// Mixins
+// ==========================================================
+
+.haasMedium() {
+	font-family:'NHaasGroteskTXW01-65Md', 'Helvetica Neue', 'Helvetica', sans-serif;
+	font-weight: normal;
+}
+.haasBold() {
+	font-family:'NHaasGroteskDSW01-75Bd', 'Helvetica Neue', 'Helvetica', sans-serif;
+	font-weight: normal;
+}
+
+
+// ==========================================================
+// Typography
+// ==========================================================
+
+h1, strong {
+	.haasBold;
+}
+
+
+// ==========================================================
+// Components
+// ==========================================================
+
+
+
+// ==========================================================
+// AgileToolkit Adjustments
+// ==========================================================
+
+.atk-button {
+	.haasMedium;
+}
+
+
+// ==========================================================
+// Header
+// ==========================================================
+
+#header {
+	a {
+		.haasMedium
+	}
+}
+
+
+// ==========================================================
+// Page Front
+// ==========================================================
+
+#page-front {
+	#header {
+		.position(@l:50%);
+		background: none;
+		margin-left: -@siteWidth/2;
+	}
+	.hero {
+		background: @swatch4Darken url(../images/bg-poly-green.jpg) no-repeat fixed;
+		background-size: cover;
+		padding: @margin*6 0 @margin*4 0;
+		h3 {
+			margin-top: @margin;
+		}
+		.fake-video {
+			display: block;
+			margin-top: @margin/2;
+			text-align: center;
+			.thumbnail {
+				background-color: rgba(255,255,255,0.3);
+				display: block;
+				height: 10em;
+				line-height: 1;
+				margin-bottom: @margin/2;
+				position: relative;
+				text-align: center;
+				.icon-play-circled {
+					.position(@t:50%, @l:0);
+					margin: -0.5em 0 0 0;
+					text-align: center;
+					width: 100%;
+				}
+			}
+		}
+	}
+	.key-features {
+		.atk-size-peta {
+			margin: 0;
+		}
+	}
+}
