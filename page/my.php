@@ -7,7 +7,7 @@ class page_my extends Page {
     function page_index(){
 
 
-        if($this->api->me['is_admin'])$this->add('AdminMenu');
+        if($this->api->me()['is_admin'])$this->add('AdminMenu');
 
         $m=$this->add('Button')->set('Add New ..')->addMenu();
         $m->addMenuItem($this->js()->univ()->frameURL(
@@ -23,6 +23,11 @@ class page_my extends Page {
             'Add New Theme',
             $this->api->url('./add',array('t'=>'Theme'))), 'Agile Toolkit Theme');
 
+
+        $b = $this->add('Button')->set('Test2');
+        $pop = $this->add('View_Popover');
+        $pop->add('HelloWorld');
+        $b->js('click', $pop->showJS($b));
 
 
         $tt=$this->add('Tabs');

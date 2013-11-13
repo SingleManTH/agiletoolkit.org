@@ -1,0 +1,38 @@
+<div class="atk-layout">
+
+    <!-- HEADER :: BEGIN -->
+    <div class="atk-menu-bar atk-cells atk-swatch-1 atk-size-mega" id="atk-header">
+        <div class="atk-cell">
+            <a href="<?page?>/<?/?>" class="atk-logo atk-size-giga"><img src="<?public?>images/logo.png<?/?>" height="25"/></a>
+        </div>
+
+        <div class="atk-cell main-menu">
+        <?$Header?>
+        </div>
+
+
+        <div class="atk-cell">
+            <div class="atk-media-block">
+                <div class="atk-media atk-valign-middle">
+                    <img src="https://www.gravatar.com/avatar/0d9d336899c45015484dcd146f4fe883?s=64&d=identicon&r=PG" alt="Vadym" width="32" class="atk-shape-circle">
+                </div>
+                <div class="atk-content atk-valign-middle">Vadym<span class="icon-down-dir"></span></div>
+            </div>
+        </div>
+    </div>
+    <!-- HEADER :: END -->
+
+
+
+    <div id="atk-main" class="atk-layout-row fluid">
+        <div id="atk-main-inner" class="atk-layout">
+            <?$LeftBar?>
+            <div id="atk-content" class="atk-layout-column fluid">
+                <?$Content?>
+            </div>
+            <?$RightBar?>
+
+        </div>
+    </div>
+<?$Footer?>
+</div>

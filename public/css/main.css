@@ -1,0 +1,40 @@
+/*!
+ * Agile Toolkit CSS Framework
+ *
+ * Copyright 2000-2013 Agile Toolkit Limited
+ * http://agiletoolkit.org/
+ *
+ * This file combines all the less files together. If
+ * you wish to change your CSS settings - use CodeKit
+ * or a dedicated Agile Toolkit add-on
+ */
+/*!
+ * Debug: there must be NO CSS code above this (in main.css)
+ */
+.main-menu {
+
+}
+.main-menu li {
+    padding: 1px;
+    cursor: pointer;
+}
+.main-sub-menu {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 150px;
+}
+.main-sub-menu li {
+    padding: 0;
+    margin: 0;
+}
+.main-sub-menu li a {
+    padding: 0;
+    margin: 0;
+}
+.bottom-menu {
+
+}
+.bottom-menu > li {
+    float: left;
+}

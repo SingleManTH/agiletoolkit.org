@@ -4,10 +4,10 @@ class Frontend extends ApiFrontend {
     public $public_location;    // js, css, images
     public $private_location;   // templates, php files, resources
 
-    public $me;
-
     function init(){
         parent::init();
+
+        $this->requires('atk','4.3');
 
         $this->add('jUI');
         $a=$this->dbConnect();
@@ -16,18 +16,44 @@ class Frontend extends ApiFrontend {
         $this->pathfinder->public_location->addRelativeLocation('atk43',
             array(
                 'css'=>'css',
-                'addons'=>'vendor',
+                'public'=>'.',
             ));
 
         $this->api->pathfinder->base_location->defineContents(array(
-            'docs'=>array('docs','doc')
+            'docs'=>array('docs','doc'),  // Documentation (external)
+            'content'=>'content',          // Content in MD format
+            'addons'=>'vendor',
+            'php'=>array('shared',),
         ));
 
-        $this->add('MainMenu',null,'Menu');
+
+        $this->layout=$l=$this->add('Layout_Fluid');
+
+        $l->addMenu('MainMenu')->addItems();
+        $l->addFooter()->add('BottomMenu')->addItems();
+
+        // See if sidebar is needed
+        //$sb = yaml_parse_file('content/toc.yaml');
+        //var_Dump($sb);
+
 
         $a=$this->api->add('Auth');
         $a->usePasswordEncryption();
         $a->setModel('User');
+
+
+        // There are a number of public pages. Take them out
+        $this->add('romaninsh/mdcms/Controller',
+            array('target'=>$l,'callback'=>function($p){
+                $bar=$p->api->layout->addLeftBar();
+                $m=$bar->add('LeftMenu');
+                $m->addMenuItem('hello');
+
+
+
+            })
+        );
+
 
         $r = $this->add("Controller_PatternRouter");
         $r
@@ -72,6 +98,20 @@ class Frontend extends ApiFrontend {
         }
 
 
+    }
+    function me() {
+        if (!$this->auth->isLoggedIn()) {
+            throw $this->exception('Must be logged in');
+        }
+
+        return $this->auth->model;
+    }
+    function myID() {
+        if (!$this->auth->isLoggedIn()) {
+            throw $this->exception('Must be logged in');
+        }
+
+        return $this->auth->model->id;
     }
     /*
     function getConfig($path, $default_value = undefined){
