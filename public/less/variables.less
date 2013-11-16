@@ -12,13 +12,12 @@
 // Typography
 // ==========================================================
 
-@bodyFamily:           "NeueHaasGroteskDisp W01", "Helvetica Neue", "Helvetica", @jui-ffDefault;
+@bodyFamily:           "NeueHaasGroteskText W01", "Helvetica Neue", "Helvetica", @jui-ffDefault;
 @bodyColor:            #393d40;
 @bodySize:             1rem; /* 16px */
-@bodyBaseline:         1.618; /* 24px */
 
 @headingColor:         #2b3033;
-@headingFamily:        "NeueHaasGroteskText W01", "Helvetica Neue", "Helvetica", @jui-ffDefault;
+@headingFamily:        "NHaasGroteskDSW01-75Bd", "Helvetica Neue", "Helvetica", @jui-ffDefault;
 @headingWeight:        400;
 
 
@@ -26,8 +25,8 @@
 // Colors
 // ==========================================================
 
-@linkColor:            shade(@swatch2, 15%);
-@linkColorHover:       shade(@swatch2, 40%);
+@linkColor:            shade(@atk-swatch-blue, 15%);
+@linkColorHover:       shade(@atk-swatch-blue, 40%);
 
 @borderStatic:         #e1e1e1;
 @borderClickable:      #c1c1c1;
@@ -41,11 +40,11 @@
 @colorLight:           #fff; // (!)
 @colorDark:            #000; // (!)
 
-@swatch1:              #e6f2ec;
-@swatch2:              #1c2933;
-@swatch3:              #ffec1a;
-@swatch4:              #00e673;
-@swatch5:              #3da7f2;
+@atk-swatch-gray:	   #e6f2ec;		.createSwatch(atk-swatch-gray);
+@atk-swatch-ink:       #1c2933;		.createSwatch(atk-swatch-ink);
+@atk-swatch-yellow:	   #ffec1a;		.createSwatch(atk-swatch-yellow);
+@atk-swatch-green:     #00e673;		.createSwatch(atk-swatch-green);
+@atk-swatch-blue:      #3da7f2;		.createSwatch(atk-swatch-blue);
 
 @effectSuccess:        #ccffdb;
 @effectWarning:        #fcffcc;

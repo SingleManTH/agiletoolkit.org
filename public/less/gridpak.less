@@ -36,39 +36,39 @@
     /* 1. 12 Column Grid 0px - Infinity 
     ----------------------------------------------------------------------------- 
     
-    Span 1:    4.66666666667%
-    Span 2:    13.3333333333%
-    Span 3:    22.0%
-    Span 4:    30.6666666667%
-    Span 5:    39.3333333333%
-    Span 6:    48.0%
-    Span 7:    56.6666666667%
-    Span 8:    65.3333333333%
-    Span 9:    74.0%
-    Span 10:    82.6666666667%
-    Span 11:    91.3333333333%
+    Span 1:    8.33333333333%
+    Span 2:    16.6666666667%
+    Span 3:    25.0%
+    Span 4:    33.3333333333%
+    Span 5:    41.6666666667%
+    Span 6:    50.0%
+    Span 7:    58.3333333333%
+    Span 8:    66.6666666667%
+    Span 9:    75.0%
+    Span 10:    83.3333333333%
+    Span 11:    91.6666666667%
     Span 12:    100%
     
     ----------------------------------------------------------------------------- */	
     
 	@media screen and (min-width: 0px) {
         
+        .row {
+            margin-left:-40px;
+        }
+        
         .col {
-            margin-left:4%;
-            padding:0 0%;
+            border-left-width:40px;
+            padding:0 0px;
         }
         
         /* --- Gridpak variables ---*/ 
         @max_columns: 12;
-        @padding: 0 0%;
-        @gutter_px: 0;
-        @gutter_pc: 4%;
+        @padding: 0 0px;
+        @gutter_px: 40px;
+        @gutter_pc: 0;
         
 
-        
-        .row .col:first-child {
-            .mixin-span_first;
-        }
         
         
         /*
