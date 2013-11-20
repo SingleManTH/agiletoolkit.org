@@ -2,8 +2,15 @@
     "autoload": {
         "psr-0": {"": "lib/"}
     },
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "git@github.com:atk4/atk-default-theme.git"
+      }
+    ],
     "require": {
         "atk4/atk4": "4.3.*@dev",
+        "atk4/atk-default-theme": "dev-master",
         "erusev/parsedown": "dev-master",
         "romaninsh/mdcms": "dev-master",
         "romaninsh/documenting": "dev-master",
