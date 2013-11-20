@@ -729,21 +729,18 @@ h6 + .atk-form {
   margin-top: 1.667rem;
 }
 .atk-size-zetta {
-  font-size: 5.792rem;
-}
-.atk-size-exa {
   font-size: 4.632rem;
 }
-h1 {
-  line-height: 1.1;
+.atk-size-exa {
+  font-size: 3.474rem;
 }
 h1,
 .atk-size-peta {
-  font-size: 3.474rem;
+  font-size: 2.779rem;
 }
 h2,
 .atk-size-tera {
-  font-size: 2.779rem;
+  font-size: 2.084rem;
 }
 h3,
 .atk-size-giga {
@@ -945,15 +942,19 @@ samp {
   line-height: 1.667;
 }
 hr {
-  background: darkgray;
+  background: none;
   border: none;
+  border-top: 1px solid #e1e1e1;
   margin: 1.667rem 0;
   width: 100%;
   height: 1px;
   clear: both;
 }
-hr.small {
+hr.atk-hr-small {
   margin: 0.8335rem 0;
+}
+hr.atk-hr-dotted {
+  border-top-style: dotted;
 }
 .atk-table table {
   width: 100%;
@@ -1283,10 +1284,10 @@ p:last-child {
 .atk-text-nowrap {
   white-space: nowrap;
 }
-.atk-push-halve {
+.atk-push-small {
   margin-bottom: 0.8335rem;
 }
-.atk-push-halve:last-child {
+.atk-push-small:last-child {
   margin-bottom: 0;
 }
 .atk-push {
@@ -1295,10 +1296,10 @@ p:last-child {
 .atk-push:last-child {
   margin-bottom: 0;
 }
-.atk-push-double {
+.atk-push-large {
   margin-bottom: 3.334rem;
 }
-.atk-push-double:last-child {
+.atk-push-large:last-child {
   margin-bottom: 0;
 }
 .atk-sep {
@@ -1319,7 +1320,7 @@ p:last-child {
 .atk-cells.atk-cells-gutter .atk-cell + .atk-cell {
   padding-left: 1em;
 }
-.atk-cells.atk-cells-gutter-halve .atk-cell + .atk-cell {
+.atk-cells.atk-cells-gutter-small .atk-cell + .atk-cell {
   padding-left: 0.5em;
 }
 a.atk-button,
@@ -1449,6 +1450,9 @@ input[type=submit].ui-button.atk-button-outline {
 .atk-pagination > a + a {
   border-left-width: 0;
   border-right-color: #e1e1e1;
+}
+.atk-text-dimmed {
+  color: #9da3a8;
 }
 .atk-growl {
   font-weight: bold;
@@ -1671,7 +1675,9 @@ input[type=submit].ui-button.atk-button-outline {
 }
 .atk-menu > li a {
   display: block;
-  margin: 0 1.2em;
+}
+.atk-menu > li + li a {
+  margin: 0 0 0 2em;
 }
 .atk-menu > li:first-child a {
   -webkit-border-radius: 3px 0 0 3px;
@@ -2090,7 +2096,6 @@ img.atk-shape-circle {
   clear: both;
 }
 /* jQueryUI parameters transformed to less variables. */
-/* 14px */
 .atk-swatch-blue,
 .atk-swatch-blue.atk-button[class*=atk-swatch],
 .atk-swatch-blue.atk-label[class*=atk-swatch] {
@@ -5006,71 +5011,7 @@ img.atk-shape-circle {
 .mixin-span_first {
   margin-left: 0;
 }
-/* 1. 6 Column Grid 0px - 758px 
-    ----------------------------------------------------------------------------- 
-    
-    Span 1:    16.6666666667%
-    Span 2:    33.3333333333%
-    Span 3:    50.0%
-    Span 4:    66.6666666667%
-    Span 5:    83.3333333333%
-    Span 6:    100%
-    
-    ----------------------------------------------------------------------------- */
-@media screen and (min-width: 0px) and (max-width: 758px) {
-  .col {
-    margin-left: 0%;
-    padding: 0 1.5%;
-  }
-  /* --- Gridpak variables ---*/
-  .row .col:first-child {
-    margin-left: 0;
-  }
-  /*
-        Add your semantic classnames in alongside their corresponding spans here. e.g.
-        
-        .span_3,
-        .my_semantic_class_name {
-            ...
-        }
-        
-        */
-  .span_1 {
-    width: 16.666666666666668%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
-  }
-  .span_2 {
-    width: 33.333333333333336%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
-  }
-  .span_3 {
-    width: 50%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
-  }
-  .span_4 {
-    width: 66.66666666666667%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
-  }
-  .span_5 {
-    width: 83.33333333333334%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
-  }
-  .span_6 {
-    margin-left: 0;
-    width: 100%;
-  }
-}
-/* 2. 12 Column Grid 759px - Infinity 
+/* 1. 12 Column Grid 0px - Infinity 
     ----------------------------------------------------------------------------- 
     
     Span 1:    8.33333333333%
@@ -5087,80 +5028,89 @@ img.atk-shape-circle {
     Span 12:    100%
     
     ----------------------------------------------------------------------------- */
-@media screen and (min-width: 759px) {
+@media screen and (min-width: 0px) {
+  .row {
+    margin-left: -20px;
+  }
   .col {
-    margin-left: 0%;
-    padding: 0 1.5%;
+    border-left-width: 20px;
+    padding: 0 0px;
   }
   /* --- Gridpak variables ---*/
-  .row .col:first-child {
-    margin-left: 0;
-  }
+  /*
+        Add your semantic classnames in alongside their corresponding spans here. e.g.
+        
+        .span_3,
+        .my_semantic_class_name {
+            ...
+        }
+        
+        */
   .span_1 {
     width: 8.333333333333334%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
+    border-left-width: 20px;
+    padding: 0 0px;
+    margin-left: 0;
   }
   .span_2 {
     width: 16.666666666666668%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
+    border-left-width: 20px;
+    padding: 0 0px;
+    margin-left: 0;
   }
   .span_3 {
     width: 25%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
+    border-left-width: 20px;
+    padding: 0 0px;
+    margin-left: 0;
   }
   .span_4 {
     width: 33.333333333333336%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
+    border-left-width: 20px;
+    padding: 0 0px;
+    margin-left: 0;
   }
   .span_5 {
     width: 41.66666666666667%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
+    border-left-width: 20px;
+    padding: 0 0px;
+    margin-left: 0;
   }
   .span_6 {
     width: 50%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
+    border-left-width: 20px;
+    padding: 0 0px;
+    margin-left: 0;
   }
   .span_7 {
     width: 58.333333333333336%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
+    border-left-width: 20px;
+    padding: 0 0px;
+    margin-left: 0;
   }
   .span_8 {
     width: 66.66666666666667%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
+    border-left-width: 20px;
+    padding: 0 0px;
+    margin-left: 0;
   }
   .span_9 {
     width: 75%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
+    border-left-width: 20px;
+    padding: 0 0px;
+    margin-left: 0;
   }
   .span_10 {
     width: 83.33333333333334%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
+    border-left-width: 20px;
+    padding: 0 0px;
+    margin-left: 0;
   }
   .span_11 {
     width: 91.66666666666667%;
-    border-left-width: 0;
-    padding: 0 1.5%;
-    margin-left: 0%;
+    border-left-width: 20px;
+    padding: 0 0px;
+    margin-left: 0;
   }
   .span_12 {
     margin-left: 0;
